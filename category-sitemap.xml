@@ -8,27 +8,10 @@
     </url>
 
     <url>
-        <loc>https://joontae-kim.github.io/2020/09/24/change-theme/</loc>
+        <loc>https://joontae-kim.github.io/categories/Hello/</loc>
         <lastmod>2020-09-23T20:18:22.721Z</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/2020/09/23/Again-Hello/</loc>
-        <lastmod>2020-09-23T20:15:39.425Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/2020/09/22/hello-world/</loc>
-        <lastmod>2020-09-23T08:08:50.190Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
+        <priority>0.2</priority>
     </url>
 
 </urlset>

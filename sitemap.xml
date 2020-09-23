@@ -4,7 +4,22 @@
 
     <sitemap>
         <loc>https://joontae-kim.github.io/post-sitemap.xml</loc>
-        <lastmod>2020-09-22T15:49:40.517Z</lastmod>
+        <lastmod>2020-09-23T20:18:22.721Z</lastmod>
+    </sitemap>
+
+    <sitemap>
+        <loc>https://joontae-kim.github.io/page-sitemap.xml</loc>
+        <lastmod>2020-09-23T06:16:16.397Z</lastmod>
+    </sitemap>
+
+    <sitemap>
+        <loc>https://joontae-kim.github.io/category-sitemap.xml</loc>
+        <lastmod>2020-09-23T20:18:22.721Z</lastmod>
+    </sitemap>
+
+    <sitemap>
+        <loc>https://joontae-kim.github.io/tag-sitemap.xml</loc>
+        <lastmod>2020-09-23T20:18:22.721Z</lastmod>
     </sitemap>
 
 </sitemapindex>
