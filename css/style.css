@@ -1192,32 +1192,18 @@ a.article-title:hover {
   padding: 10px 0;
 }
 .article-entry blockquote {
-  color: #777;
-  quote: none;
-  margin: 0 0 20px 0;
+  padding: 0 20px;
   position: relative;
-  font-style: italic;
-  padding-left: 50px;
-}
-.article-entry blockquote:before {
-  top: 0;
-  left: 0;
-  color: #ccc;
-  font-size: 32px;
-  content: "\f10d";
-  position: absolute;
-  text-align: center;
-  font-style: normal;
-  font-family: 'FontAwesome';
+  border: 1px solid #e3e3e3;
+  border-left: 5px solid #ddd;
 }
 .article-entry blockquote footer {
-  font-size: 14px;
-  margin: 1.6em 0;
-  font-family: "Titillium Web", "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", sans-serif;
+  margin: 1em 0;
+  font-style: italic;
 }
 .article-entry blockquote footer cite:before {
   content: "—";
-  padding: 0 0.5em;
+  padding: 0 0.3em;
 }
 .article-entry .pullquote {
   text-align: left;
