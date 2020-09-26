@@ -1,3 +1,4 @@
 User-agent: *
+Disallow: 2020/09/25/assignment/
 Allow: /
 Sitemap: https://github.com/Joontae-Kim/Joontae-Kim.github.io/sitemap.xml

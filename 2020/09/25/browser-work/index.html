@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>페이지 채우기: 브라우저가 작동하는 방법 - 1 | dev and dev</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="mdn,Browser" />
+    
+    <meta name="description" content="본 글은 mdn web docs의 Populating the page: how browsers work를 번역한 글입니다.  현재 작성일자(2020년 9월 25일) 기준으로 아직 한글로 번역되지 않아 본 번역 포스팅을 완료하면 해당 페이지를 한국어로 옮겨놓을 예정입니다. 수정 및 보완사항이 있다면 본 포스팅 하단 댓글에 작성 부탁드립니다.  브라우저 작">
+<meta property="og:type" content="article">
+<meta property="og:title" content="페이지 채우기: 브라우저가 작동하는 방법 - 1">
+<meta property="og:url" content="https://joontae-kim.github.io/2020/09/25/browser-work/index.html">
+<meta property="og:site_name" content="dev and dev">
+<meta property="og:description" content="본 글은 mdn web docs의 Populating the page: how browsers work를 번역한 글입니다.  현재 작성일자(2020년 9월 25일) 기준으로 아직 한글로 번역되지 않아 본 번역 포스팅을 완료하면 해당 페이지를 한국어로 옮겨놓을 예정입니다. 수정 및 보완사항이 있다면 본 포스팅 하단 댓글에 작성 부탁드립니다.  브라우저 작">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://joontae-kim.github.io/images/browser_work.png">
+<meta property="article:published_time" content="2020-09-25T06:54:56.000Z">
+<meta property="article:modified_time" content="2020-09-26T09:33:09.996Z">
+<meta property="article:author" content="Joontae Kim">
+<meta property="article:tag" content="mdn">
+<meta property="article:tag" content="Browser">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://joontae-kim.github.io/images/browser_work.png">
+    
+    <link rel="canonical" href="https://joontae-kim.github.io/2020/09/25/browser-work/"/>
+
+    
+        <link rel="alternate" href="/" title="dev and dev" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.png" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    <!-- 
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+ -->
+    
+<link rel="stylesheet" href="/libs/NanumSquareRound/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-178685368-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Hello/">Hello</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/">Web</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/Browser/">Browser</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/assignment/">assignment</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" target="_blank" rel="noopener" href="https://github.com/Joontae-Kim">index.github</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Web/">Web</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Web/Browser/">Browser</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-browser-work" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        페이지 채우기: 브라우저가 작동하는 방법 - 1
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2020/09/25/browser-work/" class="article-date">
+       <time datetime="2020-09-25T06:54:56.000Z" itemprop="datePublished">2020-09-25</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2020/09/25/browser-work/" class="article-date">
+     <time datetime="2020-09-26T09:33:09.996Z" itemprop="dateModified">2020-09-26</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Browser/" rel="tag">Browser</a>, <a class="tag-link-link" href="/tags/mdn/" rel="tag">mdn</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="/images/browser_work.png"></p>
+<blockquote>
+<p>본 글은 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/"><strong>mdn web docs</strong></a>의 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Performance/How_browsers_work">Populating the page: how browsers work</a>를 번역한 글입니다.</p>
+</blockquote>
+<p>현재 작성일자(2020년 9월 25일) 기준으로 아직 한글로 번역되지 않아 본 번역 포스팅을 완료하면 해당 페이지를 한국어로 옮겨놓을 예정입니다. 수정 및 보완사항이 있다면 본 포스팅 하단 댓글에 작성 부탁드립니다.</p>
+<hr>
+<p>브라우저 작동 원리 또는 렌더링에 관해 공부하고, 포스팅하고 싶은 마음이 있었는데 mdn에 좋은 게시물이 많이 있었고 그중 몇 가지를 연재로 번역하면서 공부해보는 시간을 가져볼려고 합니다.</p>
+<h4 id="연재할-MDN-docs"><a href="#연재할-MDN-docs" class="headerlink" title="연재할 MDN docs"></a>연재할 MDN docs</h4><ol>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/ko/docs/Web/Performance/%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%EB%8A%94_%EC%96%B4%EB%96%BB%EA%B2%8C_%EB%8F%99%EC%9E%91%ED%95%98%EB%8A%94%EA%B0%80">Populating the page: how browsers work</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path#Understanding_CRP">Critical rendering path</a></li>
+</ol>
+<hr>
+<h1 id="페이지-채우기-브라우저-작동원리"><a href="#페이지-채우기-브라우저-작동원리" class="headerlink" title="페이지 채우기: 브라우저 작동원리"></a>페이지 채우기: 브라우저 작동원리</h1><p>사용자들은 컨텐츠가 빠르게 로드되고 상호작용이 부드러운 웹 경험을 원합니다. 그러므로 개발자들은 이 두가지 목표를 성취하기 위해서 노력해야만 합니다.</p>
+<p>성능과 감지된 성능을 개선하는 방법을 이해하기 위해서는 브라우저가 어떻게 동작하는지 이해하는 것이 도움을 줄 수 있습니다.</p>
+<br>
+
+<h2 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h2><p>빠른 사이트들은 더 나은 사용자 경험을 제공한다. 사용자들은 컨텐츠와 함께 빠르게 로드되고 상호작용이 부드러운 웹 경험을 예상하고 바랍니다.</p>
+<p>웹 퍼포먼스에서 두가지 주요한 이슈로는 지연시간(latency)에서 경험하게 될 이슈와 브라우저가 단일 쓰레드로서 갖는 주요한 사실에서 갖는 이슈들입니다.</p>
+<p>지연시간은 빠른 로드를 보장하기 위해 극복해야하는 우리의 주요한 위협입니다. 로드을 빠르게 하기 위해 개발자의 목표로는 가능하 한 빠르게 또는 적어도 보기에 매우 빠른 속도로 요청된 정보를 보내는 것을 포함함니다. 네트워크 지연은 바이트(bytes)를 무선에서 컴퓨터로 전송하는 시간을 얘기합니다. 웹 퍼포먼스는 가능한 한 빠르게 페이지 로드가 될 수 있도록 우리가 해야만 하는  가능한 빠르게 되도록 우리가 해야 하는 것입니다.</p>
+<p>대부분은 브라우저들은 단일 쓰레드로 간주됩니다. 부드러운 상호작용을 위해 개발자들의 목표는 부드러운 스크롤링에서부터 터치에 반응하는 것까지 효율적인 사이트 상호작용을 보장하는 것입니다. 렌더링 시간의 핵심은 우리가 부여한 모든 작업을 메인 쓰레드가 완료할 수 있도록 보장하는 것과 항상 사용자 상호작용에  대처할 수 있도록 하는것입니다. 웹 퍼포먼스는 브라우저의 단일 쓰레드의 성질을 이해하고, 메인 쓰레드의 업무를 부드러운 렌더링과 상호작용에 즉시 반응할 수 있도록 보장하기 위해 가능한 그리고 적절한 범위내로 최소화함으로써 개선할 수 있습니다. </p>
+<br>
+
+<h2 id="네비게이션"><a href="#네비게이션" class="headerlink" title="네비게이션"></a>네비게이션</h2><p>네비게이션은 웹 페이지 로딩에 있어서 첫번째 단계입니다. 언제든지 사용자가 주소바에 URL을 입력함으로써 페이지를 요청할때, 링크를 클릭할때, 폼을 제출하거나 다른 행동을 취할때마다 발생합니다.</p>
+<p>웹 퍼포먼스의 첫번째 목표는 탐색이 완료되는 시간을 최소화 하는 것입니다. 이상적인 조건에서는 이건 보통 오래 걸리지 않지만 지연시간과 인터넷 접속 속도는 지연을 야기할 수 있는 적입니다.</p>
+<h3 id="DNS-조회"><a href="#DNS-조회" class="headerlink" title="DNS 조회"></a>DNS 조회</h3><p>웹 페이지를 탐색하는 첫번째 단계는 페이지에 배치되어 있는 자산(asset)들이 어디에 있는지 찾는 것입니다. 여러분이 <code>https://example.com</code> 를 탐색한다면, HTML 페이지는 <code>93.184.216.34</code> 라는 IP 주소에 서버를 두고 있을것입니다. 만약 여러분이 이 사이트를 절대로 방문하지 않았었다면, DNS 조회는 반드시 발생해야만 합니다.</p>
+<p>여러분의 브라우저는 차례대로 IP 주소에 의해 반응하기 위해 최종적으로 네임서버에 지정된 DNS 조회를 요청할 것입니다. 이러한 초기 요청 이후, IP는 지속적인 요청 속도를 올리기 위해서 네임서버로 다시 접속하는 대신 캐시로부터 IP 주소를 획득함으로써 한동안 캐시될 것입니다.</p>
+<p>DNS 조회는 보통 페이지 로드를 위해 호스트네임 당 오직 한번만 수행될 필요가 있습니다. 하지만 DNS 조회는 요청된 페이지 참조의 각각의 유일한 호스트네임을 위해 완료되야만 합니다.</p>
+<p>만약 당신의 폰트, 이미지, 스크립트, 광고 그리고 메트릭스 등 모든 것들이 다른 호스트네임을 갖고 있다면, DNS 조회는 각각의 것들을 위해 이루어져야 합니다.</p>
+<p><img src="https://mdn.mozillademos.org/files/16743/latency.jpg"></p>
+<p>이러한 작업은 특히 모바일 네트워크 환경에서 성능에 있어서 문제를 유발할 수 있습니다. 사용자가 모바일 네트워크 환경에 있다면, 각각의 DNS 조회는 권한이 있는 DNS 서버에 도달하기 위해 휴대전화에서 기지국까지 가야만 합니다. 휴대전화, 기지국 그리고 네임서버 간의 거리는 막대한 지연시간을 추가합니다.</p>
+<h3 id="TCP-핸드쉐이크-TCP-Handshake"><a href="#TCP-핸드쉐이크-TCP-Handshake" class="headerlink" title="TCP 핸드쉐이크 (TCP Handshake)"></a>TCP 핸드쉐이크 (TCP Handshake)</h3><p>일단 IP 주소를 알고 있다면, 브라우저는 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/TCP_handshake">TCP three-way handshake</a> 를 통해 서버 연결을 설정합니다. 이러한 메커니즘은 두개의 엔터티가 소통하기 위한 설계입니다–브라우저와 서버의 경우에– 종종 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/HTTPS">HTTPS</a> 를 거쳐 네트워크 TCP 소켓 연결의 매개변수(parameter)를 협상할 수 있습니다.</p>
+<p>TCP’s three way handshaking 기술은 종종 “SYN-SYN-ACK”(또는 더 정확하게는 SYN, SYN-ACK, ACK)이라고 부릅니다. 왜냐하면 그리고 시작하기 위해 두 컴퓨터 사이에서 TCP 세션을 시작하고 협상하기 위해 TCP에 의해 전송된 세가지 메시지가 있기 때문입니다. 즉, 세가지 이상의 메시지들이 각각의 서버 사이에서 오고 간다는 것을 의미하며 해당 요청은 아직 완료되지 않았다는 것입니다.</p>
+<h3 id="TLS-협상"><a href="#TLS-협상" class="headerlink" title="TLS 협상"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/TLS">TLS</a> 협상</h3><p>HTTPS를 통해 설정된 안전한 연결을 위해서 또 다른 “Handshake”이 필요합니다. 이 Handshake 또는 TLS Negotiation은 통신을 암호화하고, 서버를 식별하며 데이터의 전송이 실질적으로 이루어지기 전에 제때 안전한 연결(secure connection)이 설정되도록 사용할 암호(cipher)를 결정합니다. 이러한 작업들은 요청된 콘텐츠가 실제로 전송되기 전에 서버에 3회 이상의 왕복을 요구합니다.</p>
+<p><img src="https://mdn.mozillademos.org/files/16746/ssl.jpg"></p>
+<p>통신을 보안화하는것이 페이지 로드에 시간을 추가하는 반면에, 브라우저와 웹 서버 사이에 전송된 데이터가 서드 파티(third party)에 의해 암호 해독이 될수 없으므로 보안화된 연결(secure connection)의 시간지연 비용은 가치있다.</p>
+<p>8번의 왕복 이후에 브라우저는 최종적으로 요청을 완료할 수 있다.</p>
+<br>
+
+<h2 id="응답"><a href="#응답" class="headerlink" title="응답"></a>응답</h2><p>일단 우리가 웹 서버와 접근을 설정하고 있다면 , 브라우저는 유저를 대신해 초기 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">HTTP <code>GET</code> request</a> 를 전송합니다. 웹사이트의 경우 HTML 파일이 대부분 입니다. 일단 웹 서버가 요청을 받으면, 관련 응답(response) 헤더와 HTML 콘텐츠를 응답할 것입니다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="meta-keyword">HTML</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>My simple page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">src</span>=<span class="string">&quot;styles.css&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;myscript.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">&quot;heading&quot;</span>&gt;</span>My Page<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>A paragraph with a <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://example.com/about&quot;</span>&gt;</span>link<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;myimage.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;image description&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;anotherscript.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>초기 요청에 대한 응답은 획득한 데이터의 첫번째 바이트를 포함하고 있습니다. <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Time_to_First_Byte">Time to First Byte</a> (TTFB)는 사용자가 요청한 시간(링크를 클릭함으로써)과 HTML의 첫번째 패킷의 수신 사이의 시간입니다. 첫번째 콘텐츠의 청크는 보통 데이터의 14kb 입니다.</p>
+<p>위 예제에서, 요청은 확실히 14Kb 미만이지만 다음에서 언급할 분석(parsing) 중에는  브라우저가 링크를 찾을때까지 연결된 리소스는 요청되지 않습니다.</p>
+<h3 id="TCP-Slow-Start-14kb-rule"><a href="#TCP-Slow-Start-14kb-rule" class="headerlink" title="TCP Slow Start / 14kb rule"></a>TCP Slow Start / 14kb rule</h3><p>첫번째 응답 패킷은 14kb 일것입니다. 이건 네트워크 연결 속도의 균형을 잡기위한 알고리즘인 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/TCP_slow_start">TCP slow start</a> 의 일부분입니다. Slow Start는 네트워크의 최대 대역폭이 결정될때까지 전송되는 데이터의 양을 점진적으로 증가시킵니다.</p>
+<p>초기 패킷의 수신 이후에 TCP slow start 에서, 서버는 다음 패킷를 약 28kb 까지 두배로 키웁니다. 미리 지정된 스레드홀드에 도달하거나 정체가 발생할때까지 후속 패킷의 크기는 증가할 것입니다.</p>
+<p><img src="https://mdn.mozillademos.org/files/16754/congestioncontrol.jpg"></p>
+<p>만약 여러분이 초기 페이지 로드에 대한 14kb 규칙을 들은적이 있다면, TCP Slow Start는 초기 응답이 14kb인 이유이기도 하며 웹 퍼포먼스 최적화가 이러한 초기 14kb 응답을 염두에 두고 최적화에 초점을 맞춰야하는 이유이기도 합니다. TCP slow start는 혼잡을 피하기 위한 네트워크 수용능력을 위해 점진적으로 전송 속도를 알맞게 구성합니다.</p>
+<h3 id="혼잡-관리"><a href="#혼잡-관리" class="headerlink" title="혼잡 관리"></a>혼잡 관리</h3><p>서버가 TCP 패킷에 데이터를 보낼때, 사용자의 클라이언트는 승인 또는 ACK를 반환하여 전달을 확인합니다. 이 연결은 하드웨어와 네트워크 조건에 따라 제한된 수용력을 가지고 있다. 만약 서버가 매우 빠르게 매우 많은 패킷을 보낸다면, 그들은 멈출것입니다. 즉, 인식하지 못할것입니다. 서버는 이것을 분실된 ACK(missing ACKs)로 등록합니다. 혼잡 관리 알고리즘(Congestion control algorithms)은  전송된 패킷과 ACK의 흐름을 사용하여 전송 속도를 결정합니다.</p>
+<br>
+
+<hr>
+<p> mdn 원본 페이지의 콘텐츠가 너무 길다고 판단되어 DOM과 CSSSOM에 대한 내용을 다룰 <strong>Parsing</strong> 부분은 ‘페이지 채우기: 브라우저가 작동하는 방법 - 2’ 에서 다루겠습니다.</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Joontae Kim"
+        },
+        "headline": "페이지 채우기: 브라우저가 작동하는 방법 - 1",
+        "image": "https://joontae-kim.github.io/images/browser_work.png",
+        "keywords": "mdn Browser",
+        "genre": "Web Browser",
+        "datePublished": "2020-09-25",
+        "dateCreated": "2020-09-25",
+        "dateModified": "2020-09-26",
+        "url": "https://joontae-kim.github.io/2020/09/25/browser-work/",
+        "description": "
+
+본 글은 mdn web docs의 Populating the page: how browsers work를 번역한 글입니다.
+
+현재 작성일자(2020년 9월 25일) 기준으로 아직 한글로 번역되지 않아 본 번역 포스팅을 완료하면 해당 페이지를 한국어로 옮겨놓을 예정입니다. 수정 및 보완사항이 있다면 본 포스팅 하단 댓글에 작성 부탁드립니다.
+
+브라우저 작",
+        "wordCount": 1111
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://joontae-kim.github.io/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/09/25/browser-work-2/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            페이지 채우기: 브라우저가 작동하는 방법 - 2
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2020/09/25/assignment/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">assignment</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/09/25/browser-work-2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/browser_work.png)" alt="페이지 채우기: 브라우저가 작동하는 방법 - 2" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Web/">Web</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Web/Browser/">Browser</a></p>
+                            <p class="item-title"><a href="/2020/09/25/browser-work-2/" class="title">페이지 채우기: 브라우저가 작동하는 방법 - 2</a></p>
+                            <p class="item-date"><time datetime="2020-09-25T10:14:46.000Z" itemprop="datePublished">2020-09-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/09/25/browser-work/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/browser_work.png)" alt="페이지 채우기: 브라우저가 작동하는 방법 - 1" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Web/">Web</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Web/Browser/">Browser</a></p>
+                            <p class="item-title"><a href="/2020/09/25/browser-work/" class="title">페이지 채우기: 브라우저가 작동하는 방법 - 1</a></p>
+                            <p class="item-date"><time datetime="2020-09-25T06:54:56.000Z" itemprop="datePublished">2020-09-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/09/25/assignment/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/assignment.png)" alt="assignment" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/assignment/">assignment</a></p>
+                            <p class="item-title"><a href="/2020/09/25/assignment/" class="title">assignment</a></p>
+                            <p class="item-date"><time datetime="2020-09-24T16:32:27.000Z" itemprop="datePublished">2020-09-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/09/24/seo-friendly/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/hello_hexo.png)" alt="seo-friendly - Again Hello" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Hello/">Hello</a></p>
+                            <p class="item-title"><a href="/2020/09/24/seo-friendly/" class="title">seo-friendly - Again Hello</a></p>
+                            <p class="item-date"><time datetime="2020-09-24T06:51:47.000Z" itemprop="datePublished">2020-09-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/09/24/change-theme/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/hello_hexo.png)" alt="Change theme - Again Hello" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Hello/">Hello</a></p>
+                            <p class="item-title"><a href="/2020/09/24/change-theme/" class="title">Change theme - Again Hello</a></p>
+                            <p class="item-date"><time datetime="2020-09-23T17:09:20.000Z" itemprop="datePublished">2020-09-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Browser/" rel="tag">Browser</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hello-World/" rel="tag">Hello World</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/assignment/" rel="tag">assignment</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mdn/" rel="tag">mdn</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Browser/" style="font-size: 15px;">Browser</a> <a href="/tags/Hello-World/" style="font-size: 20px;">Hello World</a> <a href="/tags/assignment/" style="font-size: 10px;">assignment</a> <a href="/tags/mdn/" style="font-size: 15px;">mdn</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Joontae Kim</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'joontae-kim';
+    
+    
+    var disqus_url = 'https://joontae-kim.github.io/2020/09/25/browser-work/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

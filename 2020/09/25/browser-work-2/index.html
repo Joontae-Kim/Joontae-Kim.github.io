@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>페이지 채우기: 브라우저가 작동하는 방법 - 2 | dev and dev</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="mdn,Browser" />
+    
+    <meta name="description" content="본 글은 mdn web docs의 Populating the page: how browsers work를 번역한 글입니다.  현재 작성일자(2020년 9월 25일) 기준으로 아직 한글로 번역되지 않아 본 번역 포스팅을 완료하면 해당 페이지를 한국어로 옮겨놓을 예정입니다. 수정 및 보완사항이 있다면 본 포스팅 하단 댓글에 작성 부탁드립니다.  브라우저 작">
+<meta property="og:type" content="article">
+<meta property="og:title" content="페이지 채우기: 브라우저가 작동하는 방법 - 2">
+<meta property="og:url" content="https://joontae-kim.github.io/2020/09/25/browser-work-2/index.html">
+<meta property="og:site_name" content="dev and dev">
+<meta property="og:description" content="본 글은 mdn web docs의 Populating the page: how browsers work를 번역한 글입니다.  현재 작성일자(2020년 9월 25일) 기준으로 아직 한글로 번역되지 않아 본 번역 포스팅을 완료하면 해당 페이지를 한국어로 옮겨놓을 예정입니다. 수정 및 보완사항이 있다면 본 포스팅 하단 댓글에 작성 부탁드립니다.  브라우저 작">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://joontae-kim.github.io/images/browser_work.png">
+<meta property="article:published_time" content="2020-09-25T10:14:46.000Z">
+<meta property="article:modified_time" content="2020-09-26T17:41:50.412Z">
+<meta property="article:author" content="Joontae Kim">
+<meta property="article:tag" content="mdn">
+<meta property="article:tag" content="Browser">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://joontae-kim.github.io/images/browser_work.png">
+    
+    <link rel="canonical" href="https://joontae-kim.github.io/2020/09/25/browser-work-2/"/>
+
+    
+        <link rel="alternate" href="/" title="dev and dev" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.png" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    <!-- 
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+ -->
+    
+<link rel="stylesheet" href="/libs/NanumSquareRound/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-178685368-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Hello/">Hello</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/">Web</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/Browser/">Browser</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/assignment/">assignment</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" target="_blank" rel="noopener" href="https://github.com/Joontae-Kim">index.github</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Web/">Web</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Web/Browser/">Browser</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-browser-work-2" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        페이지 채우기: 브라우저가 작동하는 방법 - 2
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2020/09/25/browser-work-2/" class="article-date">
+       <time datetime="2020-09-25T10:14:46.000Z" itemprop="datePublished">2020-09-25</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2020/09/25/browser-work-2/" class="article-date">
+     <time datetime="2020-09-26T17:41:50.412Z" itemprop="dateModified">2020-09-27</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Browser/" rel="tag">Browser</a>, <a class="tag-link-link" href="/tags/mdn/" rel="tag">mdn</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="/images/browser_work.png"></p>
+<blockquote>
+<p>본 글은 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/"><strong>mdn web docs</strong></a>의 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Performance/How_browsers_work">Populating the page: how browsers work</a>를 번역한 글입니다.</p>
+</blockquote>
+<p>현재 작성일자(2020년 9월 25일) 기준으로 아직 한글로 번역되지 않아 본 번역 포스팅을 완료하면 해당 페이지를 한국어로 옮겨놓을 예정입니다. 수정 및 보완사항이 있다면 본 포스팅 하단 댓글에 작성 부탁드립니다.</p>
+<hr>
+<p>브라우저 작동 원리 또는 렌더링에 관해 공부하고, 포스팅하고 싶은 마음이 있었는데 mdn에 좋은 게시물이 많이 있었고 그중 몇 가지를 연재로 번역하면서 공부해보는 시간을 가져볼려고 합니다.</p>
+<h4 id="연재할-MDN-docs"><a href="#연재할-MDN-docs" class="headerlink" title="연재할 MDN docs"></a>연재할 MDN docs</h4><ol>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/ko/docs/Web/Performance/%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%EB%8A%94_%EC%96%B4%EB%96%BB%EA%B2%8C_%EB%8F%99%EC%9E%91%ED%95%98%EB%8A%94%EA%B0%80">Populating the page: how browsers work</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path#Understanding_CRP">Critical rendering path</a></li>
+</ol>
+<hr>
+<h1 id="페이지-채우기-브라우저-작동원리"><a href="#페이지-채우기-브라우저-작동원리" class="headerlink" title="페이지 채우기: 브라우저 작동원리"></a>페이지 채우기: 브라우저 작동원리</h1><p>사용자들은 컨텐츠가 빠르게 로드되고 상호작용이 부드러운 웹 경험을 원합니다. 그러므로 개발자들은 이 두가지 목표를 성취하기 위해서 노력해야만 합니다.</p>
+<p>성능과 감지된 성능을 개선하는 방법을 이해하기 위해서는 브라우저가 어떻게 동작하는지 이해하는 것이 도움을 줄 수 있습니다.</p>
+<br>
+
+<h2 id="파싱-Parsing"><a href="#파싱-Parsing" class="headerlink" title="파싱 (Parsing)"></a>파싱 (Parsing)</h2><p>일단 브라우저가 첫번째 데이터 청크를 받고나면, 받은 정보를 분석하기 시작합니다. <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/speculative_parsing">Parsing</a> 은 네트워크를 통해 전송된 데이터를 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/DOM">DOM</a> 과 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/CSSOM">CSSOM</a> 으로 변환해야할 단계이며, 렌더러가 화면에 페이지를 그리는데 사용됩니다.</p>
+<p>DOM은 브라우저의 마크업을 내부적으로 표현한 것입니다. 또한, 외부적으론 Javascript에서 다양한 API들을 통해 재생산될 수도 있습니다.</p>
+<p>비록 요청된 페이지의 HTML 사이즈가 초기 14KB 패킷보다 훨씬 클지라도, 브라우저는 분석을 시작할 것이며 데이터를 기반으로 경험을 렌더링하려고 시도할 것입니다. 웹 퍼포먼스 최적화가 중요한 이유는 브라우저가 페이지 또는 적어도 페이지의 템플릿(첫 번째 렌더링에 필요한 CSS와 HTML)을 렌더링하기 위해 필요한 모든 것을 초기 14kb 안에 포함해야 하기 때문입니다. 그러나 화면에 어떠한 것이든 렌더링하기 전에 HTML, CSS 그리고 Javascript를 분석해야만 합니다.</p>
+<h3 id="DOM-트리-구성하기-Building-the-DOM-tree"><a href="#DOM-트리-구성하기-Building-the-DOM-tree" class="headerlink" title="DOM 트리 구성하기(Building the DOM tree)"></a>DOM 트리 구성하기(Building the DOM tree)</h3><p>우리는 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path">중요 렌더링 경로</a> 에 5 단계로 설명해놨습니다.</p>
+<p>첫 번째 단계로 HTML 마크업을 처리하고 DOM 트리를 구성하는 것입니다. HTML 파싱은  <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList">tokenization</a> 과 트리 구조를 포함합니다. HTML 토큰은 속성(attribute) 이름과 값 뿐만 아니라 태크의 시작과 끝을 포함하고 있습니다.  만약 도큐먼트(document)가 잘 짜여져 있다면, 파싱은 간단하고 더 빠르게 될 것입니다. 분석기(Parser)는 도큐먼트 내에 도큐먼트 트리로 구성되어진 토큰 처리된 input을 분석합니다.</p>
+<p>DOM 트리는 도큐먼트의 컨텐츠를 설명합니다. <code>&lt;html&gt;</code> 요소는 첫번째 태그이자 도큐먼트 트리의 root 노드이며  다른 태그들 사이에서 관계성과 위계구조를 반영해줍니다. 다른 태그들 사이에 중첩된 태그들은 자식 노드들입니다. DOM 노드의 수가 많을수록 DOM 트리를 구조화하는 시간은 더 소요됩니다.</p>
+<p><img src="https://mdn.mozillademos.org/files/16759/DOM.gif"></p>
+<p>분석기가 이미지와 같은 비차단(non-blocking) 자원을 찾으면 브라우저는 이 자원을 요청하고 계속해서 분석합니다. 파싱은 CSS file을 만났을때도 계속되지만 특히 <code> async</code> 또는 <code> defer</code> 속성이 없는  <code>&lt;script&gt;</code> 태그를 만났을 경우에는 렌더링을 멈추고 HTML 파싱을 중단합니다. 비록 브라우저의 프리로드(preload) 스캐너가 이 과정을 가속화하지만 과도한 스크립트는 여전히 심각한 병목현상이 될 수 있습니다.</p>
+<h3 id="Preload-scanner"><a href="#Preload-scanner" class="headerlink" title="Preload scanner"></a>Preload scanner</h3><p>브라우저가 DOM 트리를 구성하는 동안, 이 프로세스는 메인 스레드에서 발생합니다. 이 현상 때문에 <em>Preload scanner</em> 는 사용 가능한 콘텐츠를 분석하고 CSS, Javascript 그리고 웹 폰트와 같은 선순위의 자원을 요청합니다. Preload scanner 덕분에 우리는 분석기가 선순위의 자원을 요청하기 위해 외부 자원에 대한 참조를 찾을때까지 대기하고 있지 않습니다. 메인 HTML 분석기가 요청된 에셋에 도달할 때에는 이미 전송중이거나 또는 이미 다운로드 되었을 수 있도록 백그라운드에서 자원을 획득할 것입니다. Preload scanner의 최적화는 차단시간을 줄여줍니다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">src</span>=<span class="string">&quot;styles.css&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;myscript.js&quot;</span> <span class="attr">async</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;myimage.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;image description&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;anotherscript.js&quot;</span> <span class="attr">async</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>이와 같이, 메인 스레드가 HTML, CSS를 분석하는 동안 Preload scanner는 스크립트와 이미지를 검색할 것이고 다운로드 받기 시작할 것입니다. 스크립트가 DOM 트리 구성 프로세스를 막지 않도록 보장하기 위해, 만약 Javascript 파싱 또는 실행 순서가 중요하지 않다면 <code>async</code> 또는 <code>defer</code> 속성을 추가해야 합니다.</p>
+<p>CSS를 받기 위해 대기하는 것은 HTML 분석 또는 다운로딩은 막지 않지만 Javascript는 종종 HTML 요소에서 CSS 속성을 조회하는데 영향을 끼치기 때문에 막습니다.</p>
+<h3 id="CSSOM-구성하기"><a href="#CSSOM-구성하기" class="headerlink" title="CSSOM 구성하기"></a>CSSOM 구성하기</h3><p>중요 렌더링 경로의 두번째 단계는 CSS를 처리하고 CSSOM 트리를 구성하는 것입니다.  DOM과 CSSOM은 둘다 트리 구조로, CSS object model은 DOM과 유사합니다. 이 둘은 독립적인 데이터 구조이며 브라우저는 CSS 규칙을 이해할 수 있고 작동할 수 있는 스타일 맵으로  변환합니다. 브라우저는 CSS의 각 규칙 세트를 거치면서 CSS 선택자를 기반으로 부모, 자식 그리고 형제 관계에 있는 노드의 트리를 만듭니다.</p>
+<p>HTML도 마찬가지로, 브라우저는 수신된 CSS 규칙을 무언가를 작업할 수 있는 것으로 변환해야 합니다. 따라서, HTML-to-object 프로세스를 반복하지만 CSS 또한 반복합니다. </p>
+<p>CSSOM 트리는 유저 에이전트 스타일시트의 스타일을 포함합니다. 브라우저는 노드에 적용가능한 가장 일반적인 규칙으로 시작하고 보다 구체적인 규칙을 적용함으로써 계산된 스타일을 반복적으로 재조정합니다. 다르게 말해, 속성값은 계단식을 표현됩니다.</p>
+<p>CSSOM 구축은 매우 매우 빠르고 현재 개발자 도구에서 단일 색상으로 표시되지 않습니다. 대신 개발자 도구의 “보정된 스타일”은 CSS를 분석하고, CSSOM 트리를 구축하며 회귀적으로 처리된 스타일을 계산하기 위한 모든 시간을 보여줍니다. CSSOM을 만드는 시간이 일반적으로 한개의 DNS 조회를 위해 걸리는 시간보다 덜 걸리기 때문에 웹 퍼포먼스 최적화의 측면에서는 더 쉽다.</p>
+<h3 id="다른-프로세스들"><a href="#다른-프로세스들" class="headerlink" title="다른 프로세스들"></a>다른 프로세스들</h3><h4 id="자바스크립트-컴파일"><a href="#자바스크립트-컴파일" class="headerlink" title="자바스크립트 컴파일"></a>자바스크립트 컴파일</h4><p>CSS가 분석되고, CSSOM이 만들어지는 동안 자바스크립 파일을 포함한 다른 에셋들을 다운로드하고 있을 것입니다.(preload scanner 덕분에). 자바스크립트는 해석되고, 변환되며 분석한 후 실행됩니다. 스크립트는 추상적인 문법 트리안에서 분석되고 몇몇의 브라우저 엔진들은 <em>Abstract Syntax Tree(추상적 문법 트리)</em> 를 가지고 있으며 이를 인터프리터 안으로 전달하여 메인 쓰레드에서 실행할 바이트 코드를 출력합니다.</p>
+<h4 id="접근성-트리-구성하기"><a href="#접근성-트리-구성하기" class="headerlink" title="접근성 트리 구성하기"></a>접근성 트리 구성하기</h4><p>브라우저는 또한 보조 장치가 콘텐츠를 분석하고 해석하기 위해 사용되는 접근성 트리를 구성합니다. 접근성 오브젝트 모델(The accessibility object model, AOM)은 DOM의 시멘틱 버전과 같습니다. 브라우저는 DOM이 업데이트 될때 접근성 트리도 업데이트 합니다. 접근성 트리는 보조 기술 그 자체로는 수정할 수 없다. AOM이 구성될떄, 콘텐츠는 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Screen_Reader_Implementors_Guide">screen reader</a>에서 접근할 수 없습니다.</p>
+<br>
+
+<h2 id="렌더-Render"><a href="#렌더-Render" class="headerlink" title="렌더(Render)"></a>렌더(Render)</h2><p>렌더링 단계는 스타일, 레이아웃, 그리기 그리고 경우에 따라서 합성(compositing)하는 것을 포함합니다. 파싱 단계에서 생성된 CSSOM과 DOM 트리들은 렌더 트리에서 결합되며, 렌더 크리는 표시되는 모든 요소의 레이아웃을 처리하는데 사용되며 화면을 그립니다. 몇 가지 경우에 따라서, 콘텐츠를 그들 스스로의 레이어로 승격하고 합성할 수 있으며 CPU 대신 GPU에서 화면의 일부를 그림으로써 메인 스레드를 확보하여 성능을 향상시킬 수 있습니다.</p>
+<h3 id="스타일"><a href="#스타일" class="headerlink" title="스타일"></a>스타일</h3><p>주요 렌더링 경로의 세번째 단계는 렌더 트리 안에서 DOM과 CSSOM을 결합하는 것입니다. 계산된 스타일 트리 또는 렌더 트리 구조는 각각의 표시되는 노드를 가로지르는 DOM 트리의 root로 시작됩니다.</p>
+<p> <code>&lt;head&gt;</code> 와 같은 보여지지 않는 태그들과 이 자식 노드들 그리고 유저 에이전트 스타일시트에서 찾아볼수 있는  <code>script &#123; display: none; &#125;</code> 와 같이 <code>display: none</code> 으로 설정되어 있는 특정 노드들은 그들은 렌더된 결과물로써 나타나지 않을것이기 때문에 렌더 트리에 포함되지 않습니다. <code>visibility: hidden</code> 가 적용된 노드들은 공간을 차지함으로써 렌더 트리안에 포함됩니다. 우리는 유저 에이전트 기본값을 덮어쓰기 위한 어떠한 지시사항도 주지 않으므로, 위의 코드 예제에서 <code>script</code> 노드는 렌더 트리에 포함되지 않을 것입니다.</p>
+<p>각각의 표시되는 노드들은 적용되는 CSSOM 규칙을 가지고 있습니다. 렌더 트리는 계산된 스타일과 컨텐츠와 함께 표시되는 모든 노드들을 보유하고 있습니다. DOM 트리 안에서 표시되는 모든 노드에 모든 관련 스타일들을 일치시키고, <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade">CSS cascade</a> 를 기반으로 계산된 스타일들을 결정합니다. </p>
+<h3 id="레이아웃"><a href="#레이아웃" class="headerlink" title="레이아웃"></a>레이아웃</h3><p>주요 렌더링 경로의 네번째 단계는 각 노드의 위치를 계산하기 위해 렌더 트리에서 레이아웃을 작동시키는 것입니다. <em>레이아웃</em> 은 너비, 높이 그리고 렌더 트리 안에서 모든 노드들의 위치를 결정하는 과정이며 페이지 안에서 각 오브젝트의 크기와 위치에 대한 결정도 추가됩니다. <em>리플로우</em> 페이지의 특정 부분 또는 전체 도큐먼트의 어떤 연속적인 크기와 위치에 대한 결정입니다.</p>
+<p>일단 렌터 트리가 구성되나면 레이아웃이 시작됩니다.</p>
+<p>렌더 트리는 (심지어 보이지 않을지라도) 각 노드들의 계산된 스타일들에 따라 어떤 노드들을 배치할지 인식하지만 각 노드의 차원이나 위치는 아닙니다. 각 오브젝트의 정확한 사이즈나 위치를 결정하기 위해서 브라우저는 렌더 트리의 root에서 시작하며 순회합니다.</p>
+<p>웹 페이지 상에서 대부분의 것들은 상자입니다. 디바이스와 데스크탑의 기본 설정이 다르면 뷰포트 크기가 무제한으로 달라질 수 있습니다. 이 단계에선 뷰포트 크기를 고려하여 브라우저가 화면에 표시되는 다양한 상자의 크기를 결정합니다. 뷰포트의 크기를 기준으로 하여 일반적으로 레이아웃은 본문에서 시작하여 각 요소의 박스 모델 속성들에 따라 본문의 모든 하위 자식의 치수를 나열하고, 이미지와 같이 치수를 알지 못하는 대체될 요소를 위해 플레이스홀더 공간을 제공합니다.</p>
+<p>노드들의 크기와 위치가 처음으로 결정되면 <em>레이아웃 (layout)</em> 이라고 부른다. 노드 사이와 위치에 대한 연속적인 재계산을 <em>리플로우 (reflow)</em> 라고 부른다. 예를 들어, 초기 레이아웃은 이미지를 불러오기 전에 발생한다고 할 수 있다. 왜냐하면 우리는 이미지의 크기를 결정할 수 없기 때문에, 일단 이미지의 사이즈를 알았을때 리플로우 될 것입니다.</p>
+<h3 id="페인트"><a href="#페인트" class="headerlink" title="페인트"></a>페인트</h3><p>주요 렌더링 경로의 마지막 단계로 화면에서 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/first_meaningful_paint">first meaningful paint</a> 라 불리는 첫번째 현상으로, 각 노드들을 그리는 것입니다. 페인팅 또는 레스터화 단계에서 브라우저는 레이아웃 단계에서 처리된 각 박스를 실제 픽셀로 변환합니다. 페인팅은 화면에서 텍스트, 색깔, 선, 그림자 그리고 버튼이나 이미지와 같은 대체되는 요소들을 포함하는 보여지는 모든 요소를 그리는 것을 포함합니다. 브라우저는 이것을 매우 빠르게 할 필요가 있습니다.</p>
+<p>부드러운 스크롤링과 애니메이션을 보장하기 위해서 리플로우와 페인트에 따라 스타일 계산을 포함해 메인 스레드가 담당하는 모든 것이 브라우저에서 16.67ms 미만으로 처리되어야만 한다. 2048 X 1536 크기에서는, iPad는 스크린에 페인트 하기 위해서 3,145,000 이상의 픽셀을 가지고 있으며 매우 빨리 페인트 되어야 하는 많은 픽셀입니다. 리페인팅이 초기 페인트보다 훨씬 빠르게 끝내는 것을 보장하기 위해 일반적으로 스크린에 그리는 것을 몇개의 레이어로 나누고 이를 위해 컴포지팅(compositing)이 필수적입니다.</p>
+<p>페인팅은 레이아웃 트리의 요소를 레이어로 나눌 수 있으며 콘텐츠를 CPU의 메인 스레드가 아닌 GPU의 레이어로 승격하면 페인트 및 리페인트 성능이 향상됩니다. 레이어를 인스턴스화 하는 특정 특성과 요소가 있으며 이는  <code>&lt;video&gt;</code> 와 <code>&lt;canvas&gt;</code>, 그리고  CSS 속성 중 <code>opacity</code> 또는 3D <code>transform</code>, <code>will-change</code> 그리고 몇 안되는 다른 요소들을 포함합니다. 이러한 노드는 하위 항목이 위의 이유 중 하나 (또는 그 이상)로 인해 자체 레이어를 필요로하지 않는 한 하위 항목과 함께 자체 레이어에 페인팅됩니다.</p>
+<p>레이어들은 성능을 개선하지만 메모리 관리에 있어서는 비용이 따릅니다. 따라서, 웹 성능 최적화 전략의 한 부분으로써 과도하게 사용하지 말아야만 한다.</p>
+<h3 id="컴포지팅"><a href="#컴포지팅" class="headerlink" title="컴포지팅"></a>컴포지팅</h3><p>도큐먼트의 섹션들이 서로 겹쳐서 서로 다른 레이어에서 그려질 때, 컴포지팅은 화면상에서 올바른 순서로 그려지고 콘텐츠가 올바르게 렌더링 되도록 보장하는 것이 필수적입니다.</p>
+<p>페이지가 에셋들을 계속해서 불러옴으로써 리플로우가 발생될 수 있다(예제에서 늦게 도착한 이미지를 다시 호출하기 위해).  리플로우는 리페인팅과 리컴포지 하도록 합니다. 만약 우리가 이미지의 크기를 정했다면, 리플로우는 필요하지 않을 것이며 오직 리페인팅될 필요가 있는 레이어를 리페인팅할 것이며 필요할 경우 합성할 수 있습니다. 그러나 우리는 이미지 크기를 포함하고 있지 않습니다! 그 이미지가 서버에서 받았을때 렌더링 과정은 레이아웃 스텝 다시 돌아가고 다시 시작한다.</p>
+<br>
+
+<h2 id="상호운용성"><a href="#상호운용성" class="headerlink" title="상호운용성"></a>상호운용성</h2><p>일단 메인 쓰레드가 페이지 그리기를 완료하면, 여러분은 “모든 것”을 갖췄다고 생각했겠지만, 꼭 그런것만은 아닙니다. 만약 불러오기에 정확하게는 지연되고 오직 <code>onload</code> 이벤트에 후에 실행되는 자바스크립트를 포함하고 있을 경우, 메인 스레드는 바빠지고 스크롤링, 터치 그리고 다른 상호작용은 불가능해질지도 모른다.</p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/ko/docs/Glossary/Time_to_Interactive">Time to Interactive</a> (TTI)는 페이지가 상호작용할때 DNS 조회와 SSL 연결에 의한 첫번째 요청에서 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/ko/docs/Glossary/First_Contentful_Paint">First Contentful Paint</a> 이후로 50ms 안에 즉시 페이지가 상호작용할때 까지의 시간을 측정한 것입니다. 만약 메인 스레드가 분석, 컴파일링 그리고 자바스크립트 실행까지 담당하고 있다면 이것은 가능하지 않으며 (50ms 미만으로) 제때에 사용자 상호작용에 반응할 수 없습니다.</p>
+<p>예를 들어, 아마 이미지가 빠르게 로드 되었다 할지라도,  <code>anotherscript.js</code> 파일은 2MB이고 사용자의 네트워크 연결은 느려졌다. 이러한 경우 사용자는 페이지를 매우 빠르게 볼수 있었겠지만 스크립트가 다운로드 될때까지 잰크(jank) 없이는 스크롤할 수 없을 것이고, 좋지 못한 사용자 경험이 됩니다. WebPageTest 예제에서 설명하듯 메인 스레드를 차지하는 것을 피해야 합니다.</p>
+<p><img src="https://mdn.mozillademos.org/files/16760/visa_network.png"></p>
+<p>이 예제의 DOM 콘텐츠 로드 과정은 1.5 초 이상 소요됐고 메인 스레드는 전체 시간동안 가득 찼으며 스크린 탭 또는 클릭 이벤트에 반응하지 않습니다.</p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Joontae Kim"
+        },
+        "headline": "페이지 채우기: 브라우저가 작동하는 방법 - 2",
+        "image": "https://joontae-kim.github.io/images/browser_work.png",
+        "keywords": "mdn Browser",
+        "genre": "Web Browser",
+        "datePublished": "2020-09-25",
+        "dateCreated": "2020-09-25",
+        "dateModified": "2020-09-27",
+        "url": "https://joontae-kim.github.io/2020/09/25/browser-work-2/",
+        "description": "
+
+본 글은 mdn web docs의 Populating the page: how browsers work를 번역한 글입니다.
+
+현재 작성일자(2020년 9월 25일) 기준으로 아직 한글로 번역되지 않아 본 번역 포스팅을 완료하면 해당 페이지를 한국어로 옮겨놓을 예정입니다. 수정 및 보완사항이 있다면 본 포스팅 하단 댓글에 작성 부탁드립니다.
+
+브라우저 작",
+        "wordCount": 1684
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://joontae-kim.github.io/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2020/09/25/browser-work/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">페이지 채우기: 브라우저가 작동하는 방법 - 1</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/09/25/browser-work-2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/browser_work.png)" alt="페이지 채우기: 브라우저가 작동하는 방법 - 2" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Web/">Web</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Web/Browser/">Browser</a></p>
+                            <p class="item-title"><a href="/2020/09/25/browser-work-2/" class="title">페이지 채우기: 브라우저가 작동하는 방법 - 2</a></p>
+                            <p class="item-date"><time datetime="2020-09-25T10:14:46.000Z" itemprop="datePublished">2020-09-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/09/25/browser-work/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/browser_work.png)" alt="페이지 채우기: 브라우저가 작동하는 방법 - 1" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Web/">Web</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Web/Browser/">Browser</a></p>
+                            <p class="item-title"><a href="/2020/09/25/browser-work/" class="title">페이지 채우기: 브라우저가 작동하는 방법 - 1</a></p>
+                            <p class="item-date"><time datetime="2020-09-25T06:54:56.000Z" itemprop="datePublished">2020-09-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/09/25/assignment/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/assignment.png)" alt="assignment" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/assignment/">assignment</a></p>
+                            <p class="item-title"><a href="/2020/09/25/assignment/" class="title">assignment</a></p>
+                            <p class="item-date"><time datetime="2020-09-24T16:32:27.000Z" itemprop="datePublished">2020-09-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/09/24/seo-friendly/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/hello_hexo.png)" alt="seo-friendly - Again Hello" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Hello/">Hello</a></p>
+                            <p class="item-title"><a href="/2020/09/24/seo-friendly/" class="title">seo-friendly - Again Hello</a></p>
+                            <p class="item-date"><time datetime="2020-09-24T06:51:47.000Z" itemprop="datePublished">2020-09-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/09/24/change-theme/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/hello_hexo.png)" alt="Change theme - Again Hello" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Hello/">Hello</a></p>
+                            <p class="item-title"><a href="/2020/09/24/change-theme/" class="title">Change theme - Again Hello</a></p>
+                            <p class="item-date"><time datetime="2020-09-23T17:09:20.000Z" itemprop="datePublished">2020-09-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">7</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Browser/" rel="tag">Browser</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hello-World/" rel="tag">Hello World</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/assignment/" rel="tag">assignment</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mdn/" rel="tag">mdn</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Browser/" style="font-size: 15px;">Browser</a> <a href="/tags/Hello-World/" style="font-size: 20px;">Hello World</a> <a href="/tags/assignment/" style="font-size: 10px;">assignment</a> <a href="/tags/mdn/" style="font-size: 15px;">mdn</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Joontae Kim</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'joontae-kim';
+    
+    
+    var disqus_url = 'https://joontae-kim.github.io/2020/09/25/browser-work-2/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
