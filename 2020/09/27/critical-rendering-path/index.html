@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://joontae-kim.github.io/images/browser_work.png">
 <meta property="article:published_time" content="2020-09-26T17:50:58.000Z">
-<meta property="article:modified_time" content="2020-09-28T18:46:27.774Z">
+<meta property="article:modified_time" content="2020-09-28T18:54:52.957Z">
 <meta property="article:author" content="Joontae Kim">
 <meta property="article:tag" content="mdn">
 <meta property="article:tag" content="Browser">
@@ -209,7 +209,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2020/09/27/critical-rendering-path/" class="article-date">
-     <time datetime="2020-09-28T18:46:27.774Z" itemprop="dateModified">2020-09-29</time>
+     <time datetime="2020-09-28T18:54:52.957Z" itemprop="dateModified">2020-09-29</time>
   </a>
 </div>
 
@@ -252,10 +252,9 @@ ga('send', 'pageview');
 <p>도큐먼트 오브젝트 모델은 HTML을 분석함으로써 만들어집니다. HTML은 Javascript를 요청할 수 있으며, 이 경우 DOM 이 변경될 수 있습니다. HTML은 차례대로 CSS 오브젝트 모델을 만들기 위한 스타일에 대한 요청을 만들거나 포함합니다. 브라우저 엔진은 이 두가지를 결합하여 렌더 트리를 생성하며 레이아웃은 페이지의 모든 것에 대한 크기와 위치를 결정합니다. 일단 레이아웃이 결정되면 화면에 픽셀을 그립니다.</p>
 <p>중요 렌더링 경로 최적화는 첫번째 렌더링의 시간을 개선시킵니다. 중요 렌더링 경로를 이해하고, 최적화 하는 것은 뛰어난 사용자 상호작용을 보장하며 버벅거림을 피할 수 있도록 하고, 1초당 60 프레임에 리플로우와 리페인트가 발생할 수 있도록 하는데 중요합니다.</p>
 <h2 id="CRP-이해하기"><a href="#CRP-이해하기" class="headerlink" title="CRP 이해하기"></a>CRP 이해하기</h2><p>웹 성능은 서버의 요청과 응답, 로딩, 스크립팅, 렌더링, 레이아웃 그리고 화면에 픽셀 그리기를 포함합니다.</p>
-<p>웹 페이지 또는 어플리케이션에 대한 요청은 HTML 요청으로 시작됩니다. 서버는 응답 헤더 또는 데이터로 HTML을 반환합니다. 그리고 나서 브라우저는 HTML을 분석하고 수신된 바이츠를 DOM 트리로 변환하기 시작합니다. 브라우저는 스타일시트, 스크립트 또는 포함된 이미지 참조인 외부 자원에 대한 링크를 찾을때마다 요청을 시작합니다. 불러온 에셋을 다룰 때까지 나머지 HTML을 분석하는 작업하는 일부 요청은 중단되며 차단됩니다.</p>
-<p>브라우저는 CSS 오브젝트 모델을 구축하는 작업이 끝날때까지 요청을 만들고 DOM을 생성하는 HTML을 계속해서 분석합니다. DOM과 CSSOM이 완료되면 브라우저는 렌더 트리를 생성하고 보여지는 컨텐츠를 위해 스타일을 계산합니다. 렌더트리가 완료된 후 모든 렌더 트리 요소들에 대한 위치와 크기가 정의된 레이아웃이 만들어집니다. 일단 완료되면 레이지는 렌더링되거나 또는 화면에 ‘그려집니다(<em>painted</em>)’.</p>
-<h3 id="Document-Object-Model"><a href="#Document-Object-Model" class="headerlink" title="Document Object Model"></a>Document Object Model</h3><p>DOM 구성은 점진적으로 증가합니다. HTML 응답은 토큰으로, 토큰은 노드로, 노드는 DOM 트리로 변환됩니다.</p>
-<p>1개의 DOM 노드는 시작태그 토큰으로 시작해서 끝태그 토큰으로 끝납니다. 노드들은 HTML 요소에 대한 모두 연관성 있는 정보를 포함하고 있습니다. 그 정보는 토큰을 통해 설명됩니다. 노드들은 토큰의 위계서열을 기반으로 DOM 트리안에 연결됩니다. 만약 또 다른 시작태그와 끝태그의 묶음이 한 세트의 시작태그와 끝태그 사이에 있다면, 여러분은 DOM 트리의 위계서열을 정의하는 방법으로 노드 안에 노드를 가지게 됩니다. 많은 수의 노드들은 중요 렌더링 경로에서 다음의 이벤트를 더 오래 발생시킬 것입니다. 측정하세요! 몇 개의 추가 노드는 차이를 만들지 않지만 전염은 버벅거림을 유발할 수 있습니다.</p>
+<p>웹 페이지 또는 어플리케이션에 대한 요청은 HTML 요청으로 시작됩니다. 서버는 응답 헤더 또는 데이터로 HTML을 반환합니다. 그리고 나서 브라우저는 HTML을 분석하고 수신된 바이츠를 DOM 트리로 변환하기 시작합니다. 브라우저는 스타일시트, 스크립트 또는 포함된 이미지 참조인 외부 자원에 대한 링크를 찾을때마다 요청을 시작합니다. 불러온 에셋을 다룰 때까지 나머지 HTML을 분석하는 작업하는 일부 요청은 중단되며 차단됩니다. 브라우저는 CSS 오브젝트 모델을 구축하는 작업이 끝날때까지 요청을 만들고 DOM을 생성하는 HTML을 계속해서 분석합니다. DOM과 CSSOM이 완료되면 브라우저는 렌더 트리를 생성하고 보여지는 컨텐츠를 위해 스타일을 계산합니다. 렌더트리가 완료된 후 모든 렌더 트리 요소들에 대한 위치와 크기가 정의된 레이아웃이 만들어집니다. 일단 완료되면 레이지는 렌더링되거나 또는 화면에 ‘그려집니다(<em>painted</em>)’.</p>
+<h3 id="Document-Object-Model"><a href="#Document-Object-Model" class="headerlink" title="Document Object Model"></a>Document Object Model</h3><p>DOM 구성은 점진적으로 증가합니다. HTML 응답은 토큰으로, 토큰은 노드로, 노드는 DOM 트리로 변환됩니다.1개의 DOM 노드는 시작태그 토큰으로 시작해서 끝태그 토큰으로 끝납니다. 노드들은 HTML 요소에 대한 모두 연관성 있는 정보를 포함하고 있습니다. 그 정보는 토큰을 통해 설명됩니다. 노드들은 토큰의 위계서열을 기반으로 DOM 트리안에 연결됩니다. 만약 또 다른 시작태그와 끝태그의 묶음이 한 세트의 시작태그와 끝태그 사이에 있다면, 여러분은 DOM 트리의 위계서열을 정의하는 방법으로 노드 안에 노드를 가지게 됩니다.</p>
+<p>많은 수의 노드는 중요 렌더링 경로에서 다음의 이벤트를 더 오래 발생시킬 것입니다. 측정하세요! 몇 개의 추가 노드는 차이를 만들지 않지만 전염은 버벅거림을 유발할 수 있습니다.</p>
 <h3 id="CSS-Object-Model"><a href="#CSS-Object-Model" class="headerlink" title="CSS Object Model"></a>CSS Object Model</h3><p>DOM은 페이지의 모든 컨텐츠를 포함하고, CSSOM은 DOM을 스타일링 하기 위한 페이지의 모든 스타일 정보를 포함합니다. CSSOM은 DOM과 유사하지만 다릅니다. DOM의 구조는 점진적으로 증가하는 반면에 CSSOM은 그렇지 않습니다. CSS는 렌더링을 막습니다: 브라우저는 모든 CSS를 처리하고 수신할때까지 페이지 렌더링을 막습니다. CSS는 규칙을 덮어쓸수 있기 때문에 렌더링을 막습니다. 그러므로 CSSOM이 완료될때까지 콘텐츠를 렌더링 할 수 없습니다.</p>
 <p>CSS는 유효한 토크들은 인식하기 위해 스스로 규칙 세트를 가지고 있습니다. CSS의 C가 ‘Cascade(종속 또는 폭포)’라는 의미를 기억해두세요. CSS 규칙은 아래로 종속됩니다. 분석기는 토큰을 노드로 변환할때, 하위 노드가 스타일을 상속합니다. 연속적인 규칙들이 이전의 규칙들에 덮어쓰여질 수 있기 때문에, 증감 처리 기술은 HTML 처럼 CSS에 적용되지는 않습니다. CSS 개체 모델은 CSS를 분석할 때 빌드되지만 나중에 분석되 덮어쓸 스타일들은 화면에 렌더링 할 수 없기 때문에 완전히 분석될 때까지 렌더 트리를 생성하는데 사용할 수 없습니다. </p>
 <p>선택자 성능 측면에서, 덜 구체적인 선택자는 더 구체적인 선택자보다 더 빠릅니다. 예를 들어, 브라우저가 <code>.foo</code> 찾을때,  <code>.foo &#123;&#125;</code> 는  <code>.bar .foo &#123;&#125;</code> 보다 빠릅니다. 왜냐하면 두번째 시나리오에서, <code>.foo</code> 가 부모 객체인 <code>.bar</code> 를 가지고 있는지 확인하기 위해 DOM을 거슬러 올라가기 때문입니다. 더 구체적인 태그는 브라우저에게 더 많은 작업을 요구하지만 이러한 패널티는 최적화 할 가치가 없습니다.</p>
