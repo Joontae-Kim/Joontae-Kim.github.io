@@ -6,28 +6,31 @@
     
 
     
-    <title>Change theme - Again Hello | dev and dev</title>
+    <title>Critical Rendering Path | dev and dev</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="Hello World" />
+    <meta name="keywords" content="mdn,Browser,Rendering,Critical Rendering path" />
     
-    <meta name="description" content="먼저 theme를 바꾸는 작업을 어렵지 않았습니다. hexo cli를 통해 생성된 모든 블로그 폴더내에는 theme 라는 폴더를 가지고 있고 이 안에 변경할 theme를 내려받으면 됩니다. 1git clone https:&#x2F;&#x2F;github.com&#x2F;ppoffice&#x2F;hexo-theme-hueman.git themes&#x2F;">
+    <meta name="description" content="본 글은 mdn web docs의 Critical Rendering Path를 번역한 글입니다.  현재 작성일자(2020년 9월 27일) 기준으로 아직 한글로 번역되지 않아 본 번역 포스팅을 완료하면 해당 페이지를 한국어로 옮겨놓을 예정입니다. 수정 및 보완사항이 있다면 본 포스팅 하단 댓글에 작성 부탁드립니다.  브라우저 작동 원리 또는 렌더링에 관해">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Change theme - Again Hello">
-<meta property="og:url" content="https://joontae-kim.github.io/2020/09/24/change-theme/index.html">
+<meta property="og:title" content="Critical Rendering Path">
+<meta property="og:url" content="https://joontae-kim.github.io/2020/09/27/critical-rendering-path/index.html">
 <meta property="og:site_name" content="dev and dev">
-<meta property="og:description" content="먼저 theme를 바꾸는 작업을 어렵지 않았습니다. hexo cli를 통해 생성된 모든 블로그 폴더내에는 theme 라는 폴더를 가지고 있고 이 안에 변경할 theme를 내려받으면 됩니다. 1git clone https:&#x2F;&#x2F;github.com&#x2F;ppoffice&#x2F;hexo-theme-hueman.git themes&#x2F;">
+<meta property="og:description" content="본 글은 mdn web docs의 Critical Rendering Path를 번역한 글입니다.  현재 작성일자(2020년 9월 27일) 기준으로 아직 한글로 번역되지 않아 본 번역 포스팅을 완료하면 해당 페이지를 한국어로 옮겨놓을 예정입니다. 수정 및 보완사항이 있다면 본 포스팅 하단 댓글에 작성 부탁드립니다.  브라우저 작동 원리 또는 렌더링에 관해">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://joontae-kim.github.io/images/hello_hexo.png">
-<meta property="article:published_time" content="2020-09-23T17:09:20.000Z">
-<meta property="article:modified_time" content="2020-09-23T20:18:22.721Z">
+<meta property="og:image" content="https://joontae-kim.github.io/images/browser_work.png">
+<meta property="article:published_time" content="2020-09-26T17:50:58.000Z">
+<meta property="article:modified_time" content="2020-09-28T18:46:27.774Z">
 <meta property="article:author" content="Joontae Kim">
-<meta property="article:tag" content="Hello World">
+<meta property="article:tag" content="mdn">
+<meta property="article:tag" content="Browser">
+<meta property="article:tag" content="Rendering">
+<meta property="article:tag" content="Critical Rendering path">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://joontae-kim.github.io/images/hello_hexo.png">
+<meta name="twitter:image" content="https://joontae-kim.github.io/images/browser_work.png">
     
-    <link rel="canonical" href="https://joontae-kim.github.io/2020/09/24/change-theme/"/>
+    <link rel="canonical" href="https://joontae-kim.github.io/2020/09/27/critical-rendering-path/"/>
 
     
         <link rel="alternate" href="/" title="dev and dev" type="application/atom+xml" />
@@ -174,19 +177,19 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/Hello/">Hello</a>
+    <a class="page-title-link" href="/categories/Web/">Web</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Web/Browser/">Browser</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-change-theme" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-critical-rendering-path" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        Change theme - Again Hello
+        Critical Rendering Path
         </h1>
     
 
@@ -197,16 +200,16 @@ ga('send', 'pageview');
                 
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2020/09/24/change-theme/" class="article-date">
-       <time datetime="2020-09-23T17:09:20.000Z" itemprop="datePublished">2020-09-24</time>
+    <a href="/2020/09/27/critical-rendering-path/" class="article-date">
+       <time datetime="2020-09-26T17:50:58.000Z" itemprop="datePublished">2020-09-27</time>
     </a>
   </div>
 
 
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
-  <a href="/2020/09/24/change-theme/" class="article-date">
-     <time datetime="2020-09-23T20:18:22.721Z" itemprop="dateModified">2020-09-24</time>
+  <a href="/2020/09/27/critical-rendering-path/" class="article-date">
+     <time datetime="2020-09-28T18:46:27.774Z" itemprop="dateModified">2020-09-29</time>
   </a>
 </div>
 
@@ -216,7 +219,7 @@ ga('send', 'pageview');
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Hello-World/" rel="tag">Hello World</a>
+        <a class="tag-link-link" href="/tags/Browser/" rel="tag">Browser</a>, <a class="tag-link-link" href="/tags/Critical-Rendering-path/" rel="tag">Critical Rendering path</a>, <a class="tag-link-link" href="/tags/Rendering/" rel="tag">Rendering</a>, <a class="tag-link-link" href="/tags/mdn/" rel="tag">mdn</a>
     </div>
 
                 
@@ -233,69 +236,38 @@ ga('send', 'pageview');
 
             
 
-            <p><img src="/images/hello_hexo.png"></p>
-<p>먼저 theme를 바꾸는 작업을 어렵지 않았습니다. hexo cli를 통해 생성된 모든 블로그 폴더내에는 <strong>theme</strong> 라는 폴더를 가지고 있고 이 안에 변경할 theme를 내려받으면 됩니다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;ppoffice&#x2F;hexo-theme-hueman.git themes&#x2F;hueman</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/install_theme_hueman.png" alt="themes 폴더에 추가된 hueman 테마"></p>
-<p>그리고 블로그의 theme를 변경하려면 블로그 디렉토리의  root level에 있는 <code>_config.yml</code> 에서 theme를 hueman으로 변경한 다음 <strong>hueman</strong> 디렉토리에서 theme 환경설정을 위해  <code>_config.yml.example</code> 파일을 <strong><em>복붙</em></strong> 해서  <code>_config.yml</code> 을 생성해줍니다. 그럼 아래와 같이 <em>두개</em> 가 생성됩니다.</p>
-<ul>
-<li>blog 를 위한 <code>_config.yml</code> </li>
-<li>theme/hueman 을 위한 <code>_config.yml</code> </li>
-</ul>
-<p>이제 테마가 잘 연결되었는지 확인!</p>
-<p><img src="/images/hello_hueman.png" alt="성공!"></p>
-<p>theme는 항상 느끼는거지만 고르는게 어려웠고, 그보다 더 어려웠던건 역시</p>
-<h4 id="Setting…"><a href="#Setting…" class="headerlink" title="Setting…"></a>Setting…</h4><p>개발하다보면 항상 Setup과 Setting 이 오래걸리고 복잡해서 시간을 많이 잡아먹는거 같다. 일단 <strong>hueman</strong> 의 <a target="_blank" rel="noopener" href="https://github.com/ppoffice/hexo-theme-hueman/wiki/Theme">공식문서</a>를 참고해보면 기본적으로 <code>menu</code>와 <code>customize</code> 로 구분한다. 먼저 <strong>메뉴</strong> 란 블로그에 접속했을때 유저가 직접적으로 접근할 수 있는 네비게이션바와 같은 역할로 <strong>hueman</strong> 디렉토리 레벨에서의 <code>_config.yml</code>에서 추가 및 삭제할 수 있다.</p>
-<p><img src="/images/hueman_menu.png" alt="메뉴바"></p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Menus</span></span><br><span class="line"><span class="attr">menu:</span></span><br><span class="line">    <span class="attr">Home:</span> <span class="string">/</span></span><br><span class="line">    <span class="comment"># Delete this row if you don&#x27;t want categories in your header nav bar</span></span><br><span class="line">    <span class="comment"># Categories:</span></span><br><span class="line">    <span class="attr">About:</span> <span class="string">/about/index.html</span></span><br><span class="line"><span class="string">+</span>   <span class="attr">GitHub:</span> <span class="string">https://github.com</span></span><br><span class="line">		<span class="comment"># 주소는 절대주소 또는 상대주소 모두 사용할 수 있다.</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>theme 커스터마이징</strong>을 해보자. <a target="_blank" rel="noopener" href="https://github.com/ppoffice/hexo-theme-hueman/wiki/Theme">공식문서</a> 를 통해 확인해보면 Logo, Theme Color, Sidebar 등등 여러 가지를 수정할 수 있다고 합니다. 먼저 검색 기능을 시작으로 몇 가지만 수정해보도록 하겠습니다.</p>
-<h5 id="검색기능"><a href="#검색기능" class="headerlink" title="검색기능"></a>검색기능</h5><p>위 메뉴바 이미지의 우측에 보면 검색 기능을 확인할 수 있습니다. 기본적으로  <a target="_blank" rel="noopener" href="https://github.com/ppoffice/hexo-theme-hueman/wiki/Search#insight-search">Insight Search</a> 기능을 제공해주고, 활용하기 위해서는 아래의 plugin을 설치한 후 <strong>hueman</strong> 디렉토리 레벨의 <code>_config.yml</code> 에서 검색기능을 설정되있는지 확인 또는 활성화해줘야 합니다.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -S hexo-generator-json-content</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Search</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">    <span class="attr">insight:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">swiftype:</span></span><br><span class="line">    <span class="attr">baidu:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
-<br>
-
-<h5 id="로고"><a href="#로고" class="headerlink" title="로고"></a>로고</h5><p>로고는 사실 있어도 되고 없어도 되지만 일단 블로그의 명패 같은 역할이니 간단하게라도 만들어서 넣어보는것도 좋을거 같습니다. 일단 저는 여기서 약간 헷갈린것이 logo의 파일 위치와 크기였는 <code>themes/hueman -&gt; source -&gt; css -&gt; images</code> 위치에 있으며 대체할 logo 이미지도 같은 위치에 저장 후 url을 수정해주면 될거 같습니다. <code>width</code>와 <code>height</code>는 로고의 위치와 크기를 잡기 위한 약간의 삽질이 필요합니다.</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">logo:</span></span><br><span class="line">    <span class="attr">width:</span> <span class="number">165</span></span><br><span class="line">    <span class="attr">height:</span> <span class="number">60</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">images/logo-header.png</span></span><br></pre></td></tr></table></figure>
-
-<br>
-
-<h5 id="썸네일"><a href="#썸네일" class="headerlink" title="썸네일"></a>썸네일</h5><p>블로그 내에서 포스트의 썸네일을 사용할지 말지를 정할 수 있습니다. 마찬가지로 <strong>hueman</strong> 디렉토리 레벨의 <code>_config.yml</code> 에서 수정 가능합니다. </p>
-<p><img src="/images/hueman_thumbnail.png" alt="thumnail 설정"></p>
-<p>썸네일을 활성화 했을경우 post의 <a target="_blank" rel="noopener" href="https://hexo.io/docs/front-matter.html">front-matter</a>에 추가함으로써 해당 포스트의 thumbnail으로 작동합니다.</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="string">Hello</span> <span class="string">World</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2013</span><span class="string">/7/13</span> <span class="number">20</span><span class="string">:46:25</span></span><br><span class="line"><span class="string">+</span> <span class="attr">thumbnail:</span> <span class="string">https://example.com/image.jpg</span></span><br></pre></td></tr></table></figure>
-
-<br>
-
-<h5 id="위젯"><a href="#위젯" class="headerlink" title="위젯"></a>위젯</h5><p>위젯 또한 <strong>hueman</strong> 디렉토리 레벨의 <code>_config.yml</code>에서 수정가능하다.</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">widgets:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">recent_posts</span> <span class="comment"># 최근 포스트</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">category</span> <span class="comment"># 카테고리</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">archive</span> <span class="comment"># 어카이브</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">tag</span> <span class="comment"># 태그</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">tagcloud</span> <span class="comment"># 태그클라우드. 사용된 태그들을 빈도수에 따라 구름처럼 표시</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">links</span> <span class="comment"># 링크</span></span><br></pre></td></tr></table></figure>
-
-<br>
-
-<h5 id="disqus"><a href="#disqus" class="headerlink" title="disqus"></a>disqus</h5><p>github 블로그에 댓글 기능을 제공하기 위해서 대표적인 서비스인 <a target="_blank" rel="noopener" href="https://disqus.com/">disqus</a> 를 세팅해줍니다.</p>
-<ol>
-<li>먼저 계정이 없다면 계정을 생성합니다.</li>
-<li><strong><em>GET STARTED</em></strong> 버튼을 클릭한 후</li>
-<li><strong>hueman</strong> 디렉토리 레벨의 <code>_config.yml</code> 에서 <em>disqus</em> 에 입력하기 위한 <strong>short_name</strong> 으로  블로그 이름 설정합니다.</li>
+            <p><img src="/images/browser_work.png"></p>
+<blockquote>
+<p>본 글은 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/"><strong>mdn web docs</strong></a>의 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path#Understanding_CRP">Critical Rendering Path</a>를 번역한 글입니다.</p>
+</blockquote>
+<p>현재 작성일자(2020년 9월 27일) 기준으로 아직 한글로 번역되지 않아 본 번역 포스팅을 완료하면 해당 페이지를 한국어로 옮겨놓을 예정입니다. 수정 및 보완사항이 있다면 본 포스팅 하단 댓글에 작성 부탁드립니다.</p>
+<hr>
+<p>브라우저 작동 원리 또는 렌더링에 관해 공부하고, 포스팅하고 싶은 마음이 있었는데 mdn에 좋은 게시물이 많이 있었고 그중 몇 가지를 연재로 번역하면서 공부해보는 시간을 가져볼려고 합니다.</p>
+<h4 id="연재할-MDN-docs"><a href="#연재할-MDN-docs" class="headerlink" title="연재할 MDN docs"></a>연재할 MDN docs</h4><ol>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/ko/docs/Web/Performance/%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80%EB%8A%94_%EC%96%B4%EB%96%BB%EA%B2%8C_%EB%8F%99%EC%9E%91%ED%95%98%EB%8A%94%EA%B0%80">Populating the page: how browsers work</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path#Understanding_CRP"><strong>Critical rendering path</strong></a></li>
 </ol>
-<p>(자세한 과정은 <a target="_blank" rel="noopener" href="https://simhyejin.github.io/2016/06/24/hexo-themes/">https://simhyejin.github.io/2016/06/24/hexo-themes/</a> 에서 <code>Disqus</code> 파트 참조)</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Comment</span></span><br><span class="line"><span class="attr">comment:</span></span><br><span class="line">    <span class="attr">disqus:</span> [<span class="string">example_short_name</span>] <span class="comment"># enter disqus shortname here</span></span><br><span class="line">    <span class="attr">duoshuo:</span> <span class="comment"># enter duoshuo shortname here</span></span><br><span class="line">    <span class="attr">youyan:</span> <span class="comment"># enter youyan uid here</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p>이상으로 <strong>hueman</strong> 테마를 사용하면서 기본적으로 갖춰볼만한 설정들을 모두 했고, 다음으로는 구글에서 잘 검색되도록 하기위한 세팅들을 다뤄보겠습니다.</p>
-<br>
-
-<h4 id="참조"><a href="#참조" class="headerlink" title="참조"></a>참조</h4><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/ppoffice/hexo-theme-hueman/wiki/Installation">https://github.com/ppoffice/hexo-theme-hueman/wiki/Installation</a></li>
-<li><a target="_blank" rel="noopener" href="https://simhyejin.github.io/2016/06/24/hexo-themes/">https://simhyejin.github.io/2016/06/24/hexo-themes/</a></li>
-<li><a target="_blank" rel="noopener" href="https://simhyejin.github.io/2016/06/24/hexo-themes/">https://simhyejin.github.io/2016/06/24/hexo-themes/</a> </li>
-</ul>
+<hr>
+<h1 id="중요-렌더링-경로"><a href="#중요-렌더링-경로" class="headerlink" title="중요 렌더링 경로"></a>중요 렌더링 경로</h1><p>중요 렌더링 경로 (<em>Critical Rendering Path</em>)는 브라우저가 HTML, CSS, Javascipt를 화면에 픽셀로 변화하는 일련의 단계를 말하며 이를 최적화하는 것은 렌더링 성능을 향상시킵니다. 중요 렌더링 경로는  <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model">Document Object Model </a>(DOM), <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Object_Model">CSS Object Model </a>(CSSOM), 렌더 트리 그리고 레이아웃을 포함합니다.</p>
+<p>도큐먼트 오브젝트 모델은 HTML을 분석함으로써 만들어집니다. HTML은 Javascript를 요청할 수 있으며, 이 경우 DOM 이 변경될 수 있습니다. HTML은 차례대로 CSS 오브젝트 모델을 만들기 위한 스타일에 대한 요청을 만들거나 포함합니다. 브라우저 엔진은 이 두가지를 결합하여 렌더 트리를 생성하며 레이아웃은 페이지의 모든 것에 대한 크기와 위치를 결정합니다. 일단 레이아웃이 결정되면 화면에 픽셀을 그립니다.</p>
+<p>중요 렌더링 경로 최적화는 첫번째 렌더링의 시간을 개선시킵니다. 중요 렌더링 경로를 이해하고, 최적화 하는 것은 뛰어난 사용자 상호작용을 보장하며 버벅거림을 피할 수 있도록 하고, 1초당 60 프레임에 리플로우와 리페인트가 발생할 수 있도록 하는데 중요합니다.</p>
+<h2 id="CRP-이해하기"><a href="#CRP-이해하기" class="headerlink" title="CRP 이해하기"></a>CRP 이해하기</h2><p>웹 성능은 서버의 요청과 응답, 로딩, 스크립팅, 렌더링, 레이아웃 그리고 화면에 픽셀 그리기를 포함합니다.</p>
+<p>웹 페이지 또는 어플리케이션에 대한 요청은 HTML 요청으로 시작됩니다. 서버는 응답 헤더 또는 데이터로 HTML을 반환합니다. 그리고 나서 브라우저는 HTML을 분석하고 수신된 바이츠를 DOM 트리로 변환하기 시작합니다. 브라우저는 스타일시트, 스크립트 또는 포함된 이미지 참조인 외부 자원에 대한 링크를 찾을때마다 요청을 시작합니다. 불러온 에셋을 다룰 때까지 나머지 HTML을 분석하는 작업하는 일부 요청은 중단되며 차단됩니다.</p>
+<p>브라우저는 CSS 오브젝트 모델을 구축하는 작업이 끝날때까지 요청을 만들고 DOM을 생성하는 HTML을 계속해서 분석합니다. DOM과 CSSOM이 완료되면 브라우저는 렌더 트리를 생성하고 보여지는 컨텐츠를 위해 스타일을 계산합니다. 렌더트리가 완료된 후 모든 렌더 트리 요소들에 대한 위치와 크기가 정의된 레이아웃이 만들어집니다. 일단 완료되면 레이지는 렌더링되거나 또는 화면에 ‘그려집니다(<em>painted</em>)’.</p>
+<h3 id="Document-Object-Model"><a href="#Document-Object-Model" class="headerlink" title="Document Object Model"></a>Document Object Model</h3><p>DOM 구성은 점진적으로 증가합니다. HTML 응답은 토큰으로, 토큰은 노드로, 노드는 DOM 트리로 변환됩니다.</p>
+<p>1개의 DOM 노드는 시작태그 토큰으로 시작해서 끝태그 토큰으로 끝납니다. 노드들은 HTML 요소에 대한 모두 연관성 있는 정보를 포함하고 있습니다. 그 정보는 토큰을 통해 설명됩니다. 노드들은 토큰의 위계서열을 기반으로 DOM 트리안에 연결됩니다. 만약 또 다른 시작태그와 끝태그의 묶음이 한 세트의 시작태그와 끝태그 사이에 있다면, 여러분은 DOM 트리의 위계서열을 정의하는 방법으로 노드 안에 노드를 가지게 됩니다. 많은 수의 노드들은 중요 렌더링 경로에서 다음의 이벤트를 더 오래 발생시킬 것입니다. 측정하세요! 몇 개의 추가 노드는 차이를 만들지 않지만 전염은 버벅거림을 유발할 수 있습니다.</p>
+<h3 id="CSS-Object-Model"><a href="#CSS-Object-Model" class="headerlink" title="CSS Object Model"></a>CSS Object Model</h3><p>DOM은 페이지의 모든 컨텐츠를 포함하고, CSSOM은 DOM을 스타일링 하기 위한 페이지의 모든 스타일 정보를 포함합니다. CSSOM은 DOM과 유사하지만 다릅니다. DOM의 구조는 점진적으로 증가하는 반면에 CSSOM은 그렇지 않습니다. CSS는 렌더링을 막습니다: 브라우저는 모든 CSS를 처리하고 수신할때까지 페이지 렌더링을 막습니다. CSS는 규칙을 덮어쓸수 있기 때문에 렌더링을 막습니다. 그러므로 CSSOM이 완료될때까지 콘텐츠를 렌더링 할 수 없습니다.</p>
+<p>CSS는 유효한 토크들은 인식하기 위해 스스로 규칙 세트를 가지고 있습니다. CSS의 C가 ‘Cascade(종속 또는 폭포)’라는 의미를 기억해두세요. CSS 규칙은 아래로 종속됩니다. 분석기는 토큰을 노드로 변환할때, 하위 노드가 스타일을 상속합니다. 연속적인 규칙들이 이전의 규칙들에 덮어쓰여질 수 있기 때문에, 증감 처리 기술은 HTML 처럼 CSS에 적용되지는 않습니다. CSS 개체 모델은 CSS를 분석할 때 빌드되지만 나중에 분석되 덮어쓸 스타일들은 화면에 렌더링 할 수 없기 때문에 완전히 분석될 때까지 렌더 트리를 생성하는데 사용할 수 없습니다. </p>
+<p>선택자 성능 측면에서, 덜 구체적인 선택자는 더 구체적인 선택자보다 더 빠릅니다. 예를 들어, 브라우저가 <code>.foo</code> 찾을때,  <code>.foo &#123;&#125;</code> 는  <code>.bar .foo &#123;&#125;</code> 보다 빠릅니다. 왜냐하면 두번째 시나리오에서, <code>.foo</code> 가 부모 객체인 <code>.bar</code> 를 가지고 있는지 확인하기 위해 DOM을 거슬러 올라가기 때문입니다. 더 구체적인 태그는 브라우저에게 더 많은 작업을 요구하지만 이러한 패널티는 최적화 할 가치가 없습니다.</p>
+<p>만약 CSS 분석 시간을 측정한다면, 브라우저들이 정말 빠르다는 것에 놀랄 것입니다. 규칙이 구체적일수록 DOM 트리 안에서 더 많은 노드들은 지나야 하기 때문에 더 높은 비용이 듭니다. 그러나 추가적인 비용은 일반적으로 최소입니다. 첫번째는 측정입니다. 필요할때 최적화하세요. 특정 짓는 것은 쉬운 일이 아닙니다. CSS 측면에서, 선택자 성능 최적화와 개선은 오직 microsecond 밖에 되지 않될 것입니다. 축소화와 미디어 쿼리를 사용함으로써 지연된 CSS를 논-블로킹 요청으로 분리하는 것과 같은 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Learn/Performance/CSS_performance">CSS 최적화</a>를 위한 다른 방법이 있습니다.</p>
+<h3 id="렌더-트리"><a href="#렌더-트리" class="headerlink" title="렌더 트리"></a>렌더 트리</h3><p>렌터 트리는 콘텐츠와 스타일 둘다 캡쳐합니다. DOM과 CSSOM 트리는 렌더 트리에 결합됩니다. 렌더 트리를 구성하기 위해 브라우저는 DOM 트리의 root에서 시작해 모든 노드는 확인하면서 어떤 CSS 규칙들을 첨부할지 결정합니다.</p>
+<p>렌더 트리는 오직 보여지는 콘텐츠만은 캡쳐합니다. (일반적으로) 헤드 섹션은 보여지는 정보를 포함하고 있지 않으므로 렌더트리 안에 포함되지 않습니다. 만약 요소에 <code> display: none</code> 이 적용되어 있다면, 해당 요소 또는 하위 요소는 포함되지 않습니다.</p>
+<h3 id="레이아웃"><a href="#레이아웃" class="headerlink" title="레이아웃"></a>레이아웃</h3><p>일단 렌더 트리가 생성되고 나면, 레이아웃은 가능해지며 화면의 크기에 의존합니다. 레이아웃 단계는 요소들이 페이지에서 배치되는 위치와 방법, 각 요소의 너비와 높이 그리고 서로 관련된 위치를 결정합니다.</p>
+<p>요소의 너비는 무엇일까요? 정의에 따르면, 블럭 수준의 요소들은 그 부모 너비의 기본 너비값의 100% 입니다. 50%의 너비를 갖는 요소는 부모 요소의  절반일 것입니다. 비록 그렇게 정의되어 있지 않더라고, <code>body</code> 는 뷰포트 너비의 100%를 의미하는 너비 입니다. 디바이스의 너비는 레이아웃에 영향을 미칩니다.</p>
+<p>뷰포트 메타 태그는 레이아웃에 영향을 미치는 뷰포트 레이아웃의 너비로 정의합니다. 이 태그 없다면, 브라우저는 뷰포트 기본값을 사용합니다. 브라우저의 full screen 기본값은 일반적으로 960px 입니다. 기본적으로 브라우저의 full screen에서, 스마트폰의 브라우저와 같은 너비는 <code>&lt;meta name=&quot;Viewport&quot; content=&quot;width=device-witdh&quot;&gt;</code> 로 세팅함으로써 기본 뷰포트 너비 대신에 디바이스의 너비를 사용합니다. 디바이스 너비는 사용자가 디비이스를 가로(landscapre) 또는 세로(portrait) 모드 사이로 돌릴때마다 바뀝니다. 레이아웃은 디바이스가 회전하거나 브라우저의 사이즈가 조정될 때마다 발생합니다.</p>
+<p>레이아웃 성능은 DOM의 영향을 받습니다. 노드의 수가 많을수록 레이아웃은 더 길어지며 스크롤링 또는 다른 애니메이션들이 필요하다면 레이아웃에 쟁크(jank)를 일으키는 병목현상이 발생할 수 있습니다. 로딩 또는 방향 전환에 20ms 정도 밀릴 수 있지만 애니메이션 또는 스크롤에 쟁크(jank) 유발할 수 있습니다. 노드에 박스 모델 업데이트, 콘텐츠 대체 그리고 노드 추가와 같은 수정은 언제든지 렌더 트리를 수정할 수 있으며 레이아웃을 형성합니다. 레이아웃 이벤드의 반복과 형성시간을 줄이기 위해서 일괄 업데이트 해야하고, 박스 모델 속성을 애니메이션화 하지 말아야 합니다.</p>
+<h3 id="페인트"><a href="#페인트" class="headerlink" title="페인트"></a>페인트</h3><p>마자믹 단계는 화면에 픽셀을 그리는 것입니다. 일단 렌더 트리가 생성되고 레이아웃나 나타나기 시작하면, 화면에 픽셀을 그릴수 있습니다. 로드시, 전체 화면을 그립니다. 그 후에는 브라우저가 필요한 최소 영역만을 다시 그리도록 최적화되어 있기 때문에 영향을 받는 영역만을 화면에 다시 그립니다. 그리는 시간은 렌터 트리에 적용되는 업데이트의 종류가 무엇있냐에 따라 달라집니다. 페인팅인 매우 빠르게 진행되는 과정이기 때문에 성능 향상에 집중해야 하는 가장 큰 영향있는 부분이 아닐 수 있지만, 애니메이션 프레임 소요시간을 측정할때, 레이아웃과 리페인트 시간을 모두 고려하는 것이 중요합니다. 각 노드에 적용된 스타일은 페인트 시간을 증가시키지만 페인트 시간을 0.001ms 증가시키는 스타일을 제거하는 것은 여러분의 최적화 비용이 매우 커지는 것을 막지 못할 수 있습니다. 첫째는 측정하는 것을 기억하고, 최적화 우선순위를 정해야할지 말지를 결정해야 합니다.</p>
+<h2 id="CRP-최적화"><a href="#CRP-최적화" class="headerlink" title="CRP 최적화"></a>CRP 최적화</h2><p>자원 로드 순서를 관리하고, 파일 사이즈를 줄이며 어떤 자원을 먼저 로드할지 정함으로써 페이지 로드 속도를 개선하세요. 성능 팁으로는 1) 자원 다운로드를 연기함으로써 중요 자원들의 수를 최소화하기 , 2) 각 요청에 대한 파일 사이즈에 따라 필수적인 요청 횟수 최적하하기, 3) 다운받을 중요 에셋의 우선순위를 정함으로써 중요 자원 불러오는 순서 최적화하고, 중요 경로 길이 최소화하기</p>
 
         </div>
         <footer class="article-footer">
@@ -366,18 +338,22 @@ ga('send', 'pageview');
             "@type": "Person",
             "name": "Joontae Kim"
         },
-        "headline": "Change theme - Again Hello",
-        "image": "https://joontae-kim.github.io/images/hello_hexo.png",
-        "keywords": "Hello World",
-        "genre": "Hello",
-        "datePublished": "2020-09-24",
-        "dateCreated": "2020-09-24",
-        "dateModified": "2020-09-24",
-        "url": "https://joontae-kim.github.io/2020/09/24/change-theme/",
+        "headline": "Critical Rendering Path",
+        "image": "https://joontae-kim.github.io/images/browser_work.png",
+        "keywords": "mdn Browser Rendering Critical Rendering path",
+        "genre": "Web Browser",
+        "datePublished": "2020-09-27",
+        "dateCreated": "2020-09-27",
+        "dateModified": "2020-09-29",
+        "url": "https://joontae-kim.github.io/2020/09/27/critical-rendering-path/",
         "description": "
-먼저 theme를 바꾸는 작업을 어렵지 않았습니다. hexo cli를 통해 생성된 모든 블로그 폴더내에는 theme 라는 폴더를 가지고 있고 이 안에 변경할 theme를 내려받으면 됩니다.
-1git clone https:&#x2F;&#x2F;github.com&#x2F;ppoffice&#x2F;hexo-theme-hueman.git themes&#x2F;",
-        "wordCount": 699
+
+본 글은 mdn web docs의 Critical Rendering Path를 번역한 글입니다.
+
+현재 작성일자(2020년 9월 27일) 기준으로 아직 한글로 번역되지 않아 본 번역 포스팅을 완료하면 해당 페이지를 한국어로 옮겨놓을 예정입니다. 수정 및 보완사항이 있다면 본 포스팅 하단 댓글에 작성 부탁드립니다.
+
+브라우저 작동 원리 또는 렌더링에 관해",
+        "wordCount": 1126
     }
 </script>
 
@@ -434,20 +410,10 @@ ga('send', 'pageview');
         
 <nav id="article-nav">
     
-        <a href="/2020/09/24/seo-friendly/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            seo-friendly - Again Hello
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2020/09/23/Again-Hello/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2020/09/25/browser-work-2/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">Again Hello</p>
+        <p class="article-nav-title">페이지 채우기: 브라우저가 작동하는 방법 - 2</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -638,7 +604,7 @@ ga('send', 'pageview');
     var disqus_shortname = 'joontae-kim';
     
     
-    var disqus_url = 'https://joontae-kim.github.io/2020/09/24/change-theme/';
+    var disqus_url = 'https://joontae-kim.github.io/2020/09/27/critical-rendering-path/';
     
     (function() {
     var dsq = document.createElement('script');
