@@ -3,6 +3,55 @@
 
 
     <url>
+        <loc>https://joontae-kim.github.io/tags/draft/</loc>
+        <lastmod>2020-10-01T07:40:40.849Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/Blog/</loc>
+        <lastmod>2020-10-01T07:40:40.849Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/Hexo/</loc>
+        <lastmod>2020-10-01T07:40:40.849Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/Hello-World/</loc>
+        <lastmod>2020-09-29T12:51:00.912Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/Theme/</loc>
+        <lastmod>2020-09-29T12:50:28.211Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/Renewal/</loc>
+        <lastmod>2020-09-29T12:50:28.211Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/SEO/</loc>
+        <lastmod>2020-09-29T12:48:02.975Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://joontae-kim.github.io/tags/Critical-Rendering-path/</loc>
         <lastmod>2020-09-28T18:54:52.957Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -33,13 +82,6 @@
     <url>
         <loc>https://joontae-kim.github.io/tags/assignment/</loc>
         <lastmod>2020-09-24T16:59:44.459Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/Hello-World/</loc>
-        <lastmod>2020-09-24T16:58:33.407Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
