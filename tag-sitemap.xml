@@ -3,8 +3,15 @@
 
 
     <url>
+        <loc>https://joontae-kim.github.io/tags/ECMAScript/</loc>
+        <lastmod>2020-10-05T16:56:05.113Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://joontae-kim.github.io/tags/javascript/</loc>
-        <lastmod>2020-10-04T20:17:04.241Z</lastmod>
+        <lastmod>2020-10-05T16:56:05.113Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
