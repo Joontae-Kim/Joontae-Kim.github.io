@@ -3,15 +3,50 @@
 
 
     <url>
+        <loc>https://joontae-kim.github.io/tags/ES2015/</loc>
+        <lastmod>2020-10-07T20:05:58.737Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/ECMAScript-6/</loc>
+        <lastmod>2020-10-07T20:05:58.737Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/ES6/</loc>
+        <lastmod>2020-10-07T20:05:58.737Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/ECMAScript-2015/</loc>
+        <lastmod>2020-10-07T20:05:58.737Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://joontae-kim.github.io/tags/ECMAScript/</loc>
-        <lastmod>2020-10-05T16:56:05.113Z</lastmod>
+        <lastmod>2020-10-07T20:05:58.737Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/tags/javascript/</loc>
-        <lastmod>2020-10-05T16:56:05.113Z</lastmod>
+        <lastmod>2020-10-07T20:05:58.737Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/Babel/</loc>
+        <lastmod>2020-10-06T17:03:28.054Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
