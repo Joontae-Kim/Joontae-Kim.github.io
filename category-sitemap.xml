@@ -9,14 +9,28 @@
 
     <url>
         <loc>https://joontae-kim.github.io/categories/Programming/Javascript/</loc>
-        <lastmod>2020-10-07T20:05:58.737Z</lastmod>
+        <lastmod>2020-10-11T17:43:40.640Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/categories/Programming/</loc>
-        <lastmod>2020-10-07T20:05:58.737Z</lastmod>
+        <lastmod>2020-10-11T17:43:40.640Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/categories/Programming/Basic/</loc>
+        <lastmod>2020-10-11T17:43:06.704Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/categories/assignment/</loc>
+        <lastmod>2020-10-09T05:57:51.262Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -59,13 +73,6 @@
     <url>
         <loc>https://joontae-kim.github.io/categories/Web/</loc>
         <lastmod>2020-09-28T18:54:52.957Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/categories/assignment/</loc>
-        <lastmod>2020-09-24T16:59:44.459Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

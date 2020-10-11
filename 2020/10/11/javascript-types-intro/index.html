@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>데이터 유형 (type) | dev and dev</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="javascript,type,types" />
+    
+    <meta name="description" content="프로그래밍 언어에서 자료형(types) 또는 데이터 타입(data type) 이란 숫자형(정수형, 실수형), 논리값(Boolean), 문자(String) 등의 데이터를 식별하는 분류 (indentifier) 로서, 해당 자료형에 대한 가능한 값, 해당 자료형에서 수행을 마칠 수 있는 명령들, 데이터의 의미, 값의 저장하는 방식을 결정한다. 이렇듯 자료형이">
+<meta property="og:type" content="article">
+<meta property="og:title" content="데이터 유형 (type)">
+<meta property="og:url" content="https://joontae-kim.github.io/2020/10/11/javascript-types-intro/index.html">
+<meta property="og:site_name" content="dev and dev">
+<meta property="og:description" content="프로그래밍 언어에서 자료형(types) 또는 데이터 타입(data type) 이란 숫자형(정수형, 실수형), 논리값(Boolean), 문자(String) 등의 데이터를 식별하는 분류 (indentifier) 로서, 해당 자료형에 대한 가능한 값, 해당 자료형에서 수행을 마칠 수 있는 명령들, 데이터의 의미, 값의 저장하는 방식을 결정한다. 이렇듯 자료형이">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://joontae-kim.github.io/images/javascript.png">
+<meta property="article:published_time" content="2020-10-10T20:16:20.000Z">
+<meta property="article:modified_time" content="2020-10-11T17:43:06.704Z">
+<meta property="article:author" content="Joontae Kim">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="type">
+<meta property="article:tag" content="types">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://joontae-kim.github.io/images/javascript.png">
+    
+    <link rel="canonical" href="https://joontae-kim.github.io/2020/10/11/javascript-types-intro/"/>
+
+    
+        <link rel="alternate" href="/" title="dev and dev" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.png" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    <!-- 
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+ -->
+    
+<link rel="stylesheet" href="/libs/NanumSquareRound/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-178685368-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/">Blog</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/Hexo/">Hexo</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Basic/">Basic</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Javascript/">Javascript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/">Web</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/Browser/">Browser</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/assignment/">assignment</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/course/">course</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/course/node-all-in-one/">node_all_in_one</a></li></ul></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Basic/">Basic</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-javascript-types-intro" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        데이터 유형 (type)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2020/10/11/javascript-types-intro/" class="article-date">
+       <time datetime="2020-10-10T20:16:20.000Z" itemprop="datePublished">2020-10-11</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2020/10/11/javascript-types-intro/" class="article-date">
+     <time datetime="2020-10-11T17:43:06.704Z" itemprop="dateModified">2020-10-12</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/javascript/" rel="tag">javascript</a>, <a class="tag-link-link" href="/tags/type/" rel="tag">type</a>, <a class="tag-link-link" href="/tags/types/" rel="tag">types</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="/images/javascript.png" alt="Javascript"></p>
+<p>프로그래밍 언어에서 <strong>자료형(types) 또는 데이터 타입(data type)</strong> 이란 숫자형(정수형, 실수형), 논리값(Boolean), 문자(String) 등의 데이터를 식별하는 분류 (<em>indentifier</em>) 로서, 해당 자료형에 대한 가능한 값, 해당 자료형에서 수행을 마칠 수 있는 명령들, 데이터의 의미, 값의 저장하는 방식을 결정한다.</p>
+<p>이렇듯 자료형이란 개발자가 특정 기능 또는 함수 내에서 어떤 형태의 데이터를 다룰 것이며 이를 통해 가능한 작업은 어떤 것인지 정의할 수 있는 역할을 한다. 그렇다면 Javascript의 데이터 타입(Type)에는 무엇이 있을까?</p>
+<h2 id="프로그래밍에서의-자료"><a href="#프로그래밍에서의-자료" class="headerlink" title="프로그래밍에서의 자료"></a>프로그래밍에서의 자료</h2><ol>
+<li><p>자료형의 구성</p>
+<ul>
+<li>변수들이 가질 수 있는 값의 범위/크기 및 연산 가능한 형태와 규칙</li>
+<li>값의 <code>집합/범위/크기</code> 및 이 값에 적용가능한 <code>연산</code>에 따라 다르게 규정</li>
+</ul>
+</li>
+<li><p>자료형의 구분</p>
+<ul>
+<li>원시형 또는 기본형 (Primitive Type) 또는 내장 자료형 (Built-in Type)<ul>
+<li>시스템/컴파일러/인터프리터 등이 직접 제공 및 직접 해석 가능한 데이터 타입</li>
+<li>정수 및 실수형, 논리값(Boolean), 문자형(String) 등 단순한 구조의 타입</li>
+</ul>
+</li>
+<li>파생 자료형 (Derived Type)<ul>
+<li>원시형 또는 타 유형의 데이터로부터 또는 개발자에 의해 유도된 구조화된 데이터 타입</li>
+<li>문자열, 배열, 레코드, 리스트 등의 데이터 타입</li>
+</ul>
+</li>
+<li>참조형 (Reference Type)<ul>
+<li>변수 선언과 메모리 생성이 분리되는 데이터 타입</li>
+<li>배열 참조형, 클래스 참조형 등의 데이터 타입</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>정적 타입 언어 vs 동적 타입 언어</p>
+<p>Javascript 개발자라면 모두들 변수의 type에 의해 힘들었던 경험들이 있었을 것이다. Java 개발자인 친구 또한 Javascript를 공부하면서 변수의 특성에 대해 “형 지정도 없고, 됐다고 해도 쉽게 바뀐다.”라는 의미에서 약간 변태 같다고 했었다…  그렇다면 이러한 성질을 뭐라고 할까?</p>
+<ul>
+<li>정적 타입 언어와 동적 타입 언어의 차이는 <strong>데이터 타입 결정하는 시기</strong> 라고 할 수 있다.</li>
+<li>정적 언어: <code>컴파일</code> 시에 결정.<ul>
+<li>C, C#, C++, Java 등의 언어가 있음</li>
+<li>장점:<ul>
+<li>컴파일 시 타입에 대한 정보를 결정하기 때문에 런타임 시 속도가 빠름</li>
+<li>컴파일 시 타입에 대한 검증을 하기 때문에 타입 안정성 높음</li>
+</ul>
+</li>
+<li>단점<ul>
+<li>변수의 타입이 이미 컴파일 이전에 정해지기 때문에 변수의 활용성이 떨어짐</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>동적 언어: <code>런타임(실행)</code> 시에 결정<ul>
+<li>Perl, Ruby, Python, PHP, JavaScript 등의 언어가 있음</li>
+<li>장점:<ul>
+<li>런타임 시 까지 변수의 타입을 선언하지 않아도 되 활용 유연성이 높음</li>
+<li>개발자 입장에서 변수의 타입 선언 걱정없이 빠르게 구현 및 이용 가능</li>
+</ul>
+</li>
+<li>단점<ul>
+<li>예상치 못한 타입이 지정되어 <code>TypeError</code> 또는 예상치 못한 처리에러가 날 수 있음</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="참고"><a href="#참고" class="headerlink" title="참고"></a>참고</h2><ul>
+<li><p><a href="">자료형</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures">원시 값</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://kkumalog.tistory.com/66">Pass By Value / Pass By Reference</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://gmlwjd9405.github.io/2019/04/18/javascript-variable-and-type.html">자바스크립트의 변수, 연산자, 타입의 종료</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://itmining.tistory.com/65">정적언어(타입)과 동적언어(타입)</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://blog.naver.com/tkandrea92/80014134498">동적타입 vs 정적타입</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures">Data and Structure types</a></p>
+</li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Joontae Kim"
+        },
+        "headline": "데이터 유형 (type)",
+        "image": "https://joontae-kim.github.io/images/javascript.png",
+        "keywords": "javascript type types",
+        "genre": "Programming Basic",
+        "datePublished": "2020-10-11",
+        "dateCreated": "2020-10-11",
+        "dateModified": "2020-10-12",
+        "url": "https://joontae-kim.github.io/2020/10/11/javascript-types-intro/",
+        "description": "
+프로그래밍 언어에서 자료형(types) 또는 데이터 타입(data type) 이란 숫자형(정수형, 실수형), 논리값(Boolean), 문자(String) 등의 데이터를 식별하는 분류 (indentifier) 로서, 해당 자료형에 대한 가능한 값, 해당 자료형에서 수행을 마칠 수 있는 명령들, 데이터의 의미, 값의 저장하는 방식을 결정한다.
+이렇듯 자료형이",
+        "wordCount": 318
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/Joontae-Kim" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2020/10/09/javascript-types/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">javascript types</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/10/11/javascript-types-intro/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/javascript.png)" alt="데이터 유형 (type)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Basic/">Basic</a></p>
+                            <p class="item-title"><a href="/2020/10/11/javascript-types-intro/" class="title">데이터 유형 (type)</a></p>
+                            <p class="item-date"><time datetime="2020-10-10T20:16:20.000Z" itemprop="datePublished">2020-10-11</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/10/09/javascript-types/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/javascript.png)" alt="javascript types" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Javascript/">Javascript</a></p>
+                            <p class="item-title"><a href="/2020/10/09/javascript-types/" class="title">javascript types</a></p>
+                            <p class="item-date"><time datetime="2020-10-08T17:02:43.000Z" itemprop="datePublished">2020-10-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/10/09/javascript-operation/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/javascript.png)" alt="javascript 작동원리" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Javascript/">Javascript</a></p>
+                            <p class="item-title"><a href="/2020/10/09/javascript-operation/" class="title">javascript 작동원리</a></p>
+                            <p class="item-date"><time datetime="2020-10-08T16:39:50.000Z" itemprop="datePublished">2020-10-09</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/10/06/ES6/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/ECMAScript_6.jpeg)" alt="ECMAScript 6 (ECMAScript 2015)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Javascript/">Javascript</a></p>
+                            <p class="item-title"><a href="/2020/10/06/ES6/" class="title">ECMAScript 6 (ECMAScript 2015)</a></p>
+                            <p class="item-date"><time datetime="2020-10-06T10:41:18.000Z" itemprop="datePublished">2020-10-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/10/06/Babel/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/babel_javascript.jpeg)" alt="ECMAScript와 Babel" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Javascript/">Javascript</a></p>
+                            <p class="item-title"><a href="/2020/10/06/Babel/" class="title">ECMAScript와 Babel</a></p>
+                            <p class="item-date"><time datetime="2020-10-05T16:52:32.000Z" itemprop="datePublished">2020-10-06</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">9</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Babel/" rel="tag">Babel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Browser/" rel="tag">Browser</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Critical-Rendering-path/" rel="tag">Critical Rendering path</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECMAScript/" rel="tag">ECMAScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECMAScript-2015/" rel="tag">ECMAScript 2015</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECMAScript-6/" rel="tag">ECMAScript 6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES2015/" rel="tag">ES2015</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hello-World/" rel="tag">Hello World</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rendering/" rel="tag">Rendering</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Renewal/" rel="tag">Renewal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theme/" rel="tag">Theme</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/assignment/" rel="tag">assignment</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/course-javascript/" rel="tag">course,javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/draft/" rel="tag">draft</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-engine/" rel="tag">javascript engine</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mdn/" rel="tag">mdn</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/type/" rel="tag">type</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/types/" rel="tag">types</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Babel/" style="font-size: 10px;">Babel</a> <a href="/tags/Blog/" style="font-size: 12.5px;">Blog</a> <a href="/tags/Browser/" style="font-size: 15px;">Browser</a> <a href="/tags/Critical-Rendering-path/" style="font-size: 10px;">Critical Rendering path</a> <a href="/tags/ECMAScript/" style="font-size: 15px;">ECMAScript</a> <a href="/tags/ECMAScript-2015/" style="font-size: 10px;">ECMAScript 2015</a> <a href="/tags/ECMAScript-6/" style="font-size: 10px;">ECMAScript 6</a> <a href="/tags/ES2015/" style="font-size: 10px;">ES2015</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Hello-World/" style="font-size: 10px;">Hello World</a> <a href="/tags/Hexo/" style="font-size: 17.5px;">Hexo</a> <a href="/tags/Rendering/" style="font-size: 10px;">Rendering</a> <a href="/tags/Renewal/" style="font-size: 10px;">Renewal</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/Theme/" style="font-size: 12.5px;">Theme</a> <a href="/tags/assignment/" style="font-size: 10px;">assignment</a> <a href="/tags/course-javascript/" style="font-size: 10px;">course,javascript</a> <a href="/tags/draft/" style="font-size: 10px;">draft</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-engine/" style="font-size: 10px;">javascript engine</a> <a href="/tags/mdn/" style="font-size: 15px;">mdn</a> <a href="/tags/type/" style="font-size: 12.5px;">type</a> <a href="/tags/types/" style="font-size: 12.5px;">types</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Joontae Kim</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'joontae-kim';
+    
+    
+    var disqus_url = 'https://joontae-kim.github.io/2020/10/11/javascript-types-intro/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
