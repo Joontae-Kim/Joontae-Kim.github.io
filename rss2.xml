@@ -9,8 +9,72 @@
     <atom:link href="https://joontae-kim.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>내가 볼려고 만든 깃헙 블로그</description>
-    <pubDate>Sun, 11 Oct 2020 17:43:06 GMT</pubDate>
+    <pubDate>Tue, 13 Oct 2020 17:50:34 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Dev To Read</title>
+      <link>https://joontae-kim.github.io/2020/10/14/Blog-to-read/</link>
+      <guid>https://joontae-kim.github.io/2020/10/14/Blog-to-read/</guid>
+      <pubDate>Tue, 13 Oct 2020 17:40:15 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;Blog-To-Read-In-Dev&quot;&gt;&lt;a href=&quot;#Blog-To-Read-In-Dev&quot; class=&quot;headerlink&quot; title=&quot;Blog To Read In Dev&quot;&gt;&lt;/a&gt;Blog To Read In Dev&lt;/h3&gt;&lt;ul&gt;
+</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="Blog-To-Read-In-Dev"><a href="#Blog-To-Read-In-Dev" class="headerlink" title="Blog To Read In Dev"></a>Blog To Read In Dev</h3><ul><li>Blocking-NonBlocking-Synchronous-Asynchronous<ul><li><a href="https://homoefficio.github.io/2017/02/19/Blocking-NonBlocking-Synchronous-Asynchronous/">https://homoefficio.github.io/2017/02/19/Blocking-NonBlocking-Synchronous-Asynchronous/</a></li></ul></li><li>GET이냐 POST냐 그것이 문제로다<ul><li><a href="https://homoefficio.github.io/2019/12/25/GET%EC%9D%B4%EB%83%90-POST%EB%83%90-%EA%B7%B8%EA%B2%83%EC%9D%B4-%EB%AC%B8%EC%A0%9C%EB%A1%9C%EB%8B%A4/">https://homoefficio.github.io/2019/12/25/GET%EC%9D%B4%EB%83%90-POST%EB%83%90-%EA%B7%B8%EA%B2%83%EC%9D%B4-%EB%AC%B8%EC%A0%9C%EB%A1%9C%EB%8B%A4/</a></li></ul></li><li>객체 지향 프로그래밍과 메시징<ul><li><a href="https://homoefficio.github.io/2019/07/04/%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EA%B3%BC-%EB%A9%94%EC%8B%9C%EC%A7%95/">https://homoefficio.github.io/2019/07/04/%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EA%B3%BC-%EB%A9%94%EC%8B%9C%EC%A7%95/</a></li></ul></li><li>Back to the Essence - Concurrency vs Parallelism<ul><li><a href="https://homoefficio.github.io/2019/02/02/Back-to-the-Essence-Concurrency-vs-Parallelism/">https://homoefficio.github.io/2019/02/02/Back-to-the-Essence-Concurrency-vs-Parallelism/</a></li></ul></li><li>Client-Side Rendering (CSR)<ul><li><a href="https://advancedweb.dev/client-side-rendering">https://advancedweb.dev/client-side-rendering</a></li></ul></li><li>Cracking The Frontend interview, Part 4: Javascript<ul><li><a href="https://advancedweb.dev/frontend-interview-part-4-javascript">https://advancedweb.dev/frontend-interview-part-4-javascript</a></li></ul></li><li>Intro to ES6<ul><li><a href="https://andrew.hedges.name/es6/">https://andrew.hedges.name/es6/</a></li></ul></li><li>Introducing the new features that ECMAScript 2016 (ES7) adds to JavaScript<ul><li><a href="https://www.freecodecamp.org/news/ecmascript-2016-es7-features-86903c5cab70/">https://www.freecodecamp.org/news/ecmascript-2016-es7-features-86903c5cab70/</a></li></ul></li></ul>]]></content:encoded>
+      
+      
+      <category domain="https://joontae-kim.github.io/categories/Blog/">Blog</category>
+      
+      <category domain="https://joontae-kim.github.io/categories/Blog/Blog-To-Read/">Blog To Read</category>
+      
+      
+      
+      <comments>https://joontae-kim.github.io/2020/10/14/Blog-to-read/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>자바스크립트 실행 컨텍스트(Execution Context)</title>
+      <link>https://joontae-kim.github.io/2020/10/12/excution-context/</link>
+      <guid>https://joontae-kim.github.io/2020/10/12/excution-context/</guid>
+      <pubDate>Mon, 12 Oct 2020 07:25:31 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;&lt;img src=&quot;/images/javascript.png&quot; alt=&quot;Javascript&quot;&gt;&lt;/p&gt;
+&lt;p&gt;기본적으로 Front-End 개발자라면 Javascript를 통해 각종 기능을 개발하고 그 안에는 UI 제어, 사용자 데이터 처리 또는 연산</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p><img src="/images/javascript.png" alt="Javascript"></p><p>기본적으로 Front-End 개발자라면 Javascript를 통해 각종 기능을 개발하고 그 안에는 UI 제어, 사용자 데이터 처리 또는 연산 그리고 서버와의 데이터 통신 등이 있을것이다. 그렇다면 이러한 기능들은 Javascript 엔진에서는 어떤 환경에서 어떻게 실행되는것일까? </p><p>그 중심에는 이번에 다룰 Javascript의 핵심원리인 실행 컨텍스트(Execution Context)가 있으며 Scope, Hoisting, this, function, closure 등의 동작원리를 담고 있는 총체적 개념이라고 할 수 있다.</p><p>그렇다면 실행 컨텍스트란 무엇이며, 어떠한 구조로 이루어져 있고, 어떻게 작동하는지 알아보자.</p><h2 id="실행-컨텍스트-Execution-Context"><a href="#실행-컨텍스트-Execution-Context" class="headerlink" title="실행 컨텍스트 (Execution Context)"></a>실행 컨텍스트 (Execution Context)</h2><p>서두에서 말했듯이 <strong><em>실행 컨텍스트</em></strong> 란 Javascript의 핵심원리로서, 실행 가능한 코드를 <strong>형상화</strong> 하고 <strong>구분</strong> 하는 추상적인 개념으로 코드가 실행되고 있는 <strong>구역 또는 범위</strong>라고 정의할 수 있다.</p><p>Javascript 엔진은 코드를 실행하기 위해 여러가지 정보를 알고 있어야 하며 다음에 얘기할 <strong>실행 컨텍스트의 유형</strong>에 따라서 달라질 수 있음을 기억하고 있어야 한다.</p><ul><li>Variable: 전역 변수, 지역 변수, 매개 변수, 객체의 프로퍼티</li><li>Argument(인자) 객체</li><li>Scope (변수의 유효범위)</li><li>This</li></ul><p>위와 같이 실행에 필요한 정보를 형상화하고 구분하기 위해서 JS 엔진은 실행 컨텍스트를 물리적 객체의 형태로 관리.</p><h2 id="실행-컨텍스트의-유형"><a href="#실행-컨텍스트의-유형" class="headerlink" title="실행 컨텍스트의 유형"></a>실행 컨텍스트의 유형</h2><p><strong>실행 구역 또는 범위</strong>에 따라 실행 컨텍스트의 유형을 구분할 수 있음</p><ol><li>전역 컨텍스트 (Global Execution Context)</li><li>함수 컨텍스트 (Functional Execution Context)</li><li>Eval 함수 컨텍스트 (Eval Function Execution Context)</li></ol><h4 id="전역-컨텍스트-Global-Execution-Context"><a href="#전역-컨텍스트-Global-Execution-Context" class="headerlink" title="전역 컨텍스트 (Global Execution Context)"></a>전역 컨텍스트 (Global Execution Context)</h4><p>실행 컨텍스트의 가장 기초가 되는 구간 또는 범위로, <code>함수</code> 구간 안에서 실행되는 코드가 아니라면 대부분 전역 컨텍스트 안에서 실행된다. 전역 컨텍스트에서는  두 가지 작업이 발생된다.</p><ol><li><code>window</code> 객체인 전역 컨텍스트 생성</li><li><code>this</code> 를 전역 객체로 할당</li></ol><h4 id="함수-컨텍스트-Functional-Execution-Context"><a href="#함수-컨텍스트-Functional-Execution-Context" class="headerlink" title="함수 컨텍스트 (Functional Execution Context)"></a>함수 컨텍스트 (Functional Execution Context)</h4><p>함수가 실행될때마다 해당 함수의 실행 컨텍스트가 생성된다. 즉, <code>호출</code> 이 발생될때마다 각 함수의 함수 컨텍스트가 생성되는 것이다.</p><h4 id="Eval-함수-컨텍스트-Eval-Function-Execution-Context"><a href="#Eval-함수-컨텍스트-Eval-Function-Execution-Context" class="headerlink" title="Eval 함수 컨텍스트 (Eval Function Execution Context)"></a>Eval 함수 컨텍스트 (Eval Function Execution Context)</h4><p><code>eval</code> 함수 또한 함수 컨텍스트와 동일하게 실행 컨텍스트를 갖지만 많이 사용하지 않는 함수이며 지양해야할 기능이므로 생략하겠다.</p><h2 id="실행-컨텍스트의-생성과-실행-관리"><a href="#실행-컨텍스트의-생성과-실행-관리" class="headerlink" title="실행 컨텍스트의 생성과 실행 관리"></a>실행 컨텍스트의 생성과 실행 관리</h2><p>실행 컨텍스트의 생성 및 실행을 이해하기 위해서는 <strong>실행 스택(Execution Stack)</strong> 과 <strong>제어권(Control)</strong> 에 대한 개념을 숙지해야한다.</p><p>먼저 <strong>호출 스택(Execution Stack)</strong> 이란 다른 언어 또는 파트에서도 나오는 <em>호출 스택(Call Stack)*과 같은 *</em>LIFO (Last In, First Out)** 의 자료구조로 코드 또는 함수가 실행되면서 생성되는 각각의 <strong>실행 컨텍스트를 저장하는 구조적 집합체</strong> 이다.</p><p>Javascript 엔진이 <code> script</code> 태그를 만나면,</p><ol><li>실행 가능한 코드로 <strong>제어권(control)</strong> 이 이동하면 논리적 스택 구조를 가지는 빈 실행 컨텍스트 스택이 생성</li><li><strong>제어권</strong> 이 전역 코드로 이동하면 <strong>전역 실행 컨텍스트</strong> 가 생성되며 비어있는 컨텍스트 스택에 <em>push</em></li><li>그리고 전역환경에서 함수를 호출하면 <strong>제어권</strong> 이 함수 코드로 이동하면서 호출된 함수의 <strong>함수 컨텍스트</strong> 가 생성 및 <strong>실행 스택</strong>에 <em>push</em>. 즉, 스택의 가장 마지막 순서로 <em>삽입됨</em></li><li>Javascript 엔진은 <strong>실행 스택</strong> 에서 가장 상단에 있는 <strong>실행 컨텍스트</strong> 부터 <em>실행</em></li><li>각 <strong>실행 컨텍스트</strong> 가 종료되고 나면 <strong>실행 스택</strong> 에서 <em>제거 (pop)</em> 되고, <strong><em>LIFO</em></strong>의 순서에 맞춰서 <strong>제어권</strong>이 이동한다.</li></ol><h5 id="아래의-예제를-보자"><a href="#아래의-예제를-보자" class="headerlink" title="아래의 예제를 보자"></a>아래의 예제를 보자</h5><p>우리는 <code>main.js</code> 라는 javascript file을 갖고 있으며 <code>script</code> 태그를 통해 첨부했다고 가정하자. </p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 전역 context</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// sum 함수 context</span></span><br><span class="line">  <span class="keyword">var</span> c = <span class="number">3</span>;</span><br><span class="line">  <span class="keyword">var</span> d = a + b + c;</span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">print</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// print 함수 context</span></span><br><span class="line">    <span class="built_in">console</span>.log(d)</span><br><span class="line">  &#125;</span><br><span class="line">  print();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sum()</span><br></pre></td></tr></table></figure><p><img src="/images/execution_stack.png" alt="[실행 스택 예시]"></p><p><code>main.js</code> 가 로드되면서 Javascript 엔진은 <strong>실행 스택</strong> 을 아래와 같이 분석 및 구분할 것이며 이는 그림 <strong><em>[실행 스택 예시]</em></strong> 와 같을 것이다. <em>(초기 컨텍스트 스택 순서는 생략)</em></p><ol><li><strong>전역 컨텍스트</strong>가 호출되면서 <strong>전역 실행 컨텍스트</strong>가 <strong>실행 스택</strong>에  <em>push</em> 되고</li><li><strong>sum 함수</strong>가 호출 및 실행되면서 sum 함수의 <strong>함수 실행 컨텍스트</strong>가 <strong>실행 스택</strong>에 <em>push</em> </li><li><strong>print 함수</strong>가 호출 및 실행되면서 print 함수의 <strong>함수 실행 컨텍스트</strong>를 <strong>실행 스택</strong>에 push. 그리고 실행이 끝나면 print 함수의 <strong>함수 실행 컨텍스트</strong>는 pop (제거)</li><li>sum 함수의 실행 또한 완료되며 <strong>함수 실행 컨텍스트</strong>가 pop (제거)</li><li><strong>전역 실행 컨텍스트</strong> 만 남게된다. </li></ol><p>여기까지 실행 컨텍스트는 무엇이며 그 유형과 Javascript 엔진이 실행 컨텍스트를 어떻게 생성하고 관리하는지 알아보았습니다. 다음 포스팅에서는 실행 컨텍스트에 대한 구조와 예시에 대해 다뤄보도록 하겠습니다.</p><hr><h2 id="참조"><a href="#참조" class="headerlink" title="참조"></a>참조</h2><ul><li><a href="https://blog.bitsrc.io/understanding-execution-context-and-execution-stack-in-javascript-1c9ea8642dd0">Understanding Execution Context and Execution Stack in Javascript</a></li><li><a href="http://ecma-international.org/ecma-262/6.0/#sec-executable-code-and-execution-contexts">Executable Code and Execution Contexts - ecma-262 from ECMAScript</a></li><li><a href="https://iamsjy17.github.io/javascript/2019/06/10/js33_execution_context.html">[Javascript] Execution Context와 Lexical Environment - https://iamsjy17.github.io</a></li><li><a href="https://velog.io/@imacoolgirlyo/JS-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%9D%98-Hoisting-The-Execution-Context-%ED%98%B8%EC%9D%B4%EC%8A%A4%ED%8C%85-%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8-6bjsmmlmgy">[JS] 자바스크립트의 The Execution Context (실행 컨텍스트) 와 Hoisting (호이스팅) - https://velog.io/@imacoolgirlyo</a></li><li><a href="https://meetup.toast.com/posts/129">자바스크립트 함수 (3) - Lexical Environment - meetup.toast.com</a></li><li><a href="https://meetup.toast.com/posts/86">자바스크립트의 스코프와 클로저 - meetup.toast.com</a></li></ul>]]></content:encoded>
+      
+      
+      <category domain="https://joontae-kim.github.io/categories/Programming/">Programming</category>
+      
+      <category domain="https://joontae-kim.github.io/categories/Programming/Javascript/">Javascript</category>
+      
+      
+      <category domain="https://joontae-kim.github.io/tags/javascript/">javascript</category>
+      
+      <category domain="https://joontae-kim.github.io/tags/javascript-engine/">javascript engine</category>
+      
+      <category domain="https://joontae-kim.github.io/tags/execution-context/">execution context</category>
+      
+      <category domain="https://joontae-kim.github.io/tags/execution/">execution</category>
+      
+      <category domain="https://joontae-kim.github.io/tags/context/">context</category>
+      
+      
+      <comments>https://joontae-kim.github.io/2020/10/12/excution-context/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>데이터 유형 (type)</title>
