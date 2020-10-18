@@ -9,11 +9,11 @@
     <atom:link href="https://joontae-kim.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>내가 볼려고 만든 깃헙 블로그</description>
-    <pubDate>Sun, 18 Oct 2020 11:30:32 GMT</pubDate>
+    <pubDate>Sun, 18 Oct 2020 11:34:05 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>자바스크립트 실행 컨텍스트(Executionz Context) 2 - 정의와 구조</title>
+      <title>자바스크립트 실행 컨텍스트(Execution Context) 2 - 정의와 구조</title>
       <link>https://joontae-kim.github.io/2020/10/15/excution-context-2/</link>
       <guid>https://joontae-kim.github.io/2020/10/15/excution-context-2/</guid>
       <pubDate>Wed, 14 Oct 2020 16:40:35 GMT</pubDate>
