@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://joontae-kim.github.io/images/javascript.png">
 <meta property="article:published_time" content="2020-10-14T16:40:35.000Z">
-<meta property="article:modified_time" content="2020-10-18T11:34:05.343Z">
+<meta property="article:modified_time" content="2020-10-18T18:08:20.689Z">
 <meta property="article:author" content="Joontae Kim">
 <meta property="article:tag" content="javascript">
 <meta property="article:tag" content="javascript engine">
@@ -206,7 +206,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2020/10/15/excution-context-2/" class="article-date">
-     <time datetime="2020-10-18T11:34:05.343Z" itemprop="dateModified">2020-10-18</time>
+     <time datetime="2020-10-18T18:08:20.689Z" itemprop="dateModified">2020-10-19</time>
   </a>
 </div>
 
@@ -234,7 +234,6 @@ ga('send', 'pageview');
             
 
             <p>실행 컨텍스트 관련 첫번째 포스트인 <a href="https://joontae-kim.github.io/2020/10/12/excution-context/">자바스크립트 실행 컨텍스트(Execution Context)</a> 에서는 실행 컨텍스트란 무엇인지 그리고 유형은 어떠한 것들이 있으며  Javascript 엔진이 실행 컨텍스트를 어떻게 관리하는지 알아보았습니다. 이번 포스트에서는 Javascript 엔진이 실행 컨텍스트를 어떻게 생성하며 실행 컨텍스트는 어떠한 구조로 이루어져 있는지 알아보겠습니다.</p>
-<p>s</p>
 <p>실행 컨텍스트의 물리적 구조를 설명하기에 앞서 일부 블로그의 내용이 ECMAScript의 ES5 이전의 개념으로 작성되어 있었습니다. 그래서 ES5 이전의 내용과 ES5 이후의 구조를 비교하기 위해 많은 블로그와 ECMAScript 의 공식 문서(ecma-262)의 <a target="_blank" rel="noopener" href="http://ecma-international.org/ecma-262/6.0/#sec-executable-code-and-execution-contexts">Executable Code and Execution Contexts</a> 내용을 참고하였고 용어 및 구조에 있어서 변경사항이 있었습니다.</p>
 <h2 id="ES5-이전과-이후"><a href="#ES5-이전과-이후" class="headerlink" title="ES5 이전과 이후"></a>ES5 이전과 이후</h2><p>ES5 이전과 이후의 차이가 크진 않습니다. 그러나 최신 스펙으로 공부하고 알고 있는것이 맞다고 생각되었고 짧게나마 제가 공부하면서 알게된 변경사항에 대해 정리해보았습니다.</p>
 <h4 id="실행-컨텍스트를-실행하기-위해-보유하는-프로퍼티"><a href="#실행-컨텍스트를-실행하기-위해-보유하는-프로퍼티" class="headerlink" title="실행 컨텍스트를 실행하기 위해 보유하는 프로퍼티"></a>실행 컨텍스트를 실행하기 위해 보유하는 프로퍼티</h4><ul>
@@ -272,7 +271,7 @@ ga('send', 'pageview');
 <li>Logical nesting of Lexical Environment values</li>
 </ul>
 </li>
-<li><strong>Chain(사슬)</strong> 의 구조보다는 <strong>nesting(중첩)</strong> 의 의미를 강조하기 위해 바뀐듯 하다.</li>
+<li><strong>Chain(사슬)</strong> 의 구조보다는 <strong>nesting(중첩)</strong> 의 의미를 강조에 의미를 둠</li>
 </ul>
 <h2 id="실행-컨텍스트와-그-구조"><a href="#실행-컨텍스트와-그-구조" class="headerlink" title="실행 컨텍스트와 그 구조"></a>실행 컨텍스트와 그 구조</h2><p>실행 컨텍스트 1편인 <a href="https://joontae-kim.github.io/2020/10/12/excution-context/">자바스크립트 실행 컨텍스트(Execution Context)</a> 에서 정의했듯이 “실행 가능한 코드를 <strong>형상화</strong> 하고 <strong>구분</strong> 하는 추상적인 개념으로 코드가 실행되고 있는 <strong>구역 또는 범위</strong>“ 로써 각 실행 컨텍스트는 아래와 같은 모양을 갖으며 이는 ES5 이전의 구조인 실행 컨텍스트 안에 3개의 프로퍼티(변수객체(Variable Object), Scope Chain, this Object)를 갖는 구조와 다르다.</p>
 <p><img src="/images/Execution_context_construction.png" alt="Execution context 구조"></p>
@@ -340,11 +339,11 @@ ga('send', 'pageview');
 </li>
 </ul>
 <p>ES6 에서 LexicalEnvironment와 VariableEnvironment 둘의 차이점은 전자가 함수 선언과 변수 (<code>let</code>과 <code>const</code>)의 바인딩을 저장하고 후자는 변수 <code>var</code> 만 저장한다.</p>
-<h4 id="4-정리-실행-컨텍스트의-구조"><a href="#4-정리-실행-컨텍스트의-구조" class="headerlink" title="4. 정리 - 실행 컨텍스트의 구조"></a>4. 정리 - 실행 컨텍스트의 구조</h4><h5 id="실행-컨텍스트-하위-구조"><a href="#실행-컨텍스트-하위-구조" class="headerlink" title="실행 컨텍스트 하위 구조"></a>실행 컨텍스트 하위 구조</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ExecutionContext = &#123;</span><br><span class="line">  LexicalEnvironment = <span class="xml"><span class="tag">&lt;<span class="name">ref.</span> <span class="attr">to</span> <span class="attr">LexicalEnvironment</span> <span class="attr">in</span> <span class="attr">memory</span>&gt;</span>,</span></span><br><span class="line">  VariableEnvironment = &lt;ref. to VariableEnvironment in  memory&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-정리-실행-컨텍스트의-구조"><a href="#4-정리-실행-컨텍스트의-구조" class="headerlink" title="4. 정리 - 실행 컨텍스트의 구조"></a>4. 정리 - 실행 컨텍스트의 구조</h4><h5 id="실행-컨텍스트-하위-구조"><a href="#실행-컨텍스트-하위-구조" class="headerlink" title="실행 컨텍스트 하위 구조"></a>실행 컨텍스트 하위 구조</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ExecutionContext &#x3D; &#123;</span><br><span class="line">  LexicalEnvironment &#x3D; &lt;ref. to LexicalEnvironment in memory&gt;,</span><br><span class="line">  VariableEnvironment &#x3D; &lt;ref. to VariableEnvironment in  memory&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h5 id="Lexical-Environment-구조"><a href="#Lexical-Environment-구조" class="headerlink" title="Lexical Environment 구조"></a>Lexical Environment 구조</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Lexical Environment = &#123;</span><br><span class="line">	Outer Environment Reference,</span><br><span class="line">	Environment Record: &#123;</span><br><span class="line">    <span class="built_in">Object</span> Environment Record</span><br><span class="line">    Declarative Environment Record: &#123;</span><br><span class="line">      <span class="built_in">Function</span> Environment Record</span><br><span class="line">      Module Environment Record</span><br><span class="line">		&#125;,</span><br><span class="line">  	This Binding</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="Lexical-Environment-구조"><a href="#Lexical-Environment-구조" class="headerlink" title="Lexical Environment 구조"></a>Lexical Environment 구조</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Lexical Environment &#x3D; &#123;</span><br><span class="line">  Outer Environment Reference,</span><br><span class="line">  Environment Record: &#123;</span><br><span class="line">    Object Environment Record,</span><br><span class="line">    Declarative Environment Record: &#123;</span><br><span class="line">      Function Environment Record,</span><br><span class="line">      Module Environment Record</span><br><span class="line">    &#125;,</span><br><span class="line">    This Binding</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h5 id="Variable-Environment-구조"><a href="#Variable-Environment-구조" class="headerlink" title="Variable Environment 구조"></a>Variable Environment 구조</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">EnvironmentRecord: &#123;</span><br><span class="line">	Outer Environment Reference,</span><br><span class="line">	Environment Record: &#123;</span><br><span class="line">    <span class="built_in">Object</span> Environment Record</span><br><span class="line">    Declarative Environment Record,</span><br><span class="line">  	This Binding</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="Variable-Environment-구조"><a href="#Variable-Environment-구조" class="headerlink" title="Variable Environment 구조"></a>Variable Environment 구조</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">EnvironmentRecord: &#123;</span><br><span class="line">  Outer Environment Reference,</span><br><span class="line">  Environment Record: &#123;</span><br><span class="line">    Object Environment Record,</span><br><span class="line">    Declarative Environment Record,</span><br><span class="line">    This Binding</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -435,10 +434,10 @@ ga('send', 'pageview');
         "genre": "Programming Javascript",
         "datePublished": "2020-10-15",
         "dateCreated": "2020-10-15",
-        "dateModified": "2020-10-18",
+        "dateModified": "2020-10-19",
         "url": "https://joontae-kim.github.io/2020/10/15/excution-context-2/",
         "description": "실행 컨텍스트 관련 첫번째 포스트인 자바스크립트 실행 컨텍스트(Execution Context) 에서는 실행 컨텍스트란 무엇인지 그리고 유형은 어떠한 것들이 있으며  Javascript 엔진이 실행 컨텍스트를 어떻게 관리하는지 알아보았습니다. 이번 포스트에서는 Javascript 엔진이 실행 컨텍스트를 어떻게 생성하며 실행 컨텍스트는 어떠한 구조로 이루어져",
-        "wordCount": 1153
+        "wordCount": 1162
     }
 </script>
 
