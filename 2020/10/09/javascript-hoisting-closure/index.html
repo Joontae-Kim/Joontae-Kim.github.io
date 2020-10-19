@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>변수, 스코프 그리고 호이스팅 in Javascript | dev and dev</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="javascript,Variable,Hoisting,Scope" />
+    
+    <meta name="description" content="직전 3개의 포스트는 사실 Javascript의 스코프와 호이스팅을 더 잘 이해하기 위한 Javascipt 엔진의 함수와 변수를 처리하는 실행 컨텍스트에 대해 공부해봤습니다. 사실 이전 (블로그를 리뉴얼하기 전에도) 다룬적 있지만 사실 그땐 음.. 이해했다기 보단 그저 암기를 했다고 생각했습니다. 그렇다면… 이번에는 잘 이해할 수 있을지 궁금합니다. 이번">
+<meta property="og:type" content="article">
+<meta property="og:title" content="변수, 스코프 그리고 호이스팅 in Javascript">
+<meta property="og:url" content="https://joontae-kim.github.io/2020/10/09/javascript-hoisting-closure/index.html">
+<meta property="og:site_name" content="dev and dev">
+<meta property="og:description" content="직전 3개의 포스트는 사실 Javascript의 스코프와 호이스팅을 더 잘 이해하기 위한 Javascipt 엔진의 함수와 변수를 처리하는 실행 컨텍스트에 대해 공부해봤습니다. 사실 이전 (블로그를 리뉴얼하기 전에도) 다룬적 있지만 사실 그땐 음.. 이해했다기 보단 그저 암기를 했다고 생각했습니다. 그렇다면… 이번에는 잘 이해할 수 있을지 궁금합니다. 이번">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://joontae-kim.github.io/images/javascript.png">
+<meta property="article:published_time" content="2020-10-09T04:10:52.000Z">
+<meta property="article:modified_time" content="2020-10-19T19:20:22.077Z">
+<meta property="article:author" content="Joontae Kim">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="Variable">
+<meta property="article:tag" content="Hoisting">
+<meta property="article:tag" content="Scope">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://joontae-kim.github.io/images/javascript.png">
+    
+    <link rel="canonical" href="https://joontae-kim.github.io/2020/10/09/javascript-hoisting-closure/"/>
+
+    
+        <link rel="alternate" href="/" title="dev and dev" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.png" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    <!-- 
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+ -->
+    
+<link rel="stylesheet" href="/libs/NanumSquareRound/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-178685368-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/">Blog</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/Blog-To-Read/">Blog To Read</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/Hexo/">Hexo</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Basic/">Basic</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Javascript/">Javascript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/">Web</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/Browser/">Browser</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/assignment/">assignment</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/course/">course</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/course/node-all-in-one/">node_all_in_one</a></li></ul></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/Javascript/">Javascript</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-javascript-hoisting-closure" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        변수, 스코프 그리고 호이스팅 in Javascript
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2020/10/09/javascript-hoisting-closure/" class="article-date">
+       <time datetime="2020-10-09T04:10:52.000Z" itemprop="datePublished">2020-10-09</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2020/10/09/javascript-hoisting-closure/" class="article-date">
+     <time datetime="2020-10-19T19:20:22.077Z" itemprop="dateModified">2020-10-20</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Hoisting/" rel="tag">Hoisting</a>, <a class="tag-link-link" href="/tags/Scope/" rel="tag">Scope</a>, <a class="tag-link-link" href="/tags/Variable/" rel="tag">Variable</a>, <a class="tag-link-link" href="/tags/javascript/" rel="tag">javascript</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="/images/javascript.png" alt="Javascript"></p>
+<p>직전 3개의 포스트는 사실 Javascript의 스코프와 호이스팅을 더 잘 이해하기 위한 Javascipt 엔진의 함수와 변수를 처리하는 실행 컨텍스트에 대해 공부해봤습니다. 사실 이전 (<em>블로그를 리뉴얼하기 전에도</em>) 다룬적 있지만 사실 그땐 음.. 이해했다기 보단 그저 암기를 했다고 생각했습니다. 그렇다면… 이번에는 잘 이해할 수 있을지 궁금합니다.</p>
+<p>이번 주제는 공부하면서 참고했던 <a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/users/taniarascia">Tania Rascia</a> 의 <a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/understanding-hoisting-in-javascript">Understanding Variables, Scope, and Hoisting in JavaScript</a> 를 번역하고 정리해보는 것으로 진행해보겠습니다.</p>
+<p><em>2018년 2월에 게재되었다고 하지만 구독 횟수?가 무려 <strong>143.4k</strong> 이다…</em></p>
+<p><img src="/images/image-20201019191043253.png" alt="image-20201019191043253"></p>
+<hr>
+<h1 id="변수-스코프-호이스팅-이해하기"><a href="#변수-스코프-호이스팅-이해하기" class="headerlink" title="변수, 스코프, 호이스팅 이해하기"></a>변수, 스코프, 호이스팅 이해하기</h1><h3 id="소개"><a href="#소개" class="headerlink" title="소개"></a>소개</h3><p><em>변수 (Variables)</em> 는 많은 프로그래밍 언어에서 기초적인 부분이며 초보 코더(coder)들이 배워야할 첫번째이자 가장 중요한 개념이다.</p>
+<p>Javascript에는 변수의 이름을 지을때 따라야하는 몇가지 규칙 뿐만 아니라 많은 다양한 속성들이 있다. Javascript에서 변수를 선언하기 위해 사용되는 키워드로는 <code>var</code>, <code>let</code> 그리고 <code>const</code> 가 있으며 각 키워드들은 코드가 변수를 다르게 해석하도록 영향을 끼친다.</p>
+<p>이 튜토리얼은 변수는 무엇이며, 선언과 변수명 정하는 법 그리고  <code>var</code>, <code>let</code> 그리고 <code>const</code> 의 차이점을 면밀히 살펴볼 것입니다. 또한, 호이스팅의 효과와 변수의 동작에 대한 전역 그리고 지역 스코프에 대한 중요성도 살펴볼 것입니다.</p>
+<h2 id="변수-이해하기"><a href="#변수-이해하기" class="headerlink" title="변수 이해하기"></a>변수 이해하기</h2><p> <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Variable">변수(variable)</a> 란 값을 저장하기 위해 사용되는 이름을 가진 컨테이너이며, 여러번 참조할지 모르는 일부 정보를 나중에 사용하거나 수정하기 위해 변수 안에 저장할 수 있습니다. Javascript에서 변수에 포함된 값은 숫자, 문자열 또는 객체를 포함하는 특정 <a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/understanding-data-types-in-javascript">JavaScript 데아이터 타입</a> 이 될 수 있습니다.</p>
+<p>오늘날 Javascript의 바탕이 되는 <a target="_blank" rel="noopener" href="http://www.ecma-international.org/ecma-262/6.0/">ECMAScript 2015 (ES6)</a> 언어 스펙 이전에는 오직 <code>var</code>   키워드를 사용하는 것이 변수를 선언하는 유일한 방법이었습니다. 결과적으로 대부분의 낡은 코드와 학습 리소스들은 오직 <code>var</code> 만을 사용할 것입니다. 우리는 <strong>“<code>var</code>, <code>let</code>, and <code>const</code>의 차이점” 섹션</strong> 에서   <code>var</code>, <code>let</code> 그리고 <code>const</code> 키워드의 차이점을 살펴보겠습니다.</p>
+<p>변수 자체의 개념을 설명하기 위해서 우리는 <code>var</code> 을 사용할 수 있습니다. 아래의 예제어서 우리는 변수를 <em>선언할 것</em> 이고, 값을 <em>할당할 것</em> 입니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 문자열 값 Sammy를 username 식별자에 할당합니다.</span></span><br><span class="line"><span class="keyword">var</span> username = <span class="string">&quot;sammy_shark&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>위 문장은 몇 가지 부분으로 구성되어 있습니다:</p>
+<ul>
+<li><code>var</code> 키워드를 사용한 변수 선언</li>
+<li><code>username</code>  변수 이름 (또는 식별자(identifier))</li>
+<li><code>=</code> 문법으로 표현되는 할당 식별자</li>
+<li>할당된 값, <code>sammy_shark</code></li>
+</ul>
+<p>현재 코드상에서 우리는 <code>username</code> 을 사용할 수 있습니다. Javascript는 문자열 값 <code>sammy_shark</code> 을 나타내는 ``username` 을 기억할 것입니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 변수가 값과 동일한지 확인해봅시다</span></span><br><span class="line"><span class="keyword">if</span> (username === <span class="string">&quot;sammy_shark&quot;</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="literal">true</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Output</span></span><br><span class="line"><span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>이전에 언급했던 것처럼, 변수는 Javascript 데이터 타입으로 나타낼 수 있습니다. 예와 같이 우리는 문자열(String), 숫자(Number), 객체(Object), 논리값(Boolean) 그리고 null 값으로 변수를 선언할 수 있습니다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 다양한 변수 할당</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&quot;Sammy&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> spartans = <span class="number">300</span>;</span><br><span class="line"><span class="keyword">var</span> kingdoms = [ <span class="string">&quot;mammals&quot;</span>, <span class="string">&quot;birds&quot;</span>, <span class="string">&quot;fish&quot;</span> ];</span><br><span class="line"><span class="keyword">var</span> poem = &#123; <span class="attr">roses</span>: <span class="string">&quot;red&quot;</span>, <span class="attr">violets</span>: <span class="string">&quot;blue&quot;</span> &#125;;</span><br><span class="line"><span class="keyword">var</span> success = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">var</span> nothing = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+
+<p>우리는 <code>console.log</code> 을 사용해 특정 변수에 담긴 값을 볼 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// spartans 변수를 console에 전송</span></span><br><span class="line"><span class="built_in">console</span>.log(spartans);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Output</span></span><br><span class="line"><span class="number">300</span></span><br></pre></td></tr></table></figure>
+
+<p>변수는 추후에 접근하거나 수정할 수 있는 메모리에 데이터를 저장하고, 또한 새로운 값으로 재할당하거 지정할 수도 있습니다. 아래의 간단한 예제는 비밀번호를 변수에 저장하고 업데이트 하는 방법을 설명합니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// password 변수에 값을 할당</span></span><br><span class="line"><span class="keyword">var</span> password = <span class="string">&quot;hunter2&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 새로운 값을 변수 값에 재할당</span></span><br><span class="line">password = <span class="string">&quot;hunter3&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(password);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Output</span></span><br><span class="line"><span class="string">&#x27;hunter3&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="변수-이름짓기"><a href="#변수-이름짓기" class="headerlink" title="변수 이름짓기"></a>변수 이름짓기</h2><p>변수 이름은 JavaScript에서 <em>식별자 (identifier)</em> 로 알려져있습니다. <a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/understanding-syntax-and-code-structure-in-javascript">Understanding Syntax and Code Structure in JavaScript</a> 에서 식별자 이름 짓기에 대한 몇 가지 규칙에 대해 논했으며, 아래와 같이 요약할 수 있습니다:</p>
+<ul>
+<li>변수 이름은 오직 문자(<code>a-z</code>), 숫자(<code>0-9</code>), 달러 기호(<code>$</code>) 그리고 언더스코어(<code>_</code>)</li>
+<li>변수 이름은 어떠한 빈칸(tab 또는 space)도 포함할 수 없습니다.</li>
+<li>숫자로 변수 이름을 시작할 수 없습니다.</li>
+<li>변수 이름으로 사용할 수 없는 몇 가지 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Reserved_keywords_as_of_ECMAScript_2015">예약어</a> 가 있습니다.</li>
+<li>변수 이름은 대소문자를 구분합니다.</li>
+</ul>
+<p>또한, JavaScript는 <code>var</code> 또는 <code>let</code> 으로 선언된 함수 또는 변수의 이름에 카멜 케이스(camel case, 때때론 camelCase)를 사용하는 규칙이 있습니다. 이것은 첫번째 글자는 소문자이고 그 이후의 글자는 공백없이 모든 후속 단어의 첫글자를 대문자로 쓰는 관행입니다. 상수(constant)가 아닌 대부분의 변수는 몇 가지 예외와 함께 이 규칙을 따라야합니다.  <code>const</code>  키워드로 선언된 상수(constant)인 변수의 이름은 전형적으로 모두 대문자로 작성합니다.</p>
+<p>배워야 할 규칙들이 많아보이겠지만, 이와 같은 관습들은 유효하고 규칙에 맞는 변수 이름을 작성하기 위한 제 2의 본성이 매우 빠르게 될 것입니다.</p>
+<h2 id="var-let-and-const-차이점"><a href="#var-let-and-const-차이점" class="headerlink" title="var, let, and const 차이점"></a><code>var</code>, <code>let</code>, and <code>const</code> 차이점</h2><p>JavaScript는 변수를 선언하기 위해 언어의 복잡성을 더하는 세개의 다른 키워드가 있습니다.  3개의 키워드 차이점은 스코프(scope), 호이스팅(hoisting) 그리고 재할당(reassignment)에 바탕을 두고 있습니다.</p>
+<table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Scope</th>
+<th>Hoisting</th>
+<th>Can Be Reassigned</th>
+<th>Can Be Redeclared</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var"><code>var</code></a></td>
+<td>Function scope</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let"><code>let</code></a></td>
+<td>Block scope</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const"><code>const</code></a></td>
+<td>Block scope</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+</tbody></table>
+<p>여러분은 자신의 프로그램에 세 가지중 어떤 것을 사용해야만 하는지 궁금해할지도 모릅니다. 흔히, 받아들여지는 관행은 가능하 한 <code>const</code> 를, 반복문과 재할당의 경우에는 <code>let</code> 를 사용하도록 하는 것입니다. 일반적으로, <code>var</code> 은 작동하고 있는 레거시 코드 외부에서 피할 수 있습니다.</p>
+<h2 id="Variable-Scope-변수-스코프"><a href="#Variable-Scope-변수-스코프" class="headerlink" title="Variable Scope (변수 스코프)"></a>Variable Scope (변수 스코프)</h2><p>JavaScript에서 <em>Scope</em> 는 JavaScript에게 변수 접근성을 결정하는 코드의 현재 컨텍스트를 참조합니다. 스코프에는 두가지 타입으로, <em>지역(local)</em> 과 <em>전역(global)</em> 이 있습니다.</p>
+<ul>
+<li><strong>Global variables :</strong> 블록 밖에 선언된 변수</li>
+<li><strong>Local variables :</strong> 블록 안에 선언된 변수</li>
+</ul>
+<p>아래 예제처럼, 우리는 전역 변수를 생성할 수 있다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 전역변수 초기화</span></span><br><span class="line"><span class="keyword">var</span> creature = <span class="string">&quot;wolf&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>우리는 변수가 재할당 가능하다고 배웠습니다. 지역 변수를 사용함으로써 우리는 원래 값을 변경하거나 재할당 없이 외부 스코프에 있는 변수와 같은 이름으로 새로운 변수를 생성할 수 있습니다.</p>
+<p>아래 예제에서 우리는 전역 <code>species</code> 변수를 생성했고, 함수 안에 같은 이름으로 지역 변수가 또 있습니다. 이 코드를 콘솔에 전송함으로써 우리는 변수의 값이 스코프에 따라 어떻게 다르며, 원래 값은 변하지 않는다는 것을 볼 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Initialize a global variable</span></span><br><span class="line"><span class="keyword">var</span> species = <span class="string">&quot;human&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">transform</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Initialize a local, function-scoped variable</span></span><br><span class="line">  <span class="keyword">var</span> species = <span class="string">&quot;werewolf&quot;</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(species);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Log the global and local variable</span></span><br><span class="line"><span class="built_in">console</span>.log(species);</span><br><span class="line">transform();</span><br><span class="line"><span class="built_in">console</span>.log(species);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Output</span></span><br><span class="line">human</span><br><span class="line">werewolf</span><br><span class="line">human</span><br></pre></td></tr></table></figure>
+
+<p>예제에서, 지역 변수는 <em>함수 스코프(function-scoped)</em> 이다. <code>var</code> 키워드로 선언된 변수들은 구분된 스코프를 가짐으로써 변수들이 함수를 인지한다는 의미에서 항상 함수 스코프이다. 따라서, 이러한 지역적 스코프 변수는 전역 스코프에서 접근할 수 없다.</p>
+<p>하지만 새로운 키워드인 <code> let</code> 과 <code>const</code> 는 <em>블록 스코프(block-scoped)</em> 인데, 함수 블록, <code>if</code> 구문 그리고 <code>for</code> 과 <code>while</code> 반복문을 포함한 특정 종류의 블록으로 생성된 새로운 지역 스코프를 의미한다.</p>
+<p>함수 스코프(function-scoped)와 블로 스코프(block-scoped) 내 변수의 차이를 형상화하기 위해서  <code> let</code> 을 사용해 <code>if</code> 블록 안에 새로운 변수를 할당할 것 입니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fullMoon = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Initialize a global variable</span></span><br><span class="line"><span class="keyword">let</span> species = <span class="string">&quot;human&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (fullMoon) &#123;</span><br><span class="line">  <span class="comment">// Initialize a block-scoped variable</span></span><br><span class="line">  <span class="keyword">let</span> species = <span class="string">&quot;werewolf&quot;</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`It is a full moon. Lupin is currently a <span class="subst">$&#123;species&#125;</span>.`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`It is not a full moon. Lupin is currently a <span class="subst">$&#123;species&#125;</span>.`</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Output</span></span><br><span class="line">It is a full moon. Lupin is currently a werewolf.</span><br><span class="line">It is not a full moon. Lupin is currently a human.</span><br></pre></td></tr></table></figure>
+
+<p>위 예에서 보듯이, <code>species</code> 변수는 전역적으로 하나의 값(<code>human</code>)만, 지역적으로 <code>werewolf</code> 라는 다른 값을 가집니다. 만약 우리가 <code>var</code> 을 사용했다면, 다른 결과를 만들 것입니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Use var to initialize a variable</span></span><br><span class="line"><span class="keyword">var</span> species = <span class="string">&quot;human&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (fullMoon) &#123;</span><br><span class="line">  <span class="comment">// Attempt to create a new variable in a block</span></span><br><span class="line">  <span class="keyword">var</span> species = <span class="string">&quot;werewolf&quot;</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`It is a full moon. Lupin is currently a <span class="subst">$&#123;species&#125;</span>.`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`It is not a full moon. Lupin is currently a <span class="subst">$&#123;species&#125;</span>.`</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Output</span></span><br><span class="line">It is a full moon. Lupin is currently a werewolf.</span><br><span class="line">It is not a full moon. Lupin is currently a werewolf.</span><br></pre></td></tr></table></figure>
+
+<p>결과적으로, 전역 변수와 블록 스코프 변수 둘다 <code>werewolf</code> 라는 같은 값으로 끝났습니다. 이것은 <code>var</code>  로 새로운 지역 변수를 생성하는 것 대신에, 같은 스코프안에서 같은 변수에 재할당했기 때문입니다. <code>var</code> 은 <code>if</code> 조건문을 다른 부분으로 즉, 새로운 스코프로 인식하지 않습니다. 의도치 않게 변수 값을 덮어쓰는 것과 같은 코드를 덜 생산하기 위해, 일반적으로 블록 스코프로 변수를 선언하기를 추천합니다.</p>
+<h2 id="Hoisting-호이스팅"><a href="#Hoisting-호이스팅" class="headerlink" title="Hoisting (호이스팅)"></a>Hoisting (호이스팅)</h2><p>지금까지 대부분의 예제에서 우리는 변수를 <em>선언하기</em> 위해 <code>var</code> 을 사용했었고, 값으로 <em>초기화</em> 했습니다. 선언과 초기화 이후에 우리는 값을 접근하거나 재할당할 수 있습니다.</p>
+<p>만약 우리가 변수가 선언되고 초기화되기 전에 사용하려고 시도한다면, 이것은 <code>undefined</code> 를 반환할 것입니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 변수가 선언되기 전에 사용 시도</span></span><br><span class="line"><span class="built_in">console</span>.log(x);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 변수 할당</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Output</span></span><br><span class="line"><span class="literal">undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>그러나, 만약 우리가 <code>var</code>  키워드를 생략했다면, 우리는 더이상 변수를 선언할 수 없으며 오직 초기화만 할 수 있을 것입니다. 이것은 <code>ReferenceError</code> 를 반환할 것이고 스크립트의 실행을 중단합니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Attempt to use a variable before declaring it</span></span><br><span class="line"><span class="built_in">console</span>.log(x);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Variable assignment without var</span></span><br><span class="line">x = <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Output</span></span><br><span class="line"><span class="built_in">ReferenceError</span>: x is not defined</span><br></pre></td></tr></table></figure>
+
+<p>이런 이유는 <em>호이스팅(hoisting)</em> 으로, 변수와 함수 선언을 해당 스코프의 가장 위로 옮기는 Javascript의 동작입니다. 초기화가 아닌 실제 선언만 끌어올려지기(hoist) 때문에 첫 번째 예제의 값은 <code>undefined</code> 를 반환합니다.</p>
+<p>이 개념을 더 확실하게 설명하기 위해, Javascript가 실제로 어떻게 해석하는지 아래의 코드에 작성해보았습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 우리가 작성한 코드</span></span><br><span class="line"><span class="built_in">console</span>.log(x);</span><br><span class="line"><span class="keyword">var</span> x = <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript가 해석한 방법</span></span><br><span class="line"><span class="keyword">var</span> x;</span><br><span class="line"><span class="built_in">console</span>.log(x);</span><br><span class="line">x = <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
+
+<p>JavaScript는 스크립트를 실행하기 전에 변수로써 <code>x</code> 를 메모리에 저장한다. 정의되기 전에 여전히 <code>x</code> 를 호출하기 때문에 결과는 <code>100</code> 아닌 <code>undefined</code> 이다. 하지만, <code>ReferenceError</code>  가 발생하지 않고 스크립트가 중단된다. 비록 <code>var</code>  키워드가 실제로 <code>var</code> 의 위치를 변경하지는 않았지만, hoisting의 작동 장식에 대한 유용한 코드입니다. 그러나 이 코드를 작성한 프로그래머가 <code>x</code>의 결과값이 <code>undefined</code> 일때,   <code>true</code> 일 것이라고 예상하기 때문에, 이러한 동작은 이슈를 유발할 수 있습니다.</p>
+<p>또한 다음 예제에서 우리는 호이스팅이 예상치 못한 결과를 어떻게 유발할 수 있는지 볼 수 있습니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 전역 스코프에 변수 x 초기화</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hoist</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 코드 결과에 아무런 영향을 주지 않아야하는 조건문</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="literal">false</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">200</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hoist();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Output</span></span><br><span class="line"><span class="literal">undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>이 예제에서, 우리는 전역적으로 <code>x</code> 에 <code>100</code> 이 되도록 선언했습니다. <code>if</code> 선언문에 따라 <code>x</code> 는 <code>200</code> 으로 변할수도 있었지만 그 조건문이 <code>false</code> 이기 때문에 <code>x</code> 의 값에 영향을 주지 못했습니다. 대신에 <code>x</code> 는 <code>hoist()</code> 함수의 가장 꼭대기로 끌어올려지고, 값은 <code>undefined</code> 가 됐습니다.</p>
+<p>이러한 예상치 못한 작동의 유형은 잠재적으로 프로그램에 버그들을 유발할 수 있습니다. <code>let</code>과 <code>const</code>는 블록 스코프(block-scoped)이기 때문에, 아래와 같이 이러한 문법에서는 끌어올려지지 않을 것입니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Initialize x in the global scope</span></span><br><span class="line"><span class="keyword">let</span> x = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hoist</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Initialize x in the function scope</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="number">3</span> === <span class="number">4</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> x = <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hoist();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Output</span></span><br><span class="line"><span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p><code>var</code> 로 가능한 변수 중복 선언은 <code>let</code> 과 <code>const</code> 에서는 에러를 던질 것입니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// var 으로 선언된 변수 덮어쓰기 시도</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> x = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(x);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Output</span></span><br><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// let 으로 선언된 변수 덮어쓰기 시도</span></span><br><span class="line"><span class="keyword">let</span> y = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">let</span> y = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(y);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Output</span></span><br><span class="line">Uncaught <span class="built_in">SyntaxError</span>: Identifier <span class="string">&#x27;y&#x27;</span> has already been declared</span><br></pre></td></tr></table></figure>
+
+<p>요약하자면, <code>var</code> 로 도입된 변수는 메모리에 변수 선언을 저장하는 Javascript 메커니즘인 호이스팅에 의해 영향을 잠재적으로 받게 됩니다. 이러한 메커니즘은 정의되지 않은 변수가 생길 수 있습니다. <code>let</code> 과 <code>const</code> 의 도입은 변수를 선언하기 전 사용하려고 하거나 한번 이상 선언하려고 할때 에러를 던짐으로써 이러한 이슈를 해결해줍니다.</p>
+<h2 id="Constants-상수"><a href="#Constants-상수" class="headerlink" title="Constants (상수)"></a>Constants (상수)</h2><p>많은 프로그래밍 언어는 값을 수정하거나 변경할 수 없는 <em>상수 (constant)</em> 라는 기능이 있습니다. Javascript에서 <code>const</code> 식별자는 상수(Constants) 이후에 따라서 만들어졌으며, <code>const</code> 에 할당된 값은 재할당할 수 없습니다.</p>
+<p>모든 <code> const</code> 식별자 대문자로 작성하는 것이 일반적인 규범이며 다른 변수 값과 쉽게 구별할 수 있도록 표시합니다.</p>
+<p>아래의 예제에서, 우리는 <code>const</code> 키워드로 상수로써 <code>SPECIES</code> 변수를 초기화했고, 변수를 재할당하려고 할때 결과가 에러일 것입니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// const에 값 할당</span></span><br><span class="line"><span class="keyword">const</span> SPECIES = <span class="string">&quot;human&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 값 재할당 시도</span></span><br><span class="line">SPECIES = <span class="string">&quot;werewolf&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(SPECIES);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Output</span></span><br><span class="line">Uncaught <span class="built_in">TypeError</span>: Assignment to constant variable.</span><br></pre></td></tr></table></figure>
+
+<p><code>const</code> 값은 재할당할 수 없기 때문에, 선언과 초기화가 동시에 될 필요가 있거나 에러를 던질 것입니다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// const 초기화 없이 선언</span></span><br><span class="line"><span class="keyword">const</span> TODO;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(TODO);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Output</span></span><br><span class="line">Uncaught <span class="built_in">SyntaxError</span>: Missing initializer <span class="keyword">in</span> <span class="keyword">const</span> declaration</span><br></pre></td></tr></table></figure>
+
+<p>프로그래밍에서 변경할 수 있는 변수는 <em>mutable (변경 가능한 또는 변하기 쉬운)</em> 인 반면에, 변경할 수 없는 값들은 <em>immutable(불변의)</em> 로 알려져 있습니다. 비록 <code>const</code> 값은 재할당할 수 없지만, <code>const</code> 로 선언된 객체의 속성을 수정하는 것은 변경 가능(mutable)하다.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// CAR 객체에 두개의 속성 생성</span></span><br><span class="line"><span class="keyword">const</span> CAR = &#123;</span><br><span class="line">    color: <span class="string">&quot;blue&quot;</span>,</span><br><span class="line">    price: <span class="number">15000</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// CAR 속성 수정</span></span><br><span class="line">CAR.price = <span class="number">20000</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(CAR);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Output</span></span><br><span class="line">&#123; <span class="attr">color</span>: <span class="string">&#x27;blue&#x27;</span>, <span class="attr">price</span>: <span class="number">20000</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>상수(Constants)는 프로젝트에서 미래의 여러분 자신과 다른 개발자들에게 변수가 재할당될 수 없는 의도를 명확히 하는데 유용합니다. 만약 미래에 변수가 수정될지도 모른다고 예상한다면, 여러분은 대신에  <code>let</code> 을 사용해 변수를 선언하기를 원할 것입니다.</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>튜토리얼에서, 우리는 변수는 무엇이며 변수명 짓기의 규칙과 변수값을 할당하는 법에 대해 살펴봤으며 또한, 스코프(scope) 와 호이스팅(hoisting), <code>var</code> 키워드의 몇가지 한계 뿐만 아니라 <code>let</code> 과 <code>const</code>  가 <code>var</code>  키워드에 의한 이슈들을 해결하는 방법에 대해서도 학습해봤습니다.</p>
+<hr>
+<h2 id="번역을-마치며"><a href="#번역을-마치며" class="headerlink" title="번역을 마치며"></a>번역을 마치며</h2><p>이상 Javascript의 변수와 지역/전역 스코프에 따른 변수 처리 그리고 변수를 선언하기 위한 <code>var</code>, <code>let</code>  그리고 <code>const</code> 키워드의 차이와 각 선언 키워드의 스코프에 대해서 배워봤습니다. </p>
+<p>다음으로는 <a target="_blank" rel="noopener" href="https://ko.javascript.info/closure">ko.javascript.info의 closure</a> 파트의 연습문제를 풀어보며 Javascript의 lexical Environment, 스코프, 호이스팅 그리고 <code>var</code>, <code>let</code>, <code>const</code>  에 대해 복습해보도록 하겠습니다.</p>
+<blockquote>
+<p>본 포스트는  <a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/users/taniarascia">Tania Rascia</a> 의 <a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/understanding-hoisting-in-javascript">Understanding Variables, Scope, and Hoisting in JavaScript</a> 를 번역했음을 알려드립니다.</p>
+</blockquote>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Joontae Kim"
+        },
+        "headline": "변수, 스코프 그리고 호이스팅 in Javascript",
+        "image": "https://joontae-kim.github.io/images/javascript.png",
+        "keywords": "javascript Variable Hoisting Scope",
+        "genre": "Programming Javascript",
+        "datePublished": "2020-10-09",
+        "dateCreated": "2020-10-09",
+        "dateModified": "2020-10-20",
+        "url": "https://joontae-kim.github.io/2020/10/09/javascript-hoisting-closure/",
+        "description": "
+직전 3개의 포스트는 사실 Javascript의 스코프와 호이스팅을 더 잘 이해하기 위한 Javascipt 엔진의 함수와 변수를 처리하는 실행 컨텍스트에 대해 공부해봤습니다. 사실 이전 (블로그를 리뉴얼하기 전에도) 다룬적 있지만 사실 그땐 음.. 이해했다기 보단 그저 암기를 했다고 생각했습니다. 그렇다면… 이번에는 잘 이해할 수 있을지 궁금합니다.
+이번",
+        "wordCount": 2507
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/Joontae-Kim" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/10/11/javascript-types-intro/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            데이터 유형 (type)
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2020/10/09/javascript-types/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">javascript types</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/10/18/execution-context-example/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/javascript.png)" alt="자바스크립트 실행 컨텍스트(Execution Context) 3 - 실행 컨텍스트의 생성과 실행" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Javascript/">Javascript</a></p>
+                            <p class="item-title"><a href="/2020/10/18/execution-context-example/" class="title">자바스크립트 실행 컨텍스트(Execution Context) 3 - 실행 컨텍스트의 생성과 실행</a></p>
+                            <p class="item-date"><time datetime="2020-10-18T11:33:00.000Z" itemprop="datePublished">2020-10-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/10/15/excution-context-2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/javascript.png)" alt="자바스크립트 실행 컨텍스트(Execution Context) 2 - 정의와 구조" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Javascript/">Javascript</a></p>
+                            <p class="item-title"><a href="/2020/10/15/excution-context-2/" class="title">자바스크립트 실행 컨텍스트(Execution Context) 2 - 정의와 구조</a></p>
+                            <p class="item-date"><time datetime="2020-10-14T16:40:35.000Z" itemprop="datePublished">2020-10-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/10/14/Blog-to-read/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Blog/">Blog</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Blog/Blog-To-Read/">Blog To Read</a></p>
+                            <p class="item-title"><a href="/2020/10/14/Blog-to-read/" class="title">Dev To Read</a></p>
+                            <p class="item-date"><time datetime="2020-10-13T17:40:15.000Z" itemprop="datePublished">2020-10-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/10/12/excution-context/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/javascript.png)" alt="자바스크립트 실행 컨텍스트(Execution Context)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Javascript/">Javascript</a></p>
+                            <p class="item-title"><a href="/2020/10/12/excution-context/" class="title">자바스크립트 실행 컨텍스트(Execution Context)</a></p>
+                            <p class="item-date"><time datetime="2020-10-12T07:25:31.000Z" itemprop="datePublished">2020-10-12</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/10/11/javascript-types-intro/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/javascript.png)" alt="데이터 유형 (type)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Basic/">Basic</a></p>
+                            <p class="item-title"><a href="/2020/10/11/javascript-types-intro/" class="title">데이터 유형 (type)</a></p>
+                            <p class="item-date"><time datetime="2020-10-10T20:16:20.000Z" itemprop="datePublished">2020-10-11</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">9</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Babel/" rel="tag">Babel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Browser/" rel="tag">Browser</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Critical-Rendering-path/" rel="tag">Critical Rendering path</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECMAScript/" rel="tag">ECMAScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECMAScript-2015/" rel="tag">ECMAScript 2015</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECMAScript-6/" rel="tag">ECMAScript 6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES2015/" rel="tag">ES2015</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hello-World/" rel="tag">Hello World</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hoisting/" rel="tag">Hoisting</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rendering/" rel="tag">Rendering</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Renewal/" rel="tag">Renewal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scope/" rel="tag">Scope</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theme/" rel="tag">Theme</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Variable/" rel="tag">Variable</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/assignment/" rel="tag">assignment</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/context/" rel="tag">context</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/course-javascript/" rel="tag">course,javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/draft/" rel="tag">draft</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/execution/" rel="tag">execution</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/execution-context/" rel="tag">execution context</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-engine/" rel="tag">javascript engine</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mdn/" rel="tag">mdn</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/type/" rel="tag">type</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/types/" rel="tag">types</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Babel/" style="font-size: 10px;">Babel</a> <a href="/tags/Blog/" style="font-size: 12.5px;">Blog</a> <a href="/tags/Browser/" style="font-size: 15px;">Browser</a> <a href="/tags/Critical-Rendering-path/" style="font-size: 10px;">Critical Rendering path</a> <a href="/tags/ECMAScript/" style="font-size: 15px;">ECMAScript</a> <a href="/tags/ECMAScript-2015/" style="font-size: 10px;">ECMAScript 2015</a> <a href="/tags/ECMAScript-6/" style="font-size: 10px;">ECMAScript 6</a> <a href="/tags/ES2015/" style="font-size: 10px;">ES2015</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Hello-World/" style="font-size: 10px;">Hello World</a> <a href="/tags/Hexo/" style="font-size: 17.5px;">Hexo</a> <a href="/tags/Hoisting/" style="font-size: 10px;">Hoisting</a> <a href="/tags/Rendering/" style="font-size: 10px;">Rendering</a> <a href="/tags/Renewal/" style="font-size: 10px;">Renewal</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/Scope/" style="font-size: 10px;">Scope</a> <a href="/tags/Theme/" style="font-size: 12.5px;">Theme</a> <a href="/tags/Variable/" style="font-size: 10px;">Variable</a> <a href="/tags/assignment/" style="font-size: 10px;">assignment</a> <a href="/tags/context/" style="font-size: 15px;">context</a> <a href="/tags/course-javascript/" style="font-size: 10px;">course,javascript</a> <a href="/tags/draft/" style="font-size: 10px;">draft</a> <a href="/tags/execution/" style="font-size: 15px;">execution</a> <a href="/tags/execution-context/" style="font-size: 15px;">execution context</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-engine/" style="font-size: 17.5px;">javascript engine</a> <a href="/tags/mdn/" style="font-size: 15px;">mdn</a> <a href="/tags/type/" style="font-size: 12.5px;">type</a> <a href="/tags/types/" style="font-size: 12.5px;">types</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2020 Joontae Kim</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'joontae-kim';
+    
+    
+    var disqus_url = 'https://joontae-kim.github.io/2020/10/09/javascript-hoisting-closure/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
