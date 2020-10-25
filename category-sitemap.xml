@@ -9,28 +9,42 @@
 
     <url>
         <loc>https://joontae-kim.github.io/categories/Programming/Javascript/</loc>
-        <lastmod>2020-10-19T19:20:22.077Z</lastmod>
+        <lastmod>2020-10-25T10:36:03.092Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/categories/Programming/</loc>
-        <lastmod>2020-10-19T19:20:22.077Z</lastmod>
+        <lastmod>2020-10-25T10:36:03.092Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/categories/assignment/</loc>
+        <lastmod>2020-10-25T09:41:52.431Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/categories/Blog/Blog-To-Read/</loc>
-        <lastmod>2020-10-13T17:50:34.102Z</lastmod>
+        <lastmod>2020-10-20T16:25:40.185Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/categories/Blog/</loc>
-        <lastmod>2020-10-13T17:50:34.102Z</lastmod>
+        <lastmod>2020-10-20T16:25:40.185Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/categories/Blog/Job/</loc>
+        <lastmod>2020-10-20T04:44:30.025Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -38,13 +52,6 @@
     <url>
         <loc>https://joontae-kim.github.io/categories/Programming/Basic/</loc>
         <lastmod>2020-10-11T17:43:06.704Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/categories/assignment/</loc>
-        <lastmod>2020-10-09T05:57:51.262Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

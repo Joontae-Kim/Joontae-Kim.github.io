@@ -8,6 +8,30 @@
     </url>
 
     <url>
+        <loc>https://joontae-kim.github.io/2020/10/20/js-function/</loc>
+        <lastmod>2020-10-25T10:36:03.092Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/2020/10/14/Blog-to-read/</loc>
+        <lastmod>2020-10-20T16:25:40.185Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/2020/10/20/front-end-interview-link-collection/</loc>
+        <lastmod>2020-10-20T04:44:30.025Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://joontae-kim.github.io/2020/10/09/javascript-hoisting-closure/</loc>
         <lastmod>2020-10-19T19:20:22.077Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -34,14 +58,6 @@
     <url>
         <loc>https://joontae-kim.github.io/2020/10/12/excution-context/</loc>
         <lastmod>2020-10-18T11:21:36.908Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/2020/10/14/Blog-to-read/</loc>
-        <lastmod>2020-10-13T17:50:34.102Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
