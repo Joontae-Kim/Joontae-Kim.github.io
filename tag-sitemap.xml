@@ -3,6 +3,27 @@
 
 
     <url>
+        <loc>https://joontae-kim.github.io/tags/Job/</loc>
+        <lastmod>2020-10-26T07:56:45.782Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/Interview/</loc>
+        <lastmod>2020-10-26T07:56:45.782Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/Front-end/</loc>
+        <lastmod>2020-10-26T07:56:45.782Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://joontae-kim.github.io/tags/arrow-function/</loc>
         <lastmod>2020-10-25T10:36:03.092Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -26,27 +47,6 @@
     <url>
         <loc>https://joontae-kim.github.io/tags/assignment/</loc>
         <lastmod>2020-10-25T09:41:52.431Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/Job/</loc>
-        <lastmod>2020-10-20T04:44:30.025Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/Interview/</loc>
-        <lastmod>2020-10-20T04:44:30.025Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/Front-end/</loc>
-        <lastmod>2020-10-20T04:44:30.025Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
