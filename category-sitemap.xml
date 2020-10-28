@@ -8,6 +8,20 @@
     </url>
 
     <url>
+        <loc>https://joontae-kim.github.io/categories/Programming/Javascript/</loc>
+        <lastmod>2020-10-28T19:19:16.146Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/categories/Programming/</loc>
+        <lastmod>2020-10-28T19:19:16.146Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://joontae-kim.github.io/categories/Blog/Job/</loc>
         <lastmod>2020-10-28T09:06:48.139Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -24,20 +38,6 @@
     <url>
         <loc>https://joontae-kim.github.io/categories/Blog/Blog-To-Read/</loc>
         <lastmod>2020-10-26T05:39:22.488Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/categories/Programming/Javascript/</loc>
-        <lastmod>2020-10-25T10:36:03.092Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/categories/Programming/</loc>
-        <lastmod>2020-10-25T10:36:03.092Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
