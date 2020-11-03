@@ -49,6 +49,7 @@
 .widget strong,
 .article-entry strong {
   font-weight: bold;
+  color: #000;
 }
 .widget em,
 .article-entry em,
@@ -1012,7 +1013,7 @@ code {
   background-image: url("images/thumb-default.png");
 }
 .article-summary .article-summary-inner .article-title {
-  margin-bottom: 10px;
+  margin-bottom: 3px;
   font-size: 22px;
   font-weight: 400;
   line-height: 1.5em;
@@ -1025,10 +1026,14 @@ code {
   transition: color 0.3s ease-in;
   color: #444;
 }
+.article-summary .article-summary-inner .article-subtitle {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
 .article-summary .article-summary-inner .article-excerpt {
   position: relative;
   color: #aaa;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.6em;
   overflow: hidden;
   height: 6.4em;
@@ -1060,9 +1065,22 @@ code {
   -ms-transition: color 0.2s;
   transition: color 0.2s;
   margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 a.article-title:hover {
   color: #006bde;
+}
+.article-subtitle {
+  text-decoration: none;
+  font-size: 19px;
+  letter-spacing: -1px;
+  color: #8f8f8f;
+  line-height: 1.3em;
+  -webkit-transition: color 0.2s;
+  -moz-transition: color 0.2s;
+  -ms-transition: color 0.2s;
+  transition: color 0.2s;
+  margin-bottom: 20px;
 }
 .article-meta {
   line-height: 1.6em;
@@ -1126,6 +1144,9 @@ a.article-title:hover {
 .article-entry table {
   margin: 0.8em 0 1.6em;
 }
+.article-entry p {
+  text-indent: 5px;
+}
 .article-entry h1,
 .article-entry h2,
 .article-entry h3,
@@ -1142,6 +1163,10 @@ a.article-title:hover {
 .article-entry h6 {
   line-height: 1.3em;
   margin: 1.3em 0 0.5em;
+}
+.article-entry h2 {
+  padding-bottom: 3px;
+  border-bottom: 1px solid #efefef;
 }
 .article-entry a {
   color: #006bde;
@@ -1161,10 +1186,27 @@ a.article-title:hover {
   list-style-position: outside;
   padding-left: 1.4em;
 }
-.article-entry ul p,
-.article-entry ol p,
-.article-entry dl p {
+.article-entry ul li > p,
+.article-entry ol li > p,
+.article-entry dl li > p {
   margin: 0;
+  margin-left: -9px;
+}
+.article-entry ul li+li,
+.article-entry ol li+li,
+.article-entry dl li+li {
+  margin-top: 0.25em;
+}
+.article-entry ul li > ul,
+.article-entry ol li > ul,
+.article-entry dl li > ul {
+  margin-left: -10px;
+}
+.article-entry ul li > ul li,
+.article-entry ol li > ul li,
+.article-entry dl li > ul li {
+  text-indent: 5px;
+  list-style-type: circle;
 }
 .article-entry img,
 .article-entry video {
