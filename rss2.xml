@@ -9,8 +9,39 @@
     <atom:link href="https://joontae-kim.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>내가 볼려고 만든 깃헙 블로그</description>
-    <pubDate>Wed, 28 Oct 2020 08:59:49 GMT</pubDate>
+    <pubDate>Wed, 02 Dec 2020 19:19:29 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>TIL-1</title>
+      <link>https://joontae-kim.github.io/2020/12/03/til-1/</link>
+      <guid>https://joontae-kim.github.io/2020/12/03/til-1/</guid>
+      <pubDate>Wed, 02 Dec 2020 18:55:44 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;최근 진행하고 있는 외주 프로젝트에서 이미지 및 js, css 관련 최적화 과정 진행 중 webpack의 압축 관련 설정을 살펴보던 중 참고할만한 링크들을 찾았다.&lt;/p&gt;
+&lt;h3 id=&quot;공식-링크&quot;&gt;&lt;a href=&quot;#공식-링크&quot; class=&quot;he</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p>최근 진행하고 있는 외주 프로젝트에서 이미지 및 js, css 관련 최적화 과정 진행 중 webpack의 압축 관련 설정을 살펴보던 중 참고할만한 링크들을 찾았다.</p><h3 id="공식-링크"><a href="#공식-링크" class="headerlink" title="공식 링크"></a>공식 링크</h3><ul><li><a href="https://webpack.js.org/plugins/compression-webpack-plugin/">https://webpack.js.org/plugins/compression-webpack-plugin/</a></li><li><a href="https://github.com/webpack-contrib/compression-webpack-plugin">https://github.com/webpack-contrib/compression-webpack-plugin</a></li></ul><h5 id="webpack3-버전-compressions-wepack-plugin"><a href="#webpack3-버전-compressions-wepack-plugin" class="headerlink" title="webpack3 버전 compressions-wepack-plugin"></a>webpack3 버전 compressions-wepack-plugin</h5><ul><li><a href="https://webpack-3.cdn.bcebos.com/plugins/compression-webpack-plugin/">https://webpack-3.cdn.bcebos.com/plugins/compression-webpack-plugin/</a></li></ul><h4 id="js-module-for-image-compression"><a href="#js-module-for-image-compression" class="headerlink" title="js module for image compression"></a>js module for image compression</h4><ul><li><a href="https://www.npmjs.com/package/browser-image-compression">https://www.npmjs.com/package/browser-image-compression</a></li><li>demo: <a href="https://donaldcwl.github.io/browser-image-compression/example/basic.html">https://donaldcwl.github.io/browser-image-compression/example/basic.html</a></li></ul><h4 id="webpack-plugin-for-image-compression"><a href="#webpack-plugin-for-image-compression" class="headerlink" title="webpack plugin for image compression"></a>webpack plugin for image compression</h4><ul><li><a href="https://github.com/tcoopman/image-webpack-loader#readme">https://github.com/tcoopman/image-webpack-loader#readme</a></li><li><a href="https://github.com/Klathmon/imagemin-webpack-plugin#readme">https://github.com/Klathmon/imagemin-webpack-plugin#readme</a></li><li>blog<ul><li><a href="https://web.dev/use-imagemin-to-compress-images/">https://web.dev/use-imagemin-to-compress-images/</a></li><li><a href="https://coderrocketfuel.com/article/compress-a-png-image-size-by-up-to-75-percent-with-node-js">https://coderrocketfuel.com/article/compress-a-png-image-size-by-up-to-75-percent-with-node-js</a></li></ul></li></ul><h4 id="webpack-loader-for-image-trace"><a href="#webpack-loader-for-image-trace" class="headerlink" title="webpack loader for image trace"></a>webpack loader for image trace</h4><ul><li><a href="https://github.com/EmilTholin/image-trace-loader#readme">https://github.com/EmilTholin/image-trace-loader#readme</a></li></ul>]]></content:encoded>
+      
+      
+      <category domain="https://joontae-kim.github.io/categories/TIL/">TIL</category>
+      
+      <category domain="https://joontae-kim.github.io/categories/TIL/webpack/">webpack</category>
+      
+      
+      <category domain="https://joontae-kim.github.io/tags/TIL/">TIL</category>
+      
+      <category domain="https://joontae-kim.github.io/tags/webpack/">webpack</category>
+      
+      
+      <comments>https://joontae-kim.github.io/2020/12/03/til-1/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>프론트엔드 면접 질문 리스트 - FE (Browser)</title>
@@ -294,7 +325,7 @@
       
       
       
-      <content:encoded><![CDATA[<h3 id="Blog-To-Read-In-Dev"><a href="#Blog-To-Read-In-Dev" class="headerlink" title="Blog To Read In Dev"></a>Blog To Read In Dev</h3><ul><li><p>Blocking-NonBlocking-Synchronous-Asynchronous</p><ul><li><a href="https://homoefficio.github.io/2017/02/19/Blocking-NonBlocking-Synchronous-Asynchronous/">https://homoefficio.github.io/2017/02/19/Blocking-NonBlocking-Synchronous-Asynchronous/</a></li></ul></li><li><p>GET이냐 POST냐 그것이 문제로다</p><ul><li><a href="https://homoefficio.github.io/2019/12/25/GET%EC%9D%B4%EB%83%90-POST%EB%83%90-%EA%B7%B8%EA%B2%83%EC%9D%B4-%EB%AC%B8%EC%A0%9C%EB%A1%9C%EB%8B%A4/">https://homoefficio.github.io/2019/12/25/GET%EC%9D%B4%EB%83%90-POST%EB%83%90-%EA%B7%B8%EA%B2%83%EC%9D%B4-%EB%AC%B8%EC%A0%9C%EB%A1%9C%EB%8B%A4/</a></li></ul></li><li><p>객체 지향 프로그래밍과 메시징</p><ul><li><a href="https://homoefficio.github.io/2019/07/04/%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EA%B3%BC-%EB%A9%94%EC%8B%9C%EC%A7%95/">https://homoefficio.github.io/2019/07/04/%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EA%B3%BC-%EB%A9%94%EC%8B%9C%EC%A7%95/</a></li></ul></li><li><p>Back to the Essence - Concurrency vs Parallelism</p><ul><li><a href="https://homoefficio.github.io/2019/02/02/Back-to-the-Essence-Concurrency-vs-Parallelism/">https://homoefficio.github.io/2019/02/02/Back-to-the-Essence-Concurrency-vs-Parallelism/</a></li></ul></li><li><p>Client-Side Rendering (CSR)</p><ul><li><a href="https://advancedweb.dev/client-side-rendering">https://advancedweb.dev/client-side-rendering</a></li></ul></li><li><p>Cracking The Frontend interview, Part 4: Javascript</p><ul><li><a href="https://advancedweb.dev/frontend-interview-part-4-javascript">https://advancedweb.dev/frontend-interview-part-4-javascript</a></li></ul></li><li><p>Intro to ES6</p><ul><li><a href="https://andrew.hedges.name/es6/">https://andrew.hedges.name/es6/</a></li></ul></li><li><p>Introducing the new features that ECMAScript 2016 (ES7) adds to JavaScript</p><ul><li><a href="https://www.freecodecamp.org/news/ecmascript-2016-es7-features-86903c5cab70/">https://www.freecodecamp.org/news/ecmascript-2016-es7-features-86903c5cab70/</a></li></ul></li><li><p>2020년 상반기 회고</p><ul><li><a href="https://medium.com/@pks2974/2020%EB%85%84-%EC%83%81%EB%B0%98%EA%B8%B0-%ED%9A%8C%EA%B3%A0-6db69bd77bfe">https://medium.com/@pks2974/2020%EB%85%84-%EC%83%81%EB%B0%98%EA%B8%B0-%ED%9A%8C%EA%B3%A0-6db69bd77bfe</a></li></ul></li><li><p>동기식 처리 모델 vs 비동기식 처리 모델</p><ul><li><a href="https://poiemaweb.com/js-async">https://poiemaweb.com/js-async</a></li></ul></li></ul>]]></content:encoded>
+      <content:encoded><![CDATA[<h3 id="Blog-To-Read-In-Dev"><a href="#Blog-To-Read-In-Dev" class="headerlink" title="Blog To Read In Dev"></a>Blog To Read In Dev</h3><ul><li>Blocking-NonBlocking-Synchronous-Asynchronous<ul><li><a href="https://homoefficio.github.io/2017/02/19/Blocking-NonBlocking-Synchronous-Asynchronous/">https://homoefficio.github.io/2017/02/19/Blocking-NonBlocking-Synchronous-Asynchronous/</a></li></ul></li><li>GET이냐 POST냐 그것이 문제로다<ul><li><a href="https://homoefficio.github.io/2019/12/25/GET%EC%9D%B4%EB%83%90-POST%EB%83%90-%EA%B7%B8%EA%B2%83%EC%9D%B4-%EB%AC%B8%EC%A0%9C%EB%A1%9C%EB%8B%A4/">https://homoefficio.github.io/2019/12/25/GET%EC%9D%B4%EB%83%90-POST%EB%83%90-%EA%B7%B8%EA%B2%83%EC%9D%B4-%EB%AC%B8%EC%A0%9C%EB%A1%9C%EB%8B%A4/</a></li></ul></li><li>객체 지향 프로그래밍과 메시징<ul><li><a href="https://homoefficio.github.io/2019/07/04/%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EA%B3%BC-%EB%A9%94%EC%8B%9C%EC%A7%95/">https://homoefficio.github.io/2019/07/04/%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EA%B3%BC-%EB%A9%94%EC%8B%9C%EC%A7%95/</a></li></ul></li><li>Back to the Essence - Concurrency vs Parallelism<ul><li><a href="https://homoefficio.github.io/2019/02/02/Back-to-the-Essence-Concurrency-vs-Parallelism/">https://homoefficio.github.io/2019/02/02/Back-to-the-Essence-Concurrency-vs-Parallelism/</a></li></ul></li><li>Client-Side Rendering (CSR)<ul><li><a href="https://advancedweb.dev/client-side-rendering">https://advancedweb.dev/client-side-rendering</a></li></ul></li><li>Cracking The Frontend interview, Part 4: Javascript<ul><li><a href="https://advancedweb.dev/frontend-interview-part-4-javascript">https://advancedweb.dev/frontend-interview-part-4-javascript</a></li></ul></li><li>Intro to ES6<ul><li><a href="https://andrew.hedges.name/es6/">https://andrew.hedges.name/es6/</a></li></ul></li><li>Introducing the new features that ECMAScript 2016 (ES7) adds to JavaScript<ul><li><a href="https://www.freecodecamp.org/news/ecmascript-2016-es7-features-86903c5cab70/">https://www.freecodecamp.org/news/ecmascript-2016-es7-features-86903c5cab70/</a></li></ul></li><li>2020년 상반기 회고<ul><li><a href="https://medium.com/@pks2974/2020%EB%85%84-%EC%83%81%EB%B0%98%EA%B8%B0-%ED%9A%8C%EA%B3%A0-6db69bd77bfe">https://medium.com/@pks2974/2020%EB%85%84-%EC%83%81%EB%B0%98%EA%B8%B0-%ED%9A%8C%EA%B3%A0-6db69bd77bfe</a></li></ul></li><li>동기식 처리 모델 vs 비동기식 처리 모델<ul><li><a href="https://poiemaweb.com/js-async">https://poiemaweb.com/js-async</a></li></ul></li><li>[Web] Web Server와 WAS의 차이와 웹 서비스 구조<ul><li><a href="https://gmlwjd9405.github.io/2018/10/27/webserver-vs-was.html">https://gmlwjd9405.github.io/2018/10/27/webserver-vs-was.html</a></li></ul></li><li>What are Node, NPM, NVM, Yarn, Babel, Webpack and Loader<ul><li><a href="https://medium.com/@imsabitaneupane/what-are-node-npm-nvm-yarn-babel-webpack-and-loader-347f10a9a5cf">https://medium.com/@imsabitaneupane/what-are-node-npm-nvm-yarn-babel-webpack-and-loader-347f10a9a5cf</a></li></ul></li></ul>]]></content:encoded>
       
       
       <category domain="https://joontae-kim.github.io/categories/Blog/">Blog</category>
@@ -634,39 +665,6 @@
       
       
       <comments>https://joontae-kim.github.io/2020/10/01/node-all-in-one-javascript-1/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Hexo로 글 작성하기</title>
-      <link>https://joontae-kim.github.io/2020/09/29/hexo-writing/</link>
-      <guid>https://joontae-kim.github.io/2020/09/29/hexo-writing/</guid>
-      <pubDate>Tue, 29 Sep 2020 12:16:43 GMT</pubDate>
-      
-        
-        
-      <description>&lt;p&gt;&lt;img src=&quot;/images/hello_hexo.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;Hexo는 간단하고 파워풀한 프레임워크로써, 마크다운 문법을 통해 포스트를 작성하면 theme와 함께 정적 웹사이트를 만들 수 있습니다. 설치와 설정 그리고 theme 등</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<p><img src="/images/hello_hexo.png"></p><p>Hexo는 간단하고 파워풀한 프레임워크로써, 마크다운 문법을 통해 포스트를 작성하면 theme와 함께 정적 웹사이트를 만들 수 있습니다. 설치와 설정 그리고 theme 등 공식문서를 잘 읽어보면 더 유용한 기능들이 많으며 이번 포스팅에서는 Hexo 명령어를 통해서 글 작성하는 법 즉, 포스트를 생성하고 배포하는 법을 다뤄보겠습니다.</p><h3 id="명령어"><a href="#명령어" class="headerlink" title="명령어"></a>명령어</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> [layout] &lt;title&gt;</span><br><span class="line">hexo <span class="keyword">new</span> &lt;title&gt; <span class="comment">// layout을 생략할 경우 default_layout으로 새로운 마크다운 파일이 생성됨.</span></span><br></pre></td></tr></table></figure><p>Hexo 에서 새 포스트나 페이지를 생성하기 위한 명령어로 기본 <code>layout</code> 은 <strong>post</strong> 이지만 블로그의 <code>_config.yml</code> 에서 <code>default_layout</code> 을 변경하면 기본 생성 layout 유형이 바뀝니다.</p><h3 id="Layout"><a href="#Layout" class="headerlink" title="Layout"></a>Layout</h3><p>Hexo에서는 아래와 같이 3개의 기본 레이아웃을 제공하며 생성된 파일들은 서로 다른 경로에 저장됩니다.</p><table><thead><tr><th>종류</th><th>정의</th><th>생성 경로</th></tr></thead><tbody><tr><td>post</td><td>블로그에 바로 발행 가능한 레이아웃</td><td><code>source/_posts</code></td></tr><tr><td>draft</td><td>post 처럼 바로 게시하지 않고 작성할 수 있는 초안</td><td><code>source/_drafts</code></td></tr><tr><td>page</td><td>post 처럼 하나의 게시물이 아닌 하나의 페이지를 생성</td><td><code>source</code></td></tr></tbody></table><h3 id="Scaffold-레이아웃-파일-생성"><a href="#Scaffold-레이아웃-파일-생성" class="headerlink" title="Scaffold - 레이아웃 파일 생성"></a>Scaffold - 레이아웃 파일 생성</h3><p>포스트 생성 시 Hexo는 <code>scaffolds</code> 폴더 내의 적당한 파일을 기반으로 구성하며 기본적으로 각 레이아웃 이름의 마크다운 문서 이름을 참고한다. 예를 들어 <code>hexo new post &quot;newPost&quot; </code> 라는 명령어는 <code>scaffolds/post</code> 파일의 placeholder를 사용하여 새로운 마크다운 문서를 생성할 수 있습니다.</p><p>예를 들어,  <code>scaffolds/post.md</code> 파일이 아래와 같다면,  <code>hexo new post &quot;newPost&quot; </code>  를 통해 <code>newPost.md</code> 가 생성된</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span> &#123;&#123; <span class="string">title</span> &#125;&#125;</span><br><span class="line"><span class="attr">categories:</span> &#123;&#123; <span class="string">categories</span> &#125;&#125;</span><br><span class="line"><span class="attr">tags:</span> &#123;&#123; <span class="string">tags</span> &#125;&#125;</span><br><span class="line"><span class="attr">date:</span> &#123;&#123; <span class="string">date</span> &#125;&#125;</span><br><span class="line"><span class="attr">thumbnail:</span> &#123;&#123; <span class="string">thumbnail</span> &#125;&#125;</span><br></pre></td></tr></table></figure><p>파일의 <em>placeholder</em> 는 아래와 같이 채워진다. 즉, 레이아웃에 따른 common yaml 포맷 또는 placeholder가 있다면 scaffolds의 레이아웃 폴더에 기재함으로써 편리하고 공통의 포맷을 유지할 수 있다.</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title:</span> <span class="string">newPost</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-09-29 21:16:43</span></span><br><span class="line"><span class="attr">subtitle:</span> </span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line"><span class="attr">thumbnail:</span></span><br></pre></td></tr></table></figure><h3 id="Draft에-대해서"><a href="#Draft에-대해서" class="headerlink" title="Draft에 대해서"></a>Draft에 대해서</h3><p>위에서 설명했듯이 <code>Draft</code>는 바로 게시하지 않고 작성할 수 있는 초안입니다. <code>Draft</code>를 사용하며 편리했던 점은 연속으로 게시해야 되는 포스트를 한번에 작성한 후 순차적으로 게시해야 할때 <code>hexo publish (파일 이름)</code> 명령어로 하나씩 <code>Post</code>로 발행해 배포하면 된다는 점입니다.</p><p>아래는 제가 설정했던 <code>Draft</code> 관련 설정과 명령어 입니다.</p><ul><li><p><strong><code>Draft</code>를 기본 레이아웃으로 변경하기</strong><br>_config.yml에서 <code># Writing</code>이라는 주석처리된 섹션에서 <code>default_layout</code> 필드를 초기값인 <code>post</code>에서 <code>draft</code>로 변경하면 됩니다.<br><img src="https://i.imgur.com/ziwu8zX.png" alt="스크린샷 2018-08-27 오후 7.07.45"></p></li><li><p><strong>로컬 서버에서 <code>Draft</code> 문서 띄우기</strong><br>작성 중인 Draft 문서를 확인할 수 있는데 아래와 같이 <code>--draft</code> 옵션을 주면 로컬 서버에서도 확인할 수 있습니다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server --draft</span><br></pre></td></tr></table></figure></li></ul><h3 id="Draft-발행하기"><a href="#Draft-발행하기" class="headerlink" title="Draft 발행하기"></a>Draft 발행하기</h3><p>Draft 작성이 완료되었다면 이제 발행해야 하는데 아래의 순서와 같이 진행하면 된다.</p><ul><li><p><strong><code>Draft</code> 문서를 <code>Post</code> 레이아웃으로 변환하기</strong><br>사실 변환이라고 대단한건 아니고 그저 <code>_drafts</code> 디렉토리에서 <code>_posts</code> 디렉토리로 이동하면서 작성일시가 추가되는 것이 전부이다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo publish (Draft 이름)</span><br></pre></td></tr></table></figure></li></ul><ul><li><p><strong>배포하기</strong><br>아래 명령어를 통해 배포 가능하다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy 또는 hexo g -d</span><br></pre></td></tr></table></figure></li></ul>]]></content:encoded>
-      
-      
-      <category domain="https://joontae-kim.github.io/categories/Blog/">Blog</category>
-      
-      <category domain="https://joontae-kim.github.io/categories/Blog/Hexo/">Hexo</category>
-      
-      
-      <category domain="https://joontae-kim.github.io/tags/Hexo/">Hexo</category>
-      
-      <category domain="https://joontae-kim.github.io/tags/Blog/">Blog</category>
-      
-      <category domain="https://joontae-kim.github.io/tags/draft/">draft</category>
-      
-      
-      <comments>https://joontae-kim.github.io/2020/09/29/hexo-writing/#disqus_thread</comments>
       
     </item>
     

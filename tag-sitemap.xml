@@ -3,6 +3,20 @@
 
 
     <url>
+        <loc>https://joontae-kim.github.io/tags/webpack/</loc>
+        <lastmod>2020-12-02T19:19:29.778Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/TIL/</loc>
+        <lastmod>2020-12-02T19:19:29.778Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://joontae-kim.github.io/tags/object/</loc>
         <lastmod>2020-11-03T09:14:45.322Z</lastmod>
         <changefreq>weekly</changefreq>

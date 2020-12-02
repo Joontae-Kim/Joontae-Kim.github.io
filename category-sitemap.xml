@@ -8,6 +8,34 @@
     </url>
 
     <url>
+        <loc>https://joontae-kim.github.io/categories/TIL/webpack/</loc>
+        <lastmod>2020-12-02T19:19:29.778Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/categories/TIL/</loc>
+        <lastmod>2020-12-02T19:19:29.778Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/categories/Blog/Blog-To-Read/</loc>
+        <lastmod>2020-11-03T10:39:52.677Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/categories/Blog/</loc>
+        <lastmod>2020-11-03T10:39:52.677Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://joontae-kim.github.io/categories/Programming/Javascript/</loc>
         <lastmod>2020-11-03T09:14:45.322Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -24,20 +52,6 @@
     <url>
         <loc>https://joontae-kim.github.io/categories/Blog/Job/</loc>
         <lastmod>2020-11-03T08:32:22.751Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/categories/Blog/</loc>
-        <lastmod>2020-11-03T08:32:22.751Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/categories/Blog/Blog-To-Read/</loc>
-        <lastmod>2020-10-26T05:39:22.488Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

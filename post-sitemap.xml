@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>https://joontae-kim.github.io/2020/12/03/til-1/</loc>
+        <lastmod>2020-12-02T19:19:29.778Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/2020/10/14/Blog-to-read/</loc>
+        <lastmod>2020-11-03T10:39:52.677Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://joontae-kim.github.io/2020/10/22/javascript-oop/</loc>
         <lastmod>2020-11-03T09:14:45.322Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -50,14 +66,6 @@
     <url>
         <loc>https://joontae-kim.github.io/2020/10/26/interview-question-list/</loc>
         <lastmod>2020-10-28T08:57:01.386Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/2020/10/14/Blog-to-read/</loc>
-        <lastmod>2020-10-26T05:39:22.488Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
