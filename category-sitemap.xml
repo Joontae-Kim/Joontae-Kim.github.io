@@ -8,6 +8,34 @@
     </url>
 
     <url>
+        <loc>https://joontae-kim.github.io/categories/Web/Rendering/</loc>
+        <lastmod>2021-03-17T16:49:26.394Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/categories/Web/</loc>
+        <lastmod>2021-03-17T16:49:26.394Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/categories/Blog/Job/</loc>
+        <lastmod>2021-03-17T14:21:42.444Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/categories/Blog/</loc>
+        <lastmod>2021-03-17T14:21:42.444Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://joontae-kim.github.io/categories/Programming/Algorithm/</loc>
         <lastmod>2021-03-17T09:43:20.379Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -43,22 +71,8 @@
     </url>
 
     <url>
-        <loc>https://joontae-kim.github.io/categories/Blog/</loc>
-        <lastmod>2020-11-03T10:39:52.677Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://joontae-kim.github.io/categories/Programming/Javascript/</loc>
         <lastmod>2020-11-03T09:14:45.322Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/categories/Blog/Job/</loc>
-        <lastmod>2020-11-03T08:32:22.751Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -100,13 +114,6 @@
 
     <url>
         <loc>https://joontae-kim.github.io/categories/Web/Browser/</loc>
-        <lastmod>2020-09-28T18:54:52.957Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/categories/Web/</loc>
         <lastmod>2020-09-28T18:54:52.957Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

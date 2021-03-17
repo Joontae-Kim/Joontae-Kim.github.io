@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>서버 사이트 렌더링과 클라이언트 사이드 렌더링 | dev and dev</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Rendering,CSR,SSR,Client Side Rendering,Server Side Rendering" />
+    
+    <meta name="description" content="이번 포스팅은 Vue.js &amp; Nuxt.js를 하기 전에 서버사이드 렌더링과 클라이언트 사이트 렌더링에 대해 짧게나마 정리해보는 것이 필요하다고 생각되서 쓰게 되었다. 1. SSR과 CSR의 MVC 패턴SSR과 CSR은 HTLM 페이지 렌더링 방식으로 아래의 이미지처럼 Rendering을 어디서 하냐에 따라 Server-Side 또는 Client-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="서버 사이트 렌더링과 클라이언트 사이드 렌더링">
+<meta property="og:url" content="https://joontae-kim.github.io/2021/03/17/scrssr/index.html">
+<meta property="og:site_name" content="dev and dev">
+<meta property="og:description" content="이번 포스팅은 Vue.js &amp; Nuxt.js를 하기 전에 서버사이드 렌더링과 클라이언트 사이트 렌더링에 대해 짧게나마 정리해보는 것이 필요하다고 생각되서 쓰게 되었다. 1. SSR과 CSR의 MVC 패턴SSR과 CSR은 HTLM 페이지 렌더링 방식으로 아래의 이미지처럼 Rendering을 어디서 하냐에 따라 Server-Side 또는 Client-">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://joontae-kim.github.io/images/csrssr.png">
+<meta property="article:published_time" content="2021-03-17T13:49:29.000Z">
+<meta property="article:modified_time" content="2021-03-17T16:49:26.394Z">
+<meta property="article:author" content="Joontae Kim">
+<meta property="article:tag" content="Rendering">
+<meta property="article:tag" content="CSR">
+<meta property="article:tag" content="SSR">
+<meta property="article:tag" content="Client Side Rendering">
+<meta property="article:tag" content="Server Side Rendering">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://joontae-kim.github.io/images/csrssr.png">
+    
+    <link rel="canonical" href="https://joontae-kim.github.io/2021/03/17/scrssr/"/>
+
+    
+        <link rel="alternate" href="/" title="dev and dev" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.png" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    <!-- 
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+ -->
+    <!-- 
+<link rel="stylesheet" href="/libs/NanumSquareRound/styles.css">
+ -->
+    
+<link rel="stylesheet" href="/libs/NotoSans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-178685368-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/">Blog</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/Blog-To-Read/">Blog To Read</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/Job/">Job</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Basic/">Basic</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Javascript/">Javascript</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/TIL/">TIL</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/TIL/webpack/">webpack</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/">Web</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/Browser/">Browser</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/Rendering/">Rendering</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/assignment/">assignment</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/course/">course</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/course/node-all-in-one/">node_all_in_one</a></li></ul></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Web/">Web</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Web/Rendering/">Rendering</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-scrssr" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        서버 사이트 렌더링과 클라이언트 사이드 렌더링
+        </h1>
+    
+    <h2 class="article-subtitle">
+        Nuxt.js &amp; Vue.js 시작하기 전
+    </h2>
+
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2021/03/17/scrssr/" class="article-date">
+       <time datetime="2021-03-17T13:49:29.000Z" itemprop="datePublished">2021-03-17</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2021/03/17/scrssr/" class="article-date">
+     <time datetime="2021-03-17T16:49:26.394Z" itemprop="dateModified">2021-03-18</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/CSR/" rel="tag">CSR</a>, <a class="tag-link-link" href="/tags/Client-Side-Rendering/" rel="tag">Client Side Rendering</a>, <a class="tag-link-link" href="/tags/Rendering/" rel="tag">Rendering</a>, <a class="tag-link-link" href="/tags/SSR/" rel="tag">SSR</a>, <a class="tag-link-link" href="/tags/Server-Side-Rendering/" rel="tag">Server Side Rendering</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="/images/csrssr.png" alt="SSR &amp; CSR"></p>
+<p><em>이번 포스팅은 Vue.js &amp; Nuxt.js를 하기 전에 서버사이드 렌더링과 클라이언트 사이트 렌더링에 대해 짧게나마 정리해보는 것이 필요하다고 생각되서 쓰게 되었다.</em></p>
+<h3 id="1-SSR과-CSR의-MVC-패턴"><a href="#1-SSR과-CSR의-MVC-패턴" class="headerlink" title="1. SSR과 CSR의 MVC 패턴"></a>1. SSR과 CSR의 MVC 패턴</h3><p>SSR과 CSR은 HTLM 페이지 렌더링 방식으로 아래의 이미지처럼 Rendering을 어디서 하냐에 따라 Server-Side 또는 Client-Side로 구분된다. <em>(그 외에 Rehydration, Prerendering 방식이 있긴한데 여기선 생략 - <a target="_blank" rel="noopener" href="https://developers.google.com/web/updates/2019/02/rendering-on-the-web?hl=ko">참고 - developers.google.com의 웹 렌더링 포스팅</a>)</em></p>
+<p><img src="/images/CSR_SSR_MVP_Model.png" alt="SSR과 CSR의 MVC 패턴"></p>
+<p>Server-Side MVC 패턴의 경우, Rendering 및 HTML Serving을 위한 View와 Controller가 Server에서 처리하지만 Client-side MVC 패턴의 경우에는 서버로부터 서비스 진입 초기에 HTML 파일 + JS 파일 및 리소스 파일 등을 모두 다운 받은후 Client에서 직접 Controller와 View를 담당한다.</p>
+<h3 id="2-SSR-Server-Side-Rendering-서버-측-렌더링"><a href="#2-SSR-Server-Side-Rendering-서버-측-렌더링" class="headerlink" title="2. SSR (Server-Side Rendering, 서버 측 렌더링)"></a>2. SSR (Server-Side Rendering, 서버 측 렌더링)</h3><p><img src="/images/SSR.png" alt="Server-Side Rendering"></p>
+<p>SSR의 위 순서를 이해해보자.</p>
+<ol>
+<li>사용자가 웹사이트를 요청한다.</li>
+<li>서버가 “렌더링 하기 위한(Ready to Render)” HTML 파일(들)을 만든다.</li>
+<li>브라우저가 HTML 파일을 빠르게 렌더링 할 수 있지만, 사이트는 아직 상호작용(interactive)할 수 없다.</li>
+<li>브라우저가 Javascript를 다운로드한다.</li>
+<li>사용자가 컨텐츠를 볼 수 있으며 상호작용(interactions)이 기록된다.</li>
+<li>브라우저가 JS 프레임워크를 실행한다.</li>
+<li>기록된 상호작용(들)이 실행될 수 있고, 페이지가 상호작용(interactive)한다.</li>
+</ol>
+<h3 id="3-CSR-Client-Side-Rendering-클라이언트-측-렌더링"><a href="#3-CSR-Client-Side-Rendering-클라이언트-측-렌더링" class="headerlink" title="3. CSR (Client-Side Rendering, 클라이언트 측 렌더링)"></a>3. CSR (Client-Side Rendering, 클라이언트 측 렌더링)</h3><p><img src="/images/CSR.png" alt="Client-Side Rendering"><br>CSR의 위 순서를 이해해보자.</p>
+<ol>
+<li>사용자가 웹사이트를 요청한다.</li>
+<li>CDN이 빠르게 JS가 연결된 링크와 함께 HTML 파일(들)을 제공한다.</li>
+<li>브라우저가 HTML 파일을 다운로드 한 후, JS를 다운로드 한다. 그동안, 사용자는 사이트를 볼 수 없다.</li>
+<li>브라우저는 Javascript를 다운로드 한다.</li>
+<li>JS가 실행되고 API가 데이터를 요청하는 동안 사용자는 placeholder를 본다.</li>
+<li>서버가 API에 대한 응답으로 데이터를 제공한다.</li>
+<li>API 응답으로 온 데이터는 placeholder를 채우고, 페이지가 상호작용(interactive)한다. </li>
+</ol>
+<h3 id="4-SSR과-CSR의-성능"><a href="#4-SSR과-CSR의-성능" class="headerlink" title="4. SSR과 CSR의 성능"></a>4. SSR과 CSR의 성능</h3><p>SSR과 CSR의 Rendering 순서에는 확연히 차이가 존재하며 이에 따라 성능에서도 차이가 존재한다. 아래 목록은 브라우저 렌더링에 있어서 어떤 장단점이 있는지 설명하는데 도움이 되며 또한 렌더링 방식에 따른 최적화를 하는데에도 도움이 되는 지표들이다.</p>
+<ul>
+<li><p>TTFB (<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Time_to_first_byte">Time to First Byte</a>): (첫 번째 바이트까지의 시간) - 링크를 클릭한 시점부터 처음으로 콘텐츠의 바이트가 들어오는 시간차</p>
+</li>
+<li><p>FP (<a target="_blank" rel="noopener" href="https://developers.google.com/web/fundamentals/performance/user-centric-performance-metrics#first_paint_and_first_contentful_paint">First Paint</a>): 픽셀이 처음으로 사용자에게 표시되는 시점</p>
+</li>
+<li><p>FCP (<a target="_blank" rel="noopener" href="https://developers.google.com/web/fundamentals/performance/user-centric-performance-metrics#first_paint_and_first_contentful_paint">First Contentful Paint</a>): 요청 콘텐츠(기사(article) 본문 등)가 표시되는 시점</p>
+</li>
+<li><p>TTI (<a target="_blank" rel="noopener" href="https://developers.google.com/web/tools/lighthouse/audits/time-to-interactive">Time to Interactive</a>): 페이지가 상호작용 가능하게 될 때까지의 시간 (이벤트 발생 등).</p>
+</li>
+</ul>
+<h4 id="1-SSR-Performance"><a href="#1-SSR-Performance" class="headerlink" title="1) SSR Performance"></a>1) SSR Performance</h4><p><img src="https://developers.google.com/web/updates/images/2019/02/rendering-on-the-web/server-rendering-tti.png?hl=ko" alt="SSR 퍼포먼스"></p>
+<p>기본적으로 서버 사이드 렌더링은 브라우저에서 응답을 받기 전에 처리되므로 클라이언트에서 데이터 요청 및 템플릿 작성을 위한 추가 요청작업이 발생하지 않아 First Paint 및 First Contentful Paint가 빠르게 생성되며 서버에서 페이지 로직 및 렌더링을 실행하면 많은 JS를 클라이언트에 보내지 않아도 되므로 Time to Interactive를 빠르게 수행할 수 있다.</p>
+<h4 id="2-CSR-Performance"><a href="#2-CSR-Performance" class="headerlink" title="2) CSR Performance"></a>2) CSR Performance</h4><p><img src="https://developers.google.com/web/updates/images/2019/02/rendering-on-the-web/client-rendering-tti.png?hl=ko" alt="CSR 퍼포먼스"></p>
+<p>기본적으로 클라이언트 사이드 렌더링은 JS를 사용해 브라우저에서 페이지를 직접 렌더링 하는 방식으로 가장 처음에 언급한 <strong><em>CSR의 MVC 패턴</em></strong> 을 보면 렌더링 구조를 이해할 수 있다. 서버 사이드에 해당 웹사이트에 대한 자원을 요청하면, 프론트엔드에 대한 <code>bundle.js</code> 또는 <code>app.js</code>와 <code>index.html</code>을 다운받고 번들링 파일을 브라우저의 JS Parser에서 분석한 다음, controller에 해당하는 <strong>router</strong> 의 정보에 따라 html을 동적으로 생성하는 동시에 사용자에게 보여줄 데이터를 동적으로 요청 및 view 처리해줌에 따라 First Paint 및 First Contentful Paint가 SSR 렌더링 방식보다 오래 걸리며 TTI 또한 오래 걸린다는 단점이 있다.</p>
+<h5 id="그럼-왜-CSR-렌더링-방식을-쓰지"><a href="#그럼-왜-CSR-렌더링-방식을-쓰지" class="headerlink" title="그럼 왜? CSR 렌더링 방식을 쓰지???"></a>그럼 왜? CSR 렌더링 방식을 쓰지???</h5><p>바로 웹사이트 초기 진입시의 FCP 및 TTI가 오래 걸릴뿐이지 그 다음부터는 CSR의 구조 특성상 페이지 이동에 따라 html 파일을 서버에서 reqeust 하는 것이 아닌 클라이언트 단에서 control하며 필요한 데이터면 request하면 되기 때문에 페이지 이동간의 FCP 및 TTI는 SSR보다 좋은 성능을 보인다. 그리고 lazy loading 또는 code splitting을 한다면 페이지별로 필요한 Javascript와 그 외 리소스만 불러올 수 있어서 초기 Rendering 속도를 개선해볼수 있는 가능성도 있다.</p>
+<h4 id="5-정리"><a href="#5-정리" class="headerlink" title="5) 정리"></a>5) 정리</h4><p>정리하자면 각 장단점 또는 차이는 아래와 같으며, 두 렌더링 방식 중 각 어플리케이션의 구조 또는 서비스 페이지의 특징에 따라 적절히 사용하는 것이 중요하다.<br>대표적으로, 초기 View 로딩 속도, SEO 문제, 보안 문제가 있다.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>SSR</th>
+<th>CSR</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>초기 View 로딩 속도</strong></td>
+<td>CSR에 비해 렌더링 해야하는 파일이 적어 초기 View 로딩 속도가 빠름.</td>
+<td>브라우저에서 페이지를 직접 렌더링해야 하므로 초기에는 오래 걸림.</td>
+</tr>
+<tr>
+<td><strong>SEO</strong></td>
+<td>페이지에 대한 meta 정보가 렌더링시 이미 포함되어 있기 때문에 크롤러봇에서 데이터를 수집해가는데 용이함.</td>
+<td>렌더링시 JS 파싱, 로딩 및 실행 순서 때문에 크롤러봇이 데이터를 수집하는데 어려움이 있음.</td>
+</tr>
+<tr>
+<td><strong>보안 문제</strong></td>
+<td>사용자에 대한 정보를 서버측에서 Session으로 관리</td>
+<td>사용자에 대한 정보를 LocalStorage나 Cookie에서 관리해 XSS 공격에 취약함</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>SSR 방식의 경우, 초기 로딩속도가 빠르고, SEO 측면에서 유리하지만</p>
+<ul>
+<li>View 변경시 서버에 계속 새로운 HTML 파일을 요청해야 하므로 서버에 부담이 큼</li>
+</ul>
+</li>
+<li><p>CSR 방식의 경우, 초기 로딩속도는 느리지만 그 다음 페이지 이동 및 처리에 있어 필요한 데이터만 요청하면 되므로 서버에 부담이 적고, 빠르게 처리할 수 있으나</p>
+<ul>
+<li>SEO 측면에서 Google 크롤러봇을 제외하곤 Javascript를 실행시키지 못해 데이터 수집하는데 어려움이 있음</li>
+</ul>
+<hr>
+</li>
+</ul>
+<h2 id="참조"><a href="#참조" class="headerlink" title="참조"></a>참조</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://developers.google.com/web/updates/2019/02/rendering-on-the-web">웹 렌더링</a></li>
+<li><a target="_blank" rel="noopener" href="https://jaroinside.tistory.com/24">11. 서버사이트 렌더링, 클라이언트 사이드 렌더링</a></li>
+<li><a target="_blank" rel="noopener" href="https://asfirstalways.tistory.com/244">서버사이트 렌더링 그리고 클라이언트 사이드 렌더링</a></li>
+<li><a target="_blank" rel="noopener" href="https://velog.io/@namezin/CSR-SSR">CSR, SSR</a></li>
+<li><a target="_blank" rel="noopener" href="https://goodgid.github.io/Server-Side-Rendering-and-Client-Side-Rendering/#ssr-vs-csr">서버 사이드 렌더링(SSR)과 클라이언트 사이드 렌더링(CSR)</a></li>
+<li><a target="_blank" rel="noopener" href="https://velog.io/@rjs1197/SSR%EA%B3%BC-CSR%EC%9D%98-%EC%B0%A8%EC%9D%B4%EB%A5%BC-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90">SPA에서의 SSR과 CSR</a></li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Joontae Kim"
+        },
+        "headline": "서버 사이트 렌더링과 클라이언트 사이드 렌더링",
+        "image": "https://joontae-kim.github.io/images/csrssr.png",
+        "keywords": "Rendering CSR SSR Client Side Rendering Server Side Rendering",
+        "genre": "Web Rendering",
+        "datePublished": "2021-03-17",
+        "dateCreated": "2021-03-17",
+        "dateModified": "2021-03-18",
+        "url": "https://joontae-kim.github.io/2021/03/17/scrssr/",
+        "description": "
+이번 포스팅은 Vue.js &amp; Nuxt.js를 하기 전에 서버사이드 렌더링과 클라이언트 사이트 렌더링에 대해 짧게나마 정리해보는 것이 필요하다고 생각되서 쓰게 되었다.
+1. SSR과 CSR의 MVC 패턴SSR과 CSR은 HTLM 페이지 렌더링 방식으로 아래의 이미지처럼 Rendering을 어디서 하냐에 따라 Server-Side 또는 Client-",
+        "wordCount": 733
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/Joontae-Kim" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2020/12/03/til-1/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">TIL-1</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/03/17/scrssr/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/csrssr.png)" alt="서버 사이트 렌더링과 클라이언트 사이드 렌더링" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Web/">Web</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Web/Rendering/">Rendering</a></p>
+                            <p class="item-title"><a href="/2021/03/17/scrssr/" class="title">서버 사이트 렌더링과 클라이언트 사이드 렌더링</a></p>
+                            <p class="item-date"><time datetime="2021-03-17T13:49:29.000Z" itemprop="datePublished">2021-03-17</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/12/03/til-1/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/TIL/">TIL</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/TIL/webpack/">webpack</a></p>
+                            <p class="item-title"><a href="/2020/12/03/til-1/" class="title">TIL-1</a></p>
+                            <p class="item-date"><time datetime="2020-12-02T18:55:44.000Z" itemprop="datePublished">2020-12-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/10/28/js-algorithm/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JS_algorithms.jpeg)" alt="자바스크립트 알고리즘 - 시작 (a.k.a 자료 모으기)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2020/10/28/js-algorithm/" class="title">자바스크립트 알고리즘 - 시작 (a.k.a 자료 모으기)</a></p>
+                            <p class="item-date"><time datetime="2020-10-27T18:26:36.000Z" itemprop="datePublished">2020-10-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/10/26/interview-question-fe/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/job_thumbnail.jpeg)" alt="프론트엔드 면접 질문 리스트 - FE (Browser)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Blog/">Blog</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Blog/Job/">Job</a></p>
+                            <p class="item-title"><a href="/2020/10/26/interview-question-fe/" class="title">프론트엔드 면접 질문 리스트 - FE (Browser)</a></p>
+                            <p class="item-date"><time datetime="2020-10-26T08:19:05.000Z" itemprop="datePublished">2020-10-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/10/26/interview-question-list/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/job_thumbnail.jpeg)" alt="프론트엔드 면접 질문 목록" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Blog/">Blog</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Blog/Job/">Job</a></p>
+                            <p class="item-title"><a href="/2020/10/26/interview-question-list/" class="title">프론트엔드 면접 질문 목록</a></p>
+                            <p class="item-date"><time datetime="2020-10-26T05:38:17.000Z" itemprop="datePublished">2020-10-26</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">9</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Babel/" rel="tag">Babel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Browser/" rel="tag">Browser</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSR/" rel="tag">CSR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Client-Side-Rendering/" rel="tag">Client Side Rendering</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Critical-Rendering-path/" rel="tag">Critical Rendering path</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECMAScript/" rel="tag">ECMAScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECMAScript-2015/" rel="tag">ECMAScript 2015</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECMAScript-6/" rel="tag">ECMAScript 6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES2015/" rel="tag">ES2015</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Front-end/" rel="tag">Front-end</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hello-World/" rel="tag">Hello World</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hoisting/" rel="tag">Hoisting</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/" rel="tag">Interview</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Job/" rel="tag">Job</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Object/" rel="tag">Object</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rendering/" rel="tag">Rendering</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Renewal/" rel="tag">Renewal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSR/" rel="tag">SSR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scope/" rel="tag">Scope</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-Side-Rendering/" rel="tag">Server Side Rendering</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TIL/" rel="tag">TIL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theme/" rel="tag">Theme</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Variable/" rel="tag">Variable</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/arrow-function/" rel="tag">arrow function</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/assignment/" rel="tag">assignment</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/context/" rel="tag">context</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/course-javascript/" rel="tag">course,javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/draft/" rel="tag">draft</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/execution/" rel="tag">execution</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/execution-context/" rel="tag">execution context</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/function/" rel="tag">function</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-engine/" rel="tag">javascript engine</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lecture/" rel="tag">lecture</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mdn/" rel="tag">mdn</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/object/" rel="tag">object</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oop/" rel="tag">oop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reference/" rel="tag">reference</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/type/" rel="tag">type</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/types/" rel="tag">types</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" rel="tag">알고리즘</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/" rel="tag">자바스크립트</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/Babel/" style="font-size: 10px;">Babel</a> <a href="/tags/Blog/" style="font-size: 12.5px;">Blog</a> <a href="/tags/Browser/" style="font-size: 15px;">Browser</a> <a href="/tags/CSR/" style="font-size: 10px;">CSR</a> <a href="/tags/Client-Side-Rendering/" style="font-size: 10px;">Client Side Rendering</a> <a href="/tags/Critical-Rendering-path/" style="font-size: 10px;">Critical Rendering path</a> <a href="/tags/ECMAScript/" style="font-size: 15px;">ECMAScript</a> <a href="/tags/ECMAScript-2015/" style="font-size: 10px;">ECMAScript 2015</a> <a href="/tags/ECMAScript-6/" style="font-size: 10px;">ECMAScript 6</a> <a href="/tags/ES2015/" style="font-size: 10px;">ES2015</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Front-end/" style="font-size: 15px;">Front-end</a> <a href="/tags/Hello-World/" style="font-size: 10px;">Hello World</a> <a href="/tags/Hexo/" style="font-size: 17.5px;">Hexo</a> <a href="/tags/Hoisting/" style="font-size: 10px;">Hoisting</a> <a href="/tags/Interview/" style="font-size: 15px;">Interview</a> <a href="/tags/Job/" style="font-size: 15px;">Job</a> <a href="/tags/Object/" style="font-size: 10px;">Object</a> <a href="/tags/Rendering/" style="font-size: 12.5px;">Rendering</a> <a href="/tags/Renewal/" style="font-size: 10px;">Renewal</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/SSR/" style="font-size: 10px;">SSR</a> <a href="/tags/Scope/" style="font-size: 10px;">Scope</a> <a href="/tags/Server-Side-Rendering/" style="font-size: 10px;">Server Side Rendering</a> <a href="/tags/TIL/" style="font-size: 10px;">TIL</a> <a href="/tags/Theme/" style="font-size: 12.5px;">Theme</a> <a href="/tags/Variable/" style="font-size: 10px;">Variable</a> <a href="/tags/arrow-function/" style="font-size: 10px;">arrow function</a> <a href="/tags/assignment/" style="font-size: 10px;">assignment</a> <a href="/tags/context/" style="font-size: 15px;">context</a> <a href="/tags/course-javascript/" style="font-size: 10px;">course,javascript</a> <a href="/tags/draft/" style="font-size: 10px;">draft</a> <a href="/tags/execution/" style="font-size: 15px;">execution</a> <a href="/tags/execution-context/" style="font-size: 15px;">execution context</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-engine/" style="font-size: 17.5px;">javascript engine</a> <a href="/tags/lecture/" style="font-size: 10px;">lecture</a> <a href="/tags/mdn/" style="font-size: 15px;">mdn</a> <a href="/tags/object/" style="font-size: 10px;">object</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/reference/" style="font-size: 10px;">reference</a> <a href="/tags/type/" style="font-size: 12.5px;">type</a> <a href="/tags/types/" style="font-size: 12.5px;">types</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" style="font-size: 10px;">알고리즘</a> <a href="/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/" style="font-size: 10px;">자바스크립트</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2021 Joontae Kim</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'joontae-kim';
+    
+    
+    var disqus_url = 'https://joontae-kim.github.io/2021/03/17/scrssr/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
