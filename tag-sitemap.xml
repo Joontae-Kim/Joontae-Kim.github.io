@@ -3,6 +3,48 @@
 
 
     <url>
+        <loc>https://joontae-kim.github.io/tags/%25EC%2595%258C%25EA%25B3%25A0%25EB%25A6%25AC%25EC%25A6%2598/</loc>
+        <lastmod>2021-03-17T09:43:20.379Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/%25EC%259E%2590%25EB%25B0%2594%25EC%258A%25A4%25ED%2581%25AC%25EB%25A6%25BD%25ED%258A%25B8/</loc>
+        <lastmod>2021-03-17T09:43:20.379Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/reference/</loc>
+        <lastmod>2021-03-17T09:43:20.379Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/lecture/</loc>
+        <lastmod>2021-03-17T09:43:20.379Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/Algorithm/</loc>
+        <lastmod>2021-03-17T09:43:20.379Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/javascript/</loc>
+        <lastmod>2021-03-17T09:43:20.379Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://joontae-kim.github.io/tags/webpack/</loc>
         <lastmod>2020-12-02T19:19:29.778Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -25,13 +67,6 @@
 
     <url>
         <loc>https://joontae-kim.github.io/tags/oop/</loc>
-        <lastmod>2020-11-03T09:14:45.322Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/javascript/</loc>
         <lastmod>2020-11-03T09:14:45.322Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
