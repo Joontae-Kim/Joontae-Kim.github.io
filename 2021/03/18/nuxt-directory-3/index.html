@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Nuxt 디렉토리 구조 | dev and dev</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="vue.js,nuxt.js,vue,nuxt" />
+    
+    <meta name="description" content="1.Nuxt 프로젝트 디렉토리막 생성된 nuxt 프로젝트의 디렉토리는 아래와 같다. 디렉토리에 대한 정의를 잘 몰라도 이미 Vue.js를 사용했던 개발자라면 비슷한 구조이며 스캐폴딩이 이미 되어있다는 생각이 들것이다. 각 디렉토리의 역할에 대해 알아보자. staticThe static directory is directly mapped to the serv">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nuxt 디렉토리 구조">
+<meta property="og:url" content="https://joontae-kim.github.io/2021/03/18/nuxt-directory-3/index.html">
+<meta property="og:site_name" content="dev and dev">
+<meta property="og:description" content="1.Nuxt 프로젝트 디렉토리막 생성된 nuxt 프로젝트의 디렉토리는 아래와 같다. 디렉토리에 대한 정의를 잘 몰라도 이미 Vue.js를 사용했던 개발자라면 비슷한 구조이며 스캐폴딩이 이미 되어있다는 생각이 들것이다. 각 디렉토리의 역할에 대해 알아보자. staticThe static directory is directly mapped to the serv">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://joontae-kim.github.io/images/nuxt.png">
+<meta property="article:published_time" content="2021-03-18T07:11:39.000Z">
+<meta property="article:modified_time" content="2021-03-18T07:22:59.075Z">
+<meta property="article:author" content="Joontae Kim">
+<meta property="article:tag" content="vue.js">
+<meta property="article:tag" content="nuxt.js">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="nuxt">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://joontae-kim.github.io/images/nuxt.png">
+    
+    <link rel="canonical" href="https://joontae-kim.github.io/2021/03/18/nuxt-directory-3/"/>
+
+    
+        <link rel="alternate" href="/" title="dev and dev" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.png" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    <!-- 
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+ -->
+    <!-- 
+<link rel="stylesheet" href="/libs/NanumSquareRound/styles.css">
+ -->
+    
+<link rel="stylesheet" href="/libs/NotoSans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-178685368-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/">Blog</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/Blog-To-Read/">Blog To Read</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/Job/">Job</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Basic/">Basic</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/nuxt/">nuxt</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/TIL/">TIL</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/TIL/webpack/">webpack</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/">Web</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/Browser/">Browser</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/Rendering/">Rendering</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/assignment/">assignment</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/course/">course</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/course/node-all-in-one/">node_all_in_one</a></li></ul></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/nuxt/">nuxt</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-nuxt-directory-3" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Nuxt 디렉토리 구조
+        </h1>
+    
+    <h2 class="article-subtitle">
+        Nuxt Directory 3
+    </h2>
+
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2021/03/18/nuxt-directory-3/" class="article-date">
+       <time datetime="2021-03-18T07:11:39.000Z" itemprop="datePublished">2021-03-18</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2021/03/18/nuxt-directory-3/" class="article-date">
+     <time datetime="2021-03-18T07:22:59.075Z" itemprop="dateModified">2021-03-18</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/nuxt/" rel="tag">nuxt</a>, <a class="tag-link-link" href="/tags/nuxt-js/" rel="tag">nuxt.js</a>, <a class="tag-link-link" href="/tags/vue/" rel="tag">vue</a>, <a class="tag-link-link" href="/tags/vue-js/" rel="tag">vue.js</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h3 id="1-Nuxt-프로젝트-디렉토리"><a href="#1-Nuxt-프로젝트-디렉토리" class="headerlink" title="1.Nuxt 프로젝트 디렉토리"></a>1.Nuxt 프로젝트 디렉토리</h3><p>막 생성된 nuxt 프로젝트의 디렉토리는 아래와 같다. 디렉토리에 대한 정의를 잘 몰라도 이미 Vue.js를 사용했던 개발자라면 비슷한 구조이며 스캐폴딩이 이미 되어있다는 생각이 들것이다.<br><img src="/images/nuxt-directory.png" alt="nuxt 프로젝트 디렉토리"></p>
+<p>각 디렉토리의 역할에 대해 알아보자.</p>
+<h4 id="static"><a href="#static" class="headerlink" title="static"></a>static</h4><p>The <code>static</code> directory is directly mapped to the server root and contains files that likely won’t be changed. All included files will be automatically served by Nuxt and are accessible through your project root URL.</p>
+<p><code>/static/robots.txt</code> will be available at <code>http://localhost:3000/robots.txt</code></p>
+<p><code>/static/favicon.ico</code> will be available at <code>http://localhost:3000/favicon.ico</code></p>
+<p>This option is helpful for files like <code>robots.txt</code>, <code>sitemap.xml</code> or <code>CNAME</code> (which is important for GitHub Pages deployment).</p>
+<blockquote>
+<p>This directory cannot be renamed without extra configuration.</p>
+</blockquote>
+<h5 id="Static-Assets"><a href="#Static-Assets" class="headerlink" title="Static Assets"></a>Static Assets</h5><p>If you don’t want to use Webpack <code>assets</code> from the assets directory, you can add the images to the static directory.</p>
+<p>In your code, you can then reference these files relative to the root (<code>/</code>):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Static image from static directory --&gt;</span><br><span class="line">&lt;img src&#x3D;&quot;&#x2F;my-image.png&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- webpacked image from assets directory --&gt;</span><br><span class="line">&lt;img src&#x3D;&quot;~&#x2F;assets&#x2F;my-image-2.png&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="Static-Directory-Config"><a href="#Static-Directory-Config" class="headerlink" title="Static Directory Config"></a>Static Directory Config</h5><p>Should you need to you can configure the <code>static/</code> directory behavior in the <code>nuxt.config.js</code> file.</p>
+<h6 id="Static-asset-Prefix"><a href="#Static-asset-Prefix" class="headerlink" title="Static asset Prefix"></a>Static asset Prefix</h6><p>If you deploy Nuxt.js to a subfolder, e.g. <code>/blog/</code>, the router base will be added to the static asset path by default. If you want to disable this behavior, you can set <code>static.prefix</code> to false in the <code>nuxt.config.js</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;</span><br><span class="line">  static: &#123;</span><br><span class="line">    prefix: false</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Default: <code>/blog/my-image.png</code><br>With <code>static.prefix</code> disabled: <code>/my-image.png</code></p>
+<h4 id="store"><a href="#store" class="headerlink" title="store"></a>store</h4><p>The <code>store</code> directory contains your <a target="_blank" rel="noopener" href="https://vuex.vuejs.org/guide/">Vuex Store</a> files. The Vuex Store comes with Nuxt.js out of the box but is disabled by default. Creating an  index.js  file in this directory enables the store.</p>
+<blockquote>
+<p>This directory cannot be renamed without extra configuration.</p>
+</blockquote>
+<h5 id="Activate-the-Store"><a href="#Activate-the-Store" class="headerlink" title="Activate the Store"></a>Activate the Store</h5><p>Nuxt.js will look for the <code>store</code> directory. If it contains a file, that isn’t a hidden file or a <code>README.md</code> file, then the store will be activated. This means that Nuxt will:</p>
+<ol>
+<li>Import Vuex,</li>
+<li>Add the <code>store</code> option to the root Vue instance.</li>
+</ol>
+<h5 id="Modules"><a href="#Modules" class="headerlink" title="Modules"></a>Modules</h5><p>Every <code>.js</code> file inside the <code>store</code> directory is transformed as a <a target="_blank" rel="noopener" href="https://vuex.vuejs.org/guide/modules.html">namespaced module</a> (<code>index</code> being the root module). Your <code>state</code> value should always be a <code>function</code> to avoid unwanted shared state on the server side.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- store&#x2F;index.js --&gt;</span><br><span class="line"></span><br><span class="line">new Vuex.Store(&#123;</span><br><span class="line">  state: () &#x3D;&gt; (&#123;</span><br><span class="line">    counter: 0</span><br><span class="line">  &#125;),</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    increment(state) &#123;</span><br><span class="line">      state.counter++</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  modules: &#123;</span><br><span class="line">    todos: &#123;</span><br><span class="line">      namespaced: true,</span><br><span class="line">      state: () &#x3D;&gt; (&#123;</span><br><span class="line">        list: []</span><br><span class="line">      &#125;),</span><br><span class="line">      mutations: &#123;</span><br><span class="line">        add(state, &#123; text &#125;) &#123;</span><br><span class="line">          state.list.push(&#123;</span><br><span class="line">            text,</span><br><span class="line">            done: false</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;,</span><br><span class="line">        remove(state, &#123; todo &#125;) &#123;</span><br><span class="line">          state.list.splice(state.list.indexOf(todo), 1)</span><br><span class="line">        &#125;,</span><br><span class="line">        toggle(state, &#123; todo &#125;) &#123;</span><br><span class="line">          todo.done &#x3D; !todo.done</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>And in your pages/todos.vue, using the todos module:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- pages&#x2F;todos.vue --&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;ul&gt;</span><br><span class="line">    &lt;li v-for&#x3D;&quot;todo in todos&quot; :key&#x3D;&quot;todo.text&quot;&gt;</span><br><span class="line">      &lt;input :checked&#x3D;&quot;todo.done&quot; @change&#x3D;&quot;toggle(todo)&quot; type&#x3D;&quot;checkbox&quot;&gt;</span><br><span class="line">      &lt;span :class&#x3D;&quot;&#123; done: todo.done &#125;&quot;&gt;&#123;&#123; todo.text &#125;&#125;&lt;&#x2F;span&gt;</span><br><span class="line">    &lt;&#x2F;li&gt;</span><br><span class="line">    &lt;li&gt;&lt;input @keyup.enter&#x3D;&quot;addTodo&quot; placeholder&#x3D;&quot;What needs to be done?&quot;&gt;&lt;&#x2F;li&gt;</span><br><span class="line">  &lt;&#x2F;ul&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import &#123; mapMutations &#125; from &#39;vuex&#39;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  computed: &#123;</span><br><span class="line">    todos () &#123;</span><br><span class="line">      return this.$store.state.todos.list</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    addTodo (e) &#123;</span><br><span class="line">      this.$store.commit(&#39;todos&#x2F;add&#39;, e.target.value)</span><br><span class="line">      e.target.value &#x3D; &#39;&#39;</span><br><span class="line">    &#125;,</span><br><span class="line">    ...mapMutations(&#123;</span><br><span class="line">      toggle: &#39;todos&#x2F;toggle&#39;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.done &#123;</span><br><span class="line">  text-decoration: line-through;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="Example-folder-structure"><a href="#Example-folder-structure" class="headerlink" title="Example folder structure"></a>Example folder structure</h5><p>A complex store setup file/folder structure might look like this:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">store&#x2F;</span><br><span class="line">--| index.js</span><br><span class="line">--| ui.js</span><br><span class="line">--| shop&#x2F;</span><br><span class="line">----| cart&#x2F;</span><br><span class="line">------| actions.js</span><br><span class="line">------| getters.js</span><br><span class="line">------| mutations.js</span><br><span class="line">------| state.js</span><br><span class="line">----| products&#x2F;</span><br><span class="line">------| mutations.js</span><br><span class="line">------| state.js</span><br><span class="line">------| itemsGroup1&#x2F;</span><br><span class="line">--------| state.js</span><br></pre></td></tr></table></figure>
+
+<h4 id="nuxt-config"><a href="#nuxt-config" class="headerlink" title="nuxt.config"></a>nuxt.config</h4><p>By default, Nuxt.js is configured to cover most use cases. This default configuration can be overwritten with the nuxt.config.js file.</p>
+<h5 id="nuxt-config-js"><a href="#nuxt-config-js" class="headerlink" title="nuxt.config.js"></a>nuxt.config.js</h5><h6 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h6><p>This option lets you define aliases that will be available within your JavaScript and CSS.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">nuxt.config.js</span><br><span class="line">import &#123; resolve &#125; from &#39;path&#39;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  alias: &#123;</span><br><span class="line">    &#39;style&#39;: resolve(__dirname, &#39;.&#x2F;assets&#x2F;style&#39;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="css"><a href="#css" class="headerlink" title="css"></a>css</h6><p>This option lets you define the CSS files, modules, and libraries you want to include globally (on every page).</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;</span><br><span class="line">  css: [&#39;~&#x2F;assets&#x2F;css&#x2F;main.css&#39;, &#39;~&#x2F;assets&#x2F;css&#x2F;animations.scss&#39;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="env"><a href="#env" class="headerlink" title="env"></a>env</h6><p>This option lets you define environment variables that are required at build time (rather than runtime) such as <code>NODE_ENV=staging</code> or <code>VERSION=1.2.3</code>. However, for runtime environment variables <code>runtimeConfig</code> is required.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;</span><br><span class="line">  env: &#123;</span><br><span class="line">    baseURL: process.env.BASE_URL</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="More-Configuration-property"><a href="#More-Configuration-property" class="headerlink" title="More Configuration property"></a>More Configuration property</h6><p><em>Refer <a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/2.x/directory-structure/nuxt-config">https://nuxtjs.org/docs/2.x/directory-structure/nuxt-config</a></em></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Joontae Kim"
+        },
+        "headline": "Nuxt 디렉토리 구조",
+        "image": "https://joontae-kim.github.io/images/nuxt.png",
+        "keywords": "vue.js nuxt.js vue nuxt",
+        "genre": "Programming nuxt",
+        "datePublished": "2021-03-18",
+        "dateCreated": "2021-03-18",
+        "dateModified": "2021-03-18",
+        "url": "https://joontae-kim.github.io/2021/03/18/nuxt-directory-3/",
+        "description": "1.Nuxt 프로젝트 디렉토리막 생성된 nuxt 프로젝트의 디렉토리는 아래와 같다. 디렉토리에 대한 정의를 잘 몰라도 이미 Vue.js를 사용했던 개발자라면 비슷한 구조이며 스캐폴딩이 이미 되어있다는 생각이 들것이다.
+각 디렉토리의 역할에 대해 알아보자.
+staticThe static directory is directly mapped to the serv",
+        "wordCount": 1170
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/Joontae-Kim" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2021/03/18/nuxt-directory-2/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Nuxt 디렉토리 구조</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/03/18/nuxt-directory-3/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/nuxt.png)" alt="Nuxt 디렉토리 구조" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/nuxt/">nuxt</a></p>
+                            <p class="item-title"><a href="/2021/03/18/nuxt-directory-3/" class="title">Nuxt 디렉토리 구조</a></p>
+                            <p class="item-date"><time datetime="2021-03-18T07:11:39.000Z" itemprop="datePublished">2021-03-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/03/18/nuxt-directory-2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/nuxt.png)" alt="Nuxt 디렉토리 구조" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/nuxt/">nuxt</a></p>
+                            <p class="item-title"><a href="/2021/03/18/nuxt-directory-2/" class="title">Nuxt 디렉토리 구조</a></p>
+                            <p class="item-date"><time datetime="2021-03-18T07:05:00.000Z" itemprop="datePublished">2021-03-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/03/18/nuxt-directory/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/nuxt.png)" alt="Nuxt 디렉토리 구조" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/nuxt/">nuxt</a></p>
+                            <p class="item-title"><a href="/2021/03/18/nuxt-directory/" class="title">Nuxt 디렉토리 구조</a></p>
+                            <p class="item-date"><time datetime="2021-03-18T03:49:55.000Z" itemprop="datePublished">2021-03-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/03/18/nuxt-intro/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/nuxt.png)" alt="nuxt.js - 시작하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/nuxt/">nuxt</a></p>
+                            <p class="item-title"><a href="/2021/03/18/nuxt-intro/" class="title">nuxt.js - 시작하기</a></p>
+                            <p class="item-date"><time datetime="2021-03-17T17:08:33.000Z" itemprop="datePublished">2021-03-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/03/17/scrssr/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/csrssr.png)" alt="서버 사이트 렌더링과 클라이언트 사이드 렌더링" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Web/">Web</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Web/Rendering/">Rendering</a></p>
+                            <p class="item-title"><a href="/2021/03/17/scrssr/" class="title">서버 사이트 렌더링과 클라이언트 사이드 렌더링</a></p>
+                            <p class="item-date"><time datetime="2021-03-17T13:49:29.000Z" itemprop="datePublished">2021-03-17</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">9</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Babel/" rel="tag">Babel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blog/" rel="tag">Blog</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Browser/" rel="tag">Browser</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSR/" rel="tag">CSR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Client-Side-Rendering/" rel="tag">Client Side Rendering</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Critical-Rendering-path/" rel="tag">Critical Rendering path</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECMAScript/" rel="tag">ECMAScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECMAScript-2015/" rel="tag">ECMAScript 2015</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ECMAScript-6/" rel="tag">ECMAScript 6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES2015/" rel="tag">ES2015</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Front-end/" rel="tag">Front-end</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hello-World/" rel="tag">Hello World</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hoisting/" rel="tag">Hoisting</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/" rel="tag">Interview</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Job/" rel="tag">Job</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Object/" rel="tag">Object</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rendering/" rel="tag">Rendering</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Renewal/" rel="tag">Renewal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SEO/" rel="tag">SEO</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSR/" rel="tag">SSR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scope/" rel="tag">Scope</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Server-Side-Rendering/" rel="tag">Server Side Rendering</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TIL/" rel="tag">TIL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Theme/" rel="tag">Theme</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Variable/" rel="tag">Variable</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/arrow-function/" rel="tag">arrow function</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/assignment/" rel="tag">assignment</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/context/" rel="tag">context</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/course-javascript/" rel="tag">course,javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/draft/" rel="tag">draft</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/execution/" rel="tag">execution</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/execution-context/" rel="tag">execution context</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/function/" rel="tag">function</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-engine/" rel="tag">javascript engine</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lecture/" rel="tag">lecture</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mdn/" rel="tag">mdn</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nuxt/" rel="tag">nuxt</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nuxt-js/" rel="tag">nuxt.js</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/object/" rel="tag">object</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oop/" rel="tag">oop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reference/" rel="tag">reference</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/type/" rel="tag">type</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/types/" rel="tag">types</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/" rel="tag">vue</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue-js/" rel="tag">vue.js</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" rel="tag">알고리즘</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/" rel="tag">자바스크립트</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/Babel/" style="font-size: 10px;">Babel</a> <a href="/tags/Blog/" style="font-size: 12.5px;">Blog</a> <a href="/tags/Browser/" style="font-size: 15px;">Browser</a> <a href="/tags/CSR/" style="font-size: 10px;">CSR</a> <a href="/tags/Client-Side-Rendering/" style="font-size: 10px;">Client Side Rendering</a> <a href="/tags/Critical-Rendering-path/" style="font-size: 10px;">Critical Rendering path</a> <a href="/tags/ECMAScript/" style="font-size: 15px;">ECMAScript</a> <a href="/tags/ECMAScript-2015/" style="font-size: 10px;">ECMAScript 2015</a> <a href="/tags/ECMAScript-6/" style="font-size: 10px;">ECMAScript 6</a> <a href="/tags/ES2015/" style="font-size: 10px;">ES2015</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Front-end/" style="font-size: 15px;">Front-end</a> <a href="/tags/Hello-World/" style="font-size: 10px;">Hello World</a> <a href="/tags/Hexo/" style="font-size: 17.5px;">Hexo</a> <a href="/tags/Hoisting/" style="font-size: 10px;">Hoisting</a> <a href="/tags/Interview/" style="font-size: 15px;">Interview</a> <a href="/tags/Job/" style="font-size: 15px;">Job</a> <a href="/tags/Object/" style="font-size: 10px;">Object</a> <a href="/tags/Rendering/" style="font-size: 12.5px;">Rendering</a> <a href="/tags/Renewal/" style="font-size: 10px;">Renewal</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/SSR/" style="font-size: 10px;">SSR</a> <a href="/tags/Scope/" style="font-size: 10px;">Scope</a> <a href="/tags/Server-Side-Rendering/" style="font-size: 10px;">Server Side Rendering</a> <a href="/tags/TIL/" style="font-size: 10px;">TIL</a> <a href="/tags/Theme/" style="font-size: 12.5px;">Theme</a> <a href="/tags/Variable/" style="font-size: 10px;">Variable</a> <a href="/tags/arrow-function/" style="font-size: 10px;">arrow function</a> <a href="/tags/assignment/" style="font-size: 10px;">assignment</a> <a href="/tags/context/" style="font-size: 15px;">context</a> <a href="/tags/course-javascript/" style="font-size: 10px;">course,javascript</a> <a href="/tags/draft/" style="font-size: 10px;">draft</a> <a href="/tags/execution/" style="font-size: 15px;">execution</a> <a href="/tags/execution-context/" style="font-size: 15px;">execution context</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-engine/" style="font-size: 17.5px;">javascript engine</a> <a href="/tags/lecture/" style="font-size: 10px;">lecture</a> <a href="/tags/mdn/" style="font-size: 15px;">mdn</a> <a href="/tags/nuxt/" style="font-size: 17.5px;">nuxt</a> <a href="/tags/nuxt-js/" style="font-size: 17.5px;">nuxt.js</a> <a href="/tags/object/" style="font-size: 10px;">object</a> <a href="/tags/oop/" style="font-size: 10px;">oop</a> <a href="/tags/reference/" style="font-size: 10px;">reference</a> <a href="/tags/type/" style="font-size: 12.5px;">type</a> <a href="/tags/types/" style="font-size: 12.5px;">types</a> <a href="/tags/vue/" style="font-size: 17.5px;">vue</a> <a href="/tags/vue-js/" style="font-size: 17.5px;">vue.js</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" style="font-size: 10px;">알고리즘</a> <a href="/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/" style="font-size: 10px;">자바스크립트</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2021 Joontae Kim</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'joontae-kim';
+    
+    
+    var disqus_url = 'https://joontae-kim.github.io/2021/03/18/nuxt-directory-3/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

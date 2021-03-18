@@ -3,36 +3,64 @@
 
 
     <url>
+        <loc>https://joontae-kim.github.io/tags/nuxt/</loc>
+        <lastmod>2021-03-18T07:22:59.075Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/vue/</loc>
+        <lastmod>2021-03-18T07:22:59.075Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/nuxt-js/</loc>
+        <lastmod>2021-03-18T07:22:59.075Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/vue-js/</loc>
+        <lastmod>2021-03-18T07:22:59.075Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://joontae-kim.github.io/tags/Server-Side-Rendering/</loc>
-        <lastmod>2021-03-17T16:49:26.394Z</lastmod>
+        <lastmod>2021-03-18T04:22:44.662Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/tags/Client-Side-Rendering/</loc>
-        <lastmod>2021-03-17T16:49:26.394Z</lastmod>
+        <lastmod>2021-03-18T04:22:44.662Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/tags/SSR/</loc>
-        <lastmod>2021-03-17T16:49:26.394Z</lastmod>
+        <lastmod>2021-03-18T04:22:44.662Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/tags/CSR/</loc>
-        <lastmod>2021-03-17T16:49:26.394Z</lastmod>
+        <lastmod>2021-03-18T04:22:44.662Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/tags/Rendering/</loc>
-        <lastmod>2021-03-17T16:49:26.394Z</lastmod>
+        <lastmod>2021-03-18T04:22:44.662Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
