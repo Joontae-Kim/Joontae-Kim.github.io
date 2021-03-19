@@ -3,29 +3,43 @@
 
 
     <url>
+        <loc>https://joontae-kim.github.io/tags/nuxt-lifecycle/</loc>
+        <lastmod>2021-03-19T15:20:57.497Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/lifecycle/</loc>
+        <lastmod>2021-03-19T15:20:57.497Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://joontae-kim.github.io/tags/nuxt/</loc>
-        <lastmod>2021-03-18T07:22:59.075Z</lastmod>
+        <lastmod>2021-03-19T15:20:57.497Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/tags/vue/</loc>
-        <lastmod>2021-03-18T07:22:59.075Z</lastmod>
+        <lastmod>2021-03-19T15:20:57.497Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/tags/nuxt-js/</loc>
-        <lastmod>2021-03-18T07:22:59.075Z</lastmod>
+        <lastmod>2021-03-19T15:20:57.497Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/tags/vue-js/</loc>
-        <lastmod>2021-03-18T07:22:59.075Z</lastmod>
+        <lastmod>2021-03-19T15:20:57.497Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

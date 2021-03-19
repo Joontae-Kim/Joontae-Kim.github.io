@@ -6,21 +6,33 @@
     
 
     
-    <title>Category: assignment | dev and dev</title>
+    <title>Nuxt 라이프사이클 | dev and dev</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="description" content="내가 볼려고 만든 깃헙 블로그">
-<meta property="og:type" content="website">
-<meta property="og:title" content="dev and dev">
-<meta property="og:url" content="https://joontae-kim.github.io/categories/assignment/index.html">
-<meta property="og:site_name" content="dev and dev">
-<meta property="og:description" content="내가 볼려고 만든 깃헙 블로그">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="Joontae Kim">
-<meta name="twitter:card" content="summary">
+    <meta name="keywords" content="vue.js,nuxt.js,vue,nuxt,lifecycle,nuxt lifecycle" />
     
-    <link rel="canonical" href="https://joontae-kim.github.io/categories/assignment/"/>
+    <meta name="description" content="Vue.js를 사용해 웹 어플리케이션 개발할때 라이프사이클에 대한 공부를 제대로 시작하지 고생한 경험이 있는데 Nuxt는 그런 과정을 밟지 않기위해 라이프사이클부터 차근차근 공부해보자. 일단 공식문서 번역과 아래 Nuxt Lifecycle HOOKS 이미지에 대한 내용에 대해 공부해보자. Nuxt Lifecycle 여러분이 어떤 도구(tool)를 사용하든">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nuxt 라이프사이클">
+<meta property="og:url" content="https://joontae-kim.github.io/2021/03/18/nuxt-lifecycle/index.html">
+<meta property="og:site_name" content="dev and dev">
+<meta property="og:description" content="Vue.js를 사용해 웹 어플리케이션 개발할때 라이프사이클에 대한 공부를 제대로 시작하지 고생한 경험이 있는데 Nuxt는 그런 과정을 밟지 않기위해 라이프사이클부터 차근차근 공부해보자. 일단 공식문서 번역과 아래 Nuxt Lifecycle HOOKS 이미지에 대한 내용에 대해 공부해보자. Nuxt Lifecycle 여러분이 어떤 도구(tool)를 사용하든">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://joontae-kim.github.io/images/nuxt.png">
+<meta property="article:published_time" content="2021-03-18T07:35:59.000Z">
+<meta property="article:modified_time" content="2021-03-19T15:20:57.497Z">
+<meta property="article:author" content="Joontae Kim">
+<meta property="article:tag" content="vue.js">
+<meta property="article:tag" content="nuxt.js">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="nuxt">
+<meta property="article:tag" content="lifecycle">
+<meta property="article:tag" content="nuxt lifecycle">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://joontae-kim.github.io/images/nuxt.png">
+    
+    <link rel="canonical" href="https://joontae-kim.github.io/2021/03/18/nuxt-lifecycle/"/>
 
     
         <link rel="alternate" href="/" title="dev and dev" type="application/atom+xml" />
@@ -166,85 +178,367 @@ ga('send', 'pageview');
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-folder-open"></i>Category: <em class="page-title-link">assignment</em>
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/nuxt/">nuxt</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            
-
-    
-    
+                            <article id="post-nuxt-lifecycle" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2020" class="archive-year"><i class="icon fa fa-calendar-o"></i>2020</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2020/09/25/assignment/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/assignment.png)" alt="assignment" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://joontae-kim.github.io/2020/09/25/assignment/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/assignment/">assignment</a>
-            </div>
-            <div class="date"><time datetime="2020-09-24T16:32:27.000Z" itemprop="datePublished">2020-09-25</time></div>
-        </div>
-        
+            <header class="article-header">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2020/09/25/assignment/">assignment</a>
+        Nuxt 라이프사이클
         </h1>
     
     <h2 class="article-subtitle">
-        차근차근 작성해야할 post
+        Nuxt Lifecycle
     </h2>
 
 
-        <p class="article-excerpt">
-            Private Assignment
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2021/03/18/nuxt-lifecycle/" class="article-date">
+       <time datetime="2021-03-18T07:35:59.000Z" itemprop="datePublished">2021-03-18</time>
+    </a>
+  </div>
 
-Post
 
-  google analytics &amp; console 연동하기
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2021/03/18/nuxt-lifecycle/" class="article-date">
+     <time datetime="2021-03-19T15:20:57.497Z" itemprop="dateModified">2021-03-20</time>
+  </a>
+</div>
 
-https://futurecreator.github.io/2016/06/15/hexo-google-site-search-console-analytics/
-https://github.com/ppoffice/hexo-theme-hueman/wik
-        </p>
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/lifecycle/" rel="tag">lifecycle</a>, <a class="tag-link-link" href="/tags/nuxt/" rel="tag">nuxt</a>, <a class="tag-link-link" href="/tags/nuxt-lifecycle/" rel="tag">nuxt lifecycle</a>, <a class="tag-link-link" href="/tags/nuxt-js/" rel="tag">nuxt.js</a>, <a class="tag-link-link" href="/tags/vue/" rel="tag">vue</a>, <a class="tag-link-link" href="/tags/vue-js/" rel="tag">vue.js</a>
     </div>
-</article>
-    
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="/images/nuxt.png" alt="Nuxt.js"></p>
+<p>Vue.js를 사용해 웹 어플리케이션 개발할때 라이프사이클에 대한 공부를 제대로 시작하지 고생한 경험이 있는데 Nuxt는 그런 과정을 밟지 않기위해 라이프사이클부터 차근차근 공부해보자. 일단 공식문서 번역과 아래 <strong>Nuxt Lifecycle HOOKS</strong> 이미지에 대한 내용에 대해 공부해보자.</p>
+<h1 id="Nuxt-Lifecycle"><a href="#Nuxt-Lifecycle" class="headerlink" title="Nuxt Lifecycle"></a>Nuxt Lifecycle</h1><p><img src="https://nuxtjs.org/docs/2.x/nuxt-lifecycle.svg" alt="Nuxt Lifecycle"></p>
+<p>여러분이 어떤 도구(tool)를 사용하든 그 도구의 서두(the hood)에 대해 잘 이해하고 있을때 더 자신있음을 느낄 것입니다. Nuxt.js도 해당됩니다. 이 챕터에서는 여러분에게 프레임워크의 실행순서와 어떻게 함께 작동하는지 서로 다른 부분에 대한 수준 높은 개요를 제공할 것입니다.</p>
+<p>Nuxt.js 라이프사이클은 빌드 단계 이후에 무엇이 발생되는지, 여러분의 어플리케이션이 어디서 번들되고(bundled), 청크되고(chunked), 최소화(minified) 되는지 설명합니다. 이 단계 이후에 발생하는 것은 여러분이 서버사이드 렌더링(server-side rendering) 활성화 여부에 따라 다릅니다. 만약 여러분이 서버사이드 렌더링 사용한다면, 추가적으로 여러분이 선택한 서버사이드 렌더링의 유형에 따라 달라집니다.</p>
+<p>Dynamic SSR (<code>nuxt start</code>) 또는 Static Site Generation (<code>nuxt generate</code>).</p>
+<h2 id="Lifecycle"><a href="#Lifecycle" class="headerlink" title="Lifecycle"></a>Lifecycle</h2><h3 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h3><p>SSR을 위해서 아래의 단계가 여러분의 어플리케이션에서 모든 초기요청(request) 동안에 실행될 것입니다.</p>
+<ul>
+<li>서버 시작 <em>The server starts</em> (<code>nuxt start</code>)</li>
+</ul>
+<p>정적 사이트 생성모드를 사용하면, 서버 단계에서는 오직 빌드타임에만 실행되나 모든 페이지에 대해 단 한번만 실행될 것입니다.</p>
+<ul>
+<li>생성 프로세스 시작 (<code>nuxt generate</code>)</li>
+<li>Nuxt hooks</li>
+<li>serverMiddleware</li>
+<li>Server-side Nuxt 플러그인(plugins)<ul>
+<li>nuxt.config.js에 정의된 순서대로 <em>(in order as defined in nuxt.config.js)</em></li>
+</ul>
+</li>
+<li>nuxtServerInit<ul>
+<li><em>만약 Vuex store를 설정했다면 서버 사이드에서 요청되는 첫번째 생명주기 훅(lifecycle hook)이다</em></li>
+<li>스토어(store)를 미리 채우기(pre-populate) 위해 서버 사이드에서 Vuex 호출한다.</li>
+<li>첫번째 인자(argument)는 Vuex context, 두번째 인자는 Nuxt.js context 입니다.<ul>
+<li>서버 사이드에서 연속적인 스토어 액션(action)을 위해 오직 “entry point”에서 다른 액션을 Dispatch 합니다.</li>
+</ul>
+</li>
+<li>오직 <code>store/index.js</code>에 정의할 수 있습니다.</li>
+</ul>
+</li>
+<li>미들웨어 (Middleware 또는 Route Middleware)<ul>
+<li><em>페이지 컴포넌트가 렌더링되기 전에 호출됩니다.</em></li>
+<li><em>조건을 설정하거나 체크할수도 있으며 페이지를 리다이렉트(redirect)하는데 사용할 수 있습니다.</em></li>
+<li>전역 미들웨어(Global middleware) <em>- 모든 라우트에 영향을 끼치며, <strong>route.config.js</strong>에 정의합니다.</em></li>
+<li>레이아웃 미들웨어(Layout middleware) <em>- 라우트 그룹에 영향을 끼치며, <strong>layout</strong>에 정의합니다.</em></li>
+<li>페이지 미들웨어(Page middleware) <em>- 싱글 라우트에 영향을 끼치며, <strong>page component</strong>에 정의합니다.</em></li>
+</ul>
+</li>
+<li><em>validate</em><ul>
+<li><em>동적 라우트 파라미터(dynamic route parameter)를 검증하는데 유용합니다.</em></li>
+<li><em>페이지 컴포넌트가 렌더링 되기 전에 호출됩니다.</em></li>
+</ul>
+</li>
+<li>asyncData<ul>
+<li><em>페이지 컴포넌트가 로딩되기 전에 매번 호출됩니다.</em></li>
+<li><em>컴포넌트 <code>data</code> 프로퍼티와 병합(merge)됩니다.</em></li>
+</ul>
+</li>
+<li>beforeCreate (Vue 라이크사이클 메서드)<ul>
+<li><em>Vue 인스턴트(instance)가 초기화(initialized) 될때 호출됩니다.</em></li>
+</ul>
+</li>
+<li>created (Vue 라이크사이클 메서드)</li>
+<li>The new fetch (top to bottom, siblings = parallel)</li>
+<li>상태의 일렬화(Serialization of state) (<code>render:routeContext</code> Nuxt.js hook)</li>
+<li>HTML을 렌더링 할때 일어난다. (<code>render:route</code> Nuxt.js hook)</li>
+<li><code>render:routeDone</code> 훅: HTML 파일을 브라우저로 보낼때 일어난다.</li>
+<li><code>generate:before</code> Nuxt.js hook</li>
+<li>HTML 파일들을 생성한다.<ul>
+<li><strong>Full static generation</strong><ul>
+<li>e.g. 정적 페이로드(static payloads)를 추출한다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>generate:page</code> (HTML 편집가능(editable))</li>
+<li><code>generate:routeCreated</code> (Route가 생성된다.)</li>
+<li><code>generate:done</code> 훅: 모든 HTML 파일들이 생성될때 일어난다.</li>
+</ul>
+<h3 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h3><p>여러분이 Nuxt.js의 어떤 모드를 선택하든, 이 부분은 라이프사이클 중에 완전히 브라우저에서 실행된다.</p>
+<ul>
+<li>HTML 파일을 받는다(Receives).</li>
+<li>assets 로딩하기 (e.g. JavaScript)</li>
+<li>Vue Hydration</li>
+<li>미들웨어 (Middleware 또는 Route Middleware)<ul>
+<li><em>페이지 컴포넌트가 렌더링되기 전에 호출됩니다.</em></li>
+<li><em>조건을 설정하거나 체크할수도 있으며 페이지를 리다이렉트(redirect)하는데 사용할 수 있습니다.</em></li>
+<li>전역 미들웨어(Global middleware) <em>- 모든 라우트에 영향을 끼치며, <strong>route.config.js</strong>에 정의합니다.</em></li>
+<li>레이아웃 미들웨어(Layout middleware) <em>- 라우트 그룹에 영향을 끼치며, <strong>layout</strong>에 정의합니다.</em></li>
+<li>페이지 미들웨어(Page middleware) <em>- 싱글 라우트에 영향을 끼치며, <strong>page component</strong>에 정의합니다.</em></li>
+</ul>
+</li>
+<li>클라이언트 사이드(client-side) Nuxt.js 플러그인<ul>
+<li>nuxt.config.js에 정의된 순서대로 <em>(in order as defined in nuxt.config.js)</em></li>
+</ul>
+</li>
+<li>asyncData (비동기, blocking)<ul>
+<li><em>페이지 컴포넌트가 로딩되기 전에 매번 호출됩니다.</em></li>
+<li><em>컴포넌트 <code>data</code> 프로퍼티와 병합(merge)됩니다.</em></li>
+</ul>
+</li>
+<li>beforeCreate (Vue 라이크사이클 메서드)<ul>
+<li><em>Vue 인스턴트(instance)가 초기화(initialized) 될때 호출됩니다.</em></li>
+</ul>
+</li>
+<li>created (Vue 라이크사이클 메서드)</li>
+<li>The new fetch (top to bottom, siblings = parallel) (동기, non-blocking)</li>
+<li>beforeMount (Vue 라이크사이클 메서드)</li>
+<li>mounted (Vue 라이크사이클 메서드)</li>
+</ul>
+<h3 id="NuxtLink-컴포넌트-component-를-사용한-네비게이트-Navigate"><a href="#NuxtLink-컴포넌트-component-를-사용한-네비게이트-Navigate" class="headerlink" title="NuxtLink 컴포넌트(component)를 사용한 네비게이트(Navigate)"></a>NuxtLink 컴포넌트(component)를 사용한 네비게이트(Navigate)</h3><p>클라이언트 사이드 부분과 동일하게 브라우저에서 모든것이 발생하지만 오직 <code>&lt;NuxtLink&gt;</code>를 통해 네비게이팅 될때만 발생합니다.</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/2.x/features/nuxt-components#the-nuxtlink-component"><code>&lt;NuxtLink&gt;</code></a> 에 대한 더 자세한 정보는 컴포넌트 챕터에서 확인하세요</p>
+</blockquote>
+<ul>
+<li>middleware (비동기, blocking)</li>
+<li>전역 미들웨어(Global middleware)</li>
+<li>레이아웃 미들웨어(Layout middleware)</li>
+<li>라우트 미들웨어(Route middleware)</li>
+<li>asyncData (비동기, blocking)</li>
+<li>asyncData (비동기, blocking) [또는 완전히 정적 페이로드(static payload)가 로딩된 후]</li>
+<li>beforeCreate &amp; created (Vue 라이크사이클 메서드)</li>
+<li>fetch (동기, non-blocking)</li>
+<li>beforeMount &amp; mounted</li>
+</ul>
+<h2 id="중간-정리"><a href="#중간-정리" class="headerlink" title="중간 정리"></a>중간 정리</h2><p>Nuxt의 라이프사이클은 전체적으로 서버와 클라이언트 사이드 부분으로 나뉘는 것을 알 수 있으며 각 부분에서 공통으로 실행되는 과정과 아닌 과정이 있음을 확인할 수 있었습니다. 또한, 정적 (Static) 어플리케이션를 만드느냐 SSR(Server-Side Rendering) 또는 유니버설(universal) 어플리케이션을 만드느냐에 따라 과정이 달라질 수 있다.</p>
+<h2 id="추가-공부"><a href="#추가-공부" class="headerlink" title="추가 공부"></a>추가 공부</h2><p>라이프사이클에 대해 공부 및 정리하면서 봤던 내용들에 대해 정리해보자.</p>
+<h3 id="1-활용도가-높고-중요한-몇가지-훅"><a href="#1-활용도가-높고-중요한-몇가지-훅" class="headerlink" title="1. 활용도가 높고 중요한 몇가지 훅"></a>1. 활용도가 높고 중요한 몇가지 훅</h3><ul>
+<li>middleware(클라이언트, 서버)<ul>
+<li>클라이언트와 서버 모두 훅들이 본격적으로 호출되기 전에, 앱을 만드는 과정에서 미리 정의해놓은 미들웨어들이 먼저 동작합니다.</li>
+<li>만약 <code>serverMiddlware</code>을 정의했다면 서버 사이드에서만 렌더링 과정에서 일반 미들웨어가 동작하기 전에 먼저 동작합니다.</li>
+</ul>
+</li>
+<li>asyncData(서버 or 클라이언트)<ul>
+<li>서버 혹은 클라이언트 사이드에서 생명주기 통틀어 한번씩만 호출되는 훅입니다.</li>
+<li>Vue 인스턴스의 생명주기 이전에 먼저 데이터를 가져와서 렌더링을 하고싶은 경우에 사용합니다.</li>
+<li>컴포넌트를 로드하기 전에 항상 호출되며, 페이지 컴포넌트의 경우에만 사용할 수 있습니다.</li>
+<li>asyncData 의 리턴값은 Vue 인스턴스의 data()와 병합됩니다.</li>
+</ul>
+</li>
+<li>beforeCreated, created(클라이언트, 서버)<ul>
+<li>서버에서 새로운 vue 인스턴스를 생성한 뒤 이를 프리랜더링 하기 때문에 Vue 인스턴스가 서버에서 만들어지는 시점에 created와 beforeCreated 훅이 호출됩니다.</li>
+<li>또한 클라이언트에서도 인스턴스를 만들고 $mount 메소드가 호출될 때도 따라 호출됩니다.</li>
+<li>즉 서버와 클라이언트 사이드 양쪽에서 호출되는 훅입니다.</li>
+</ul>
+</li>
+<li>beforeMount 이후의 훅(클라이언트)<ul>
+<li>클라이언트 사이드에서만, 하이드레이션 이후에 $mount 메소드가 호출될 때 나머지 Vue 생명주기 훅들이 실행됩니다.</li>
+</ul>
+</li>
+</ul>
+<p><em>출처: 참조 1</em></p>
+<h3 id="2-Nuxt-js-비동기-데이터"><a href="#2-Nuxt-js-비동기-데이터" class="headerlink" title="2. Nuxt.js 비동기 데이터"></a>2. Nuxt.js 비동기 데이터</h3><blockquote>
+<p>Nuxt.js에는 비동기데이터 가져 오기를 위해 설계된 3가지 후크가 있다.</p>
+</blockquote>
+<ul>
+<li>nuxtServerInit : 모든 페이지에 호출되는 VueX 저장소를 미리 채우는 데 사용됩니다.</li>
+<li>fetch : 페이지 내에서 호출 된 데이터로 VueX 저장소를 미리 채우는 데 사용됩니다.</li>
+<li>asyncData : data 페이지의 객체와 동기 데이터를 병합하는데 사용된다. 비동기 방식으로 미들웨어를 사용할 수도 있습니다. 즉, 미들웨어를 사용하여 VueX 저장소를 채울 수 있습니다.</li>
+</ul>
+<p><img src="https://linked2ev.github.io/assets/img/devlog/201811/Nust-SSR-sample-s1.png" alt="Nust-SSR"></p>
+<h4 id="asyncData-메소드"><a href="#asyncData-메소드" class="headerlink" title="asyncData 메소드"></a>asyncData 메소드</h4><p>서버사이드에서 데이터를 가져와서 렌더링하고 싶을 때, 이때 pages 컴포넌트를 로딩하기 전에 매번 호출되는 <code>asyncData</code>를 사용하면 된다.</p>
+<ul>
+<li>pages 컴포넌트에서만 지원됩니다.</li>
+<li>서버사이드에서 호출되거나 페이지를 이동할 때 호출</li>
+<li>컴포넌트가 렌더링 되기 전에 호출</li>
+<li>context 인자 사용가능</li>
+<li>nuxt.js가 <code>컴포넌트와 데이터를 자동으로 Merge하는 개념</code></li>
+</ul>
+<blockquote>
+<p><code>!! asyncData 안에서 컴포넌트가 생성되기 전에 호출하기 때문에 this를 엑세스할 수 없다.</code></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      title: &#39;&#39;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  asyncData (&#123; params &#125;) &#123;</span><br><span class="line">    return axios.get(&#96;http:&#x2F;&#x2F;localhost:8080&#x2F;test&#x2F;1&#96;)</span><br><span class="line">    .then((res) &#x3D;&gt; &#123;</span><br><span class="line">      &#x2F;&#x2F; 여기서 this는 컴포넌트 생성 전이기에 &#39;undefined&#39;</span><br><span class="line">      return this.title &#x3D; res.data</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><em>출처: 참조 2</em></p>
+<h4 id="3-asyncData-와-fetch"><a href="#3-asyncData-와-fetch" class="headerlink" title="3. asyncData()와 fetch()"></a>3. asyncData()와 fetch()</h4><ul>
+<li><p>두 개의 Hook은 매우 비슷해보이면서 목적은 다름</p>
+<ul>
+<li>공통점: 컴포넌트가 로딩되기 전에 매번 호출된다는 점, 첫번째 인자로 컨텍스트 오브젝트를 받음</li>
+</ul>
+</li>
+<li><p>asyncData</p>
+<ul>
+<li>페이지가 로딩되기전에 컴포넌트 data를 미리 지정하여 컴포넌트가 생성될 때 병합하는데에 목적</li>
+<li>즉 필요한 컴포넌트의 data를 컴포넌트가 랜더링 되기 전에 미리 지정하여 보다 빠르게 구성한다는 데에 목적을 둠</li>
+</ul>
+</li>
+<li><p>fetch</p>
+<ul>
+<li>주로 비동기 작업을 작성하게 되면, 컴포넌트가 랜더링 되기전에 이 작업을 기다리게 됨</li>
+<li>예를들어 유저정보가 필요한 컴포넌트라면 <code>fetch</code> 부분에 유저정보를 가져오는 API를 호출하여 활용할 수 있음</li>
+</ul>
+</li>
+<li><p>요약하자면,</p>
+<ul>
+<li><code>asyncData</code>는 컴포넌트가 랜더링 되기전에 <em>컴포넌트 데이터를 구성하는데에 목적</em>이 있고,</li>
+<li><code>fetch</code>는 컴포넌트가 랜더링 되기전에 <em>비동기로직을 호출하는데에 목적</em>이 있다고 생각합니다!</li>
+</ul>
+</li>
+</ul>
+<p><em>출처: 참조 4</em></p>
+<h4 id="4-잘-정리된-Nuxt-Lifecucle-Hooks"><a href="#4-잘-정리된-Nuxt-Lifecucle-Hooks" class="headerlink" title="4. 잘 정리된 Nuxt Lifecucle Hooks"></a>4. 잘 정리된 Nuxt Lifecucle Hooks</h4><p><img src="https://miro.medium.com/max/1400/0*e4lPLcP-qGU9g8sv.jpg" alt="Nuxt Lifecucle Hooks"></p>
+<p><em>출처: 참조 5</em></p>
+<hr>
+<h2 id="참조"><a href="#참조" class="headerlink" title="참조"></a>참조</h2><ul>
+<li>(1) <a target="_blank" rel="noopener" href="https://maxkim-j.github.io/posts/nuxt-ssr">🌧 Nuxt로 살펴보는 서버사이드 렌더링의 핵심</a></li>
+<li>(2) <a target="_blank" rel="noopener" href="https://linked2ev.github.io/devlog/2018/11/21/Nuxt-%EC%99%84-6.-Nuxt-SSR-sample/">[Nuxt][완] 6. Nuxt.js로 SSR 확인</a></li>
+<li>(3) <a target="_blank" rel="noopener" href="https://evan-moon.github.io/2018/09/25/vue-ssr/">Vue Server Side Rendering</a></li>
+<li>(4) <a target="_blank" rel="noopener" href="https://www.a-ha.io/questions/4050f94b442d0048b8c81562dc3d26e1">Nuxt.js 에서 asyncData() 와 fetch() 은 차이는 무엇인가요?</a></li>
+<li>(5) <a target="_blank" rel="noopener" href="https://medium.com/@imsukmin/%EB%B2%88%EC%97%AD-universal-application-code-structure-in-nuxt-js-f624f2e5e7e9">[번역] Universal application code structure in Nuxt.js</a></li>
+</ul>
+
         </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Joontae Kim"
+        },
+        "headline": "Nuxt 라이프사이클",
+        "image": "https://joontae-kim.github.io/images/nuxt.png",
+        "keywords": "vue.js nuxt.js vue nuxt lifecycle nuxt lifecycle",
+        "genre": "Programming nuxt",
+        "datePublished": "2021-03-18",
+        "dateCreated": "2021-03-18",
+        "dateModified": "2021-03-20",
+        "url": "https://joontae-kim.github.io/2021/03/18/nuxt-lifecycle/",
+        "description": "
+Vue.js를 사용해 웹 어플리케이션 개발할때 라이프사이클에 대한 공부를 제대로 시작하지 고생한 경험이 있는데 Nuxt는 그런 과정을 밟지 않기위해 라이프사이클부터 차근차근 공부해보자. 일단 공식문서 번역과 아래 Nuxt Lifecycle HOOKS 이미지에 대한 내용에 대해 공부해보자.
+Nuxt Lifecycle
+여러분이 어떤 도구(tool)를 사용하든",
+        "wordCount": 1068
+    }
+</script>
+
+</article>
+
+    <section id="comments">
     
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
 
 
-    </div></section>
-
+    
+    </section>
 
 
 
@@ -274,6 +568,19 @@ https://github.com/ppoffice/hexo-theme-hueman/wik
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2021/03/18/nuxt-directory-3/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Nuxt 디렉토리 구조</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
     
     <div class="widgets-container">
         
@@ -459,11 +766,13 @@ https://github.com/ppoffice/hexo-theme-hueman/wik
     var disqus_shortname = 'joontae-kim';
     
     
+    var disqus_url = 'https://joontae-kim.github.io/2021/03/18/nuxt-lifecycle/';
+    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>
