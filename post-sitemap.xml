@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://joontae-kim.github.io/2020/10/22/javascript-oop/</loc>
+        <lastmod>2021-04-06T15:55:18.326Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://joontae-kim.github.io/2021/04/04/algorithm/</loc>
         <lastmod>2021-04-04T11:38:53.274Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -98,14 +106,6 @@
     <url>
         <loc>https://joontae-kim.github.io/2020/10/14/Blog-to-read/</loc>
         <lastmod>2020-11-03T10:39:52.677Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/2020/10/22/javascript-oop/</loc>
-        <lastmod>2020-11-03T09:14:45.322Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
