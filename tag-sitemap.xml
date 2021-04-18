@@ -3,6 +3,34 @@
 
 
     <url>
+        <loc>https://joontae-kim.github.io/tags/nuxt/</loc>
+        <lastmod>2021-04-18T17:11:05.420Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/vue/</loc>
+        <lastmod>2021-04-18T17:11:05.420Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/nuxt-js/</loc>
+        <lastmod>2021-04-18T17:11:05.420Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/vue-js/</loc>
+        <lastmod>2021-04-18T17:11:05.420Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://joontae-kim.github.io/tags/%25EC%258B%259C%25EA%25B0%2584-%25EB%25B3%25B5%25EC%259E%25A1%25EB%258F%2584/</loc>
         <lastmod>2021-04-17T17:18:36.124Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -137,34 +165,6 @@
 
     <url>
         <loc>https://joontae-kim.github.io/tags/lifecycle/</loc>
-        <lastmod>2021-03-19T15:20:57.497Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/nuxt/</loc>
-        <lastmod>2021-03-19T15:20:57.497Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/vue/</loc>
-        <lastmod>2021-03-19T15:20:57.497Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/nuxt-js/</loc>
-        <lastmod>2021-03-19T15:20:57.497Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/vue-js/</loc>
         <lastmod>2021-03-19T15:20:57.497Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

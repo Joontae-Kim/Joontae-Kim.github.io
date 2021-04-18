@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="vue.js,nuxt.js,vue,nuxt" />
     
-    <meta name="description" content="1.Nuxt 프로젝트 디렉토리막 생성된 nuxt 프로젝트의 디렉토리는 아래와 같다. 디렉토리에 대한 정의를 잘 몰라도 이미 Vue.js를 사용했던 개발자라면 비슷한 구조이며 스캐폴딩이 이미 되어있다는 생각이 들것이다. 각 디렉토리의 역할에 대해 알아보자. .nuxtThe .nuxt directory is the so-called build directory">
+    <meta name="description" content="1.Nuxt 프로젝트 디렉토리막 생성된 nuxt 프로젝트의 디렉토리는 아래와 같다. 디렉토리에 대한 정의를 잘 몰라도 이미 Vue.js를 사용했던 개발자라면 비슷한 구조이며 스캐폴딩이 이미 되어있다는 생각이 들것이다. 각 디렉토리의 역할에 대해 알아보자. .nuxt .directory를 빌드 디렉토리라고 부르며 기본적으로 숨겨져 있고 동적으로 생성됩니다.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nuxt 디렉토리 구조">
 <meta property="og:url" content="https://joontae-kim.github.io/2021/03/18/nuxt-directory/index.html">
 <meta property="og:site_name" content="dev and dev">
-<meta property="og:description" content="1.Nuxt 프로젝트 디렉토리막 생성된 nuxt 프로젝트의 디렉토리는 아래와 같다. 디렉토리에 대한 정의를 잘 몰라도 이미 Vue.js를 사용했던 개발자라면 비슷한 구조이며 스캐폴딩이 이미 되어있다는 생각이 들것이다. 각 디렉토리의 역할에 대해 알아보자. .nuxtThe .nuxt directory is the so-called build directory">
+<meta property="og:description" content="1.Nuxt 프로젝트 디렉토리막 생성된 nuxt 프로젝트의 디렉토리는 아래와 같다. 디렉토리에 대한 정의를 잘 몰라도 이미 Vue.js를 사용했던 개발자라면 비슷한 구조이며 스캐폴딩이 이미 되어있다는 생각이 들것이다. 각 디렉토리의 역할에 대해 알아보자. .nuxt .directory를 빌드 디렉토리라고 부르며 기본적으로 숨겨져 있고 동적으로 생성됩니다.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://joontae-kim.github.io/images/nuxt.png">
 <meta property="article:published_time" content="2021-03-18T03:49:55.000Z">
-<meta property="article:modified_time" content="2021-03-18T07:09:56.066Z">
+<meta property="article:modified_time" content="2021-04-18T10:14:41.619Z">
 <meta property="article:author" content="Joontae Kim">
 <meta property="article:tag" content="vue.js">
 <meta property="article:tag" content="nuxt.js">
@@ -212,7 +212,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2021/03/18/nuxt-directory/" class="article-date">
-     <time datetime="2021-03-18T07:09:56.066Z" itemprop="dateModified">2021-03-18</time>
+     <time datetime="2021-04-18T10:14:41.619Z" itemprop="dateModified">2021-04-18</time>
   </a>
 </div>
 
@@ -241,69 +241,104 @@ ga('send', 'pageview');
 
             <h3 id="1-Nuxt-프로젝트-디렉토리"><a href="#1-Nuxt-프로젝트-디렉토리" class="headerlink" title="1.Nuxt 프로젝트 디렉토리"></a>1.Nuxt 프로젝트 디렉토리</h3><p>막 생성된 nuxt 프로젝트의 디렉토리는 아래와 같다. 디렉토리에 대한 정의를 잘 몰라도 이미 Vue.js를 사용했던 개발자라면 비슷한 구조이며 스캐폴딩이 이미 되어있다는 생각이 들것이다.<br><img src="/images/nuxt-directory.png" alt="nuxt 프로젝트 디렉토리"></p>
 <p>각 디렉토리의 역할에 대해 알아보자.</p>
-<h4 id="nuxt"><a href="#nuxt" class="headerlink" title=".nuxt"></a>.nuxt</h4><p>The .nuxt directory is the so-called build directory. It is dynamically generated and hidden by default. Inside the directory you can find automatically generated files when using nuxt dev or your build artifacts when using nuxt build.</p>
-<h4 id="assets"><a href="#assets" class="headerlink" title="assets"></a>assets</h4><p>The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.</p>
-<h5 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h5><p>Inside your vue templates, if you need to link to your assets directory use ~/assets/your_image.png with a slash before assets.</p>
+<h4 id="nuxt"><a href="#nuxt" class="headerlink" title=".nuxt"></a>.nuxt</h4><!-- The .nuxt directory is the so-called build directory. It is dynamically generated and hidden by default. Inside the directory you can find automatically generated files when using nuxt dev or your build artifacts when using nuxt build. -->
+<p><code>.directory</code>를 빌드 디렉토리라고 부르며 기본적으로 숨겨져 있고 동적으로 생성됩니다. <code>nuxt dev</code>를 사용했을땐 이 디렉토리에서 동적으로 생성된 파일들을 찾을 수 있으며 <code>nuxt build</code>를 사용하면 작업물들을 빌드할 수 있습니다.</p>
+<h4 id="assets"><a href="#assets" class="headerlink" title="assets"></a>assets</h4><!-- The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts. -->
+<p><code>assets</code> 디렉토리는 Stylus 또는 Sass files, images 또는 fonts 와 같은 컴파일된 애셋이 포함되어 있습니다.</p>
+<h5 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h5><!-- Inside your vue templates, if you need to link to your assets directory use ~/assets/your_image.png with a slash before assets. -->
+<p><code>vue</code> 템플릿 내부에는, 만약 assets을 링크해야 한다면, 슬래시(/)와 앞에 <code>~/assets/your_image.png</code>와 같이 사용할 수 있습니다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;img src&#x3D;&quot;~&#x2F;assets&#x2F;your_image.png&quot; &#x2F;&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
 
-<p>Inside your css files, if you need to reference your  assets  directory, use ~assets/your_image.png(without a slash)</p>
+<!-- Inside your css files, if you need to reference your  assets  directory, use ~assets/your_image.png(without a slash) -->
+<p>css 파일에서 <code>assets</code> 디렉토리에 대한 참조가 필요하다면, 슬래시 없이 <code>~assets/your_image.png</code>와 같이 사용할 수 있습니다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background: url(&#39;~assets&#x2F;banner.svg&#39;);</span><br></pre></td></tr></table></figure>
 
-<h5 id="Styles"><a href="#Styles" class="headerlink" title="Styles"></a>Styles</h5><p>Nuxt.js lets you define the CSS files/modules/libraries you want to set globally (included in every page). In the nuxt.config you can easily add your styles using the CSS Property.</p>
+<h5 id="Styles"><a href="#Styles" class="headerlink" title="Styles"></a>Styles</h5><!-- Nuxt.js lets you define the CSS files/modules/libraries you want to set globally (included in every page). In the nuxt.config you can easily add your styles using the CSS Property. -->
+<p>Nuxt.js를 사용하면 모든 페이지에서 포함된 전역으로 설정하기 원하는 CSS 파일/모듈/라이브러리를 정의할 수 있습니다. <code>nuxt.config</code> 에서 CSS 프로퍼티를 사용합으로써 스타일을 쉽게 추가할 수 있습니다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;</span><br><span class="line">  css: [</span><br><span class="line">    &#x2F;&#x2F; Load a Node.js module directly (here it&#39;s a Sass file)</span><br><span class="line">    &#39;bulma&#39;,</span><br><span class="line">    &#x2F;&#x2F; CSS file in the project</span><br><span class="line">    &#39;~&#x2F;assets&#x2F;css&#x2F;main.css&#39;,</span><br><span class="line">    &#x2F;&#x2F; SCSS file in the project</span><br><span class="line">    &#39;~&#x2F;assets&#x2F;css&#x2F;main.scss&#39;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h5 id="Fonts"><a href="#Fonts" class="headerlink" title="Fonts"></a>Fonts</h5><p>You can use local fonts by adding them to your assets folder. Once they have been added you can then access them through your css using the @font-face.</p>
+<h5 id="Fonts"><a href="#Fonts" class="headerlink" title="Fonts"></a>Fonts</h5><!-- You can use local fonts by adding them to your assets folder. Once they have been added you can then access them through your css using the @font-face. -->
+<p>여러분의 에셋 폴더에 로컬 폰트를 추가해 사용할 수 있습니다. 일단 폰트를 추가하면, 여러분은 <code>@font-face</code>를 사용해 css에서 폰트에 접근할 수 있습니다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-| assets</span><br><span class="line">----| fonts</span><br><span class="line">------| DMSans-Regular.ttf</span><br><span class="line">------| DMSans-Bold.ttf</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@font-face &#123;</span><br><span class="line">  font-family: &#39;DM Sans&#39;;</span><br><span class="line">  font-style: normal;</span><br><span class="line">  font-weight: 400;</span><br><span class="line">  font-display: swap;</span><br><span class="line">  src: url(&#39;~assets&#x2F;fonts&#x2F;DMSans-Regular.ttf&#39;) format(&#39;truetype&#39;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@font-face &#123;</span><br><span class="line">  font-family: &#39;DM Sans&#39;;</span><br><span class="line">  font-style: normal;</span><br><span class="line">  font-weight: 700;</span><br><span class="line">  font-display: swap;</span><br><span class="line">  src: url(&#39;~assets&#x2F;fonts&#x2F;DMSans-Bold.ttf&#39;) format(&#39;truetype&#39;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="components"><a href="#components" class="headerlink" title="components"></a>components</h4><p>The components directory contains your Vue.js components. Components are what makes up the different parts of your page and can be reused and imported into your pages, layouts and even other components.</p>
-<h5 id="Fetching-Data"><a href="#Fetching-Data" class="headerlink" title="Fetching Data"></a>Fetching Data</h5><p>To access asynchronous data from an API in your components you can use Nuxt fetch() hook.</p>
-<p>By checking $fetchState.pending, we can show a message when data is waiting to be loaded. We can also check $fetchState.error and show an error message if there is an error fetching the data. When using fetch(), we must declare the appropriate properties in data(). The data that comes from the fetch can then be assigned to these properties.</p>
+<h4 id="components"><a href="#components" class="headerlink" title="components"></a>components</h4><!-- The components directory contains your Vue.js components. Components are what makes up the different parts of your page and can be reused and imported into your pages, layouts and even other components. -->
+<p>컴포넌트 디렉토리는 Vue.js 컴포넌트들을 포함하고 있으며 컴포넌트들은 페이지의 서로 다른 부분을 구성할 것이고 페이지, 레이아웃 심지어 다른 컴포넌트안에서 불러지고, 재사용할 될 수 있습니다.</p>
+<h5 id="Fetching-Data"><a href="#Fetching-Data" class="headerlink" title="Fetching Data"></a>Fetching Data</h5><!-- To access asynchronous data from an API in your components you can use Nuxt fetch() hook. -->
+<p>컴포넌트에서 API에 동적으로 데이터를 접근하기 위해서 Nuxt의 <code>fetch() hook</code>을 사용할 수 있습니다.</p>
+<!-- By checking $fetchState.pending, we can show a message when data is waiting to be loaded. We can also check $fetchState.error and show an error message if there is an error fetching the data. When using fetch(), we must declare the appropriate properties in data(). The data that comes from the fetch can then be assigned to these properties. -->
+<p><code>$fetchState.pending</code>을 확인함으로써, 데이터가 로드될 때까지 기다리고 있을때 메시지를 표시할 수 있다. 또한, 데이터를 가져오는데 오류가 있을 경우 <code>$fetchState.error</code>를 확인해 오류 메시지를 표시할 수 있습니다. <code>fetch()</code>을 사용하면 <code>data()</code>에서 적절한 프로퍼티에 선언해야 합니다. fetch로부터 받은 데이터는 이러한 속성들에 선언할 수 있습니다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;p v-if&#x3D;&quot;$fetchState.pending&quot;&gt;Loading....&lt;&#x2F;p&gt;</span><br><span class="line">    &lt;p v-else-if&#x3D;&quot;$fetchState.error&quot;&gt;Error while fetching mountains&lt;&#x2F;p&gt;</span><br><span class="line">    &lt;ul v-else&gt;</span><br><span class="line">      &lt;li v-for&#x3D;&quot;(mountain, index) in mountains&quot; :key&#x3D;&quot;index&quot;&gt;</span><br><span class="line">        &#123;&#123; mountain.title &#125;&#125;</span><br><span class="line">      &lt;&#x2F;li&gt;</span><br><span class="line">    &lt;&#x2F;ul&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    data() &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        mountains: []</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    async fetch() &#123;</span><br><span class="line">      this.mountains &#x3D; await fetch(</span><br><span class="line">        &#39;https:&#x2F;&#x2F;api.nuxtjs.dev&#x2F;mountains&#39;</span><br><span class="line">      ).then(res &#x3D;&gt; res.json())</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
 
-<h4 id="content"><a href="#content" class="headerlink" title="content"></a>content</h4><p>Empower your Nuxt.js application with @nuxtjs/content module where you can write in a content/ directory and fetch your Markdown, JSON, YAML and CSV files through a MongoDB like API, acting as a Git-based Headless CMS.</p>
-<h4 id="dist"><a href="#dist" class="headerlink" title="dist"></a>dist</h4><p>The dist folder, short for distribution folder. It is dynamically generated when using the nuxt generate command and includes the generated production ready HTML files and assets that are necessary to deploy and run your statically generated Nuxt.js application.</p>
-<h4 id="layouts"><a href="#layouts" class="headerlink" title="layouts"></a>layouts</h4><p>Layouts are a great help when you want to change the look and feel of your Nuxt.js app. Whether you want to include a sidebar or have distinct layouts for mobile and desktop.</p>
+<h4 id="content"><a href="#content" class="headerlink" title="content"></a>content</h4><!-- Empower your Nuxt.js application with @nuxtjs/content module where you can write in a content/ directory and fetch your Markdown, JSON, YAML and CSV files through a MongoDB like API, acting as a Git-based Headless CMS. -->
+<p><code>content/</code> 디렉토리에 작성한 <code>@nuxtjs/content</code> 모듈은 Nuxt.js 어플리케이션을 강력하게 만들수 있으며 <strong>Git-based Headless CMS</strong> 와 같은 역할을 하는 MongoDB와 같은 API를 통해 Markdown, JSON, YAML and CSV 파일들을 불러옵니다.<br><img src="https://nuxtjs.org/docs/2.x/nuxt-content.svg"></p>
+<h4 id="dist"><a href="#dist" class="headerlink" title="dist"></a>dist</h4><!-- The **dist** folder, short for distribution folder. It is dynamically generated when using the nuxt generate command and includes the generated production ready HTML files and assets that are necessary to deploy and run your statically generated Nuxt.js application. -->
+<p><em>배포</em> 폴더를 간추려 <strong>dist</strong> 폴더라고 하며 <code>nuxt generate</code> 명령어를 사용해 동적으로 생성하고, 생성된 프로덕션에 준비된 HTML 파일들과 배포하기 위해 필수적인 에셋들이 포함되고, 전략적으로 생성한 Nuxt.js 어플리케이션이 작동합니다.</p>
+<h4 id="layouts"><a href="#layouts" class="headerlink" title="layouts"></a>layouts</h4><!-- Layouts are a great help when you want to change the look and feel of your Nuxt.js app. Whether you want to include a sidebar or have distinct layouts for mobile and desktop. -->
+<p>사이드바 또는 모바일이나 데스크톱에 대한 구별된 레이아웃을 원할 경우 레이아웃은 Nuxt.js 앱의 느낌과 외형을 변경하려고 할때 큰 도움이 됩니다.</p>
+<!-- > This directory cannot be renamed without extra configuration. -->
 <blockquote>
-<p>This directory cannot be renamed without extra configuration.</p>
+<p>이 디렉토리는 추가 설졍없이 이름을 재설정할 수 없습니다.</p>
 </blockquote>
-<h5 id="Default-Layout"><a href="#Default-Layout" class="headerlink" title="Default Layout"></a>Default Layout</h5><p>You can extend the main layout by adding a layouts/default.vue file. It will be used for all pages that don’t have a layout specified. Make sure to add the <Nuxt> component when creating a layout to actually include the page component.</p>
-<p>All you need in your layout is three lines of code which will render the page component.</p>
+<h5 id="Default-Layout"><a href="#Default-Layout" class="headerlink" title="Default Layout"></a>Default Layout</h5><!-- You can extend the main layout by adding a layouts/default.vue file. It will be used for all pages that don't have a layout specified. Make sure to add the <Nuxt> component when creating a layout to actually include the page component. -->
+<p><code>layouts/default.vue</code> 파일을 추가하면 메인 레이아웃을 확장할 수 있으며 특정 레이아웃을 가지고 있지 않은 모든 페이지에서 사용할 수 있습니다. 실제로 페이지 컴포넌트에 포함하도록 생성한 레이아웃을 생성할때 <code>&lt;Nuxt&gt;</code> 컴포넌트를 추가해야 합니다. </p>
+<!-- All you need in your layout is three lines of code which will render the page component. -->
+<p>레이아웃에서 필요한 것은 페이지 컴포넌트를 렌더링 할 세줄의 코드입니다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- layouts&#x2F;default.vue --&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;Nuxt &#x2F;&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
 
-<p>You can add more components here such as Navigation, Header, Footer etc.</p>
+<!-- You can add more components here such as Navigation, Header, Footer etc. -->
+<p>네비게이션, 헤너, 푸터 등과 같은 더 많은 컴포넌트들을 추가할 수 있습니다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- layouts&#x2F;default.vue --&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;TheHeader &#x2F;&gt;</span><br><span class="line">    &lt;Nuxt &#x2F;&gt;</span><br><span class="line">    &lt;TheFooter &#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+<!-- > If you have components set to true then there is no need to add any import statements for your components. -->
 <blockquote>
-<p>If you have components set to true then there is no need to add any import statements for your components.</p>
+<p>만약 <code>components</code>에 <code>true</code>를 설정하면 컴포넌트를 위한 그 어떠한 <code>import</code> 구분도 필요하지 않습니다.</p>
 </blockquote>
-<h5 id="Custom-Layout"><a href="#Custom-Layout" class="headerlink" title="Custom Layout"></a>Custom Layout</h5><p>Every file (top-level) in the layouts directory will create a custom layout accessible with the layout property in the page components.</p>
-<p>Let’s say we want to create a blog layout and save it to layouts/blog.vue:</p>
+<h5 id="Custom-Layout"><a href="#Custom-Layout" class="headerlink" title="Custom Layout"></a>Custom Layout</h5><!-- Every file (top-level) in the layouts directory will create a custom layout accessible with the layout property in the page components. -->
+<p><code>layouts</code> 디렉토리의 (top-level의) 모든 파일은 페이지 컴포넌트에서 레이아웃 속성에 접근 가능한 커스텀 레이아웃을 만듭니다.</p>
+<!-- Let's say we want to create a blog layout and save it to layouts/blog.vue: -->
+<p>블로그 레이아웃을 생성하기 위해 <code>layouts/blog.vue</code>에 아래의 코드를 저장합니다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;div&gt;My blog navigation bar here&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;Nuxt &#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
 
-<p>Then you have to tell the pages to use your custom layout</p>
+<!-- Then you have to tell the pages to use your custom layout -->
+<p>그리고나서 페이지에서 아래와 같이 여러분의 커스텀 레이아웃을 설정해야 합니다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  layout: &#39;blog&#39;,</span><br><span class="line">  &#x2F;&#x2F; OR</span><br><span class="line">  layout (context) &#123;</span><br><span class="line">    return &#39;blog&#39;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
 
-<h4 id="middleware"><a href="#middleware" class="headerlink" title="middleware"></a>middleware</h4><p>The middleware directory contains your application middleware. Middleware lets you define custom functions that can be run before rendering either a page or a group of pages (layout).</p>
-<p>Shared <code>middleware</code> should be placed in the  <code>middleware/</code>  directory. The filename will be the name of the middleware (<code>middleware/auth.js</code> will be the <code>auth</code> middleware). You can also define page-specific middleware by using a function directly, see <a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/2.x/components-glossary/pages-middleware#anonymous-middleware">anonymous middleware</a>.</p>
-<p>A middleware receives <a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/2.x/internals-glossary/context">the context</a> as the first argument.</p>
+<h4 id="middleware"><a href="#middleware" class="headerlink" title="middleware"></a>middleware</h4><!-- The middleware directory contains your application middleware. Middleware lets you define custom functions that can be run before rendering either a page or a group of pages (layout). -->
+<p><code>middleware</code> 디렉토리는 어플리케이션 미들웨어를 포함하며 페이지 하나 또는 페이지 그룹 또는 레이아웃리 렌더링되기 전에 작동할 수 있는 커스텀 함수들을 정의할 수 있습니다.</p>
+<!-- Shared `middleware` should be placed in the  `middleware/`  directory. The filename will be the name of the middleware (`middleware/auth.js` will be the `auth` middleware). You can also define page-specific middleware by using a function directly, see [anonymous middleware](https://nuxtjs.org/docs/2.x/components-glossary/pages-middleware#anonymous-middleware). -->
+
+<p>공유된 <code>middleware</code>는 <code>middleware/</code> 디렉토리에 배치해야 하며 파일이름은 미들웨어의 이름이 될 것 입니다(<code>middleware/auth.js</code>는 <code>auth</code> 미들웨어가 됩니다). 또한 페이지 특정 미들웨어는 직접 함수로 사용할 수 있습니다.<br><a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/2.x/components-glossary/pages-middleware#anonymous-middleware">anonymous middleware</a>를 참고하세요.</p>
+<!-- A middleware receives [the context](https://nuxtjs.org/docs/2.x/internals-glossary/context) as the first argument. -->
+<p>미들웨어는 첫번째 인자로 <a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/2.x/internals-glossary/context">the context</a> 를 받습니다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export default function (context) &#123;</span><br><span class="line">  &#x2F;&#x2F; Add the userAgent property to the context</span><br><span class="line">  context.userAgent &#x3D; process.server</span><br><span class="line">    ? context.req.headers[&#39;user-agent&#39;]</span><br><span class="line">    : navigator.userAgent</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>In universal mode, middlewares will be called once on server-side (on the first request to the Nuxt app, e.g. when directly accessing the app or refreshing the page) and on the client-side when navigating to further routes. With ssr: false, middlewares will be called on the client-side in both situations.</p>
-<p>The middleware will be executed in series in this order:</p>
-<p>nuxt.config.js (in the order within the file)<br>Matched layouts<br>Matched pages</p>
-<h5 id="Router-Middleware"><a href="#Router-Middleware" class="headerlink" title="Router Middleware"></a>Router Middleware</h5><p>A middleware can be asynchronous. To do this return a  Promise or use async/await.</p>
+<!-- In universal mode, middlewares will be called once on server-side (on the first request to the Nuxt app, e.g. when directly accessing the app or refreshing the page) and on the client-side when navigating to further routes. With `ssr: false`, middlewares will be called on the client-side in both situations. -->
+<p>universal 모드에서 미들웨어는 (예를 들어 앱에 바로 접속하거나 페이지를 새로고침할때, Nuxt 어플리케이션에서 처음 요청할때) 서버사이드에서 그리고 다른 라우트로 네이게이팅될때 클라이언트 사이드에서 단 한번만 호출됩니다. <code>ssr: false</code>를 설정하면, 미들웨어는 두 가지 상황에서 클라이언트 사이드에서만 호출됩니다.</p>
+<!-- The middleware will be executed in series in this order: -->
+<p>미들웨어는 아래의 순서대로 실행됩니다.</p>
+<ol>
+<li><code>nuxt.config.js</code> (파일 내부 순서대로)</li>
+<li>매칭된 레이아웃</li>
+<li>매칭된 페이지</li>
+</ol>
+<h5 id="Router-Middleware"><a href="#Router-Middleware" class="headerlink" title="Router Middleware"></a>Router Middleware</h5><!-- A middleware can be asynchronous. To do this return a Promise or use async/await. -->
+<p>미들웨어는 비동기적일 수 있으며 이를 위해 <code>Promise</code>를 반환하거나 async/await를 사용해야합니다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- middleware&#x2F;stats.js --&gt;</span><br><span class="line"></span><br><span class="line">import http from &#39;http&#39;</span><br><span class="line"></span><br><span class="line">export default function (&#123; route &#125;) &#123;</span><br><span class="line">  return http.post(&#39;http:&#x2F;&#x2F;my-stats-api.com&#39;, &#123;</span><br><span class="line">    url: route.fullPath</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Then, in your nuxt.config.js, use the router.middleware key.</p>
+<!-- Then, in your nuxt.config.js, use the router.middleware key. -->
+<p>그러고나서 <code>nuxt.config.js</code>에서 <code>router.middleware</code> key를 사용해야 합니다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- nuxt.config.js --&gt;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  router: &#123;</span><br><span class="line">    middleware: &#39;stats&#39;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Now the stats middleware will be called for every route change.</p>
-<p>You can add your middleware (even multiple) to a specific layout or page as well.</p>
+
+<!-- Now the stats middleware will be called for every route change. You can add your middleware (even multiple) to a specific layout or page as well. -->
+<p>이제 모든 라우트 변경에 대해 <code>stats</code> 미들웨어가 호출됩니다. 또한 특정 레이아웃 또는 페이지에 대한 (복수의) 미들웨어를 추가할 수 있습니다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- pages&#x2F;index.vue &#x2F; layouts&#x2F;default.vue --&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  middleware: [&#39;auth&#39;, &#39;stats&#39;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h5 id="Named-middleware"><a href="#Named-middleware" class="headerlink" title="Named middleware"></a>Named middleware</h5><p>You can create named middleware by creating a file inside the  middleware/ directory, the file name will be the middleware name.</p>
+<h5 id="Named-middleware"><a href="#Named-middleware" class="headerlink" title="Named middleware"></a>Named middleware</h5><!-- You can create named middleware by creating a file inside the  middleware/ directory, the file name will be the middleware name. -->
+<p><code>middleware/</code> 디렉토리 내부에 파일을 생성함으로써 named 디렉토리를 생성할 수 있으며 미들웨어 이름이 될 것입니다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- middleware&#x2F;authenticated.js --&gt;</span><br><span class="line"></span><br><span class="line">export default function (&#123; store, redirect &#125;) &#123;</span><br><span class="line">  &#x2F;&#x2F; If the user is not authenticated</span><br><span class="line">  if (!store.state.authenticated) &#123;</span><br><span class="line">    return redirect(&#39;&#x2F;login&#39;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- pages&#x2F;secret.vue --&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;h1&gt;Secret page&lt;&#x2F;h1&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    middleware: &#39;authenticated&#39;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
 
-<h5 id="Anonymous-middleware"><a href="#Anonymous-middleware" class="headerlink" title="Anonymous middleware"></a>Anonymous middleware</h5><p>If you need to use a middleware only for a specific page, you can directly use a function for it (or an array of functions):</p>
+<h5 id="Anonymous-middleware"><a href="#Anonymous-middleware" class="headerlink" title="Anonymous middleware"></a>Anonymous middleware</h5><!-- If you need to use a middleware only for a specific page, you can directly use a function for it (or an array of functions): -->
+<p>만약 오직 특정 페이지만을 위한 미들웨어를 사용하고자 한다면 직접 함수(또는 함수 배열)를 사용할 수 있습니다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- pages&#x2F;secret.vue --&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;h1&gt;Secret page&lt;&#x2F;h1&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    middleware(&#123; store, redirect &#125;) &#123;</span><br><span class="line">      &#x2F;&#x2F; If the user is not authenticated</span><br><span class="line">      if (!store.state.authenticated) &#123;</span><br><span class="line">        return redirect(&#39;&#x2F;login&#39;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
         </div>
         <footer class="article-footer">
@@ -380,12 +415,13 @@ ga('send', 'pageview');
         "genre": "Programming nuxt",
         "datePublished": "2021-03-18",
         "dateCreated": "2021-03-18",
-        "dateModified": "2021-03-18",
+        "dateModified": "2021-04-18",
         "url": "https://joontae-kim.github.io/2021/03/18/nuxt-directory/",
         "description": "1.Nuxt 프로젝트 디렉토리막 생성된 nuxt 프로젝트의 디렉토리는 아래와 같다. 디렉토리에 대한 정의를 잘 몰라도 이미 Vue.js를 사용했던 개발자라면 비슷한 구조이며 스캐폴딩이 이미 되어있다는 생각이 들것이다.
 각 디렉토리의 역할에 대해 알아보자.
-.nuxtThe .nuxt directory is the so-called build directory",
-        "wordCount": 1651
+.nuxt
+.directory를 빌드 디렉토리라고 부르며 기본적으로 숨겨져 있고 동적으로 생성됩니다. ",
+        "wordCount": 2200
     }
 </script>
 
