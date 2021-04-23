@@ -3,6 +3,76 @@
 
 
     <url>
+        <loc>https://joontae-kim.github.io/tags/%25EC%259E%2590%25EB%25A3%258C-%25EA%25B5%25AC%25EC%25A1%25B0/</loc>
+        <lastmod>2021-04-23T08:24:56.441Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/structure/</loc>
+        <lastmod>2021-04-23T08:24:56.441Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/data/</loc>
+        <lastmod>2021-04-23T08:24:56.441Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/data-structure/</loc>
+        <lastmod>2021-04-23T08:24:56.441Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/Algorithm/</loc>
+        <lastmod>2021-04-23T08:24:56.441Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/%25EC%258B%259C%25EA%25B0%2584-%25EB%25B3%25B5%25EC%259E%25A1%25EB%258F%2584/</loc>
+        <lastmod>2021-04-23T07:05:36.807Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/%25EB%25B9%2585%25EC%2598%25A4/</loc>
+        <lastmod>2021-04-23T07:05:36.807Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/%25EC%2595%258C%25EA%25B3%25A0%25EB%25A6%25AC%25EC%25A6%2598/</loc>
+        <lastmod>2021-04-23T07:05:36.807Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/time-complexity/</loc>
+        <lastmod>2021-04-23T07:05:36.807Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/big-O/</loc>
+        <lastmod>2021-04-23T07:05:36.807Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://joontae-kim.github.io/tags/nuxt/</loc>
         <lastmod>2021-04-18T17:11:05.420Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -26,48 +96,6 @@
     <url>
         <loc>https://joontae-kim.github.io/tags/vue-js/</loc>
         <lastmod>2021-04-18T17:11:05.420Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/%25EC%258B%259C%25EA%25B0%2584-%25EB%25B3%25B5%25EC%259E%25A1%25EB%258F%2584/</loc>
-        <lastmod>2021-04-17T17:18:36.124Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/%25EB%25B9%2585%25EC%2598%25A4/</loc>
-        <lastmod>2021-04-17T17:18:36.124Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/%25EC%2595%258C%25EA%25B3%25A0%25EB%25A6%25AC%25EC%25A6%2598/</loc>
-        <lastmod>2021-04-17T17:18:36.124Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/time-complexity/</loc>
-        <lastmod>2021-04-17T17:18:36.124Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/big-O/</loc>
-        <lastmod>2021-04-17T17:18:36.124Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/Algorithm/</loc>
-        <lastmod>2021-04-17T17:18:36.124Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

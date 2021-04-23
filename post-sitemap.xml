@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>https://joontae-kim.github.io/2021/04/18/algorithm-data-structrue/</loc>
+        <lastmod>2021-04-23T08:24:56.441Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/2021/04/15/algorithm-big-O/</loc>
+        <lastmod>2021-04-23T07:05:36.807Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://joontae-kim.github.io/2021/03/18/nuxt-directory-2/</loc>
         <lastmod>2021-04-18T17:11:05.420Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -18,14 +34,6 @@
     <url>
         <loc>https://joontae-kim.github.io/2021/03/18/nuxt-directory/</loc>
         <lastmod>2021-04-18T10:14:41.619Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/2021/04/15/algorithm-big-O/</loc>
-        <lastmod>2021-04-17T17:18:36.124Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
