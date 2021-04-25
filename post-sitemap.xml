@@ -8,8 +8,24 @@
     </url>
 
     <url>
+        <loc>https://joontae-kim.github.io/2021/04/23/algorithm-data-linkedList/</loc>
+        <lastmod>2021-04-25T16:24:14.511Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/2021/04/23/algorithm-data-queue/</loc>
+        <lastmod>2021-04-25T16:23:21.640Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://joontae-kim.github.io/2021/04/18/algorithm-data-structrue/</loc>
-        <lastmod>2021-04-23T08:24:56.441Z</lastmod>
+        <lastmod>2021-04-24T06:36:38.929Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
