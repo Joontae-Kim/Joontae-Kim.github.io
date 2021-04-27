@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Nuxt와 Bootstrap4 기반의 Dashboard 만들기 | dev and dev</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="vue.js,nuxt.js,vue,nuxt,project,portfolio" />
+    
+    <meta name="description" content="최근들어 공부하고 블로그 쓰고, 공부하고 블로그 쓰는 코드를 잘 안 쓰는 나날들이 계속되다 보니깐 손가락이 굳어가는 느낌과 살짝 지루하다는 생각이 들어서 공부한걸 써보면서 실습해보는 기회로 Nuxt 기반의 Bootstrap4를 사용한 Dashboard를 만들어보려고 합니다. 왜 Dashboard를 만드나? 일반 사이트가 아닌 Dashboard를 선택한 이">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nuxt와 Bootstrap4 기반의 Dashboard 만들기">
+<meta property="og:url" content="https://joontae-kim.github.io/2021/04/26/nuxt-boostrap-dashboard-0/index.html">
+<meta property="og:site_name" content="dev and dev">
+<meta property="og:description" content="최근들어 공부하고 블로그 쓰고, 공부하고 블로그 쓰는 코드를 잘 안 쓰는 나날들이 계속되다 보니깐 손가락이 굳어가는 느낌과 살짝 지루하다는 생각이 들어서 공부한걸 써보면서 실습해보는 기회로 Nuxt 기반의 Bootstrap4를 사용한 Dashboard를 만들어보려고 합니다. 왜 Dashboard를 만드나? 일반 사이트가 아닌 Dashboard를 선택한 이">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://joontae-kim.github.io/images/nuxt.png">
+<meta property="article:published_time" content="2021-04-26T09:33:09.000Z">
+<meta property="article:modified_time" content="2021-04-27T04:14:26.872Z">
+<meta property="article:author" content="Joontae Kim">
+<meta property="article:tag" content="vue.js">
+<meta property="article:tag" content="nuxt.js">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="nuxt">
+<meta property="article:tag" content="project">
+<meta property="article:tag" content="portfolio">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://joontae-kim.github.io/images/nuxt.png">
+    
+    <link rel="canonical" href="https://joontae-kim.github.io/2021/04/26/nuxt-boostrap-dashboard-0/"/>
+
+    
+        <link rel="alternate" href="/" title="dev and dev" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.png" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    <!-- 
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+ -->
+    <!-- 
+<link rel="stylesheet" href="/libs/NanumSquareRound/styles.css">
+ -->
+    
+<link rel="stylesheet" href="/libs/NotoSans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-178685368-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/">Blog</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/Blog-To-Read/">Blog To Read</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/Job/">Job</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Basic/">Basic</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/nuxt/">nuxt</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/TIL/">TIL</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/TIL/webpack/">webpack</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/">Web</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/Browser/">Browser</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/Rendering/">Rendering</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/assignment/">assignment</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/course/">course</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/course/node-all-in-one/">node_all_in_one</a></li></ul></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/nuxt/">nuxt</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-nuxt-boostrap-dashboard-0" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Nuxt와 Bootstrap4 기반의 Dashboard 만들기
+        </h1>
+    
+    <h2 class="article-subtitle">
+        Intro
+    </h2>
+
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2021/04/26/nuxt-boostrap-dashboard-0/" class="article-date">
+       <time datetime="2021-04-26T09:33:09.000Z" itemprop="datePublished">2021-04-26</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2021/04/26/nuxt-boostrap-dashboard-0/" class="article-date">
+     <time datetime="2021-04-27T04:14:26.872Z" itemprop="dateModified">2021-04-27</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/nuxt/" rel="tag">nuxt</a>, <a class="tag-link-link" href="/tags/nuxt-js/" rel="tag">nuxt.js</a>, <a class="tag-link-link" href="/tags/portfolio/" rel="tag">portfolio</a>, <a class="tag-link-link" href="/tags/project/" rel="tag">project</a>, <a class="tag-link-link" href="/tags/vue/" rel="tag">vue</a>, <a class="tag-link-link" href="/tags/vue-js/" rel="tag">vue.js</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="/images/nuxt.png" alt="Nuxt.js"></p>
+<p>최근들어 공부하고 블로그 쓰고, 공부하고 블로그 쓰는 코드를 잘 안 쓰는 나날들이 계속되다 보니깐 손가락이 굳어가는 느낌과 살짝 지루하다는 생각이 들어서 공부한걸 써보면서 실습해보는 기회로 Nuxt 기반의 Bootstrap4를 사용한 Dashboard를 만들어보려고 합니다.</p>
+<h2 id="왜-Dashboard를-만드나"><a href="#왜-Dashboard를-만드나" class="headerlink" title="왜 Dashboard를 만드나?"></a>왜 Dashboard를 만드나?</h2><!-- Dashboard는 이전에 외주나 개인 프로젝트에서도 만들어봤었지만  -->
+<p>일반 사이트가 아닌 Dashboard를 선택한 이유는 일반 사이트를 개발하는 것보다 Javascript를 통해 개발해야할 기술적 요소들이 더 많다고 생각했기 때문이다. 일반 페이지의 경우에는 <strong><em>디자인 + CSS</em></strong> 이 더 집중되어 있다면, 대시보드의 경우에는 <strong><em>기능 + Javascript</em></strong> 에 더 집중되어 있고 여기에 <strong><em>디자인</em></strong> 을 MSG로 첨가할 수도 있기 때문이다. <em>물론 일반 페이지도 기능을 끼워넣으면 되긴 하지만… 대시보드는 이미 기능이 거기서 거기이기 때문에 기능설계에 대한 힘을 덜 수 있다.</em></p>
+<h2 id="Dashboard-구상"><a href="#Dashboard-구상" class="headerlink" title="Dashboard 구상"></a>Dashboard 구상</h2><p>Dashboard는 음… 이전에 외주나 개인 프로젝트에서도 만들어봤었지만 큰 차이는 없었다. </p>
+<h3 id="Dashboard를-만들기-위한-Resource"><a href="#Dashboard를-만들기-위한-Resource" class="headerlink" title="Dashboard를 만들기 위한 Resource"></a>Dashboard를 만들기 위한 Resource</h3><p>Dashboard 템플릿을 만드는 것은 아니니 일단 무엇을 관리하고 어떤 Resource를 관리할지에 대한 시나리오가 있어야 한다. 상상해본것들을 대략 정리해보자면 Resource는 아래와 같다.</p>
+<ul>
+<li>User</li>
+<li>Event</li>
+<li>Admin</li>
+<li>Traffic</li>
+<li>Account</li>
+<li>Transaction</li>
+</ul>
+<h3 id="Dashboard-페이지-구상"><a href="#Dashboard-페이지-구상" class="headerlink" title="Dashboard 페이지 구상"></a>Dashboard 페이지 구상</h3><p>위에서 정리한 Resource를 기반으로 아래와 같이 구상해봤다. </p>
+<ul>
+<li>Overview</li>
+<li>Traffic &amp; Engagement</li>
+<li>User List </li>
+<li>Event Management</li>
+<li>Profile</li>
+<li>Sign-in</li>
+</ul>
+<h2 id="페이지-상세-정의"><a href="#페이지-상세-정의" class="headerlink" title="페이지 상세 정의"></a>페이지 상세 정의</h2><p>일단 페이지 구상이 끝났으니 페이지의 컨텐츠를 채워보자.</p>
+<h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><ol>
+<li>Total Visitor<ul>
+<li>상단</li>
+<li>3</li>
+<li>Index</li>
+<li>전월대비 지수 (%)</li>
+</ul>
+</li>
+<li>New Visitors &amp; Users<ul>
+<li>상단</li>
+<li>3</li>
+<li>Index</li>
+<li>전월대비 지수 (%)</li>
+</ul>
+</li>
+<li>Traffic Share <ul>
+<li>상단</li>
+<li>3</li>
+<li>Index</li>
+<li>Share Type: Desktop, Mobile</li>
+<li>Unit (%)</li>
+</ul>
+</li>
+<li>Views Per Minute<ul>
+<li>상단</li>
+<li>3</li>
+<li>Pie Chart</li>
+<li>전주대비 지수 (%)</li>
+</ul>
+</li>
+<li>Channels<ul>
+<li>중단</li>
+<li>3</li>
+<li>Donut Chart</li>
+<li>Channel Type: Organic Search, Direct, Social, Paid</li>
+</ul>
+</li>
+<li>Visit by Notification<ul>
+<li>중단</li>
+<li>9</li>
+<li>Push</li>
+<li>Email</li>
+<li>Direct</li>
+</ul>
+</li>
+<li>Sales Value<ul>
+<li>하단</li>
+<li>6</li>
+<li>Linear Graph</li>
+<li>전월대비 지수 (%)</li>
+<li>Data: 2 Weaks</li>
+</ul>
+</li>
+<li>Event Rank<ul>
+<li>하단</li>
+<li>6</li>
+<li>Table</li>
+<li>Top 10</li>
+<li>Column: Name, Views, Sales, Bounce rate</li>
+</ul>
+</li>
+</ol>
+<h3 id="Traffic-amp-Engagement"><a href="#Traffic-amp-Engagement" class="headerlink" title="Traffic &amp; Engagement"></a>Traffic &amp; Engagement</h3><ol>
+<li>Traffic Share<ul>
+<li>6</li>
+<li>전월대비 지수 (%)</li>
+<li>Donut Chart</li>
+<li>Organic Search</li>
+<li>Direct</li>
+<li>Social</li>
+<li>Paid</li>
+<li>Push</li>
+</ul>
+</li>
+<li>Traffic Volumes by Source<ul>
+<li>6</li>
+<li>일주일치 데이터</li>
+<li>Line Graph</li>
+<li>Organic Search</li>
+<li>Direct</li>
+<li>Social</li>
+<li>Paid</li>
+<li>Push</li>
+</ul>
+</li>
+<li>Traffic Source Table<ul>
+<li>12</li>
+<li>Table</li>
+<li>Column: Traffic Source, Source Type, Share, Changes(from the previous week)</li>
+</ul>
+</li>
+</ol>
+<h3 id="User-List"><a href="#User-List" class="headerlink" title="User List"></a>User List</h3><ol>
+<li>Search<ul>
+<li>Simple Search</li>
+<li>Detail Search</li>
+</ul>
+</li>
+<li>Sorting<ul>
+<li>ASC / DESC</li>
+<li>Condition</li>
+</ul>
+</li>
+<li>Table<ul>
+<li>12</li>
+<li>Column: Action CheckBox, Name, Date Created, Paid, Notification, Recent, Action</li>
+</ul>
+</li>
+<li>Pagination<ul>
+<li>Buttons: <code>Prev</code>, <code>(numbers)</code>, <code>Next</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="Event-Management"><a href="#Event-Management" class="headerlink" title="Event Management"></a>Event Management</h3><ol>
+<li>Search<ul>
+<li>6</li>
+<li>Simple Search</li>
+<li>Detail Search</li>
+<li></li>
+</ul>
+</li>
+<li>Sorting<ul>
+<li>6</li>
+<li>ASC / DESC, </li>
+<li>Condition</li>
+</ul>
+</li>
+<li>Table<ul>
+<li>12</li>
+<li>Column: Index, Title, Date Created, Open Date, Close Date, Margin, Status, Action</li>
+</ul>
+</li>
+<li>Pagination<ul>
+<li>Buttons: <code>Prev</code>, <code>(numbers)</code>, <code>Next</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="Profile"><a href="#Profile" class="headerlink" title="Profile"></a>Profile</h3><ol>
+<li>General information<ul>
+<li>12</li>
+<li>Form</li>
+<li>Field: First Name, Last Name, Birthday, Email, Department</li>
+</ul>
+</li>
+</ol>
+<h3 id="Sign-in"><a href="#Sign-in" class="headerlink" title="Sign-in"></a>Sign-in</h3><ol>
+<li>Form<ul>
+<li>4</li>
+<li>Form</li>
+<li>Field: Email, Password</li>
+</ul>
+</li>
+<li>Password Reset Require<ul>
+<li>12</li>
+<li>Button</li>
+</ul>
+</li>
+<li>Login<ul>
+<li>Button</li>
+</ul>
+</li>
+<li>Error Message<ul>
+<li>Text</li>
+</ul>
+</li>
+</ol>
+<h2 id="개발"><a href="#개발" class="headerlink" title="개발"></a>개발</h2><p>기본적으로 Nuxt, Bootstrap &amp; Bootstrap-vue를 기반으로 개발할 것입니다.</p>
+<h3 id="개발-환경"><a href="#개발-환경" class="headerlink" title="개발 환경"></a>개발 환경</h3><ul>
+<li>Nuxt (SSR)</li>
+<li>Express (API)</li>
+<li>Heroku</li>
+<li>Git &amp; Github</li>
+<li>Bootstrap &amp; Bootstrap-vue</li>
+<li>Chart.js (Client)</li>
+<li>Axios</li>
+</ul>
+<h3 id="개발-순서"><a href="#개발-순서" class="headerlink" title="개발 순서"></a>개발 순서</h3><ol>
+<li>Git &amp; Github 환경구성</li>
+<li>Heroku 환경구성</li>
+<li>Nuxt &amp; Express 환경구성</li>
+<li>Axios</li>
+<li>Bootstrap &amp; Bootstrap-vue 환경구성</li>
+<li>Page &amp; UI 개발<ul>
+<li>Chart.js</li>
+</ul>
+</li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><p>Benchmark Site</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://themes.getbootstrap.com/preview/?theme_id=45617">https://themes.getbootstrap.com/preview/?theme_id=45617</a></li>
+<li><a target="_blank" rel="noopener" href="https://coderthemes.com/hyper/creative/pages-login.html">https://coderthemes.com/hyper/creative/pages-login.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://themes.getbootstrap.com/product-category/admin-dashboard/">https://themes.getbootstrap.com/product-category/admin-dashboard/</a></li>
+</ul>
+</li>
+<li><p>Nuxt Module</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://modules.nuxtjs.org/?q=bootstra&amp;orderBy=desc">https://modules.nuxtjs.org/?q=bootstra&amp;orderBy=desc</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.lichter.io/posts/nuxt-with-an-api/">https://blog.lichter.io/posts/nuxt-with-an-api/</a></li>
+</ul>
+</li>
+<li><p>Nuxt &amp; Express</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/nuxt/create-nuxt-app/issues/563">https://github.com/nuxt/create-nuxt-app/issues/563</a></li>
+<li><a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-dev">https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-dev</a></li>
+<li><a target="_blank" rel="noopener" href="https://bithacker.dev/use-express-with-nuxt-js">https://bithacker.dev/use-express-with-nuxt-js</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.lichter.io/posts/nuxt-with-an-api/#using-nuxt-programmatically">https://blog.lichter.io/posts/nuxt-with-an-api/#using-nuxt-programmatically</a></li>
+</ul>
+</li>
+<li><p>Nuxt &amp; Bootstrap-vue</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://bootstrap-vue.org/docs#nuxtjs-module">https://bootstrap-vue.org/docs#nuxtjs-module</a></li>
+<li><a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/2.x/directory-structure/modules">https://nuxtjs.org/docs/2.x/directory-structure/modules</a></li>
+</ul>
+</li>
+<li><p>Nuxt &amp; Chart.js</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.python2.net/questions-1182484.htm">https://www.python2.net/questions-1182484.htm</a><ul>
+<li>답변 # 1 참고</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://vue-chartjs.org/guide/#introduction">https://vue-chartjs.org/guide/#introduction</a></li>
+<li><a target="_blank" rel="noopener" href="https://code.luasoftware.com/tutorials/vuejs/setup-vue-chartjs-in-nuxt/">https://code.luasoftware.com/tutorials/vuejs/setup-vue-chartjs-in-nuxt/</a></li>
+</ul>
+</li>
+<li><p>Chart.js</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://yasminzy.com/vue/chart/#steps">https://yasminzy.com/vue/chart/#steps</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.chartjs.org/docs/latest/">https://www.chartjs.org/docs/latest/</a></li>
+</ul>
+</li>
+<li><p>ETC</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/2.x/features/configuration">https://nuxtjs.org/docs/2.x/features/configuration</a></li>
+<li><a target="_blank" rel="noopener" href="https://orlandster.github.io/vue-page-transition/#/">https://orlandster.github.io/vue-page-transition/#/</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><blockquote>
+<p>이번 프로젝트의 최대 목표는 <strong><em>ASAP</em></strong> 이다.</p>
+</blockquote>
+<ol>
+<li>가능한 빠르게! 만드는 것이 목표!</li>
+<li>중간중간 배우고 사용한걸 정리하자!</li>
+<li>개발이 완료되고 스케줄을 고려해서 transition을 작업할지 말지 결정하자!</li>
+</ol>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Joontae Kim"
+        },
+        "headline": "Nuxt와 Bootstrap4 기반의 Dashboard 만들기",
+        "image": "https://joontae-kim.github.io/images/nuxt.png",
+        "keywords": "vue.js nuxt.js vue nuxt project portfolio",
+        "genre": "Programming nuxt",
+        "datePublished": "2021-04-26",
+        "dateCreated": "2021-04-26",
+        "dateModified": "2021-04-27",
+        "url": "https://joontae-kim.github.io/2021/04/26/nuxt-boostrap-dashboard-0/",
+        "description": "
+최근들어 공부하고 블로그 쓰고, 공부하고 블로그 쓰는 코드를 잘 안 쓰는 나날들이 계속되다 보니깐 손가락이 굳어가는 느낌과 살짝 지루하다는 생각이 들어서 공부한걸 써보면서 실습해보는 기회로 Nuxt 기반의 Bootstrap4를 사용한 Dashboard를 만들어보려고 합니다.
+왜 Dashboard를 만드나?
+일반 사이트가 아닌 Dashboard를 선택한 이",
+        "wordCount": 436
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/Joontae-Kim" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2021/04/23/algorithm-data-queue/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">알고리즘 시리즈 - 자료구조 2</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/04/26/nuxt-boostrap-dashboard-0/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/nuxt.png)" alt="Nuxt와 Bootstrap4 기반의 Dashboard 만들기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/nuxt/">nuxt</a></p>
+                            <p class="item-title"><a href="/2021/04/26/nuxt-boostrap-dashboard-0/" class="title">Nuxt와 Bootstrap4 기반의 Dashboard 만들기</a></p>
+                            <p class="item-date"><time datetime="2021-04-26T09:33:09.000Z" itemprop="datePublished">2021-04-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/04/23/algorithm-data-queue/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/algorithm.png)" alt="알고리즘 시리즈 - 자료구조 2" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2021/04/23/algorithm-data-queue/" class="title">알고리즘 시리즈 - 자료구조 2</a></p>
+                            <p class="item-date"><time datetime="2021-04-23T08:54:19.000Z" itemprop="datePublished">2021-04-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/04/23/algorithm-data-linkedList/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/algorithm.png)" alt="알고리즘 시리즈 - 자료구조 1" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2021/04/23/algorithm-data-linkedList/" class="title">알고리즘 시리즈 - 자료구조 1</a></p>
+                            <p class="item-date"><time datetime="2021-04-23T08:34:34.000Z" itemprop="datePublished">2021-04-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/04/18/algorithm-data-structrue/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/algorithm.png)" alt="알고리즘 시리즈 - 자료구조" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2021/04/18/algorithm-data-structrue/" class="title">알고리즘 시리즈 - 자료구조</a></p>
+                            <p class="item-date"><time datetime="2021-04-17T17:20:38.000Z" itemprop="datePublished">2021-04-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/04/15/algorithm-big-O/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/algorithm.png)" alt="알고리즘 시리즈 - 시간 복잡도" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2021/04/15/algorithm-big-O/" class="title">알고리즘 시리즈 - 시간 복잡도</a></p>
+                            <p class="item-date"><time datetime="2021-04-15T06:30:46.000Z" itemprop="datePublished">2021-04-15</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">9</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Algorithm/" style="font-size: 18px;">Algorithm</a> <a href="/tags/Babel/" style="font-size: 10px;">Babel</a> <a href="/tags/Blog/" style="font-size: 12px;">Blog</a> <a href="/tags/Browser/" style="font-size: 14px;">Browser</a> <a href="/tags/CSR/" style="font-size: 10px;">CSR</a> <a href="/tags/Client-Side-Rendering/" style="font-size: 10px;">Client Side Rendering</a> <a href="/tags/Critical-Rendering-path/" style="font-size: 10px;">Critical Rendering path</a> <a href="/tags/ECMAScript/" style="font-size: 14px;">ECMAScript</a> <a href="/tags/ECMAScript-2015/" style="font-size: 10px;">ECMAScript 2015</a> <a href="/tags/ECMAScript-6/" style="font-size: 10px;">ECMAScript 6</a> <a href="/tags/ES2015/" style="font-size: 10px;">ES2015</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Front-end/" style="font-size: 14px;">Front-end</a> <a href="/tags/Hello-World/" style="font-size: 10px;">Hello World</a> <a href="/tags/Hexo/" style="font-size: 16px;">Hexo</a> <a href="/tags/Hoisting/" style="font-size: 10px;">Hoisting</a> <a href="/tags/Interview/" style="font-size: 14px;">Interview</a> <a href="/tags/Job/" style="font-size: 14px;">Job</a> <a href="/tags/Object/" style="font-size: 10px;">Object</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Rendering/" style="font-size: 12px;">Rendering</a> <a href="/tags/Renewal/" style="font-size: 10px;">Renewal</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/SSR/" style="font-size: 10px;">SSR</a> <a href="/tags/Scope/" style="font-size: 10px;">Scope</a> <a href="/tags/Server-Side-Rendering/" style="font-size: 10px;">Server Side Rendering</a> <a href="/tags/TIL/" style="font-size: 10px;">TIL</a> <a href="/tags/Theme/" style="font-size: 12px;">Theme</a> <a href="/tags/Variable/" style="font-size: 10px;">Variable</a> <a href="/tags/arrow-function/" style="font-size: 10px;">arrow function</a> <a href="/tags/assignment/" style="font-size: 10px;">assignment</a> <a href="/tags/big-O/" style="font-size: 10px;">big-O</a> <a href="/tags/context/" style="font-size: 14px;">context</a> <a href="/tags/contructor/" style="font-size: 10px;">contructor</a> <a href="/tags/course-javascript/" style="font-size: 10px;">course,javascript</a> <a href="/tags/data/" style="font-size: 14px;">data</a> <a href="/tags/data-structure/" style="font-size: 14px;">data structure</a> <a href="/tags/draft/" style="font-size: 10px;">draft</a> <a href="/tags/execution/" style="font-size: 14px;">execution</a> <a href="/tags/execution-context/" style="font-size: 14px;">execution context</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-engine/" style="font-size: 16px;">javascript engine</a> <a href="/tags/lecture/" style="font-size: 10px;">lecture</a> <a href="/tags/lifecycle/" style="font-size: 10px;">lifecycle</a> <a href="/tags/linked-list/" style="font-size: 10px;">linked list</a> <a href="/tags/mdn/" style="font-size: 14px;">mdn</a> <a href="/tags/new/" style="font-size: 10px;">new</a> <a href="/tags/new-%EC%83%9D%EC%84%B1%EC%9E%90/" style="font-size: 10px;">new 생성자</a> <a href="/tags/nuxt/" style="font-size: 18px;">nuxt</a> <a href="/tags/nuxt-lifecycle/" style="font-size: 10px;">nuxt lifecycle</a> <a href="/tags/nuxt-js/" style="font-size: 18px;">nuxt.js</a> <a href="/tags/object/" style="font-size: 12px;">object</a> <a href="/tags/object-oriented-javascript/" style="font-size: 10px;">object-oriented-javascript</a> <a href="/tags/oop/" style="font-size: 14px;">oop</a> <a href="/tags/portfolio/" style="font-size: 10px;">portfolio</a> <a href="/tags/project/" style="font-size: 10px;">project</a> <a href="/tags/prototype/" style="font-size: 12px;">prototype</a> <a href="/tags/reference/" style="font-size: 10px;">reference</a> <a href="/tags/structure/" style="font-size: 14px;">structure</a> <a href="/tags/time-complexity/" style="font-size: 10px;">time complexity</a> <a href="/tags/type/" style="font-size: 12px;">type</a> <a href="/tags/types/" style="font-size: 12px;">types</a> <a href="/tags/vue/" style="font-size: 18px;">vue</a> <a href="/tags/vue-js/" style="font-size: 18px;">vue.js</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/%EB%A7%81%ED%81%AC%EB%93%9C-%EB%A6%AC%EC%8A%A4%ED%8A%B8/" style="font-size: 10px;">링크드 리스트</a> <a href="/tags/%EB%B9%85%EC%98%A4/" style="font-size: 10px;">빅오</a> <a href="/tags/%EC%8B%9C%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84/" style="font-size: 10px;">시간 복잡도</a> <a href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" style="font-size: 16px;">알고리즘</a> <a href="/tags/%EC%9E%90%EB%A3%8C-%EA%B5%AC%EC%A1%B0/" style="font-size: 14px;">자료 구조</a> <a href="/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/" style="font-size: 10px;">자바스크립트</a> <a href="/tags/%ED%81%90/" style="font-size: 10px;">큐</a> <a href="/tags/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85/" style="font-size: 10px;">프로토타입</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2021 Joontae Kim</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'joontae-kim';
+    
+    
+    var disqus_url = 'https://joontae-kim.github.io/2021/04/26/nuxt-boostrap-dashboard-0/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

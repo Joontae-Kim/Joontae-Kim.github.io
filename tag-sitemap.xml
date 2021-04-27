@@ -3,6 +3,48 @@
 
 
     <url>
+        <loc>https://joontae-kim.github.io/tags/portfolio/</loc>
+        <lastmod>2021-04-27T04:14:26.872Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/project/</loc>
+        <lastmod>2021-04-27T04:14:26.872Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/nuxt/</loc>
+        <lastmod>2021-04-27T04:14:26.872Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/vue/</loc>
+        <lastmod>2021-04-27T04:14:26.872Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/nuxt-js/</loc>
+        <lastmod>2021-04-27T04:14:26.872Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/vue-js/</loc>
+        <lastmod>2021-04-27T04:14:26.872Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://joontae-kim.github.io/tags/%25EB%25A7%2581%25ED%2581%25AC%25EB%2593%259C-%25EB%25A6%25AC%25EC%258A%25A4%25ED%258A%25B8/</loc>
         <lastmod>2021-04-25T16:24:14.511Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -96,34 +138,6 @@
     <url>
         <loc>https://joontae-kim.github.io/tags/big-O/</loc>
         <lastmod>2021-04-23T07:05:36.807Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/nuxt/</loc>
-        <lastmod>2021-04-18T17:11:05.420Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/vue/</loc>
-        <lastmod>2021-04-18T17:11:05.420Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/nuxt-js/</loc>
-        <lastmod>2021-04-18T17:11:05.420Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/vue-js/</loc>
-        <lastmod>2021-04-18T17:11:05.420Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
