@@ -8,8 +8,16 @@
     </url>
 
     <url>
+        <loc>https://joontae-kim.github.io/2021/04/28/nuxt-bootstrap-dashboard-1/</loc>
+        <lastmod>2021-04-28T11:42:59.231Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://joontae-kim.github.io/2021/04/26/nuxt-boostrap-dashboard-0/</loc>
-        <lastmod>2021-04-27T04:14:26.872Z</lastmod>
+        <lastmod>2021-04-28T10:57:54.866Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
