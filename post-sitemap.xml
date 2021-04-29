@@ -8,8 +8,8 @@
     </url>
 
     <url>
-        <loc>https://joontae-kim.github.io/2021/04/26/nuxt-bootstrap-dashboard-0/</loc>
-        <lastmod>2021-04-29T07:10:37.008Z</lastmod>
+        <loc>https://joontae-kim.github.io/2021/04/29/nuxt-bootstrap-dashboard-3/</loc>
+        <lastmod>2021-04-29T16:47:19.941Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -17,7 +17,15 @@
 
     <url>
         <loc>https://joontae-kim.github.io/2021/04/28/nuxt-bootstrap-dashboard-2/</loc>
-        <lastmod>2021-04-29T07:08:42.304Z</lastmod>
+        <lastmod>2021-04-29T07:40:27.282Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/2021/04/26/nuxt-bootstrap-dashboard-0/</loc>
+        <lastmod>2021-04-29T07:21:50.904Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -25,7 +33,7 @@
 
     <url>
         <loc>https://joontae-kim.github.io/2021/04/28/nuxt-bootstrap-dashboard-1/</loc>
-        <lastmod>2021-04-28T11:49:23.958Z</lastmod>
+        <lastmod>2021-04-29T07:21:39.248Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

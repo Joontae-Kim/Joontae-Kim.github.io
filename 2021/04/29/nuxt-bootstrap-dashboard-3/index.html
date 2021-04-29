@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Nuxt와 Bootstrap4 기반의 Dashboard 만들기 | dev and dev</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="vue.js,nuxt.js,vue,nuxt,project,portfolio" />
+    
+    <meta name="description" content="오늘의 포스트는 Nuxt와 Bootstrap4 기반의 Dashboard 만들기 의 세번째 포스트로 Nuxt &amp; Express API 환경구성에 대해 작성해보겠습니다. 지난 포스트에서는 Heroku에 Nuxt SSR 앱을 배포하기 위한 환경설정과 배포가 되는 과정에 대해 작업해봤습니다. 본 포스트에서는 Nuxt 앱에 Express 기반의 API 생성">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nuxt와 Bootstrap4 기반의 Dashboard 만들기">
+<meta property="og:url" content="https://joontae-kim.github.io/2021/04/29/nuxt-bootstrap-dashboard-3/index.html">
+<meta property="og:site_name" content="dev and dev">
+<meta property="og:description" content="오늘의 포스트는 Nuxt와 Bootstrap4 기반의 Dashboard 만들기 의 세번째 포스트로 Nuxt &amp; Express API 환경구성에 대해 작성해보겠습니다. 지난 포스트에서는 Heroku에 Nuxt SSR 앱을 배포하기 위한 환경설정과 배포가 되는 과정에 대해 작업해봤습니다. 본 포스트에서는 Nuxt 앱에 Express 기반의 API 생성">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://joontae-kim.github.io/images/nuxt.png">
+<meta property="article:published_time" content="2021-04-29T07:18:23.000Z">
+<meta property="article:modified_time" content="2021-04-29T16:47:19.941Z">
+<meta property="article:author" content="Joontae Kim">
+<meta property="article:tag" content="vue.js">
+<meta property="article:tag" content="nuxt.js">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="nuxt">
+<meta property="article:tag" content="project">
+<meta property="article:tag" content="portfolio">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://joontae-kim.github.io/images/nuxt.png">
+    
+    <link rel="canonical" href="https://joontae-kim.github.io/2021/04/29/nuxt-bootstrap-dashboard-3/"/>
+
+    
+        <link rel="alternate" href="/" title="dev and dev" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.png" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    <!-- 
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+ -->
+    <!-- 
+<link rel="stylesheet" href="/libs/NanumSquareRound/styles.css">
+ -->
+    
+<link rel="stylesheet" href="/libs/NotoSans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-178685368-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/">Blog</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/Blog-To-Read/">Blog To Read</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/Job/">Job</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Basic/">Basic</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/nuxt/">nuxt</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/TIL/">TIL</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/TIL/webpack/">webpack</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/">Web</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/Browser/">Browser</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/Rendering/">Rendering</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/assignment/">assignment</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/course/">course</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/course/node-all-in-one/">node_all_in_one</a></li></ul></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/nuxt/">nuxt</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-nuxt-bootstrap-dashboard-3" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Nuxt와 Bootstrap4 기반의 Dashboard 만들기
+        </h1>
+    
+    <h2 class="article-subtitle">
+        3. Nuxt &amp; Express API 환경구성
+    </h2>
+
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2021/04/29/nuxt-bootstrap-dashboard-3/" class="article-date">
+       <time datetime="2021-04-29T07:18:23.000Z" itemprop="datePublished">2021-04-29</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2021/04/29/nuxt-bootstrap-dashboard-3/" class="article-date">
+     <time datetime="2021-04-29T16:47:19.941Z" itemprop="dateModified">2021-04-30</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/nuxt/" rel="tag">nuxt</a>, <a class="tag-link-link" href="/tags/nuxt-js/" rel="tag">nuxt.js</a>, <a class="tag-link-link" href="/tags/portfolio/" rel="tag">portfolio</a>, <a class="tag-link-link" href="/tags/project/" rel="tag">project</a>, <a class="tag-link-link" href="/tags/vue/" rel="tag">vue</a>, <a class="tag-link-link" href="/tags/vue-js/" rel="tag">vue.js</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="/images/nuxt.png" alt="Nuxt.js"></p>
+<p>오늘의 포스트는 <strong><em>Nuxt와 Bootstrap4 기반의 Dashboard 만들기</em></strong> 의 세번째 포스트로 <strong>Nuxt &amp; Express API 환경구성</strong>에 대해 작성해보겠습니다.</p>
+<p>지난 포스트에서는 Heroku에 Nuxt SSR 앱을 배포하기 위한 환경설정과 배포가 되는 과정에 대해 작업해봤습니다. 본 포스트에서는 Nuxt 앱에 Express 기반의 API 생성과 Nuxt 앱에 API를 연결하는 부분까지 다뤄보겠습니다.</p>
+<h2 id="개발-순서"><a href="#개발-순서" class="headerlink" title="개발 순서"></a>개발 순서</h2><ol>
+<li><a href="/2021/04/28/nuxt-bootstrap-dashboard-1/">프로젝트 생성 및 Github Repository 환경구성</a></li>
+<li><a href="/2021/04/28/nuxt-bootstrap-dashboard-2/">Heroku 배포 환경구성</a></li>
+<li><a href="/2021/04/29/nuxt-bootstrap-dashboard-3/">Nuxt &amp; Express API 환경구성</a></li>
+<li>Axios</li>
+<li>Bootstrap &amp; Bootstrap-vue 환경구성</li>
+<li>Page &amp; UI 개발</li>
+</ol>
+<h2 id="들어가며…"><a href="#들어가며…" class="headerlink" title="들어가며…"></a>들어가며…</h2><p>Nuxt 앱으로 샘플을 만들때 가장 고민했던 부분이 API 설계였다. 이유인 즉슨, API 설계를 고려하니 개발의 바운더리를 어디까지 정해야 할지 고민이 많이 됐기 때문이다. 정식으로 Database 붙이고, 설계하고, 에러 처리하고 등등 해야할 작업이 많기 때문이다. 그래서 이번 프로젝트는 포폴용이기 때문에 Back-end에서 Database없이 Sample Data로 대체하고 API 설계는 하던데로 controller와 route 설계 및 개발을 하기로 결정했다.</p>
+<h2 id="Express-with-my-nuxt-app"><a href="#Express-with-my-nuxt-app" class="headerlink" title="Express with my nuxt app?"></a>Express with my nuxt app?</h2><p>Nuxt CLI를 통해 Nuxt App을 생성할때 <strong>Use a custom server framework</strong> 질문이 나오면 그때 express를 선택해 Server Template이 생성된 Nuxt app을 생성할 수 있다고 다른 블로그에서 많이 봤는데 CLI로 아무리 생성해봐도 custom server framework에 관한 질문은 나오지 않았다… 그래서 Nuxt의 공식 Github 저장소에 들어가서 issue를 뒤지던 중 2020년까지 넘어가니 아래와 같은 Issue를 찾을 수 있었고, 요약하자면 <strong>“deprecated”</strong> 되었다고 한다.</p>
+<p><img src="/images/nuxt-express-not-support.png" alt="not-support"><br><img src="/images/nuxt-express-not-support-message.png" alt="not-support 이유"></p>
+<p>뭐… 아무튼… 잘못 사용하는 개발자들이 있었고 <strong><em>“not a good practice for most use cases”</em></strong> 가 있어서 CLI를 통한 앱 생성 질문에서 제거했다는 말이고, 대체 방법으로 API 라우트를 위해 <code>express</code>를 사용하는 방법으로 <a target="_blank" rel="noopener" href="https://nuxtjs.org/api/configuration-servermiddleware">servermiddleware</a>를 대체 방법으로 추천한다고 한다.</p>
+<blockquote>
+<p>The current alternative recommended approach is using a serverMiddleware to use express for API routes (supports HMR as well) or using separate server or serverless functions.</p>
+</blockquote>
+<p>그렇다고 아예 방법이 없는 것이 아니었다. custom backend templates가 있지만 <em>maybe outdated</em> 상태라고 기재해놔서 express template을 사용할까말까 고민하다가 그래도 추천 방법으로 직접 세팅해보는 방법을 선택했다. 아래는 custom backend templates 링크 목록이다.</p>
+<ul>
+<li>Express: <a target="_blank" rel="noopener" href="https://github.com/nuxt-community/express-template">https://github.com/nuxt-community/express-template</a></li>
+<li>Koa: <a target="_blank" rel="noopener" href="https://github.com/nuxt-community/koa-template">https://github.com/nuxt-community/koa-template</a></li>
+<li>Addonis: <a target="_blank" rel="noopener" href="https://github.com/nuxt-community/adonuxt-template">https://github.com/nuxt-community/adonuxt-template</a></li>
+<li>Hapi (deprecated): <a target="_blank" rel="noopener" href="https://github.com/nuxt-community/hapi-nuxt">https://github.com/nuxt-community/hapi-nuxt</a></li>
+</ul>
+<h2 id="serverMiddleware"><a href="#serverMiddleware" class="headerlink" title="serverMiddleware"></a>serverMiddleware</h2><blockquote>
+<p>The current alternative recommended approach is using a serverMiddleware to use express for API routes (supports HMR as well) or using separate server or serverless functions. - from <a target="_blank" rel="noopener" href="https://github.com/nuxt/create-nuxt-app/issues/563#issuecomment-656611288">https://github.com/nuxt/create-nuxt-app/issues/563#issuecomment-656611288</a></p>
+</blockquote>
+<p>현재는 공식적으로 추천하는 방법은 <code>serverMiddleware</code>를 사용하는 것이다.</p>
+<p>Nuxt.js에 대한 <a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-servermiddleware">serverMiddleware에 대한 공식 블로그 설명</a>을 참고해보면 아래와 같습니다.</p>
+<blockquote>
+<p>Nuxt는 사용자 지정 미들웨어를 추가할 수 있는 <a target="_blank" rel="noopener" href="https://github.com/senchalabs/connect">connet</a> 인스턴스를 내부적으로 생성합니다. 이를 통해 <strong>외부 서버없이</strong> 추가 경로 (일반적으로 <code>/api</code> 경로)를 등록 할 수 있습니다. connect 자체가 미들웨어이기 때문에 등록된 미들웨어는 <code>nuxt start</code>와 함께 작동 할뿐만 아니라 <a target="_blank" rel="noopener" href="https://github.com/nuxt-community/express-template">express-template</a>과 같은 프로그래밍 방식으로 사용되는 미들웨어로 사용될 때도 작동합니다. Nuxt <a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/2.x/directory-structure/modules">모듈</a>은 <a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/2.x/internals-glossary/internals-module-container#addservermiddleware-middleware">this.addServerMiddleware()</a>를 사용하여 <code>serverMiddleware</code>를 제공 할 수도 있습니다.</p>
+</blockquote>
+<p>예) </p>
+<ul>
+<li>Server middleware path: <code>/server-middleware</code></li>
+<li>Router base: <code>/admin</code></li>
+<li>With <code>prefix: true</code> (default): <code>/admin/server-middleware</code></li>
+<li>With <code>prefix: false</code>: <code>/server-middleware</code></li>
+</ul>
+<h2 id="Test-Case"><a href="#Test-Case" class="headerlink" title="Test Case"></a>Test Case</h2><p>Custom API endpoint 생성전 먼저 <code>express</code>를 설치해야한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -S express</span><br></pre></td></tr></table></figure>
+
+<h3 id="Custom-API-endpoint"><a href="#Custom-API-endpoint" class="headerlink" title="Custom API endpoint"></a>Custom API endpoint</h3><p>Custom API endpoint를 생성해보자. 프로젝트 디렉토리의 root 위치에서 <code>api</code> 디렉터리를 생성하고 API endpoint의 Test Case로 <code>test.js</code>을 생성 및 작성해보자.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import express from &#39;express&#39;;</span><br><span class="line">const app &#x3D; express()</span><br><span class="line"></span><br><span class="line">app.get(&#39;&#x2F;&#39;, (req, res) &#x3D;&gt; &#123;</span><br><span class="line">  console.log(&#39;&#x2F;api&#x2F;test&#39;);</span><br><span class="line">  res.send(&#39;&#x2F;api&#x2F;test&#39;);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">module.exports &#x3D; app</span><br></pre></td></tr></table></figure>
+
+<h3 id="serverMiddleware-설정"><a href="#serverMiddleware-설정" class="headerlink" title="serverMiddleware 설정"></a>serverMiddleware 설정</h3><p>Test Case로 작성한 <code>test.js</code> Endpoint를 <code>nuxt.config.js</code>의 <code>serverMiddleware</code> property에 추가해주자.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">serverMiddleware: [</span><br><span class="line">  &#123; path: &#39;&#x2F;test&#39;, handler: &#39;~&#x2F;api&#x2F;test.js&#39; &#125;</span><br><span class="line">],</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 또는</span><br><span class="line">&#x2F;&#x2F; serverMiddleware: [</span><br><span class="line">&#x2F;&#x2F;  &#123; &#39;&#x2F;test&#39;: &#39;~&#x2F;api&#x2F;test.js&#39; &#125;</span><br><span class="line">&#x2F;&#x2F; ],</span><br></pre></td></tr></table></figure>
+
+<p><code>serverMiddleware</code>는 Array 형태로 위와 같이 API endpoint를 추가할 수 있으며 각 요소는 <code>path</code>와 <code>handler</code>를 맵핑하는 구조이다.</p>
+<ul>
+<li><code>path</code>: client에서 호출할 주소 또는 경로</li>
+<li><code>handler</code>: API endpoint의 함수 목록</li>
+</ul>
+<h3 id="API-호출"><a href="#API-호출" class="headerlink" title="API 호출"></a>API 호출</h3><p><code>serverMiddleware</code> 까지 완료되었다면 이젠 호출을 해보자. 현재 가지고 있는 Page는 아무 페이지에서 호출 테스트를 진행해보자. 본인은 현재 <code>pages/index.vue</code>만 있기 때문에 아래와 같이 작성헸고, 페이지를 reload하면..</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;</span><br><span class="line">  async created () &#123;</span><br><span class="line">    await this.callAPITest()</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    async callAPITest () &#123;</span><br><span class="line">      try &#123;</span><br><span class="line">        console.log(&#39;callAPITest ~ &#39;)</span><br><span class="line">        &#x2F;&#x2F; console.log(&#96;            ~ &#96;)</span><br><span class="line">        const res &#x3D; await this.$axios.$get(&#39;&#x2F;test&#x2F;&#39;)</span><br><span class="line">        console.log(&#39;            ~ res &#x3D;&gt; &#39;, res)</span><br><span class="line">      &#125; catch (e) &#123;</span><br><span class="line">        console.log(&#39;            ~ e &#x3D;&gt; &#39;, e)</span><br><span class="line">        console.log(&#39;            ~ e.response &#x3D;&gt; &#39;, e.response)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>성공!!!</p>
+<p><img src="/images/nuxt-express-response.png" alt="console.log"></p>
+<h2 id="마치며"><a href="#마치며" class="headerlink" title="마치며"></a>마치며</h2><p>간단한거 같지만 Nuxt CLI에서 <strong>custom server template</strong> 에 대한 옵션을 <em>deprecated</em> 하면서 다소 빙글빙글 돌아간 느낌이 적지 않지만 그래서 Nuxt의 깃허브 공식 레포지터리에서 원하는 정보를 찾은 후로는 괜찮은 블로그를 많이 찾아 다행이었습니다.<br>이번 포스팅에서 해봤던 구조는 단순한 것으로 더 많은 기능들이 추가되면 최적화 또는 여타 보완해야할 점들이 많을 것으로 추측되며 위와 같은 구조로 Rest API를 연동하면 된다는 소개 정도로 이해하셨으면 좋겠습니다.</p>
+<p>다음 포스팅에서는 API 통신을 위한 HTTP 모듈인 Axios에 대해 다뤄보겠습니다. 수고 많으셨습니다!</p>
+<h2 id="참고"><a href="#참고" class="headerlink" title="참고"></a>참고</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=nngsKhTb2BA">Nuxt Universal SSR Deployment to Heroku — includes connecting to an API and debugging Vuetify</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/nuxt/create-nuxt-app/issues/563">Express with my nuxt app? #563</a></li>
+<li><a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-dev">configuration glossary/configuration dev</a></li>
+<li><a target="_blank" rel="noopener" href="https://bithacker.dev/use-express-with-nuxt-js">use express with nuxt.js</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.lichter.io/posts/nuxt-with-an-api/#using-nuxt-programmatically">nuxt with an api/#using-nuxt-programmatically</a></li>
+<li><a target="_blank" rel="noopener" href="https://minu0807.tistory.com/75?category=938310">[VueJS] NuxtJS안에 express 적용하기</a></li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Joontae Kim"
+        },
+        "headline": "Nuxt와 Bootstrap4 기반의 Dashboard 만들기",
+        "image": "https://joontae-kim.github.io/images/nuxt.png",
+        "keywords": "vue.js nuxt.js vue nuxt project portfolio",
+        "genre": "Programming nuxt",
+        "datePublished": "2021-04-29",
+        "dateCreated": "2021-04-29",
+        "dateModified": "2021-04-30",
+        "url": "https://joontae-kim.github.io/2021/04/29/nuxt-bootstrap-dashboard-3/",
+        "description": "
+오늘의 포스트는 Nuxt와 Bootstrap4 기반의 Dashboard 만들기 의 세번째 포스트로 Nuxt &amp; Express API 환경구성에 대해 작성해보겠습니다.
+지난 포스트에서는 Heroku에 Nuxt SSR 앱을 배포하기 위한 환경설정과 배포가 되는 과정에 대해 작업해봤습니다. 본 포스트에서는 Nuxt 앱에 Express 기반의 API 생성",
+        "wordCount": 937
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/Joontae-Kim" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2021/04/28/nuxt-bootstrap-dashboard-2/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Nuxt와 Bootstrap4 기반의 Dashboard 만들기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/04/29/nuxt-bootstrap-dashboard-3/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/nuxt.png)" alt="Nuxt와 Bootstrap4 기반의 Dashboard 만들기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/nuxt/">nuxt</a></p>
+                            <p class="item-title"><a href="/2021/04/29/nuxt-bootstrap-dashboard-3/" class="title">Nuxt와 Bootstrap4 기반의 Dashboard 만들기</a></p>
+                            <p class="item-date"><time datetime="2021-04-29T07:18:23.000Z" itemprop="datePublished">2021-04-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/04/28/nuxt-bootstrap-dashboard-2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/nuxt.png)" alt="Nuxt와 Bootstrap4 기반의 Dashboard 만들기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/nuxt/">nuxt</a></p>
+                            <p class="item-title"><a href="/2021/04/28/nuxt-bootstrap-dashboard-2/" class="title">Nuxt와 Bootstrap4 기반의 Dashboard 만들기</a></p>
+                            <p class="item-date"><time datetime="2021-04-28T11:47:24.000Z" itemprop="datePublished">2021-04-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/04/28/nuxt-bootstrap-dashboard-1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/nuxt.png)" alt="Nuxt와 Bootstrap4 기반의 Dashboard 만들기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/nuxt/">nuxt</a></p>
+                            <p class="item-title"><a href="/2021/04/28/nuxt-bootstrap-dashboard-1/" class="title">Nuxt와 Bootstrap4 기반의 Dashboard 만들기</a></p>
+                            <p class="item-date"><time datetime="2021-04-28T07:55:51.000Z" itemprop="datePublished">2021-04-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/04/26/nuxt-bootstrap-dashboard-0/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/nuxt.png)" alt="Nuxt와 Bootstrap4 기반의 Dashboard 만들기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/nuxt/">nuxt</a></p>
+                            <p class="item-title"><a href="/2021/04/26/nuxt-bootstrap-dashboard-0/" class="title">Nuxt와 Bootstrap4 기반의 Dashboard 만들기</a></p>
+                            <p class="item-date"><time datetime="2021-04-26T09:33:09.000Z" itemprop="datePublished">2021-04-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/04/23/algorithm-data-queue/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/algorithm.png)" alt="알고리즘 시리즈 - 자료구조 2" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2021/04/23/algorithm-data-queue/" class="title">알고리즘 시리즈 - 자료구조 2</a></p>
+                            <p class="item-date"><time datetime="2021-04-23T08:54:19.000Z" itemprop="datePublished">2021-04-23</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">9</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Algorithm/" style="font-size: 16.67px;">Algorithm</a> <a href="/tags/Babel/" style="font-size: 10px;">Babel</a> <a href="/tags/Blog/" style="font-size: 11.67px;">Blog</a> <a href="/tags/Browser/" style="font-size: 13.33px;">Browser</a> <a href="/tags/CSR/" style="font-size: 10px;">CSR</a> <a href="/tags/Client-Side-Rendering/" style="font-size: 10px;">Client Side Rendering</a> <a href="/tags/Critical-Rendering-path/" style="font-size: 10px;">Critical Rendering path</a> <a href="/tags/ECMAScript/" style="font-size: 13.33px;">ECMAScript</a> <a href="/tags/ECMAScript-2015/" style="font-size: 10px;">ECMAScript 2015</a> <a href="/tags/ECMAScript-6/" style="font-size: 10px;">ECMAScript 6</a> <a href="/tags/ES2015/" style="font-size: 10px;">ES2015</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Front-end/" style="font-size: 13.33px;">Front-end</a> <a href="/tags/Hello-World/" style="font-size: 10px;">Hello World</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Hoisting/" style="font-size: 10px;">Hoisting</a> <a href="/tags/Interview/" style="font-size: 13.33px;">Interview</a> <a href="/tags/Job/" style="font-size: 13.33px;">Job</a> <a href="/tags/Object/" style="font-size: 10px;">Object</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Rendering/" style="font-size: 11.67px;">Rendering</a> <a href="/tags/Renewal/" style="font-size: 10px;">Renewal</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/SSR/" style="font-size: 10px;">SSR</a> <a href="/tags/Scope/" style="font-size: 10px;">Scope</a> <a href="/tags/Server-Side-Rendering/" style="font-size: 10px;">Server Side Rendering</a> <a href="/tags/TIL/" style="font-size: 10px;">TIL</a> <a href="/tags/Theme/" style="font-size: 11.67px;">Theme</a> <a href="/tags/Variable/" style="font-size: 10px;">Variable</a> <a href="/tags/arrow-function/" style="font-size: 10px;">arrow function</a> <a href="/tags/assignment/" style="font-size: 10px;">assignment</a> <a href="/tags/big-O/" style="font-size: 10px;">big-O</a> <a href="/tags/context/" style="font-size: 13.33px;">context</a> <a href="/tags/contructor/" style="font-size: 10px;">contructor</a> <a href="/tags/course-javascript/" style="font-size: 10px;">course,javascript</a> <a href="/tags/data/" style="font-size: 13.33px;">data</a> <a href="/tags/data-structure/" style="font-size: 13.33px;">data structure</a> <a href="/tags/draft/" style="font-size: 10px;">draft</a> <a href="/tags/execution/" style="font-size: 13.33px;">execution</a> <a href="/tags/execution-context/" style="font-size: 13.33px;">execution context</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-engine/" style="font-size: 15px;">javascript engine</a> <a href="/tags/lecture/" style="font-size: 10px;">lecture</a> <a href="/tags/lifecycle/" style="font-size: 10px;">lifecycle</a> <a href="/tags/linked-list/" style="font-size: 10px;">linked list</a> <a href="/tags/mdn/" style="font-size: 13.33px;">mdn</a> <a href="/tags/new/" style="font-size: 10px;">new</a> <a href="/tags/new-%EC%83%9D%EC%84%B1%EC%9E%90/" style="font-size: 10px;">new 생성자</a> <a href="/tags/nuxt/" style="font-size: 18.33px;">nuxt</a> <a href="/tags/nuxt-lifecycle/" style="font-size: 10px;">nuxt lifecycle</a> <a href="/tags/nuxt-js/" style="font-size: 18.33px;">nuxt.js</a> <a href="/tags/object/" style="font-size: 11.67px;">object</a> <a href="/tags/object-oriented-javascript/" style="font-size: 10px;">object-oriented-javascript</a> <a href="/tags/oop/" style="font-size: 13.33px;">oop</a> <a href="/tags/portfolio/" style="font-size: 15px;">portfolio</a> <a href="/tags/project/" style="font-size: 15px;">project</a> <a href="/tags/prototype/" style="font-size: 11.67px;">prototype</a> <a href="/tags/reference/" style="font-size: 10px;">reference</a> <a href="/tags/structure/" style="font-size: 13.33px;">structure</a> <a href="/tags/time-complexity/" style="font-size: 10px;">time complexity</a> <a href="/tags/type/" style="font-size: 11.67px;">type</a> <a href="/tags/types/" style="font-size: 11.67px;">types</a> <a href="/tags/vue/" style="font-size: 18.33px;">vue</a> <a href="/tags/vue-js/" style="font-size: 18.33px;">vue.js</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/%EB%A7%81%ED%81%AC%EB%93%9C-%EB%A6%AC%EC%8A%A4%ED%8A%B8/" style="font-size: 10px;">링크드 리스트</a> <a href="/tags/%EB%B9%85%EC%98%A4/" style="font-size: 10px;">빅오</a> <a href="/tags/%EC%8B%9C%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84/" style="font-size: 10px;">시간 복잡도</a> <a href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" style="font-size: 15px;">알고리즘</a> <a href="/tags/%EC%9E%90%EB%A3%8C-%EA%B5%AC%EC%A1%B0/" style="font-size: 13.33px;">자료 구조</a> <a href="/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/" style="font-size: 10px;">자바스크립트</a> <a href="/tags/%ED%81%90/" style="font-size: 10px;">큐</a> <a href="/tags/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85/" style="font-size: 10px;">프로토타입</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2021 Joontae Kim</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'joontae-kim';
+    
+    
+    var disqus_url = 'https://joontae-kim.github.io/2021/04/29/nuxt-bootstrap-dashboard-3/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
