@@ -6,33 +6,33 @@
     
 
     
-    <title>Nuxt 라이프사이클 | dev and dev</title>
+    <title>Nuxt와 Bootstrap4 기반의 Dashboard 만들기 | dev and dev</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="vue.js,nuxt.js,vue,nuxt,lifecycle,nuxt lifecycle" />
+    <meta name="keywords" content="vue.js,nuxt.js,vue,nuxt,project,portfolio" />
     
-    <meta name="description" content="Vue.js를 사용해 웹 어플리케이션 개발할때 라이프사이클에 대한 공부를 제대로 시작하지 고생한 경험이 있는데 Nuxt는 그런 과정을 밟지 않기위해 라이프사이클부터 차근차근 공부해보자. 일단 공식문서 번역과 아래 Nuxt Lifecycle HOOKS 이미지에 대한 내용에 대해 공부해보자. Nuxt Lifecycle 여러분이 어떤 도구(tool)를 사용하든">
+    <meta name="description" content="오늘의 포스트는 Nuxt와 Bootstrap4 기반의 Dashboard 만들기 의 네번째 포스트로 Axios에 대해 작성해보겠습니다. 지난 포스트에서는 Nuxt &amp; Express API 환경구성에 대해 작업해봤습니다. 본 포스트에서는 Nuxt에서 Axios를 사용하기 위한 환경세팅과 사용예제까지 다뤄보겠습니다. 개발 순서 프로젝트 생성 및 Gith">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Nuxt 라이프사이클">
-<meta property="og:url" content="https://joontae-kim.github.io/2021/03/18/nuxt-lifecycle/index.html">
+<meta property="og:title" content="Nuxt와 Bootstrap4 기반의 Dashboard 만들기">
+<meta property="og:url" content="https://joontae-kim.github.io/2021/04/30/nuxt-bootstrap-dashboard-4/index.html">
 <meta property="og:site_name" content="dev and dev">
-<meta property="og:description" content="Vue.js를 사용해 웹 어플리케이션 개발할때 라이프사이클에 대한 공부를 제대로 시작하지 고생한 경험이 있는데 Nuxt는 그런 과정을 밟지 않기위해 라이프사이클부터 차근차근 공부해보자. 일단 공식문서 번역과 아래 Nuxt Lifecycle HOOKS 이미지에 대한 내용에 대해 공부해보자. Nuxt Lifecycle 여러분이 어떤 도구(tool)를 사용하든">
+<meta property="og:description" content="오늘의 포스트는 Nuxt와 Bootstrap4 기반의 Dashboard 만들기 의 네번째 포스트로 Axios에 대해 작성해보겠습니다. 지난 포스트에서는 Nuxt &amp; Express API 환경구성에 대해 작업해봤습니다. 본 포스트에서는 Nuxt에서 Axios를 사용하기 위한 환경세팅과 사용예제까지 다뤄보겠습니다. 개발 순서 프로젝트 생성 및 Gith">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://joontae-kim.github.io/images/nuxt.png">
-<meta property="article:published_time" content="2021-03-18T07:35:59.000Z">
-<meta property="article:modified_time" content="2021-03-19T15:20:57.497Z">
+<meta property="article:published_time" content="2021-04-29T18:28:32.000Z">
+<meta property="article:modified_time" content="2021-04-30T17:32:33.111Z">
 <meta property="article:author" content="Joontae Kim">
 <meta property="article:tag" content="vue.js">
 <meta property="article:tag" content="nuxt.js">
 <meta property="article:tag" content="vue">
 <meta property="article:tag" content="nuxt">
-<meta property="article:tag" content="lifecycle">
-<meta property="article:tag" content="nuxt lifecycle">
+<meta property="article:tag" content="project">
+<meta property="article:tag" content="portfolio">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://joontae-kim.github.io/images/nuxt.png">
     
-    <link rel="canonical" href="https://joontae-kim.github.io/2021/03/18/nuxt-lifecycle/"/>
+    <link rel="canonical" href="https://joontae-kim.github.io/2021/04/30/nuxt-bootstrap-dashboard-4/"/>
 
     
         <link rel="alternate" href="/" title="dev and dev" type="application/atom+xml" />
@@ -183,18 +183,18 @@ ga('send', 'pageview');
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-nuxt-lifecycle" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-nuxt-bootstrap-dashboard-4" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        Nuxt 라이프사이클
+        Nuxt와 Bootstrap4 기반의 Dashboard 만들기
         </h1>
     
     <h2 class="article-subtitle">
-        Nuxt Lifecycle
+        4. Axios
     </h2>
 
 
@@ -205,16 +205,16 @@ ga('send', 'pageview');
                 
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2021/03/18/nuxt-lifecycle/" class="article-date">
-       <time datetime="2021-03-18T07:35:59.000Z" itemprop="datePublished">2021-03-18</time>
+    <a href="/2021/04/30/nuxt-bootstrap-dashboard-4/" class="article-date">
+       <time datetime="2021-04-29T18:28:32.000Z" itemprop="datePublished">2021-04-30</time>
     </a>
   </div>
 
 
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
-  <a href="/2021/03/18/nuxt-lifecycle/" class="article-date">
-     <time datetime="2021-03-19T15:20:57.497Z" itemprop="dateModified">2021-03-20</time>
+  <a href="/2021/04/30/nuxt-bootstrap-dashboard-4/" class="article-date">
+     <time datetime="2021-04-30T17:32:33.111Z" itemprop="dateModified">2021-05-01</time>
   </a>
 </div>
 
@@ -224,7 +224,7 @@ ga('send', 'pageview');
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/lifecycle/" rel="tag">lifecycle</a>, <a class="tag-link-link" href="/tags/nuxt/" rel="tag">nuxt</a>, <a class="tag-link-link" href="/tags/nuxt-lifecycle/" rel="tag">nuxt lifecycle</a>, <a class="tag-link-link" href="/tags/nuxt-js/" rel="tag">nuxt.js</a>, <a class="tag-link-link" href="/tags/vue/" rel="tag">vue</a>, <a class="tag-link-link" href="/tags/vue-js/" rel="tag">vue.js</a>
+        <a class="tag-link-link" href="/tags/nuxt/" rel="tag">nuxt</a>, <a class="tag-link-link" href="/tags/nuxt-js/" rel="tag">nuxt.js</a>, <a class="tag-link-link" href="/tags/portfolio/" rel="tag">portfolio</a>, <a class="tag-link-link" href="/tags/project/" rel="tag">project</a>, <a class="tag-link-link" href="/tags/vue/" rel="tag">vue</a>, <a class="tag-link-link" href="/tags/vue-js/" rel="tag">vue.js</a>
     </div>
 
                 
@@ -242,204 +242,107 @@ ga('send', 'pageview');
             
 
             <p><img src="/images/nuxt.png" alt="Nuxt.js"></p>
-<p>Vue.js를 사용해 웹 어플리케이션 개발할때 라이프사이클에 대한 공부를 제대로 시작하지 고생한 경험이 있는데 Nuxt는 그런 과정을 밟지 않기위해 라이프사이클부터 차근차근 공부해보자. 일단 공식문서 번역과 아래 <strong>Nuxt Lifecycle HOOKS</strong> 이미지에 대한 내용에 대해 공부해보자.</p>
-<h1 id="Nuxt-Lifecycle"><a href="#Nuxt-Lifecycle" class="headerlink" title="Nuxt Lifecycle"></a>Nuxt Lifecycle</h1><p><img src="https://nuxtjs.org/docs/2.x/nuxt-lifecycle.svg" alt="Nuxt Lifecycle"></p>
-<p>여러분이 어떤 도구(tool)를 사용하든 그 도구의 서두(the hood)에 대해 잘 이해하고 있을때 더 자신있음을 느낄 것입니다. Nuxt.js도 해당됩니다. 이 챕터에서는 여러분에게 프레임워크의 실행순서와 어떻게 함께 작동하는지 서로 다른 부분에 대한 수준 높은 개요를 제공할 것입니다.</p>
-<p>Nuxt.js 라이프사이클은 빌드 단계 이후에 무엇이 발생되는지, 여러분의 어플리케이션이 어디서 번들되고(bundled), 청크되고(chunked), 최소화(minified) 되는지 설명합니다. 이 단계 이후에 발생하는 것은 여러분이 서버사이드 렌더링(server-side rendering) 활성화 여부에 따라 다릅니다. 만약 여러분이 서버사이드 렌더링 사용한다면, 추가적으로 여러분이 선택한 서버사이드 렌더링의 유형에 따라 달라집니다.</p>
-<p>Dynamic SSR (<code>nuxt start</code>) 또는 Static Site Generation (<code>nuxt generate</code>).</p>
-<h2 id="Lifecycle"><a href="#Lifecycle" class="headerlink" title="Lifecycle"></a>Lifecycle</h2><h3 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h3><p>SSR을 위해서 아래의 단계가 여러분의 어플리케이션에서 모든 초기요청(request) 동안에 실행될 것입니다.</p>
-<ul>
-<li>서버 시작 <em>The server starts</em> (<code>nuxt start</code>)</li>
+<p>오늘의 포스트는 <strong><em>Nuxt와 Bootstrap4 기반의 Dashboard 만들기</em></strong> 의 네번째 포스트로 <strong>Axios</strong>에 대해 작성해보겠습니다.</p>
+<p>지난 포스트에서는 Nuxt &amp; Express API 환경구성에 대해 작업해봤습니다. 본 포스트에서는 Nuxt에서 Axios를 사용하기 위한 환경세팅과 사용예제까지 다뤄보겠습니다.</p>
+<h2 id="개발-순서"><a href="#개발-순서" class="headerlink" title="개발 순서"></a>개발 순서</h2><ol>
+<li><a href="/2021/04/28/nuxt-bootstrap-dashboard-1/">프로젝트 생성 및 Github Repository 환경구성</a></li>
+<li><a href="/2021/04/28/nuxt-bootstrap-dashboard-2/">Heroku 배포 환경구성</a></li>
+<li><a href="/2021/04/29/nuxt-bootstrap-dashboard-3/">Nuxt &amp; Express API 환경구성</a></li>
+<li><a href="/2021/04/30/nuxt-bootstrap-dashboard-4/">Axios</a></li>
+<li>Bootstrap &amp; Bootstrap-vue 환경구성</li>
+<li>Page &amp; UI 개발</li>
+</ol>
+<h2 id="Axios"><a href="#Axios" class="headerlink" title="Axios"></a>Axios</h2><p>Axios는 browser와 node.js 기반 어플리케이션을 위한 promise 기반의 HTTP client로, 서버 사이드에서는 native node.js <code>http</code> 모듈을 사용하고, 클라이언드 사이드에서는 XMLHttpRequests 기반으로 작동한다. Axios에 대한 자세한 사항은 <a target="_blank" rel="noopener" href="https://axios-http.com/docs/intro">Axios 공식 문서</a>를 참고해주시고, 이번 포스트에서는 Nuxt에서 사용하기 위한 Axios에 대한 부분만 다뤄보도록 하겠습니다.</p>
+<h2 id="Axios-with-Nuxt"><a href="#Axios-with-Nuxt" class="headerlink" title="Axios with Nuxt"></a>Axios with Nuxt</h2><p><img src="/images/nuxt-axios.png" alt="nuxt/axios"></p>
+<p>Nuxt에서 Axios를 사용하기 위해서는 우리가 아는 axios가 아닌 Nuxt에 통합 및 최적화된 <strong><em>nuxt/axios</em></strong> 를 설치해 사용해야한다.</p>
+<h3 id="기능"><a href="#기능" class="headerlink" title="기능"></a>기능</h3><ul>
+<li>Automatically set base URL for client &amp; server side</li>
+<li>Exposes <code>setToken</code> function to <code>$axios</code> so we can easily and globally set authentication tokens</li>
+<li>Automatically enables <code>withCredentials</code> when requesting to base URL</li>
+<li>Proxy request headers in SSR</li>
+<li>Fetch Style requests</li>
+<li>Integrated with Nuxt progress bar</li>
+<li>Integrated with Proxy Module</li>
+<li>Auto retry requests with axios-retry</li>
 </ul>
-<p>정적 사이트 생성모드를 사용하면, 서버 단계에서는 오직 빌드타임에만 실행되나 모든 페이지에 대해 단 한번만 실행될 것입니다.</p>
-<ul>
-<li>생성 프로세스 시작 (<code>nuxt generate</code>)</li>
-<li>Nuxt hooks</li>
-<li>serverMiddleware</li>
-<li>Server-side Nuxt 플러그인(plugins)<ul>
-<li>nuxt.config.js에 정의된 순서대로 <em>(in order as defined in nuxt.config.js)</em></li>
-</ul>
-</li>
-<li>nuxtServerInit<ul>
-<li><em>만약 Vuex store를 설정했다면 서버 사이드에서 요청되는 첫번째 생명주기 훅(lifecycle hook)이다</em></li>
-<li>스토어(store)를 미리 채우기(pre-populate) 위해 서버 사이드에서 Vuex 호출한다.</li>
-<li>첫번째 인자(argument)는 Vuex context, 두번째 인자는 Nuxt.js context 입니다.<ul>
-<li>서버 사이드에서 연속적인 스토어 액션(action)을 위해 오직 “entry point”에서 다른 액션을 Dispatch 합니다.</li>
-</ul>
-</li>
-<li>오직 <code>store/index.js</code>에 정의할 수 있습니다.</li>
-</ul>
-</li>
-<li>미들웨어 (Middleware 또는 Route Middleware)<ul>
-<li><em>페이지 컴포넌트가 렌더링되기 전에 호출됩니다.</em></li>
-<li><em>조건을 설정하거나 체크할수도 있으며 페이지를 리다이렉트(redirect)하는데 사용할 수 있습니다.</em></li>
-<li>전역 미들웨어(Global middleware) <em>- 모든 라우트에 영향을 끼치며, <strong>route.config.js</strong>에 정의합니다.</em></li>
-<li>레이아웃 미들웨어(Layout middleware) <em>- 라우트 그룹에 영향을 끼치며, <strong>layout</strong>에 정의합니다.</em></li>
-<li>페이지 미들웨어(Page middleware) <em>- 싱글 라우트에 영향을 끼치며, <strong>page component</strong>에 정의합니다.</em></li>
-</ul>
-</li>
-<li><em>validate</em><ul>
-<li><em>동적 라우트 파라미터(dynamic route parameter)를 검증하는데 유용합니다.</em></li>
-<li><em>페이지 컴포넌트가 렌더링 되기 전에 호출됩니다.</em></li>
-</ul>
-</li>
-<li>asyncData<ul>
-<li><em>페이지 컴포넌트가 로딩되기 전에 매번 호출됩니다.</em></li>
-<li><em>컴포넌트 <code>data</code> 프로퍼티와 병합(merge)됩니다.</em></li>
-</ul>
-</li>
-<li>beforeCreate (Vue 라이크사이클 메서드)<ul>
-<li><em>Vue 인스턴트(instance)가 초기화(initialized) 될때 호출됩니다.</em></li>
-</ul>
-</li>
-<li>created (Vue 라이크사이클 메서드)</li>
-<li>The new fetch (top to bottom, siblings = parallel)</li>
-<li>상태의 일렬화(Serialization of state) (<code>render:routeContext</code> Nuxt.js hook)</li>
-<li>HTML을 렌더링 할때 일어난다. (<code>render:route</code> Nuxt.js hook)</li>
-<li><code>render:routeDone</code> 훅: HTML 파일을 브라우저로 보낼때 일어난다.</li>
-<li><code>generate:before</code> Nuxt.js hook</li>
-<li>HTML 파일들을 생성한다.<ul>
-<li><strong>Full static generation</strong><ul>
-<li>e.g. 정적 페이로드(static payloads)를 추출한다.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><code>generate:page</code> (HTML 편집가능(editable))</li>
-<li><code>generate:routeCreated</code> (Route가 생성된다.)</li>
-<li><code>generate:done</code> 훅: 모든 HTML 파일들이 생성될때 일어난다.</li>
-</ul>
-<h3 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h3><p>여러분이 Nuxt.js의 어떤 모드를 선택하든, 이 부분은 라이프사이클 중에 완전히 브라우저에서 실행된다.</p>
-<ul>
-<li>HTML 파일을 받는다(Receives).</li>
-<li>assets 로딩하기 (e.g. JavaScript)</li>
-<li>Vue Hydration</li>
-<li>미들웨어 (Middleware 또는 Route Middleware)<ul>
-<li><em>페이지 컴포넌트가 렌더링되기 전에 호출됩니다.</em></li>
-<li><em>조건을 설정하거나 체크할수도 있으며 페이지를 리다이렉트(redirect)하는데 사용할 수 있습니다.</em></li>
-<li>전역 미들웨어(Global middleware) <em>- 모든 라우트에 영향을 끼치며, <strong>route.config.js</strong>에 정의합니다.</em></li>
-<li>레이아웃 미들웨어(Layout middleware) <em>- 라우트 그룹에 영향을 끼치며, <strong>layout</strong>에 정의합니다.</em></li>
-<li>페이지 미들웨어(Page middleware) <em>- 싱글 라우트에 영향을 끼치며, <strong>page component</strong>에 정의합니다.</em></li>
-</ul>
-</li>
-<li>클라이언트 사이드(client-side) Nuxt.js 플러그인<ul>
-<li>nuxt.config.js에 정의된 순서대로 <em>(in order as defined in nuxt.config.js)</em></li>
-</ul>
-</li>
-<li>asyncData (비동기, blocking)<ul>
-<li><em>페이지 컴포넌트가 로딩되기 전에 매번 호출됩니다.</em></li>
-<li><em>컴포넌트 <code>data</code> 프로퍼티와 병합(merge)됩니다.</em></li>
-</ul>
-</li>
-<li>beforeCreate (Vue 라이크사이클 메서드)<ul>
-<li><em>Vue 인스턴트(instance)가 초기화(initialized) 될때 호출됩니다.</em></li>
-</ul>
-</li>
-<li>created (Vue 라이크사이클 메서드)</li>
-<li>The new fetch (top to bottom, siblings = parallel) (동기, non-blocking)</li>
-<li>beforeMount (Vue 라이크사이클 메서드)</li>
-<li>mounted (Vue 라이크사이클 메서드)</li>
-</ul>
-<h3 id="NuxtLink-컴포넌트-component-를-사용한-네비게이트-Navigate"><a href="#NuxtLink-컴포넌트-component-를-사용한-네비게이트-Navigate" class="headerlink" title="NuxtLink 컴포넌트(component)를 사용한 네비게이트(Navigate)"></a>NuxtLink 컴포넌트(component)를 사용한 네비게이트(Navigate)</h3><p>클라이언트 사이드 부분과 동일하게 브라우저에서 모든것이 발생하지만 오직 <code>&lt;NuxtLink&gt;</code>를 통해 네비게이팅 될때만 발생합니다.</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/2.x/features/nuxt-components#the-nuxtlink-component"><code>&lt;NuxtLink&gt;</code></a> 에 대한 더 자세한 정보는 컴포넌트 챕터에서 확인하세요</p>
-</blockquote>
-<ul>
-<li>middleware (비동기, blocking)</li>
-<li>전역 미들웨어(Global middleware)</li>
-<li>레이아웃 미들웨어(Layout middleware)</li>
-<li>라우트 미들웨어(Route middleware)</li>
-<li>asyncData (비동기, blocking)</li>
-<li>asyncData (비동기, blocking) [또는 완전히 정적 페이로드(static payload)가 로딩된 후]</li>
-<li>beforeCreate &amp; created (Vue 라이크사이클 메서드)</li>
-<li>fetch (동기, non-blocking)</li>
-<li>beforeMount &amp; mounted</li>
-</ul>
-<h2 id="중간-정리"><a href="#중간-정리" class="headerlink" title="중간 정리"></a>중간 정리</h2><p>Nuxt의 라이프사이클은 전체적으로 서버와 클라이언트 사이드 부분으로 나뉘는 것을 알 수 있으며 각 부분에서 공통으로 실행되는 과정과 아닌 과정이 있음을 확인할 수 있었습니다. 또한, 정적 (Static) 어플리케이션를 만드느냐 SSR(Server-Side Rendering) 또는 유니버설(universal) 어플리케이션을 만드느냐에 따라 과정이 달라질 수 있다.</p>
-<h2 id="추가-공부"><a href="#추가-공부" class="headerlink" title="추가 공부"></a>추가 공부</h2><p>라이프사이클에 대해 공부 및 정리하면서 봤던 내용들에 대해 정리해보자.</p>
-<h3 id="1-활용도가-높고-중요한-몇가지-훅"><a href="#1-활용도가-높고-중요한-몇가지-훅" class="headerlink" title="1. 활용도가 높고 중요한 몇가지 훅"></a>1. 활용도가 높고 중요한 몇가지 훅</h3><ul>
-<li>middleware(클라이언트, 서버)<ul>
-<li>클라이언트와 서버 모두 훅들이 본격적으로 호출되기 전에, 앱을 만드는 과정에서 미리 정의해놓은 미들웨어들이 먼저 동작합니다.</li>
-<li>만약 <code>serverMiddlware</code>을 정의했다면 서버 사이드에서만 렌더링 과정에서 일반 미들웨어가 동작하기 전에 먼저 동작합니다.</li>
-</ul>
-</li>
-<li>asyncData(서버 or 클라이언트)<ul>
-<li>서버 혹은 클라이언트 사이드에서 생명주기 통틀어 한번씩만 호출되는 훅입니다.</li>
-<li>Vue 인스턴스의 생명주기 이전에 먼저 데이터를 가져와서 렌더링을 하고싶은 경우에 사용합니다.</li>
-<li>컴포넌트를 로드하기 전에 항상 호출되며, 페이지 컴포넌트의 경우에만 사용할 수 있습니다.</li>
-<li>asyncData 의 리턴값은 Vue 인스턴스의 data()와 병합됩니다.</li>
-</ul>
-</li>
-<li>beforeCreated, created(클라이언트, 서버)<ul>
-<li>서버에서 새로운 vue 인스턴스를 생성한 뒤 이를 프리랜더링 하기 때문에 Vue 인스턴스가 서버에서 만들어지는 시점에 created와 beforeCreated 훅이 호출됩니다.</li>
-<li>또한 클라이언트에서도 인스턴스를 만들고 $mount 메소드가 호출될 때도 따라 호출됩니다.</li>
-<li>즉 서버와 클라이언트 사이드 양쪽에서 호출되는 훅입니다.</li>
-</ul>
-</li>
-<li>beforeMount 이후의 훅(클라이언트)<ul>
-<li>클라이언트 사이드에서만, 하이드레이션 이후에 $mount 메소드가 호출될 때 나머지 Vue 생명주기 훅들이 실행됩니다.</li>
-</ul>
-</li>
-</ul>
-<p><em>출처: 참조 1</em></p>
-<h3 id="2-Nuxt-js-비동기-데이터"><a href="#2-Nuxt-js-비동기-데이터" class="headerlink" title="2. Nuxt.js 비동기 데이터"></a>2. Nuxt.js 비동기 데이터</h3><blockquote>
-<p>Nuxt.js에는 비동기데이터 가져 오기를 위해 설계된 3가지 후크가 있다.</p>
-</blockquote>
-<ul>
-<li>nuxtServerInit : 모든 페이지에 호출되는 VueX 저장소를 미리 채우는 데 사용됩니다.</li>
-<li>fetch : 페이지 내에서 호출 된 데이터로 VueX 저장소를 미리 채우는 데 사용됩니다.</li>
-<li>asyncData : data 페이지의 객체와 동기 데이터를 병합하는데 사용된다. 비동기 방식으로 미들웨어를 사용할 수도 있습니다. 즉, 미들웨어를 사용하여 VueX 저장소를 채울 수 있습니다.</li>
-</ul>
-<p><img src="https://linked2ev.github.io/assets/img/devlog/201811/Nust-SSR-sample-s1.png" alt="Nust-SSR"></p>
-<h4 id="asyncData-메소드"><a href="#asyncData-메소드" class="headerlink" title="asyncData 메소드"></a>asyncData 메소드</h4><p>서버사이드에서 데이터를 가져와서 렌더링하고 싶을 때, 이때 pages 컴포넌트를 로딩하기 전에 매번 호출되는 <code>asyncData</code>를 사용하면 된다.</p>
-<ul>
-<li>pages 컴포넌트에서만 지원됩니다.</li>
-<li>서버사이드에서 호출되거나 페이지를 이동할 때 호출</li>
-<li>컴포넌트가 렌더링 되기 전에 호출</li>
-<li>context 인자 사용가능</li>
-<li>nuxt.js가 <code>컴포넌트와 데이터를 자동으로 Merge하는 개념</code></li>
-</ul>
-<blockquote>
-<p><code>!! asyncData 안에서 컴포넌트가 생성되기 전에 호출하기 때문에 this를 엑세스할 수 없다.</code></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      title: &#39;&#39;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  asyncData (&#123; params &#125;) &#123;</span><br><span class="line">    return axios.get(&#96;http:&#x2F;&#x2F;localhost:8080&#x2F;test&#x2F;1&#96;)</span><br><span class="line">    .then((res) &#x3D;&gt; &#123;</span><br><span class="line">      &#x2F;&#x2F; 여기서 this는 컴포넌트 생성 전이기에 &#39;undefined&#39;</span><br><span class="line">      return this.title &#x3D; res.data</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="설치"><a href="#설치" class="headerlink" title="설치"></a>설치</h2><p>설치하는 방법은 두 가지가 있다. 첫째는 Nuxt CLI로 앱 생성시 <code>Nuxt.js modules</code> 선택 옵션에서 설치하는 방법과 두번째는 일반적인 node package 설치 방법이다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; Install by yarn</span><br><span class="line">yarn add @nuxtjs&#x2F;axios</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Install by npm</span><br><span class="line">npm install @nuxtjs&#x2F;axios</span><br></pre></td></tr></table></figure>
 
-<p><em>출처: 참조 2</em></p>
-<h4 id="3-asyncData-와-fetch"><a href="#3-asyncData-와-fetch" class="headerlink" title="3. asyncData()와 fetch()"></a>3. asyncData()와 fetch()</h4><ul>
-<li><p>두 개의 Hook은 매우 비슷해보이면서 목적은 다름</p>
+<h2 id="환경구성"><a href="#환경구성" class="headerlink" title="환경구성"></a>환경구성</h2><p>설치가 완료되면 root 디렉토리에 위치한 <code>nuxt.config.js</code> 파일의 <code>modules</code> 프로퍼티에 아래와 같이 <code>&#39;@nuxtjs/axios&#39;</code>를 추가해주면 Axios를 통한 모든 요청에 동일한 설정을 적용할 수 있습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;</span><br><span class="line">  modules: [&#39;@nuxtjs&#x2F;axios&#39;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>이제 Nuxt app에서 <code>$axios</code>를 사용할 수 있습니다. ✨</p>
+<h2 id="옵션s"><a href="#옵션s" class="headerlink" title="옵션s"></a>옵션s</h2><p>nuxt에서 설정할 수 있는 옵션은 아래와 같다.</p>
 <ul>
-<li>공통점: 컴포넌트가 로딩되기 전에 매번 호출된다는 점, 첫번째 인자로 컨텍스트 오브젝트를 받음</li>
+<li>Runtile Config</li>
+<li>prfix, host and port</li>
+<li>baseURL</li>
+<li>browserBaseURL</li>
+<li>https</li>
+<li>progress</li>
+<li>proxy</li>
+<li>retry</li>
+<li>credentials</li>
+<li>debug</li>
+<li>proxyHeaders</li>
+<li>proxyHeaersIgnore</li>
+<li>headers</li>
 </ul>
-</li>
-<li><p>asyncData</p>
+<p>하지만… 위 옵션들을 다 하기에는 너무 많으므로 현재 필요한 <code>baseURL</code>만 다뤄봤기 때문에 이 옵션만 다루고 나머지는 추후 포스팅 해보겠습니다. </p>
+<h4 id="baseURL"><a href="#baseURL" class="headerlink" title="baseURL"></a>baseURL</h4><p><code>baseURL</code>는 서버측 request를 작성하기 위해 사용되는 URL의 기본주소를 정의하는 옵션으로 <code>nuxt.config.js</code>에 아래와 같이 <code>axios</code> property에 <code>baseURL</code>을 지정해주면 된다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; Axios module configuration</span><br><span class="line">&#x2F;&#x2F; See https:&#x2F;&#x2F;axios.nuxtjs.org&#x2F;options</span><br><span class="line">axios: &#123;</span><br><span class="line">  baseURL: process.env.baseURL || &#39;http:&#x2F;&#x2F;localhost:3000&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>process.env.baseURL</code>은 전역 환경변수에 baseURL을 정의한 전역 환경변수로써, <code>process.env.API_URL</code>을 사용할 경우 <code>baseURL</code>을 덮어쓸수 있다(<em>override</em>). 주의할 점은 <code>baseURL</code>과 <code>proxy</code>를 동시에 사용할 수 없으며 <code>proxy</code> 옵션을 사용하고 싶으면 <code>baseURL</code> 대신에 <code>prefix</code>에 정의할 필요가 있다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; Option: Proxy</span><br><span class="line">axios: &#123;</span><br><span class="line">  proxy: true &#x2F;&#x2F; Can be also an object with default options</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">proxy: &#123;</span><br><span class="line">  &#39;&#x2F;api&#x2F;&#39;: &#39;http:&#x2F;&#x2F;api.example.com&#39;,</span><br><span class="line">  &#39;&#x2F;api2&#x2F;&#39;: &#39;http:&#x2F;&#x2F;api.another-website.com&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>일반적으로 요청할 full adresss를 입력해야 하지만 아래와 같이 <code>baseURL</code> 옵션을 설정하면 특정 API route의 경로만 입력해도 된다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; &#96;baseURL&#96; 미지정</span><br><span class="line">await $axios.$get(&#39;http:&#x2F;&#x2F;localhost:3000&#x2F;api&#x2F;something&#39;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; &#96;baseURL&#96; 지정</span><br><span class="line">await $axios.$get(&#39;&#x2F;api&#x2F;something&#39;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Extension"><a href="#Extension" class="headerlink" title="Extension"></a>Extension</h2><p>공식적으로 지원하는 확장 기능은 아래와 같다.</p>
 <ul>
-<li>페이지가 로딩되기전에 컴포넌트 data를 미리 지정하여 컴포넌트가 생성될 때 병합하는데에 목적</li>
-<li>즉 필요한 컴포넌트의 data를 컴포넌트가 랜더링 되기 전에 미리 지정하여 보다 빠르게 구성한다는 데에 목적을 둠</li>
+<li>Adding Interceptors</li>
+<li>New Axios instance</li>
 </ul>
-</li>
-<li><p>fetch</p>
+<p>이번에도 내가 필요한건 <strong>Interceptors</strong> 기능이므로 이것만 해보겠습니다.</p>
+<h3 id="Interceptors-with-Axios"><a href="#Interceptors-with-Axios" class="headerlink" title="Interceptors with Axios"></a>Interceptors with Axios</h3><p>Interceptors 기능은 요청 또는 응답 전에 API 통신 error 등을 handling 할 수 있는 기능들을 axios의 전역 환경에 적용할 수 있는 기능입니다.</p>
+<p>먼저, <code>plugins/axios.js</code>를 생성해 아래의 코드를 입력 후 <code>nuxt.config.js</code> 파일에 <code>plugin</code>을 등록해줍니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; plugins&#x2F;axios.js</span><br><span class="line"></span><br><span class="line">export default function (&#123; $axios, redirect &#125;) &#123;</span><br><span class="line">  $axios.onRequest(config &#x3D;&gt; &#123;</span><br><span class="line">    console.log(&#39;Making request to &#39; + config.url)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  $axios.onError(error &#x3D;&gt; &#123;</span><br><span class="line">    const code &#x3D; parseInt(error.response &amp;&amp; error.response.status)</span><br><span class="line">    if (code &#x3D;&#x3D;&#x3D; 400) &#123;</span><br><span class="line">      redirect(&#39;&#x2F;400&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; nuxt.config.js</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  plugins: [</span><br><span class="line">    &#39;~&#x2F;plugins&#x2F;axios&#39;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Helpers"><a href="#Helpers" class="headerlink" title="Helpers"></a>Helpers</h2><p>nuxt/axios는 <strong>Interceptors</strong> 기능을 확장할 수 있는 Helpers API를 가지고 있습니다.</p>
+<h3 id="Interceptors"><a href="#Interceptors" class="headerlink" title="Interceptors"></a>Interceptors</h3><p>Axios plugin은 Interceptors를 쉽고 빠르게 등록할 수 있도록 도와주며 아래의 함수들은 기본적으로 그 어떠한 값도 반환하지 않습니다.</p>
 <ul>
-<li>주로 비동기 작업을 작성하게 되면, 컴포넌트가 랜더링 되기전에 이 작업을 기다리게 됨</li>
-<li>예를들어 유저정보가 필요한 컴포넌트라면 <code>fetch</code> 부분에 유저정보를 가져오는 API를 호출하여 활용할 수 있음</li>
+<li><code>onRequest(config)</code></li>
+<li><code>onResponse(response)</code></li>
+<li><code>onError(err)</code></li>
+<li><code>onRequestError(err)</code></li>
+<li><code>onResponseError(err)</code></li>
 </ul>
-</li>
-<li><p>요약하자면,</p>
-<ul>
-<li><code>asyncData</code>는 컴포넌트가 랜더링 되기전에 <em>컴포넌트 데이터를 구성하는데에 목적</em>이 있고,</li>
-<li><code>fetch</code>는 컴포넌트가 랜더링 되기전에 <em>비동기로직을 호출하는데에 목적</em>이 있다고 생각합니다!</li>
-</ul>
-</li>
-</ul>
-<p><em>출처: 참조 4</em></p>
-<h4 id="4-잘-정리된-Nuxt-Lifecucle-Hooks"><a href="#4-잘-정리된-Nuxt-Lifecucle-Hooks" class="headerlink" title="4. 잘 정리된 Nuxt Lifecucle Hooks"></a>4. 잘 정리된 Nuxt Lifecucle Hooks</h4><p><img src="https://miro.medium.com/max/1400/0*e4lPLcP-qGU9g8sv.jpg" alt="Nuxt Lifecucle Hooks"></p>
-<p><em>출처: 참조 5</em></p>
+<p>예시: (<code>plugins/axios.js</code>)</p>
+<p>error에 대해 인터셉트(intercept)할 경우, 오류 전파를 방지하기 위해 resolved promise를 반환합니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">export default function (&#123; $axios, error: nuxtError &#125;) &#123;</span><br><span class="line">  $axios.onError(error &#x3D;&gt; &#123;</span><br><span class="line">    nuxtError(&#123;</span><br><span class="line">      statusCode: error.response.status,</span><br><span class="line">      message: error.message,</span><br><span class="line">    &#125;);</span><br><span class="line">    return Promise.resolve(false);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="사용예제-Axios-Interceptors-Helpers"><a href="#사용예제-Axios-Interceptors-Helpers" class="headerlink" title="사용예제: Axios, Interceptors, Helpers"></a>사용예제: Axios, Interceptors, Helpers</h2><p>간단하게, Axios를 확장해보는 예제를 진행해보겠습니다.</p>
+<h3 id="에러-핸들링-시나리오"><a href="#에러-핸들링-시나리오" class="headerlink" title="에러 핸들링 시나리오"></a>에러 핸들링 시나리오</h3><ol>
+<li><code>404</code> 에러: redirect(<code>404</code>) </li>
+<li><code>500</code> 에러: redirect(<code>500</code>) </li>
+<li>이외 에러: Promise.reject({ statusCode, message })</li>
+</ol>
+<p>위 시나리오는 RestAPI 통신시 <code>404</code>, <code>500</code> 에러가 왔을때 <code>/404</code>, <code>/500</code> 페이지로 redirect하고, 이외의 에러는 <code>return Promise.reject(error)</code>으로 원래의 HTTP error를 return 하려고 한다. 구현 코드는 아래와 같다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; plugin&#x2F;axios.js</span><br><span class="line"></span><br><span class="line">export default function (&#123; $axios, redirect &#125;) &#123;</span><br><span class="line">  &#x2F;&#x2F; Set baseURL</span><br><span class="line">  $axios.setBaseURL(process.env.baseURL || &#39;http:&#x2F;&#x2F;localhost:3000&#39;)</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; Add Interceptor</span><br><span class="line">  $axios.onError((error) &#x3D;&gt; &#123;</span><br><span class="line">    if (error.response.status &#x3D;&#x3D;&#x3D; 500) &#123;</span><br><span class="line">      redirect(&#39;&#x2F;500&#39;)</span><br><span class="line">    &#125; else if (error.response.status &#x3D;&#x3D;&#x3D; 404) &#123;</span><br><span class="line">      redirect(&#39;&#x2F;404&#39;)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      return Promise.reject(error)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>그리고 구현된 axios 플러그인을 <code>nuxt.config.js</code>에 등록해줍니다. axios 관련 설정은 아래와 같습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; baseURL 의 경우, nuxt.config.js 또는 plugin&#x2F;axios.js 중 한 곳에서 설정해주면 됩니다.</span><br><span class="line">export default &#123;</span><br><span class="line">  &#x2F;&#x2F; Plugins to run before rendering page: https:&#x2F;&#x2F;go.nuxtjs.dev&#x2F;config-plugins</span><br><span class="line">  plugins: [</span><br><span class="line">    &#39;~&#x2F;plugins&#x2F;axios&#39;</span><br><span class="line">  ],</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; Modules: https:&#x2F;&#x2F;go.nuxtjs.dev&#x2F;config-modules</span><br><span class="line">  modules: [</span><br><span class="line">    &#39;@nuxtjs&#x2F;axios&#39;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="마치며"><a href="#마치며" class="headerlink" title="마치며"></a>마치며</h2><p>지금까지 Nuxt에서 Axios 설치, 옵션 세팅 및 확장기능에 대해 다뤄봤습니다. 설치 및 사용하기 위한 옵션들이 기존의 SPA 앱을 만들기 위한 Vue.js에서와 많은 차이점이 있었고, Helper API, Extension 등의 내용을 살펴보면서 Nuxt 기반의 Axios는 어떻게 기능 확장을 할 수 있는지도 연습해봤습니다. </p>
+<p>다음 포스팅에서는 본 프로젝트에서 사용할 UI Component인 <strong>Boostrap &amp; Boostrap-vue</strong> 에 대해 다뤄보겠습니다. 수고 많으셨습니다!</p>
 <hr>
-<h2 id="참조"><a href="#참조" class="headerlink" title="참조"></a>참조</h2><ul>
-<li>(1) <a target="_blank" rel="noopener" href="https://maxkim-j.github.io/posts/nuxt-ssr">🌧 Nuxt로 살펴보는 서버사이드 렌더링의 핵심</a></li>
-<li>(2) <a target="_blank" rel="noopener" href="https://linked2ev.github.io/devlog/2018/11/21/Nuxt-%EC%99%84-6.-Nuxt-SSR-sample/">[Nuxt][완] 6. Nuxt.js로 SSR 확인</a></li>
-<li>(3) <a target="_blank" rel="noopener" href="https://evan-moon.github.io/2018/09/25/vue-ssr/">Vue Server Side Rendering</a></li>
-<li>(4) <a target="_blank" rel="noopener" href="https://www.a-ha.io/questions/4050f94b442d0048b8c81562dc3d26e1">Nuxt.js 에서 asyncData() 와 fetch() 은 차이는 무엇인가요?</a></li>
-<li>(5) <a target="_blank" rel="noopener" href="https://medium.com/@imsukmin/%EB%B2%88%EC%97%AD-universal-application-code-structure-in-nuxt-js-f624f2e5e7e9">[번역] Universal application code structure in Nuxt.js</a></li>
+<h2 id="참고"><a href="#참고" class="headerlink" title="참고"></a>참고</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://axios.nuxtjs.org/">the official for nuxt/axios</a></li>
+<li><a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/2.x/directory-structure/modules">directory-structure/modules</a></li>
+<li><a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/2.x/directory-structure/plugins">directory-structure/plugins</a></li>
+<li><a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/2.x/directory-structure/nuxt-config">directory-structure/nuxt-config</a></li>
 </ul>
 
         </div>
@@ -511,18 +414,19 @@ ga('send', 'pageview');
             "@type": "Person",
             "name": "Joontae Kim"
         },
-        "headline": "Nuxt 라이프사이클",
+        "headline": "Nuxt와 Bootstrap4 기반의 Dashboard 만들기",
         "image": "https://joontae-kim.github.io/images/nuxt.png",
-        "keywords": "vue.js nuxt.js vue nuxt lifecycle nuxt lifecycle",
+        "keywords": "vue.js nuxt.js vue nuxt project portfolio",
         "genre": "Programming nuxt",
-        "datePublished": "2021-03-18",
-        "dateCreated": "2021-03-18",
-        "dateModified": "2021-03-20",
-        "url": "https://joontae-kim.github.io/2021/03/18/nuxt-lifecycle/",
+        "datePublished": "2021-04-30",
+        "dateCreated": "2021-04-30",
+        "dateModified": "2021-05-01",
+        "url": "https://joontae-kim.github.io/2021/04/30/nuxt-bootstrap-dashboard-4/",
         "description": "
-Vue.js를 사용해 웹 어플리케이션 개발할때 라이프사이클에 대한 공부를 제대로 시작하지 고생한 경험이 있는데 Nuxt는 그런 과정을 밟지 않기위해 라이프사이클부터 차근차근 공부해보자. 일단 공식문서 번역과 아래 Nuxt Lifecycle HOOKS 이미지에 대한 내용에 대해 공부해보자.
-Nuxt Lifecycle
-여러분이 어떤 도구(tool)를 사용하든",
+오늘의 포스트는 Nuxt와 Bootstrap4 기반의 Dashboard 만들기 의 네번째 포스트로 Axios에 대해 작성해보겠습니다.
+지난 포스트에서는 Nuxt &amp; Express API 환경구성에 대해 작업해봤습니다. 본 포스트에서는 Nuxt에서 Axios를 사용하기 위한 환경세팅과 사용예제까지 다뤄보겠습니다.
+개발 순서
+프로젝트 생성 및 Gith",
         "wordCount": 1068
     }
 </script>
@@ -572,20 +476,10 @@ Nuxt Lifecycle
         
 <nav id="article-nav">
     
-        <a href="/2021/04/04/algorithm/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            알고리즘 시리즈 - 시작
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2021/03/18/nuxt-directory-3/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2021/04/29/nuxt-bootstrap-dashboard-3/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">Nuxt 디렉토리 구조</p>
+        <p class="article-nav-title">Nuxt와 Bootstrap4 기반의 Dashboard 만들기</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -766,7 +660,7 @@ Nuxt Lifecycle
     var disqus_shortname = 'joontae-kim';
     
     
-    var disqus_url = 'https://joontae-kim.github.io/2021/03/18/nuxt-lifecycle/';
+    var disqus_url = 'https://joontae-kim.github.io/2021/04/30/nuxt-bootstrap-dashboard-4/';
     
     (function() {
     var dsq = document.createElement('script');
