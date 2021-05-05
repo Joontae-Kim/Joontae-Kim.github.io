@@ -6,7 +6,7 @@
   <link href="https://joontae-kim.github.io/atom.xml" rel="self"/>
   
   <link href="https://joontae-kim.github.io/"/>
-  <updated>2021-04-30T17:32:33.111Z</updated>
+  <updated>2021-05-05T13:58:06.068Z</updated>
   <id>https://joontae-kim.github.io/</id>
   
   <author>
@@ -15,6 +15,47 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Nuxt와 Bootstrap4 기반의 Dashboard 만들기</title>
+    <link href="https://joontae-kim.github.io/2021/05/01/nuxt-bootstrap-dashboard-5/"/>
+    <id>https://joontae-kim.github.io/2021/05/01/nuxt-bootstrap-dashboard-5/</id>
+    <published>2021-05-01T09:30:28.000Z</published>
+    <updated>2021-05-05T13:58:06.068Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/nuxt.png" alt="Nuxt.js"></p><p>오늘의 포스트는 <strong><em>Nuxt와 Bootstrap4 기반의 Dashboard 만들기</em></strong> 의 다섯번째 포스트로 <strong>Bootstrap &amp; Bootstrap-vue 환경구성</strong>에 대해 작성해보겠습니다.</p><p>지난 포스트에서는 <a href="/2021/04/30/nuxt-bootstrap-dashboard-4/">Axios</a> 환경구성에 대해 작업해봤습니다. 본 포스트에서는 Bootstrap 설치와 환경세팅에 대해 다뤄보겠습니다.</p><h2 id="개발-순서"><a href="#개발-순서" class="headerlink" title="개발 순서"></a>개발 순서</h2><ol><li><a href="/2021/04/28/nuxt-bootstrap-dashboard-1/">프로젝트 생성 및 Github Repository 환경구성</a></li><li><a href="/2021/04/28/nuxt-bootstrap-dashboard-2/">Heroku 배포 환경구성</a></li><li><a href="/2021/04/29/nuxt-bootstrap-dashboard-3/">Nuxt &amp; Express API 환경구성</a></li><li><a href="/2021/04/30/nuxt-bootstrap-dashboard-4/">Axios</a></li><li>Bootstrap &amp; Bootstrap-vue 환경구성</li><li>Page &amp; UI 개발</li></ol><h2 id="Bootstrap-amp-Bootstrap-vue"><a href="#Bootstrap-amp-Bootstrap-vue" class="headerlink" title="Bootstrap &amp; Bootstrap-vue"></a>Bootstrap &amp; Bootstrap-vue</h2><p>Bootstrap은 세계적으로 유명한 UI component library로 웹사이트를 <em>mobile-first</em> &amp; <em>responsive</em> 기능을 지원하는 Sass 기반의 프레임워크이다.</p><blockquote><p>Featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p></blockquote><p>Bootstrap-vue는 Bootstrap의 다양한 기능들을 Vue.js에 맞게 최적환된 UI 프레임워크로써, 이번 프로젝트에서 사용할것입니다.</p><h2 id="설치"><a href="#설치" class="headerlink" title="설치"></a>설치</h2><p>Nuxt에서 Bootstrap-vue를 설치하는 방법은 총 두가지로, 첫번째는 Nuxt CLI를 통한 앱 생성시 UI Component 옵션에서 선택하는 방법과 두번째로는 직접 선택하는 방법입니다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># With npm</span><br><span class="line">npm install bootstrap-vue</span><br><span class="line"></span><br><span class="line"># With yarn</span><br><span class="line">yarn add bootstrap-vue</span><br></pre></td></tr></table></figure><p>설치 후 아래와 같이 <code>nuxt.config.js</code> 파일의 module 프로퍼티에 <code>bootstrap-vue/nuxt</code>를 추가해주면 된다. 이러게 하면 <code>bootstrap.css</code>와 <code>bootstrap-vue.css</code>의 pre-compiled 된 기본 CSS를 포함합니다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">  modules: [&#39;bootstrap-vue&#x2F;nuxt&#39;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>주의할 점은 위와 같은 설치는 Icons 컴포넌트를 설치하지는 않는다는 것입니다. Nuxt.js 모듈에 아이콘을 포함하는 방법은 <a href="https://bootstrap-vue.org/docs#icons">Bootstrap-vue의 Icons 섹션</a>을 참고하는 것으로 대체하겠습니다.</p><h2 id="CSS-최적화-SCSS-모듈-최적화"><a href="#CSS-최적화-SCSS-모듈-최적화" class="headerlink" title="CSS 최적화; SCSS 모듈 최적화"></a>CSS 최적화; SCSS 모듈 최적화</h2><p>설치가 끝나면 <code>nuxt.config.js</code>의 <code>modules</code> property에 추가해주면 bootstrap-vue를 사용할 준비는 모두 끝났다. 그러나… 이렇게 사용할 경우 가장 큰 이슈는 불필요한 SCSS 모듈까지 포함되어 앱의 빌드속도와 렌더링 성능에 이슈가 발생한다. 이와 같은 이슈를 해결하기 위해 공홈의 <a href="https://bootstrap-vue.org/docs"><strong>Using custom Bootstrap SCSS</strong></a> 섹션과 개인적으로 최적화를 위해 사용하는 방법을 적용하고 소개해드리려고 합니다.</p><p>CSS 최적화의 큰 순서는 먼저 pre-compiled 된 CSS 파일의 자동포함을 비활성화하고, 프로젝트에서 사용할 Bootstrap 및 BootstrapVue의 CSS의 사용자 지정 SCSS 파일을 생성해 <code>import</code> 하는 것입니다.</p><h3 id="pre-compiled-된-CSS-파일의-자동포함-비활성화"><a href="#pre-compiled-된-CSS-파일의-자동포함-비활성화" class="headerlink" title="pre-compiled 된 CSS 파일의 자동포함 비활성화"></a>pre-compiled 된 CSS 파일의 자동포함 비활성화</h3><p>Bootstrap SCSS 커스터마이징을 사용하는 경우 아래의 옵션을 <code>false</code>로 설정하여 Bootstrap 및 BootstrapVue pre-compiled 된 CSS 파일의 자동 포함을 비활성화해야 합니다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">  modules: [&#39;bootstrap-vue&#x2F;nuxt&#39;],</span><br><span class="line">  bootstrapVue: &#123;</span><br><span class="line">    bootstrapCSS: false, &#x2F;&#x2F; Or &#96;css: false&#96;</span><br><span class="line">    bootstrapVueCSS: false &#x2F;&#x2F; Or &#96;bvCSS: false&#96;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="Bootstrap-SCSS-커스터마이징-with-일반판-Official"><a href="#Bootstrap-SCSS-커스터마이징-with-일반판-Official" class="headerlink" title="Bootstrap SCSS 커스터마이징 with 일반판(Official)"></a>Bootstrap SCSS 커스터마이징 with 일반판(Official)</h3><p>BootstrapVue의 커스터마이징된 SCSS는 Bootstrap SCSS 변수 및 믹스인과 사용자가 설정한 변수 재정의에 의존하며 프로젝트의 사용자 지정 SCSS 파일에 Bootstrap 및 BootstrapVue SCSS를 포함 할 수 있습니다.</p><p>먼저 Bootstrap 및 BootstrapVue의 SCSS 환경을 커스터마이징할 <code>custom.scss</code>을 <strong>assets/styles</strong> 디렉토리에 생성하고, 아래의 코드를 적습니다. <em>(프로젝트의 root에 styles 디렉토리를 생성하셔도 되고, assets 디렉토리에 생성하셔도 됩니다)</em></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; Custom Bootstrap variable overrides go first</span><br><span class="line">$grid-breakpoints: (</span><br><span class="line">  xs: 0,</span><br><span class="line">  sm: 480px,</span><br><span class="line">  md: 640px,</span><br><span class="line">  lg: 992px,</span><br><span class="line">  xl: 1300px</span><br><span class="line">);</span><br><span class="line">$enable-rounded: false;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Then include the following</span><br><span class="line">@import &#39;bootstrap&#x2F;scss&#x2F;bootstrap.scss&#39;;</span><br><span class="line">@import &#39;bootstrap-vue&#x2F;src&#x2F;index.scss&#39;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; And define any of your custom or additional CSS&#x2F;SCSS here,</span><br><span class="line">&#x2F;&#x2F; or via an @import</span><br></pre></td></tr></table></figure><p>그런 다음 <code>nuxt.config.js</code> 파일의 <code>css</code> Property에 <code>custom.scss</code> 추가해줍니다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">css: [</span><br><span class="line">  &#39;~&#x2F;assets&#x2F;styles&#x2F;app.scss&#39;</span><br><span class="line">  &#x2F;&#x2F; or</span><br><span class="line">  &#x2F;&#x2F; &#39;~&#x2F;assets&#x2F;app.scss&#39;</span><br><span class="line">],</span><br></pre></td></tr></table></figure><h3 id="Bootstrap-SCSS-커스터마이징-with-확장판"><a href="#Bootstrap-SCSS-커스터마이징-with-확장판" class="headerlink" title="Bootstrap SCSS 커스터마이징 with 확장판"></a>Bootstrap SCSS 커스터마이징 with 확장판</h3><p>지금부터는 제가 Bootstrap과 같은 Component UI 라이브러리를 사용할때 빌드 사이즈를 줄이기 위한 커스터마이징 입니다. 실제 프로젝트에서 제가 사용하는 기법을 바탕으로 설명해드리겠습니다.</p><h4 id="프로젝트-Style-구조화하기"><a href="#프로젝트-Style-구조화하기" class="headerlink" title="프로젝트 Style 구조화하기"></a>프로젝트 Style 구조화하기</h4><p>구조화에 앞서 먼저 해야할 것은 커스터마이징 할 SCSSS 모듈 구조를 파악하는 것입니다. 이번 프로젝트에서는 Bootstrap &amp; BootstrapVue를 사용하며 이 둘의 모듈 구조는 <strong><em>Bootstrap SCSS 커스터마이징 with 일반판(Official)</em></strong> 섹션에서 소개했던 <code>custom.scss</code>의 아래 코드 입니다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; Then include the following</span><br><span class="line">@import &#39;bootstrap&#x2F;scss&#x2F;bootstrap.scss&#39;;</span><br><span class="line">@import &#39;bootstrap-vue&#x2F;src&#x2F;index.scss&#39;;</span><br></pre></td></tr></table></figure><p>위 코드에서 알 수 있듯이 <strong>bootstrap</strong>, <strong>bootstrap-vue</strong> 디렉토리의 <em>SCSS 파일</em> 를 참고하고 있으며, 이제부터는 UI Component의 모든 style을 <code>node_modules/</code>로부터 직접 참조하는 구조가 아닌 프로젝트의 style 디렉토리 내에서 <em>필요한 SCSS 모듈만 import해 사용하는 방식으로</em> 구조화 해보겠습니다.</p><p><img src="/images/nuxt-dashboard-style-directory.png" alt="프로젝트 스타일 디렉토리 구조"></p><p>위 이미지에서 볼 수 있듯이 <code>assets/styles</code> 디렉토리는 <code>library</code> 디렉토리와 <code>custom</code> 디렉토리로 구성되어 있으며 <code>library</code> 디렉토리 내에는 <strong>/bootstrap</strong> 과 <strong>/bootstrapVue</strong> 디렉토리로 각자의 SCSS 모듈을 관리하게 될 것입니다.</p><ul><li><code>library</code> 디렉토리: UI Component Library의 SCSS 모듈을 관리</li><li><code>custom</code> 디렉토리: 직접 작성한 SCSS를 관리</li></ul><h4 id="Bootstrap-스타일-커스터마이징"><a href="#Bootstrap-스타일-커스터마이징" class="headerlink" title="Bootstrap 스타일 커스터마이징"></a>Bootstrap 스타일 커스터마이징</h4><p>Bootstrap SCSS 모듈을 커스터마이징 하는 이유는 우리가 프로젝트를 개발할떄 모든 UI 컴포넌트를 사용하지 않을테고, 그럼에도 불구하고 모든 스타일 SCSS 파일들을 빌드한다면 앱의 빌드속도는 물론 앱의 전체 및 페이지 사이즈가 커져 로드 속도 또한 느려지기 때문입니다. 커스터마이징의 시작은 Bootstrap SCSS 파일 구조를 파악하는 것입니다.</p><p>아래 이미지의 좌측 탭은 <code>node_modules/bootstrap/scss/bootstrap.scss</code> 파일을 <code>/library/bootstrap</code> 디렉터리에 복사한 것으로, import된 모듈 경로를 수정해준후 필요한 컴포넌트의 스타일만 쓸수 있도록 설정해줍니다.</p><p><img src="/images/nuxt-dashboard-style-directory-3.png" alt="Bootstrap SCSS 모듈 최적화"></p><p>그리고 다음으로 커스터마이징이 필요한 파일은 아래와 같으며 <code>_bootstrap.scss</code>을 복사 및 작업했던 순서로 반복작업을 해줍니다.</p><ul><li><code>node_modules/bootstrap/scss/_variables.scss</code>: <ul><li>bootstrap과 bootstrapVue에서 공통으로 쓰이는 SCSS 변수 파일로 </li><li>특정 Component의 border-radius 값이나 color 값을 변경할 수 있음</li></ul></li><li><code>node_modules/bootstrap/scss/_mixins.scss</code>: <ul><li>bootstrap과 bootstrapVue에서 공통으로 쓰이는 SCSS mixin 파일로 </li><li><code>_bootstrap.scss</code>에서 비활성화된 컴포넌트와 관련된 <strong>mixin</strong> 모듈을 비활성화할 수 있음</li></ul></li></ul><p><strong>bootstrap</strong> 에 필요한 모듈 커스터마이징을 완료했다면 다음으로는 <strong>bootstrapVue</strong> 를 <em>bootstrap</em> 과 같은 방식으로 커스터마이징 해주면 되며 모듈 최적화한 디렉토리는 아래와 같다.</p><p><img src="/images/nuxt-dashboard-style-directory-4.png" alt="Bootstrap 및 BootstrapVue SCSS 모듈 최적화"></p><h2 id="마치며"><a href="#마치며" class="headerlink" title="마치며"></a>마치며</h2><p>프론트엔드 UI를 개발하면서 Custom Style를 직접 개발할 수 있지만 최근에는 워낙 UI Library가 잘 개발되어 있으며 다양한 플랫폼에 맞게 그리고 다양한 디자인 트렌드에 맞게 구성되어 있습니다. 따라서 UI Library를 사용할 경우 위와 같은 커스터마이징을 통해 앱의 불필요한 스타일을 비포함할 수 있으며 특정 UI의 스타일을 수정해 사용할때도 적용할 수 있는 방법입니다.</p><p>다음으로는 대망의 페이지 개발입니다. 페이지 개발의 첫번째 순서로, <strong>Overview</strong> 페이지 및 Server API 설계에 대해 포스팅해보겠습니다.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/nuxt.png&quot; alt=&quot;Nuxt.js&quot;&gt;&lt;/p&gt;
+&lt;p&gt;오늘의 포스트는 &lt;strong&gt;&lt;em&gt;Nuxt와 Bootstrap4 기반의 Dashboard 만들기&lt;/em&gt;&lt;/strong&gt; 의 다섯번째 포스트로 &lt;stro</summary>
+      
+    
+    
+    
+    <category term="Programming" scheme="https://joontae-kim.github.io/categories/Programming/"/>
+    
+    <category term="nuxt" scheme="https://joontae-kim.github.io/categories/Programming/nuxt/"/>
+    
+    
+    <category term="vue.js" scheme="https://joontae-kim.github.io/tags/vue-js/"/>
+    
+    <category term="nuxt.js" scheme="https://joontae-kim.github.io/tags/nuxt-js/"/>
+    
+    <category term="vue" scheme="https://joontae-kim.github.io/tags/vue/"/>
+    
+    <category term="nuxt" scheme="https://joontae-kim.github.io/tags/nuxt/"/>
+    
+    <category term="project" scheme="https://joontae-kim.github.io/tags/project/"/>
+    
+    <category term="portfolio" scheme="https://joontae-kim.github.io/tags/portfolio/"/>
+    
+    <category term="bootstrap" scheme="https://joontae-kim.github.io/tags/bootstrap/"/>
+    
+    <category term="bootstrap-vue" scheme="https://joontae-kim.github.io/tags/bootstrap-vue/"/>
+    
+  </entry>
   
   <entry>
     <title>Nuxt와 Bootstrap4 기반의 Dashboard 만들기</title>
@@ -685,44 +726,6 @@
     <category term="oop" scheme="https://joontae-kim.github.io/tags/oop/"/>
     
     <category term="object" scheme="https://joontae-kim.github.io/tags/object/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>자바스크립트 알고리즘 - 시작 (a.k.a 자료 모으기)</title>
-    <link href="https://joontae-kim.github.io/2020/10/28/js-algorithm/"/>
-    <id>https://joontae-kim.github.io/2020/10/28/js-algorithm/</id>
-    <published>2020-10-27T18:26:36.000Z</published>
-    <updated>2021-03-17T09:43:20.379Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/JS_algorithms.jpeg"></p><h4 id="강좌-동영상"><a href="#강좌-동영상" class="headerlink" title="강좌 (동영상)"></a>강좌 (동영상)</h4><ul><li><p><a href="https://www.udemy.com/course/coding-interview-bootcamp-algorithms-and-data-structure/">https://www.udemy.com/course/coding-interview-bootcamp-algorithms-and-data-structure/</a></p></li><li><p><a href="https://www.udemy.com/course/coding-interview-question-data-structures-algorithm/">https://www.udemy.com/course/coding-interview-question-data-structures-algorithm/</a></p></li><li><p>유튜브 강좌</p><ul><li><a href="https://www.youtube.com/playlist?list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8">https://www.youtube.com/playlist?list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8</a></li></ul></li></ul><h4 id="강좌-블로그"><a href="#강좌-블로그" class="headerlink" title="강좌 (블로그)"></a>강좌 (블로그)</h4><ul><li>7 JavaScript data structures you must know<ul><li><a href="https://www.educative.io/blog/javascript-data-structures#wrap-up">https://www.educative.io/blog/javascript-data-structures#wrap-up</a></li></ul></li></ul><h4 id="깃헙"><a href="#깃헙" class="headerlink" title="깃헙"></a>깃헙</h4><ul><li><a href="https://github.com/trekhleb/javascript-algorithms/blob/master/README.ko-KR.md">JavaScript 알고리즘 및 자료 구조</a></li></ul><h4 id="볼만한-알고리즘-단편-블로그"><a href="#볼만한-알고리즘-단편-블로그" class="headerlink" title="볼만한 알고리즘 단편 블로그"></a>볼만한 알고리즘 단편 블로그</h4><ul><li><a href="https://www.educative.io/blog/javascript-data-structures#what-are">7 Javascript data structure you must know</a></li><li><a href="https://ipex.tistory.com/entry/algorithms-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B0%9C%EC%9A%94-algorithms-in-JavaScript-OverView">Javascript 알고리즘 개요</a></li><li><a href="https://aidanbae.github.io/code/algorithm/bigo/">빅오 표기법(Big o notation)과 자바스크립트</a></li><li><a href="https://qkqhxla1.tistory.com/990">취업을 위한 알고리즘 공부법</a></li><li><a href="https://blog.yena.io/studynote/2018/11/14/Algorithm-Basic.html">[Algorithm] 알고리즘 공부 시작 방법 및 순서</a></li></ul><h4 id="볼만한-알고리즘-블로그-시리즈"><a href="#볼만한-알고리즘-블로그-시리즈" class="headerlink" title="볼만한 알고리즘 블로그 시리즈"></a>볼만한 알고리즘 블로그 시리즈</h4><ul><li><a href="https://soldonii.tistory.com/category/Javascript%20%EA%B3%B5%EB%B6%80/Data%20Structure%20+%20Algorithms%28-%29?page=3">Javascript 공부/Data Structure + Algorithms - soldonii.tistory.com</a></li><li><a href="https://soldonii.tistory.com/category/Javascript%20%EA%B3%B5%EB%B6%80/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%20%ED%92%80%EC%9D%B4?page=2">Javascript 공부/알고리즘 풀이 - soldonii.tistory.com</a></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/JS_algorithms.jpeg&quot;&gt;&lt;/p&gt;
-&lt;h4 id=&quot;강좌-동영상&quot;&gt;&lt;a href=&quot;#강좌-동영상&quot; class=&quot;headerlink&quot; title=&quot;강좌 (동영상)&quot;&gt;&lt;/a&gt;강좌 (동영상)&lt;/h4&gt;&lt;ul&gt;
-&lt;l</summary>
-      
-    
-    
-    
-    <category term="Programming" scheme="https://joontae-kim.github.io/categories/Programming/"/>
-    
-    <category term="Algorithm" scheme="https://joontae-kim.github.io/categories/Programming/Algorithm/"/>
-    
-    
-    <category term="javascript" scheme="https://joontae-kim.github.io/tags/javascript/"/>
-    
-    <category term="Algorithm" scheme="https://joontae-kim.github.io/tags/Algorithm/"/>
-    
-    <category term="알고리즘" scheme="https://joontae-kim.github.io/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/"/>
-    
-    <category term="lecture" scheme="https://joontae-kim.github.io/tags/lecture/"/>
-    
-    <category term="reference" scheme="https://joontae-kim.github.io/tags/reference/"/>
-    
-    <category term="자바스크립트" scheme="https://joontae-kim.github.io/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/"/>
     
   </entry>
   
