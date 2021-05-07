@@ -3,57 +3,64 @@
 
 
     <url>
+        <loc>https://joontae-kim.github.io/tags/layout/</loc>
+        <lastmod>2021-05-07T19:11:37.922Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://joontae-kim.github.io/tags/bootstrap-vue/</loc>
-        <lastmod>2021-05-05T14:47:58.392Z</lastmod>
+        <lastmod>2021-05-07T19:11:37.922Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/tags/bootstrap/</loc>
-        <lastmod>2021-05-05T14:47:58.392Z</lastmod>
+        <lastmod>2021-05-07T19:11:37.922Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/tags/portfolio/</loc>
-        <lastmod>2021-05-05T14:47:58.392Z</lastmod>
+        <lastmod>2021-05-07T19:11:37.922Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/tags/project/</loc>
-        <lastmod>2021-05-05T14:47:58.392Z</lastmod>
+        <lastmod>2021-05-07T19:11:37.922Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/tags/nuxt/</loc>
-        <lastmod>2021-05-05T14:47:58.392Z</lastmod>
+        <lastmod>2021-05-07T19:11:37.922Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/tags/vue/</loc>
-        <lastmod>2021-05-05T14:47:58.392Z</lastmod>
+        <lastmod>2021-05-07T19:11:37.922Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/tags/nuxt-js/</loc>
-        <lastmod>2021-05-05T14:47:58.392Z</lastmod>
+        <lastmod>2021-05-07T19:11:37.922Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/tags/vue-js/</loc>
-        <lastmod>2021-05-05T14:47:58.392Z</lastmod>
+        <lastmod>2021-05-07T19:11:37.922Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

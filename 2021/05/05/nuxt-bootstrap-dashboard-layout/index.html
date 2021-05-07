@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Nuxt와 Bootstrap4 기반의 Dashboard 만들기 | dev and dev</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="vue.js,nuxt.js,vue,nuxt,project,portfolio,bootstrap,bootstrap-vue,layout" />
+    
+    <meta name="description" content="오늘의 포스트는 Nuxt와 Bootstrap4 기반의 Dashboard 만들기 의 여섯번째 포스트로 Page &amp; UI 개발에 대해 작성해보겠습니다. 지난 포스트에서는 Bootstrap &amp; Bootstrap-vue 환경구성에 대해 작업해봤습니다. 본 포스트에서는 Page &amp; UI 개발에 대해 다뤄보겠습니다. 개발 순서 프로젝트 생성 및">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nuxt와 Bootstrap4 기반의 Dashboard 만들기">
+<meta property="og:url" content="https://joontae-kim.github.io/2021/05/05/nuxt-bootstrap-dashboard-layout/index.html">
+<meta property="og:site_name" content="dev and dev">
+<meta property="og:description" content="오늘의 포스트는 Nuxt와 Bootstrap4 기반의 Dashboard 만들기 의 여섯번째 포스트로 Page &amp; UI 개발에 대해 작성해보겠습니다. 지난 포스트에서는 Bootstrap &amp; Bootstrap-vue 환경구성에 대해 작업해봤습니다. 본 포스트에서는 Page &amp; UI 개발에 대해 다뤄보겠습니다. 개발 순서 프로젝트 생성 및">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://joontae-kim.github.io/images/nuxt.png">
+<meta property="article:published_time" content="2021-05-05T14:53:27.000Z">
+<meta property="article:modified_time" content="2021-05-07T19:11:37.922Z">
+<meta property="article:author" content="Joontae Kim">
+<meta property="article:tag" content="vue.js">
+<meta property="article:tag" content="nuxt.js">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="nuxt">
+<meta property="article:tag" content="project">
+<meta property="article:tag" content="portfolio">
+<meta property="article:tag" content="bootstrap">
+<meta property="article:tag" content="bootstrap-vue">
+<meta property="article:tag" content="layout">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://joontae-kim.github.io/images/nuxt.png">
+    
+    <link rel="canonical" href="https://joontae-kim.github.io/2021/05/05/nuxt-bootstrap-dashboard-layout/"/>
+
+    
+        <link rel="alternate" href="/" title="dev and dev" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.png" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    <!-- 
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+ -->
+    <!-- 
+<link rel="stylesheet" href="/libs/NanumSquareRound/styles.css">
+ -->
+    
+<link rel="stylesheet" href="/libs/NotoSans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-178685368-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/">Blog</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/Blog-To-Read/">Blog To Read</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/Job/">Job</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Basic/">Basic</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/nuxt/">nuxt</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/TIL/">TIL</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/TIL/webpack/">webpack</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/">Web</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/Browser/">Browser</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Web/Rendering/">Rendering</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/assignment/">assignment</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/course/">course</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/course/node-all-in-one/">node_all_in_one</a></li></ul></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Programming/nuxt/">nuxt</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-nuxt-bootstrap-dashboard-layout" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Nuxt와 Bootstrap4 기반의 Dashboard 만들기
+        </h1>
+    
+    <h2 class="article-subtitle">
+        6. Page &amp; UI 개발 - 레이아웃 설계
+    </h2>
+
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2021/05/05/nuxt-bootstrap-dashboard-layout/" class="article-date">
+       <time datetime="2021-05-05T14:53:27.000Z" itemprop="datePublished">2021-05-05</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2021/05/05/nuxt-bootstrap-dashboard-layout/" class="article-date">
+     <time datetime="2021-05-07T19:11:37.922Z" itemprop="dateModified">2021-05-08</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/bootstrap/" rel="tag">bootstrap</a>, <a class="tag-link-link" href="/tags/bootstrap-vue/" rel="tag">bootstrap-vue</a>, <a class="tag-link-link" href="/tags/layout/" rel="tag">layout</a>, <a class="tag-link-link" href="/tags/nuxt/" rel="tag">nuxt</a>, <a class="tag-link-link" href="/tags/nuxt-js/" rel="tag">nuxt.js</a>, <a class="tag-link-link" href="/tags/portfolio/" rel="tag">portfolio</a>, <a class="tag-link-link" href="/tags/project/" rel="tag">project</a>, <a class="tag-link-link" href="/tags/vue/" rel="tag">vue</a>, <a class="tag-link-link" href="/tags/vue-js/" rel="tag">vue.js</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="/images/nuxt.png" alt="Nuxt.js"></p>
+<p>오늘의 포스트는 <strong><em>Nuxt와 Bootstrap4 기반의 Dashboard 만들기</em></strong> 의 여섯번째 포스트로 <strong>Page &amp; UI 개발</strong>에 대해 작성해보겠습니다.</p>
+<p>지난 포스트에서는 <a href="/2021/05/01/nuxt-bootstrap-dashboard-5/">Bootstrap &amp; Bootstrap-vue 환경구성</a>에 대해 작업해봤습니다. 본 포스트에서는 <strong>Page &amp; UI 개발</strong>에 대해 다뤄보겠습니다.</p>
+<h2 id="개발-순서"><a href="#개발-순서" class="headerlink" title="개발 순서"></a>개발 순서</h2><ol>
+<li><a href="/2021/04/28/nuxt-bootstrap-dashboard-1/">프로젝트 생성 및 Github Repository 환경구성</a></li>
+<li><a href="/2021/04/28/nuxt-bootstrap-dashboard-2/">Heroku 배포 환경구성</a></li>
+<li><a href="/2021/04/29/nuxt-bootstrap-dashboard-3/">Nuxt &amp; Express API 환경구성</a></li>
+<li><a href="/2021/04/30/nuxt-bootstrap-dashboard-4/">Axios</a></li>
+<li><a href="/2021/05/01/nuxt-bootstrap-dashboard-5/">Bootstrap &amp; Bootstrap-vue 환경구성</a></li>
+<li>Page &amp; UI 개발</li>
+</ol>
+<h2 id="Layout"><a href="#Layout" class="headerlink" title="Layout"></a>Layout</h2><p><img src="https://ko.nuxtjs.org/docs/2.x/views.png" alt="Nuxt Views Architecture"></p>
+<p>Layout은 Nuxt Views 구성 중 하나로, 이번 포스트에서 다룰 Layout은 Nuxt의 View 계층 중 상위 레벨에 속하며 header, footer 또는 sidebar와 같은 반복되는 UI 컴포넌트들을 특정 기준으로 그룹화해 특정 페이지등에 공통된 UI를 렌더링 할 수 있도록 합니다. 각 레이아웃에는 Vue 기반의 UI Component와 middleware 및 head 태그 옵션들을 property로 지정할 수 있습니다.</p>
+<h3 id="Default-Layout"><a href="#Default-Layout" class="headerlink" title="Default Layout"></a>Default Layout</h3><p>기본 레이아웃은 메인 레이아웃으로 확장할 수 있으며 <code>layout</code> property를 설정하지 않은 모든 페이지에서 사용가능하도록 설정됩니다. 페이지 구성요소에 포함되는 Layout을 만들때 가장 중요한 것은 <code>&lt;/Nuxt&gt;</code> 태그를 추가하는 것이며 Layout에 필요한 가장 기본적인 코드는 page 컴포넌트에 렌더링하는 아래의 세줄의 코드 입니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; layouts&#x2F;default.vue</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;Nuxt &#x2F;&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>또한, Navigation, Header 그리고 Footer 등의 더 많은 Component를 추가할 수도 있습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; layouts&#x2F;default.vue</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;TheHeader &#x2F;&gt;</span><br><span class="line">    &lt;Nuxt &#x2F;&gt;</span><br><span class="line">    &lt;TheFooter &#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Custom-Layout"><a href="#Custom-Layout" class="headerlink" title="Custom Layout"></a>Custom Layout</h3><p><code>layouts</code> 디렉토리의 <em>top-level</em> 수준의 모든 파일은 page 컴포넌트에서 <code>layout</code> property로 접근 가능한 custom Layout을 만듭니다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; layouts&#x2F;blog.vue</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;div&gt;My blog navigation bar here&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;Nuxt &#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>예를 들어, blog 레이아웃을 만들기 위해 <code>layouts</code> 디렉토리에 <code>blog.vue</code> 레이아웃(<code>layouts/blog.vue</code>)을 생성했고 <code>pages/posts.vue</code>에서 <strong>blog</strong> 레이아웃을 사용하길 원한다면 pages/posts.vue의 <code>layout</code> property에서 아래와 같이 설정해 사용하면 됩니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pages&#x2F;posts.vue</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  layout: &#39;blog&#39;,</span><br><span class="line">  &#x2F;&#x2F; OR</span><br><span class="line">  layout (context) &#123;</span><br><span class="line">    return &#39;blog&#39;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Error-Page"><a href="#Error-Page" class="headerlink" title="Error Page"></a>Error Page</h3><p>에러 페이지는 에러가 발생했을때 반드시 볼 수 있는 page 컴포넌트로써, 비로 <code>layouts</code> 폴더에 배치되었지만, 페이지와 같이 다뤄야합니다. Layout이자 Page인 Error Page는 template에서 <code>&lt;Nuxt&gt;</code>를 포함하지 않는데 그 이유는 <code>404</code>, <code>500</code> 과 같은 에러가 발생했을때 Component로 Error Page를 보여줄 것이기 때문입니다. 다른 page 컴포넌트와 비슷하게 동일한 방법으로 Error Page에 대한 custom layout을 설정할 수 있습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; layouts&#x2F;error.vue</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;container&quot;&gt;</span><br><span class="line">    &lt;h1 v-if&#x3D;&quot;error.statusCode &#x3D;&#x3D;&#x3D; 404&quot;&gt;Page not found&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;h1 v-else&gt;An error occurred&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;NuxtLink to&#x3D;&quot;&#x2F;&quot;&gt;Home page&lt;&#x2F;NuxtLink&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  props: [&#39;error&#39;],</span><br><span class="line">  layout: &#39;blog&#39; &#x2F;&#x2F; you can set a custom layout for the error page</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Component"><a href="#Component" class="headerlink" title="Component"></a>Component</h2><p>기존의 Vue.js에 익숙한 개발자라면 알고 있듯이 페이지 또는 layout에 반복되는 재사용 가능한 UI Component로써, <code>/components</code> 디렉토리에서 생성해 불러올 수 있습니다. 또한, Component에서 특정 데이터가 필요한 경우 API에서 비동기 데이터에 접근하기 위해 Nuxt의 <code>fetch()</code> hook을 사용할 수 있습니다.</p>
+<p><code>v2.13</code> 버전부터 Nuxt는 템플릿에서 사용할때 <code>nuxt.config.js</code>에서 아래와 같이 <code>components: true</code>를 설정하면 Component를 자동으로 가져올 수 있도록 활성화할 수 있습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; nuxt.config.js</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  components: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>아래와 같이 <code>components/</code> 디렉토리에 <code>TheHeader</code>와 <code>TheFooter</code> 컴포넌트를 생성하면 <code>layouts/default.vue</code>이라는 기본 레이아웃에서 바로 가져올 수 있습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">components&#x2F;</span><br><span class="line">  TheHeader.vue</span><br><span class="line">  TheFooter.vue</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; layouts&#x2F;default.vue</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;TheHeader &#x2F;&gt;</span><br><span class="line">    &lt;Nuxt &#x2F;&gt;</span><br><span class="line">    &lt;TheFooter &#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Dynamic-Imports"><a href="#Dynamic-Imports" class="headerlink" title="Dynamic Imports"></a>Dynamic Imports</h3><p>Component의 Dynamic Imports는 <strong>lazy loading</strong>을 통해 구현할 수 있으며 template에서 Component 태그 이름에 <code>Lazy</code> prefix를 추가해주면 됩니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; layouts&#x2F;default.vue</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;TheHeader &#x2F;&gt;</span><br><span class="line">    &lt;Nuxt &#x2F;&gt;</span><br><span class="line">    &lt;LazyTheFooter &#x2F;&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>Lazy</code> prefix가 추가된 Component는 이벤트가 발생했을때 동적으로 불러올 수 있습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; pages&#x2F;index.vue</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h1&gt;Mountains&lt;&#x2F;h1&gt;</span><br><span class="line">    &lt;LazyMountainsList v-if&#x3D;&quot;show&quot; &#x2F;&gt;</span><br><span class="line">    &lt;button v-if&#x3D;&quot;!show&quot; @click&#x3D;&quot;showList&quot;&gt;Show List&lt;&#x2F;button&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    data() &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        show: false</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">      showList() &#123;</span><br><span class="line">        this.show &#x3D; true</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Nested-Directories"><a href="#Nested-Directories" class="headerlink" title="Nested Directories"></a>Nested Directories</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">components&#x2F;</span><br><span class="line">  base&#x2F;</span><br><span class="line">      foo&#x2F;</span><br><span class="line">         Button.vue</span><br></pre></td></tr></table></figure>
+
+<p>만약 컴포넌트가 위와 같은 중접 디렉토리(Nested Directories)에 있다면, Component의 이름은 Component가 속한 디렉토리의 경로와 파일이름이 되어야 합니다. 따라서 위 <code>Button</code> Component를 template에서 사용하려면 <code>&lt;BaseFooButton /&gt;</code>와 같이 사용해야 합니다. 그러나 만약 디렉토리 구조를 Component의 이름으로 사용하지 않길 원한다면 <code>nuxt.config.js</code>에 Component가 속한 특정 디렉토리의 경로를 명시해야 하며 다음과 같은 <code>&lt;FooButton /&gt;</code> Component 태그이름을 사용할 수 있습니다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; nuxt.config.js</span><br><span class="line"></span><br><span class="line">components: &#123;</span><br><span class="line">  dirs: [</span><br><span class="line">    &#39;~&#x2F;components&#39;,</span><br><span class="line">    &#39;~&#x2F;components&#x2F;base&#39;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Layout-및-Component-설계"><a href="#Layout-및-Component-설계" class="headerlink" title="Layout 및 Component 설계"></a>Layout 및 Component 설계</h2><p>위에서 간략하게 Nuxt의 Layout과 Component 개념에 대해 알아봤으므로 프로젝트에 필요한 설계를 시작해보겠습니다. 이번 프로젝트는 제목에서도 알 수 있듯이 관리자 대시보드 프로젝트로써 필요한 Layout과 Component는 아래와 같습니다.</p>
+<h3 id="Layout-1"><a href="#Layout-1" class="headerlink" title="Layout"></a>Layout</h3><ol>
+<li>기본 Dashboard 페이지 레이아웃 <em>(for pages of needed authenticated)</em></li>
+<li>비서비스 페이지 레이아웃 <em>(for pages of not needed authenticated)</em></li>
+<li>에러 레이아웃 <em>(페이지)</em></li>
+</ol>
+<h3 id="Component-1"><a href="#Component-1" class="headerlink" title="Component"></a>Component</h3><h4 id="1-기본-Dashboard-페이지-레이아웃"><a href="#1-기본-Dashboard-페이지-레이아웃" class="headerlink" title="1. 기본 Dashboard 페이지 레이아웃"></a>1. 기본 Dashboard 페이지 레이아웃</h4><p><em>(for pages of needed authenticated)</em></p>
+<ol>
+<li>Header</li>
+<li>Sidebar</li>
+<li>Main content area (for dashboard)</li>
+</ol>
+<h4 id="2-비서비스-페이지-레이아웃"><a href="#2-비서비스-페이지-레이아웃" class="headerlink" title="2. 비서비스 페이지 레이아웃"></a>2. 비서비스 페이지 레이아웃</h4><p><em>(for pages of not needed authenticated)</em></p>
+<ol>
+<li>Header</li>
+<li>Main content area (for each page content)</li>
+</ol>
+<h4 id="3-에러-레이아웃"><a href="#3-에러-레이아웃" class="headerlink" title="3. 에러 레이아웃"></a>3. 에러 레이아웃</h4><ol>
+<li>Icon depending on Error Status</li>
+<li>Error Message</li>
+<li>Action Button area</li>
+</ol>
+<h2 id="Layout-구현"><a href="#Layout-구현" class="headerlink" title="Layout 구현"></a>Layout 구현</h2><p>위에서 설계한 Layout을 차례대로 구현해보기전에 각 Layout에 중복되는 Component 이름이 있으므로 <code>Component</code> 디렉토리 구조를 아래와 같이 구성했습니다.</p>
+<ul>
+<li>기본 Dashboard 페이지 레이아웃: <code>components/dashboard</code></li>
+<li>비서비스 페이지 레이아웃: <code>components/base</code></li>
+<li>에러 레이아웃: <code>components/error</code></li>
+</ul>
+<h3 id="기본-Dashboard-페이지-레이아웃"><a href="#기본-Dashboard-페이지-레이아웃" class="headerlink" title="기본 Dashboard 페이지 레이아웃"></a>기본 Dashboard 페이지 레이아웃</h3><p>기본 Dashboard 페이지 레이아웃의 경우 아래와 같은 구조로 개발하려고 합니다. <code>Sidebar</code>와 <code>Content</code>로 구조를 단순화 하고, <code>Content</code> 영역 내부에서 <code>Header</code>와 <code>Main content Area</code> 영역을 구분지어 각 대시보드 페이지의 페이지를 렌더링할 수 있는 영역을 남겨놓도록 기획했습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(root)</span><br><span class="line">  ├─ Sidebar</span><br><span class="line">  └─ Content</span><br><span class="line">        ├─ Header</span><br><span class="line">        └─ Main content Area</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+<h3 id="비서비스-페이지-레이아웃"><a href="#비서비스-페이지-레이아웃" class="headerlink" title="비서비스 페이지 레이아웃"></a>비서비스 페이지 레이아웃</h3><p>비서비스 페이지 레이아웃의 경우 아래와 같은 구조로 개발하려고 합니다. <code>Header</code>와 <code>Main content Area</code>로 구조를 단순화 하고, <code>Main content Area</code> 영역에서 추가로 레이아웃을 나눌수 있도록 했으며 각 페이지를 렌더링할 수 있는 영역을 남겨놓도록 기획했습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(root)</span><br><span class="line">  ├─ Header</span><br><span class="line">  └─ Main content Area</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+<h3 id="에러-레이아웃"><a href="#에러-레이아웃" class="headerlink" title="에러 레이아웃"></a>에러 레이아웃</h3><p>비서비스 페이지 레이아웃의 경우 아래와 같은 구조로 개발하려고 합니다. <code>Header</code>와 <code>Main content Area</code>로 구조를 단순화 하고, <code>Main content Area</code> 영역에서 추가로 레이아웃을 나눌수 있도록 했으며 각 페이지를 렌더링할 수 있는 영역을 남겨놓도록 기획했습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(root)</span><br><span class="line">  ├─ Error Message</span><br><span class="line">  │  ├─ Error Icon (Status Code)</span><br><span class="line">  │  └─ Error Message</span><br><span class="line">  └─ Main content Area</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+<h2 id="마치며"><a href="#마치며" class="headerlink" title="마치며"></a>마치며</h2><!-- Vue.js에 익숙한 개발자라면 Nuxt.js 기반의 SSR 또는 SPA 앱 또한 쉽게 적응하고 개발할 수 있을거라 생각했지만  -->
+<p>본 포스트에서는 Nuxt.js의 Views 컨셉과 그 요소인 Page, Layout 그리고 Component에 대해 알아보았고, 이번 프로젝트에서 필요한 Layout에 대한 설계와 Component에 대해 정의내려봤습니다. 앞으로는 페이지를 구현할 것이며 중간중간 Layout 또는 Layout에서 사용할 Component가 변경될 수 있을거 같습니다. 다음 포스트에서는 Dashboard 페이지의 첫번째 페이지인 <strong>Overview</strong> 페이지를 개발해보겠습니다. 감사합니다.</p>
+<hr>
+<h2 id="참고"><a href="#참고" class="headerlink" title="참고"></a>참고</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/2.x/concepts/views">Views</a></li>
+<li><a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/2.x/concepts/views#pages">views - pages</a></li>
+<li><a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/2.x/concepts/views#layouts">views - layouts</a></li>
+<li><a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/2.x/concepts/views#error-page">views - error-page</a></li>
+<li><a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/2.x/directory-structure/pages">directory-structure - pages</a></li>
+<li><a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/2.x/directory-structure/layouts">directory-structure - layouts</a></li>
+<li><a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/2.x/directory-structure/components">directory-structure - components</a></li>
+<li><a target="_blank" rel="noopener" href="https://nuxtjs.org/docs/2.x/directory-structure/nuxt-config">directory-structure - nuxt-config</a></li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Joontae Kim"
+        },
+        "headline": "Nuxt와 Bootstrap4 기반의 Dashboard 만들기",
+        "image": "https://joontae-kim.github.io/images/nuxt.png",
+        "keywords": "vue.js nuxt.js vue nuxt project portfolio bootstrap bootstrap-vue layout",
+        "genre": "Programming nuxt",
+        "datePublished": "2021-05-05",
+        "dateCreated": "2021-05-05",
+        "dateModified": "2021-05-08",
+        "url": "https://joontae-kim.github.io/2021/05/05/nuxt-bootstrap-dashboard-layout/",
+        "description": "
+오늘의 포스트는 Nuxt와 Bootstrap4 기반의 Dashboard 만들기 의 여섯번째 포스트로 Page &amp; UI 개발에 대해 작성해보겠습니다.
+지난 포스트에서는 Bootstrap &amp; Bootstrap-vue 환경구성에 대해 작업해봤습니다. 본 포스트에서는 Page &amp; UI 개발에 대해 다뤄보겠습니다.
+개발 순서
+프로젝트 생성 및",
+        "wordCount": 1461
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/Joontae-Kim" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2021/05/01/nuxt-bootstrap-dashboard-5/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Nuxt와 Bootstrap4 기반의 Dashboard 만들기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/05/05/nuxt-bootstrap-dashboard-layout/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/nuxt.png)" alt="Nuxt와 Bootstrap4 기반의 Dashboard 만들기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/nuxt/">nuxt</a></p>
+                            <p class="item-title"><a href="/2021/05/05/nuxt-bootstrap-dashboard-layout/" class="title">Nuxt와 Bootstrap4 기반의 Dashboard 만들기</a></p>
+                            <p class="item-date"><time datetime="2021-05-05T14:53:27.000Z" itemprop="datePublished">2021-05-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/05/01/nuxt-bootstrap-dashboard-5/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/nuxt.png)" alt="Nuxt와 Bootstrap4 기반의 Dashboard 만들기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/nuxt/">nuxt</a></p>
+                            <p class="item-title"><a href="/2021/05/01/nuxt-bootstrap-dashboard-5/" class="title">Nuxt와 Bootstrap4 기반의 Dashboard 만들기</a></p>
+                            <p class="item-date"><time datetime="2021-05-01T09:30:28.000Z" itemprop="datePublished">2021-05-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/04/30/nuxt-bootstrap-dashboard-4/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/nuxt.png)" alt="Nuxt와 Bootstrap4 기반의 Dashboard 만들기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/nuxt/">nuxt</a></p>
+                            <p class="item-title"><a href="/2021/04/30/nuxt-bootstrap-dashboard-4/" class="title">Nuxt와 Bootstrap4 기반의 Dashboard 만들기</a></p>
+                            <p class="item-date"><time datetime="2021-04-29T18:28:32.000Z" itemprop="datePublished">2021-04-30</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/04/29/nuxt-bootstrap-dashboard-3/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/nuxt.png)" alt="Nuxt와 Bootstrap4 기반의 Dashboard 만들기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/nuxt/">nuxt</a></p>
+                            <p class="item-title"><a href="/2021/04/29/nuxt-bootstrap-dashboard-3/" class="title">Nuxt와 Bootstrap4 기반의 Dashboard 만들기</a></p>
+                            <p class="item-date"><time datetime="2021-04-29T07:18:23.000Z" itemprop="datePublished">2021-04-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/04/28/nuxt-bootstrap-dashboard-2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/nuxt.png)" alt="Nuxt와 Bootstrap4 기반의 Dashboard 만들기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Programming/">Programming</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Programming/nuxt/">nuxt</a></p>
+                            <p class="item-title"><a href="/2021/04/28/nuxt-bootstrap-dashboard-2/" class="title">Nuxt와 Bootstrap4 기반의 Dashboard 만들기</a></p>
+                            <p class="item-date"><time datetime="2021-04-28T11:47:24.000Z" itemprop="datePublished">2021-04-28</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">9</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Algorithm/" style="font-size: 15.71px;">Algorithm</a> <a href="/tags/Babel/" style="font-size: 10px;">Babel</a> <a href="/tags/Blog/" style="font-size: 11.43px;">Blog</a> <a href="/tags/Browser/" style="font-size: 12.86px;">Browser</a> <a href="/tags/CSR/" style="font-size: 10px;">CSR</a> <a href="/tags/Client-Side-Rendering/" style="font-size: 10px;">Client Side Rendering</a> <a href="/tags/Critical-Rendering-path/" style="font-size: 10px;">Critical Rendering path</a> <a href="/tags/ECMAScript/" style="font-size: 12.86px;">ECMAScript</a> <a href="/tags/ECMAScript-2015/" style="font-size: 10px;">ECMAScript 2015</a> <a href="/tags/ECMAScript-6/" style="font-size: 10px;">ECMAScript 6</a> <a href="/tags/ES2015/" style="font-size: 10px;">ES2015</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Front-end/" style="font-size: 12.86px;">Front-end</a> <a href="/tags/Hello-World/" style="font-size: 10px;">Hello World</a> <a href="/tags/Hexo/" style="font-size: 14.29px;">Hexo</a> <a href="/tags/Hoisting/" style="font-size: 10px;">Hoisting</a> <a href="/tags/Interview/" style="font-size: 12.86px;">Interview</a> <a href="/tags/Job/" style="font-size: 12.86px;">Job</a> <a href="/tags/Object/" style="font-size: 10px;">Object</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Rendering/" style="font-size: 11.43px;">Rendering</a> <a href="/tags/Renewal/" style="font-size: 10px;">Renewal</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/SSR/" style="font-size: 10px;">SSR</a> <a href="/tags/Scope/" style="font-size: 10px;">Scope</a> <a href="/tags/Server-Side-Rendering/" style="font-size: 10px;">Server Side Rendering</a> <a href="/tags/TIL/" style="font-size: 10px;">TIL</a> <a href="/tags/Theme/" style="font-size: 11.43px;">Theme</a> <a href="/tags/Variable/" style="font-size: 10px;">Variable</a> <a href="/tags/arrow-function/" style="font-size: 10px;">arrow function</a> <a href="/tags/assignment/" style="font-size: 10px;">assignment</a> <a href="/tags/big-O/" style="font-size: 10px;">big-O</a> <a href="/tags/bootstrap/" style="font-size: 11.43px;">bootstrap</a> <a href="/tags/bootstrap-vue/" style="font-size: 11.43px;">bootstrap-vue</a> <a href="/tags/context/" style="font-size: 12.86px;">context</a> <a href="/tags/contructor/" style="font-size: 10px;">contructor</a> <a href="/tags/course-javascript/" style="font-size: 10px;">course,javascript</a> <a href="/tags/data/" style="font-size: 12.86px;">data</a> <a href="/tags/data-structure/" style="font-size: 12.86px;">data structure</a> <a href="/tags/draft/" style="font-size: 10px;">draft</a> <a href="/tags/execution/" style="font-size: 12.86px;">execution</a> <a href="/tags/execution-context/" style="font-size: 12.86px;">execution context</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-engine/" style="font-size: 14.29px;">javascript engine</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/lecture/" style="font-size: 10px;">lecture</a> <a href="/tags/lifecycle/" style="font-size: 10px;">lifecycle</a> <a href="/tags/linked-list/" style="font-size: 10px;">linked list</a> <a href="/tags/mdn/" style="font-size: 12.86px;">mdn</a> <a href="/tags/new/" style="font-size: 10px;">new</a> <a href="/tags/new-%EC%83%9D%EC%84%B1%EC%9E%90/" style="font-size: 10px;">new 생성자</a> <a href="/tags/nuxt/" style="font-size: 18.57px;">nuxt</a> <a href="/tags/nuxt-lifecycle/" style="font-size: 10px;">nuxt lifecycle</a> <a href="/tags/nuxt-js/" style="font-size: 18.57px;">nuxt.js</a> <a href="/tags/object/" style="font-size: 11.43px;">object</a> <a href="/tags/object-oriented-javascript/" style="font-size: 10px;">object-oriented-javascript</a> <a href="/tags/oop/" style="font-size: 12.86px;">oop</a> <a href="/tags/portfolio/" style="font-size: 17.14px;">portfolio</a> <a href="/tags/project/" style="font-size: 17.14px;">project</a> <a href="/tags/prototype/" style="font-size: 11.43px;">prototype</a> <a href="/tags/reference/" style="font-size: 10px;">reference</a> <a href="/tags/structure/" style="font-size: 12.86px;">structure</a> <a href="/tags/time-complexity/" style="font-size: 10px;">time complexity</a> <a href="/tags/type/" style="font-size: 11.43px;">type</a> <a href="/tags/types/" style="font-size: 11.43px;">types</a> <a href="/tags/vue/" style="font-size: 18.57px;">vue</a> <a href="/tags/vue-js/" style="font-size: 18.57px;">vue.js</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/%EB%A7%81%ED%81%AC%EB%93%9C-%EB%A6%AC%EC%8A%A4%ED%8A%B8/" style="font-size: 10px;">링크드 리스트</a> <a href="/tags/%EB%B9%85%EC%98%A4/" style="font-size: 10px;">빅오</a> <a href="/tags/%EC%8B%9C%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84/" style="font-size: 10px;">시간 복잡도</a> <a href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" style="font-size: 14.29px;">알고리즘</a> <a href="/tags/%EC%9E%90%EB%A3%8C-%EA%B5%AC%EC%A1%B0/" style="font-size: 12.86px;">자료 구조</a> <a href="/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/" style="font-size: 10px;">자바스크립트</a> <a href="/tags/%ED%81%90/" style="font-size: 10px;">큐</a> <a href="/tags/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85/" style="font-size: 10px;">프로토타입</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2021 Joontae Kim</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'joontae-kim';
+    
+    
+    var disqus_url = 'https://joontae-kim.github.io/2021/05/05/nuxt-bootstrap-dashboard-layout/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
