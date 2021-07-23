@@ -8,6 +8,54 @@
     </url>
 
     <url>
+        <loc>https://joontae-kim.github.io/2020/10/15/excution-context-2/</loc>
+        <lastmod>2021-07-23T06:17:01.574Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/2020/10/18/execution-context-example/</loc>
+        <lastmod>2021-07-23T06:00:59.136Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/2020/10/12/excution-context/</loc>
+        <lastmod>2021-07-23T05:51:34.810Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/2020/10/09/javascript-types/</loc>
+        <lastmod>2021-07-22T07:09:26.663Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/2020/10/26/interview-question-list/</loc>
+        <lastmod>2021-07-22T05:33:56.017Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/2020/10/26/interview-question-fe/</loc>
+        <lastmod>2021-07-22T05:29:14.937Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://joontae-kim.github.io/2021/05/10/nuxt-data-fetching/</loc>
         <lastmod>2021-05-10T07:33:59.719Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -192,14 +240,6 @@
     </url>
 
     <url>
-        <loc>https://joontae-kim.github.io/2020/10/26/interview-question-fe/</loc>
-        <lastmod>2021-03-17T14:21:42.444Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://joontae-kim.github.io/2020/10/28/js-algorithm/</loc>
         <lastmod>2021-03-17T09:43:20.379Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -232,22 +272,6 @@
     </url>
 
     <url>
-        <loc>https://joontae-kim.github.io/2020/10/09/javascript-types/</loc>
-        <lastmod>2020-10-31T17:57:20.380Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/2020/10/26/interview-question-list/</loc>
-        <lastmod>2020-10-28T08:57:01.386Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://joontae-kim.github.io/2020/10/20/js-function/</loc>
         <lastmod>2020-10-25T10:36:03.092Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -258,30 +282,6 @@
     <url>
         <loc>https://joontae-kim.github.io/2020/10/09/javascript-hoisting-closure/</loc>
         <lastmod>2020-10-19T19:20:22.077Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/2020/10/18/execution-context-example/</loc>
-        <lastmod>2020-10-19T09:19:03.245Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/2020/10/15/excution-context-2/</loc>
-        <lastmod>2020-10-18T18:08:20.689Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/2020/10/12/excution-context/</loc>
-        <lastmod>2020-10-18T11:21:36.908Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
