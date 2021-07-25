@@ -3,8 +3,29 @@
 
 
     <url>
-        <loc>https://joontae-kim.github.io/tags/Front-end-Interview-Job-Javascript/</loc>
-        <lastmod>2021-07-25T08:34:44.581Z</lastmod>
+        <loc>https://joontae-kim.github.io/tags/Javascript/</loc>
+        <lastmod>2021-07-25T08:45:33.780Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/Job/</loc>
+        <lastmod>2021-07-25T08:45:33.780Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/Interview/</loc>
+        <lastmod>2021-07-25T08:45:33.780Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/Front-end/</loc>
+        <lastmod>2021-07-25T08:45:33.780Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -54,27 +75,6 @@
     <url>
         <loc>https://joontae-kim.github.io/tags/type/</loc>
         <lastmod>2021-07-22T07:09:26.663Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/Job/</loc>
-        <lastmod>2021-07-22T05:33:56.017Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/Interview/</loc>
-        <lastmod>2021-07-22T05:33:56.017Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/Front-end/</loc>
-        <lastmod>2021-07-22T05:33:56.017Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
