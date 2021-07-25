@@ -8,6 +8,13 @@
     </url>
 
     <url>
+        <loc>https://joontae-kim.github.io/categories/Blog-Job/</loc>
+        <lastmod>2021-07-25T08:34:44.581Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://joontae-kim.github.io/categories/Programming/Javascript/</loc>
         <lastmod>2021-07-23T06:17:01.574Z</lastmod>
         <changefreq>weekly</changefreq>
