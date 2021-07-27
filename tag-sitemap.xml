@@ -3,29 +3,29 @@
 
 
     <url>
-        <loc>https://joontae-kim.github.io/tags/Javascript/</loc>
-        <lastmod>2021-07-25T08:45:33.780Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://joontae-kim.github.io/tags/Job/</loc>
-        <lastmod>2021-07-25T08:45:33.780Z</lastmod>
+        <lastmod>2021-07-26T18:43:43.151Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/tags/Interview/</loc>
-        <lastmod>2021-07-25T08:45:33.780Z</lastmod>
+        <lastmod>2021-07-26T18:43:43.151Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/tags/Front-end/</loc>
-        <lastmod>2021-07-25T08:45:33.780Z</lastmod>
+        <lastmod>2021-07-26T18:43:43.151Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/Javascript/</loc>
+        <lastmod>2021-07-26T10:43:26.068Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
