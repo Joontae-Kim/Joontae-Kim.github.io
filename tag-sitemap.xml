@@ -4,28 +4,84 @@
 
     <url>
         <loc>https://joontae-kim.github.io/tags/Javascript/</loc>
-        <lastmod>2021-08-02T17:15:57.054Z</lastmod>
+        <lastmod>2021-08-06T12:13:15.408Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/tags/Job/</loc>
-        <lastmod>2021-08-02T17:15:57.054Z</lastmod>
+        <lastmod>2021-08-06T12:13:15.408Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/tags/Interview/</loc>
-        <lastmod>2021-08-02T17:15:57.054Z</lastmod>
+        <lastmod>2021-08-06T12:13:15.408Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/tags/Front-end/</loc>
-        <lastmod>2021-08-02T17:15:57.054Z</lastmod>
+        <lastmod>2021-08-06T12:13:15.408Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/new-%25EC%2583%259D%25EC%2584%25B1%25EC%259E%2590/</loc>
+        <lastmod>2021-08-05T09:06:29.215Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/contructor/</loc>
+        <lastmod>2021-08-05T09:06:29.215Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/new/</loc>
+        <lastmod>2021-08-05T09:06:29.215Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/%25ED%2594%2584%25EB%25A1%259C%25ED%2586%25A0%25ED%2583%2580%25EC%259E%2585/</loc>
+        <lastmod>2021-08-05T09:06:29.215Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/object/</loc>
+        <lastmod>2021-08-05T09:06:29.215Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/prototype/</loc>
+        <lastmod>2021-08-05T09:06:29.215Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/oop/</loc>
+        <lastmod>2021-08-05T09:06:29.215Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/javascript/</loc>
+        <lastmod>2021-08-05T09:06:29.215Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -53,13 +109,6 @@
 
     <url>
         <loc>https://joontae-kim.github.io/tags/javascript-engine/</loc>
-        <lastmod>2021-07-23T06:17:01.574Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/javascript/</loc>
         <lastmod>2021-07-23T06:17:01.574Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -243,55 +292,6 @@
     <url>
         <loc>https://joontae-kim.github.io/tags/big-O/</loc>
         <lastmod>2021-04-23T07:05:36.807Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/new-%25EC%2583%259D%25EC%2584%25B1%25EC%259E%2590/</loc>
-        <lastmod>2021-04-14T12:39:06.809Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/contructor/</loc>
-        <lastmod>2021-04-14T12:39:06.809Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/new/</loc>
-        <lastmod>2021-04-14T12:39:06.809Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/%25ED%2594%2584%25EB%25A1%259C%25ED%2586%25A0%25ED%2583%2580%25EC%259E%2585/</loc>
-        <lastmod>2021-04-14T12:39:06.809Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/object/</loc>
-        <lastmod>2021-04-14T12:39:06.809Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/prototype/</loc>
-        <lastmod>2021-04-14T12:39:06.809Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/oop/</loc>
-        <lastmod>2021-04-14T12:39:06.809Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

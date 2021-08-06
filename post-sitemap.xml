@@ -8,16 +8,32 @@
     </url>
 
     <url>
-        <loc>https://joontae-kim.github.io/2020/10/26/interview-question-js-1/</loc>
-        <lastmod>2021-08-02T17:15:57.054Z</lastmod>
+        <loc>https://joontae-kim.github.io/2021/07/22/interview-question-js-2/</loc>
+        <lastmod>2021-08-06T12:13:15.408Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://joontae-kim.github.io/2021/07/22/interview-question-js-2/</loc>
-        <lastmod>2021-07-27T13:34:21.991Z</lastmod>
+        <loc>https://joontae-kim.github.io/2020/10/26/interview-question-js-1/</loc>
+        <lastmod>2021-08-06T06:02:19.670Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/2021/04/07/js-oop-prototype/</loc>
+        <lastmod>2021-08-05T09:06:29.215Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/2020/11/02/js-oop-2/</loc>
+        <lastmod>2021-08-05T08:40:26.644Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -186,22 +202,6 @@
     <url>
         <loc>https://joontae-kim.github.io/2021/04/04/algorithm/</loc>
         <lastmod>2021-04-15T16:41:01.660Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/2021/04/07/js-oop-prototype/</loc>
-        <lastmod>2021-04-14T12:39:06.809Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/2020/11/02/js-oop-2/</loc>
-        <lastmod>2021-04-09T04:06:17.286Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

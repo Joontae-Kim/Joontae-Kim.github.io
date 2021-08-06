@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://joontae-kim.github.io/images/js_with_oop.png">
 <meta property="article:published_time" content="2020-11-02T12:10:12.000Z">
-<meta property="article:modified_time" content="2021-04-09T04:06:17.286Z">
+<meta property="article:modified_time" content="2021-08-05T08:40:26.644Z">
 <meta property="article:author" content="Joontae Kim">
 <meta property="article:tag" content="javascript">
 <meta property="article:tag" content="oop">
@@ -211,7 +211,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2020/11/02/js-oop-2/" class="article-date">
-     <time datetime="2021-04-09T04:06:17.286Z" itemprop="dateModified">2021-04-09</time>
+     <time datetime="2021-08-05T08:40:26.644Z" itemprop="dateModified">2021-08-05</time>
   </a>
 </div>
 
@@ -248,7 +248,11 @@ ga('send', 'pageview');
 즉, **객체는 자신의 정보를 가지고 있는 독립적인 개체(Entity)로써 객체 자신에 대한 속성(Property)과 동작(method) 을 가질 수 있다.** 그리고 객체 자신을 통해 자식을 만들 수도 있다. 컴퓨터의 예처럼 컴퓨터의 기본 구성인 모니터, 본체 그리고 입력장치를 하나의 틀로 여기면 데스크톱 컴퓨터, 노트북 컴퓨터 등 다양한 형태의 컴퓨터가 생성(_객체의 상속_)되기도 하며, 내부적으로는 키보드와 마우스, 모니터 등이 하나의 객체가 되어 컴퓨터라는 하나의 어플리케이션을 구성하고 있는 것으로 설명할 수도 있다. -->
 
 <p>지난 포스트인 <a href="/2020/10/22/javascript-oop/">Javascript와 객체 지향 프로그래밍 - 절차 지향 프로그래밍 &amp; 객체 지향 프로그래밍</a> 편에서 Javascript의 객체 지향에 대해 공부하면서 느꼈던 어려움과 절차지향과 객체지향에 대해 정리를 해보았습니다. 이번 포스트에서는 객체지향 프로그래밍이란 무엇인지 공부해보겠습니다.</p>
-<h2 id="객체-지향-프로그래밍-이란"><a href="#객체-지향-프로그래밍-이란" class="headerlink" title="객체 지향 프로그래밍 이란"></a>객체 지향 프로그래밍 이란</h2><p>이전 포스트에서 언급했듯이 객체 지향 프로그래밍이란 <strong>“누가 어떤 일을 할 것인가”</strong> 를 중심으로 구현된 프로그래밍 패러다임으로써, <strong>객체 지향의 “객체”는 현실 세계의 사물을 나타내는데 각 객체는 자신의 정보를 가지고 있는 독립적인 개체(Entity)로써 각각의 성격을 띄고 있으며 이 객체가 유기적으로 상호작용 하여 작게는 하나의 기능, 크게는 하나의 어플리케이션을 프로그래밍 하는 방법</strong> 입니다.</p>
+<h2 id="객체-지향-프로그래밍-이란"><a href="#객체-지향-프로그래밍-이란" class="headerlink" title="객체 지향 프로그래밍 이란"></a>객체 지향 프로그래밍 이란</h2><p>이전 포스트에서 언급했듯이 객체 지향 프로그래밍이란 <strong>“누가 어떤 일을 할 것인가”</strong> 를 중심으로 구현된 프로그래밍 패러다임으로써, 다음과 같이 정리해볼수 있을거 같습니다.</p>
+<ul>
+<li>현실 세계의 개체를 기계의 부품처럼 하나의 객체로 만들어, 기계적인 부품들을 조립하여 제품을 만들듯이 소프트웨어를 개발할 때에도 객체들을 조립해서 작성할 수 있도록 하는 기법이다.</li>
+<li>객체 지향의 “객체”는 현실 세계의 사물을 나타내는데 각 객체는 자신의 정보를 가지고 있는 독립적인 개체(Entity)로써 각각의 성격을 띄고 있으며 이 객체가 유기적으로 상호작용 하여 작게는 하나의 기능, 크게는 하나의 어플리케이션을 프로그래밍 하는 방법이다.</li>
+</ul>
 <p>그렇다면 객체 지향 프로그래밍의 “객체”의 기본 구성 요소는 무엇일까?</p>
 <h3 id="기본-구성요소"><a href="#기본-구성요소" class="headerlink" title="기본 구성요소"></a>기본 구성요소</h3><p>위에서 언급했듯이 OOP의 객체(object)는 현실 세계의 사물을 나타낸다고 했다. 즉, 현실 세계의 사물은 각각의 동작(기능)과 상태를 가지고 있으며 여러 동작은 유기적으로 움직이며 상호간 침범하지 않도록 또는 방해되지 않도록 설계되어 있다고 설명할 수 있다. 대표적인 예로 <strong><em>사람</em></strong> 이다.</p>
 <p>OOP의 기본 구성요소를 설명하기 전에 현실 세계의 사물을 먼저 정의한 이유는 OOP의 기본 구성요소 또한 같기 때문이다.</p>
@@ -498,14 +502,14 @@ ga('send', 'pageview');
         "genre": "Programming Javascript",
         "datePublished": "2020-11-02",
         "dateCreated": "2020-11-02",
-        "dateModified": "2021-04-09",
+        "dateModified": "2021-08-05",
         "url": "https://joontae-kim.github.io/2020/11/02/js-oop-2/",
         "description": "
 
 
 지난 포스트인 Javascript와 객체 지향 프로그래밍 - 절차 지향 프로그래밍 &amp; 객체 지향 프로그래밍 편에서 Javascript의 객체 지향에 대해 공부하면서 느꼈던 어려움과 절차지향과 객체지향에 대해 정리를 해보았습니다. 이번 포스트에서는 객체지향 프로그래밍이란 무엇인지 공부해보겠습니다.
 객체 지향 프로그래밍 이란이전 포스트에서 언급했듯",
-        "wordCount": 1369
+        "wordCount": 1394
     }
 </script>
 

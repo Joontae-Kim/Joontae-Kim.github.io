@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://joontae-kim.github.io/images/job_thumbnail.jpeg">
 <meta property="article:published_time" content="2021-07-22T07:17:30.000Z">
-<meta property="article:modified_time" content="2021-07-27T13:34:21.991Z">
+<meta property="article:modified_time" content="2021-08-06T12:13:15.408Z">
 <meta property="article:author" content="Joontae Kim">
 <meta property="article:tag" content="Front-end">
 <meta property="article:tag" content="Interview">
@@ -212,7 +212,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2021/07/22/interview-question-js-2/" class="article-date">
-     <time datetime="2021-07-27T13:34:21.991Z" itemprop="dateModified">2021-07-27</time>
+     <time datetime="2021-08-06T12:13:15.408Z" itemprop="dateModified">2021-08-06</time>
   </a>
 </div>
 
@@ -308,48 +308,30 @@ ga('send', 'pageview');
 <h3 id="1-ES6"><a href="#1-ES6" class="headerlink" title="1. ES6"></a>1. ES6</h3><h4 id="ES6-이상의-버전을-브라우저에서-인식하지-못한다면-어떻게-해결해야-하는지"><a href="#ES6-이상의-버전을-브라우저에서-인식하지-못한다면-어떻게-해결해야-하는지" class="headerlink" title="ES6 이상의 버전을 브라우저에서 인식하지 못한다면 어떻게 해결해야 하는지?"></a>ES6 이상의 버전을 브라우저에서 인식하지 못한다면 어떻게 해결해야 하는지?</h4><blockquote>
 <p> <em>최신 자바스크립트의 호환성 문제를 해결하는 방법에 대한 질문</em> </p>
 </blockquote>
-<p>브라우저의 Javascript 버전 호환성 이슈를 이해하기 위해서는 먼저 ECMAScript에 대해 이해할 필요가 있습니다. <strong>ECMAScript (또는 ES)</strong> 는 ECMA 인터네셔널에 의해 표준화 된 범용 프로그래밍 언어로써, 서로 다른 웹 브라우저들에서 웹 페이지의 상호운용성을 보장하기 위한 Javscript 표준입니다. </p>
-<blockquote>
-<p> ECMAScript와 Javascript를 표현하자면, </p>
-<p><strong>ECMAScript</strong>는 스크립팅 언어를 어떻게 만들어야 하는지를 설명하는 일종의 설명서라고 생각하면 되고, <strong>JavaScript</strong>는 ECMAScript의 사양을 바탕으로 만들어진 언어인 것이다.</p>
-</blockquote>
-<p> 그리고 브라우저는 Javascript 엔진을 개발 및 업데이트 하기 위해 새롭게 개발되는 ECMAScript 버전을 참고합니다. 따라서, 모든 브라우저가 같은 버전의 ECMAScript를 지원하기 힘들뿐 아니라 개발 플랜에 따라서도 달라질 수 있습니다. 따라서 웹 개발자들은 브라우저의 Javascript 호환성 이슈에 직면하게 되고 이러한 현상을 해결하기 위한 방법으로 <strong>크로스 브라우징(Cross Browsing)</strong> 이라고 합니다. </p>
-<p><strong>크로스 브라우징</strong> 은 브라우저나 플랫폼마다 보여지는 모습이 다른 경우가 많은데, 이러한 차이를 최소화 하여 브라우저, 환경에 영향을 최소한으로 받고 해당 웹 서비스를 사용할 수 있게 최적화를 하는 작업을 말한다. 일부 최신 브라우저에서만 동작하는 기능을 그렇지 않은 브라우저에서 구현해야 할 경우, 기능을 단순화 하거나 생략해야 하는 경우가 발생하기도 한다. 프론트엔드 개발자들에게 크로스 브라우징 이슈는 코드의 일관성도 망가트리고 혼란스럽게 만드는 요소 중 하나이다.</p>
-<p>이를 <strong>바벨(babel)</strong> 이라는 트랜스파일러를 사용해 ES6 이하 버전의 문법으로 변환하는 과정을 거치면 거의 모든 브라우저에서 프로그램을 동작시킬 수 있다.</p>
-<ul>
-<li><strong>트랜스파일러</strong><br>브라우저에서 호환되지 않는 ES6 이상 문법을 ES5로 컴파일(변환)하는 과정을 트랜스파일링(transpiling)이라 부르고, 이러한 역할을 하는 소프트웨어를 트랜스파일러라 한다. 가장 유명한 트랜스파일링 도구가 바벨이다.</li>
-</ul>
+<p>브라우저 별로 구동원리 또는 JS엔진 등의 차이가 있기 때문에 브라우저 호환성 이슈가 발생하는데, 이러한 차이를 최소화해 런타임 환경에 맞게 최적화 하는 작업을 크로스 브라우징이라고 하는데, Javascript의 호환성에 따른 충돌이나 부작용을 줄이기 위한 방법으로는 Babel이라는 도구를 사용하면 됩니다. 바벨은 주로 ES5 이상 버전의 코드를 현재 및 과거의 브라우저와 같은 환경에서 호환되는 버전으로 변환하는데 사용되는 도구로, IE나 다른 브라우저에서 동일한 기능을 제공하고 side-effect를 최소한으로 줄일수 있습니다.</p>
 <blockquote>
 <p>바벨 공식 웹사이트에서는 바벨을 다음과 같이 정의한다.</p>
 <p><strong><em>Babel is a toolchain that is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript in current and older browsers or environments.</em></strong> </p>
 <p>바벨은 주로 ECMAScript 2015+ 코드를 현재 및 과거의 브라우저와 같은 환경에서 호환되는 버전으로 변환하는데 주로 사용되는 도구입니다.</p>
 </blockquote>
-<p>최신 모던 프론트엔드 프레임워크를 개발할 경우, React나 Vue.js를 통해 개발할 경우 어플리케이션 생성시 스켈레톤에 Webpack과 Babel이 기본적으로 세팅되어 있으며 특정 브라우저 버전 또는 폴리필 버전을 지정해 크로스 브라우징 옵션을 커스터마이징을 할수도 있습니다. 이를 통해 프론트엔드 개발자는 크로스 브라우징 이슈를 해결할 수 있으며 ES6+ 이하의 Javascript 코드로 변환할 수 있으며 IE든 크롬이든 다른 브라우저에서도 동작할 수 있게 만듭니다.</p>
-<p>이러한 크로스 브라우징 이슈를 해결하기 위해 생겨난 툴이 바벨이다. <strong>바벨은 이렇게 추상화 수준을 유지한 채로 코드를 변화시키는 트랜스파일러의 역할을 한다.</strong> 바벨을 통해 ES6+의 자바스크립트 코드는 하위 버전으로 변환되고, 그로 인해 IE나 다른 브라우저에서 동작할 수 있게 만든다.</p>
-<h4 id="babel은-컴파일러-인가-트랜스파일러인가"><a href="#babel은-컴파일러-인가-트랜스파일러인가" class="headerlink" title="babel은 컴파일러 인가 ? 트랜스파일러인가"></a>babel은 컴파일러 인가 ? 트랜스파일러인가</h4><p>설명하기 전에 먼저 컴파일러와 트랜스파일러에 대한 정의를 내리자면, <strong>컴파일러</strong> 란 <em>언어로 작성된 소스 코드를 다른 언어로 변환하는 것</em> 을 의미하며, 예를 들면, 아래와 같으며</p>
+<h4 id="babel은-컴파일러-인가-트랜스파일러인가"><a href="#babel은-컴파일러-인가-트랜스파일러인가" class="headerlink" title="babel은 컴파일러 인가 ? 트랜스파일러인가"></a>babel은 컴파일러 인가 ? 트랜스파일러인가</h4><p>Babel은 빌드 단계에서 Javascript를 다른 언어로 변환하는 것이 아닌 어플리케이션에서 설정된 환경에 맞게 또는 현재 사용하고 있는 대중적인 브라우저 스펙 또는 호환성에 맞는 하위 버전의 Javascript로 변환한다는 의미에서 Babel은 트랜스파일러라고 할 수 있습니다. </p>
+<p>컴파일러와 트랜스파일러에 대해 설명하자면, </p>
 <ul>
-<li>Java -&gt; bytecode</li>
-<li>c -&gt; assembly</li>
+<li><p><strong>컴파일러</strong> 의 경우에는 한 언어도 작성된 코드를 다른 언어로 변환하는 것으로 C 코드로 개발된 코드를 Assembly 코드로 변환하는 것과 같고</p>
+</li>
+<li><p><strong>트랜스파일러</strong> 란 한 언어로 작성된 소스 코드를 비슷한 수준의 추상화를 가진 언어로 변환하는 것을 의미합니다.</p>
+</li>
 </ul>
-<p><strong>트랜스파일</strong> 의 경우는 <em>한 언어로 작성된 소스 코드를 비슷한 수준의 추상화를 가진 다른 언어로 변환하는 것</em> 을 말합니다.</p>
-<ul>
-<li>es6 코드 -&gt; es5 코드로 변환하는 경우</li>
-<li>c++ -&gt; c </li>
-<li>coffescript -&gt; javascript</li>
-</ul>
-<p><strong>바벨(babel)</strong> 은 주로 ECMAScript 2015+ 코드를 현재 및 과거의 브라우저와 같은 환경에서 호환되는 버전으로 변환하는데 주로 사용되는 도구로, 정확히 말해 <strong><em>트랜스파일러</em></strong> 입니다. 바벨을 사용해 ES6 이하 버전의 문법으로 변환하는 과정을 거치면 거의 모든 브라우저에서 프로그램을 동작시킬 수 있습니다.</p>
-<p>브라우저에서 호환되지 않는 ES6 이상 문법을 ES5로 변환하는 과정을 <strong>트랜스파일링(transpiling)</strong> 이라 부르고, 이러한 역할을 하는 소프트웨어를 <strong>트랜스파일러</strong> 라 한다.</p>
-<p>바벨이 트랜스파일러인 이유 바벨의 빌드 단계를 설명해야 합니다.</p>
+<p>바벨의 빌드 단계를 설명하자면, 파싱, 변환, 출력의 단계로 코드를 변환하는데,</p>
 <ol>
-<li><strong>파싱(Parsing)</strong> : 코드를 읽고 추상 구문 트리(AST)로 변환하는 단계</li>
-<li><strong>변환(Transforming)</strong> : 추상 구문 트리를 변경</li>
-<li><strong>출력(Printing)</strong> : 변경된 결과물을 출력</li>
+<li><strong>파싱</strong>: 코드를 읽고, 추상 구문 트리(AST)로 변환하는 단계</li>
+<li><strong>변환</strong>: 추상 구문 트리(AST)를 변경</li>
+<li><strong>출력</strong>:  변경된 결과물을 출력</li>
 </ol>
-<p>즉, 빌드 단계에서 Javascript를 다른 언어로 변환하는 것이 아닌 개발 시 사용된 Javascript 코드를 설정된 환경에 맞게 또는 현재 사용되고 있는 대중적인 브라우저의 스펙 또는 호환성에 맞는 하위 버전의 Javascript로 변환할 뿐입니다.</p>
-<h5 id="바벨-with-플러그인-preset-env"><a href="#바벨-with-플러그인-preset-env" class="headerlink" title="바벨 with 플러그인 (preset-env)"></a>바벨 with 플러그인 (preset-env)</h5><p>위에서 Babel은 파싱과 출력을 담당하고, 변환 작업은 <strong>바벨 플러그인(plugin)**이 담당하니다. 바벨 플러그인이란 **바벨이 바벨이 변환할 코드에 대한 규칙을 나타낸다.</strong> 플러그인의 버전에 따라 그리고 변환하고자 하는 Javascript 기능에 따라 매우 많으며 그 설정 또한 일일이 지정하기에 까다롭습니다. 이를 위해 <strong>필요한 플러그인들을 목적에 따라 세트로 묶여 있는 플러그인이 있으며 이를 <em>프리셋(preset)</em> 이라고 한다.</strong> 대표적인 프리셋으로 <em>ES6+를 변환하는 프리셋</em> 인 <strong>preset-env</strong> 이 있습니다. preset-env 는 필요한 플러그인을 <strong>프로젝트가 지원하고자 하는 환경에 기반해 빌드 타임에 동적으로 결정</strong>하는 프리셋으로, 지원하고자 하는 환경을 <a target="_blank" rel="noopener" href="https://ahnheejong.name/articles/frontend-birds-eye-view-babel/"><code>browserslist</code></a> 설정 형식으로 명시할 수 있고, 명시된 환경에 필요한 플러그인을 <a target="_blank" rel="noopener" href="https://github.com/kangax/compat-table"><code>compat-table</code></a>의 정보를 활용해 결정하고, 빌드 과정에 포함시킬 수 있습니다.</p>
-<h5 id="바벨-with-폴리필-polyfill"><a href="#바벨-with-폴리필-polyfill" class="headerlink" title="바벨 with 폴리필 (polyfill)"></a>바벨 with 폴리필 (polyfill)</h5><p>빌드 과정에서 Babel을 거쳤더라도 (ES5 이후 환경에 추가된) <code>Promise</code>와 같은 빌트인 또는 <code>Array.prototype.includes</code> 등의 인스턴스 메소드가 코드에 남아있을 수 있다. 당연하지만, 해당 빌트인/메소드를 지원하지 않는 환경에서는 에러가 발생한다. </p>
-<p>이를 해결할 수 있는 기술이 <strong>폴리필</strong> 이고, <strong>최신 ECMAScript 환경을 만들기 위해 코드가 실행되는 환경에 존재하지 않는 빌트인, 메소드 등을 추가한다.</strong> Babel 폴리필은 실행 환경에서 이런 빌트인, 메소드 등이 존재하는지 확인하고, 만약 존재하지 않는다면 추가한다.</p>
-<p>Babel 폴리필 전체를 빌드에 포함한다면 번들 사이즈가 너무 커질 수 있다. <code>preset-env</code>의 <a target="_blank" rel="noopener" href="https://babeljs.io/docs/en/babel-preset-env#usebuiltins"><code>useBuiltIns</code></a> 옵션을 사용하면 빌드 타임에 <code>babel-polyfill</code> 임포트를 꼭 필요한 폴리필 임포트로 대체해 번들이 필요 이상으로 커지는 일을 방지할 수 있다.</p>
+<p>위와 같은 빌드 단계를 통해 Babel은 Javascript의 호환성 이슈를 해결합니다.</p>
+<h4 id="그렇다면-바벨에서-코드를-변환하기-위한-규칙은-어떻게-설정하나"><a href="#그렇다면-바벨에서-코드를-변환하기-위한-규칙은-어떻게-설정하나" class="headerlink" title="그렇다면 바벨에서 코드를 변환하기 위한 규칙은 어떻게 설정하나"></a>그렇다면 바벨에서 코드를 변환하기 위한 규칙은 어떻게 설정하나</h4><p>바벨을 사용한다고 코드를 변환할 수 있다고 할수는 없으며 변환하기 위한 규칙이나 브라우저 버전을 설정해야 하는데 이 작업은 <strong>바벨 플러그인</strong> 이 담당합니다. <strong>바벨 플러그인</strong> 이란, 바벨이 변환할 코드에 대한 규칙으로 custom으로 Javascript의 기능에 따라 각각 설정하기에는 까다롭고 매우 많기 때문에,  <strong>preset</strong> 이라는 플러그인을 사용해 손쉽게 변환규칙을 설정해줄 수 있습니다. <strong>preset</strong> 이란 필요한 플러그인들을 목적에 따라 세트로 묶여 있는 플러그인으로 대표적인 프리셋 플러그인으로 <strong>preset-env</strong> 이 있으며 프로젝트가 지원하고자 하는 환경에 기반해 빌드 타임에 동적으로 결정하는 프리셋으로 ES6 이상의 코드를 변환합니다.</p>
+<h4 id="크로스-브라우징-이슈를-해결하기-위해-플러그인을-설정해-호환가능한-버전으로-변환하지만-빌트인-메서드나-JS-기능이-없는-경우에는-어떻게-해결할-수-있는가"><a href="#크로스-브라우징-이슈를-해결하기-위해-플러그인을-설정해-호환가능한-버전으로-변환하지만-빌트인-메서드나-JS-기능이-없는-경우에는-어떻게-해결할-수-있는가" class="headerlink" title="크로스 브라우징 이슈를 해결하기 위해 플러그인을 설정해 호환가능한 버전으로 변환하지만 빌트인 메서드나 JS 기능이 없는 경우에는 어떻게 해결할 수 있는가?"></a>크로스 브라우징 이슈를 해결하기 위해 플러그인을 설정해 호환가능한 버전으로 변환하지만 빌트인 메서드나 JS 기능이 없는 경우에는 어떻게 해결할 수 있는가?</h4><p>빌드 과정에서 Babel을 통해 트랜스파일링 과정을 거쳤더라도 <code>Promise</code>와 같은 빌트인 또는 <code>Array.prototype.includes</code> 등의 인스턴스 메소드가 코드에 남아있을 수 있다. 해당 빌트인 또는 메서드를 지원하지 않는 환경에서는 에러를 유발하거나 어플리케이션이 멈추는 이슈가 발생하는데, 이를 해결하기 위한 기술이 <strong>폴리필 (Polyfill)</strong> 입니다. Babel 설정에서 폴리필을 설정하면, 최신 ECMAScript 환경을 만들기 위해 코드가 실행되는 환경에 존재하지 않는 빌트인 메서드 등을 추가해줍니다.</p>
+<p>폴리필 전체를 빌드에 포함하면 번들 사이즈가 너무 커질수 있기 때문에, <strong>preset-env</strong> 의  <a target="_blank" rel="noopener" href="https://babeljs.io/docs/en/babel-preset-env#usebuiltins"><code>useBuiltIns</code></a> 옵션을 사용하면 빌드 타임에 <code>babel-polyfill</code> import를 <em>꼭 필요한 폴리필 import로 대체해</em> 번들의 사이즈를 줄일 수 있습니다.</p>
 <h4 id="ES6-에서-추가된-스펙에-대해-아는대로-다-말해달라"><a href="#ES6-에서-추가된-스펙에-대해-아는대로-다-말해달라" class="headerlink" title="ES6 에서 추가된 스펙에 대해 아는대로 다 말해달라"></a>ES6 에서 추가된 스펙에 대해 아는대로 다 말해달라</h4><ul>
 <li><strong>ES5 (2009)</strong><ul>
 <li>일반적으로 (구형 브라우저를 제외한) 모든 런타임에서 지원한다고 가정할 수 있는 Javascript의 기본 버전</li>
@@ -462,9 +444,9 @@ ga('send', 'pageview');
 <p>이 문법은 함수 파라미터, 배열와 객체 destructuring에도 사용할 수 있다. destructuring에서 배열 데이터는 새로운 배열로, 객체 데이터는 새로운 객체로 만들어진다.</p>
 <h3 id="5-Javascript의-디자인-패턴에-대해-아는대로-설명해주세요"><a href="#5-Javascript의-디자인-패턴에-대해-아는대로-설명해주세요" class="headerlink" title="5. Javascript의 디자인 패턴에 대해 아는대로 설명해주세요."></a>5. Javascript의 디자인 패턴에 대해 아는대로 설명해주세요.</h3><h4 id="디자인-패턴"><a href="#디자인-패턴" class="headerlink" title="디자인 패턴"></a>디자인 패턴</h4><p>디자인 패턴이란 무엇일까? 소프트웨어 개발을 하면서 발생하는 다양한 이슈들을 해결하는데 도움을 주는 일종의 증명된 기술들이다. 이미 많은 개발자들이 자바스크립트를 개발하면서 겪은 다양한 경험들을 바탕으로 만들어진 것들이다. 즉, 이런 상황에서는 이런 패턴을 사용하면 좋을거라는 일종의 방향성을 제시해준다. 패턴들은 정확한 해결책을 제공해주는 것이 아니다. 프레임워크나 라이브러리, 패턴 등은 그저 우리가 자바스크립트로 개발하는데 있어서 도움을 주는 도구일 뿐이고 이 패턴들을 어떻게 활용해서 어떤 식으로 개발한 것인지는 순전히 개발자의 역량에 달려있는 것이다.</p>
 <h4 id="디자인-패턴-종류"><a href="#디자인-패턴-종류" class="headerlink" title="디자인 패턴 종류"></a>디자인 패턴 종류</h4><p>모듈 패턴, 싱글톤 패턴, 팩토리 패턴, Iterator 패턴, Decorator 패턴</p>
-<h3 id="6-모듈-패턴과-전통적-상속-각각의-장단점을-설명해보시오"><a href="#6-모듈-패턴과-전통적-상속-각각의-장단점을-설명해보시오" class="headerlink" title="6. 모듈 패턴과 전통적 상속, 각각의 장단점을 설명해보시오."></a>6. 모듈 패턴과 전통적 상속, 각각의 장단점을 설명해보시오.</h3><h4 id="모듈-패턴"><a href="#모듈-패턴" class="headerlink" title="모듈 패턴"></a>모듈 패턴</h4><p>모듈 패턴(Module pattern)은 코드 설계 방법을 말한다. 여기서는 <strong>객체를 public과 private으로 나누는 캡슐화가 핵심</strong>이다. 자바스크립트는 public이나 private와 같은 접근 제한자를 제공하지 않지만, 클로저를 이용해 구현할 수 있다. private method는 코드 접근을 제한할 수 있을뿐만 아니라 추가적인 자바스크립트가 다른 스크립트와 이름이 충돌하는 것을 막을 수 있다. 매우 기본적인 방법은 모든 코드를 익명함수 안에 집어넣어 private 스코프로 만드는 것이다. 하지만 이렇게 하면 코드를 재사용하기 불편해지기 때문에 별도의 네임스페이스를 적용해야 한다.</p>
-<p>javascript 에서 함수 혹은 변수객체를 다룰때 중복된 name 사용으로 인한 문제를 방지하기 위해 주로 namespace 방법이 사용된다. 이는 global 영역에 객체 고유의 영역을 지정하고 변수와 함수 할당을 해당 namespace 하위로 두게 하여 중복된 name 으로 인한 오류를 피하는 방법이다.</p>
-<p>모듈 페턴은 이 네임스페이스 페턴에 언어적 유효범위를 추가 해논 것이라 이해하면 쉽다. 모듈을 작성함에 있어서 return 구문을 이용하여 공개될 영역과 내부적으로 처리할 영역을 구분하여 공개여부를 선택하게 하는 것이다.</p>
+<h3 id="6-모듈-패턴과-전통적-상속-각각의-장단점을-설명해보시오"><a href="#6-모듈-패턴과-전통적-상속-각각의-장단점을-설명해보시오" class="headerlink" title="6. 모듈 패턴과 전통적 상속, 각각의 장단점을 설명해보시오."></a>6. 모듈 패턴과 전통적 상속, 각각의 장단점을 설명해보시오.</h3><h4 id="모듈-패턴"><a href="#모듈-패턴" class="headerlink" title="모듈 패턴"></a>모듈 패턴</h4><p>모듈 패턴(Module pattern)은 Javascript 디자인 패턴 중 하나로, <strong>클로저</strong> 개념을 이용해 구현할 수 있으며 객체를 <strong>public/private 개념으로 나누는 캡슐화 및 은닉화가 핵심</strong> 이다. 매우 기본적인 방법으로는 모든 코드를 익명함수로 감싸 내부 스코프를 생성하고, private method는 코드 접근을 제한할 수 있을뿐만 아니라 추가적인 자바스크립트가 다른 스크립트와 이름이 충돌하는 것을 막을 수 있다.</p>
+<p>하지만 이렇게 하면 코드를 재사용하기 불편해지기 때문에 별도의 <strong>네임스페이스(namespace)</strong> 를 적용해야 한다. 이는 global 영역에 객체 고유의 영역을 지정하고 변수와 함수 할당에 해당 네임스페이스(namespace)의 하위에 둬 중복된 name으로 인한 오류를 피할 수 있다.</p>
+<p>모듈 패턴을 작성함에 있어서 return 구문을 이용하여 공개/비공개 영역과 내부적으로 처리할 영역을 구분하여 공개여부를 선택할 수 있습니다.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// namespace 패턴</span></span><br><span class="line"><span class="keyword">var</span> myApp = myApp || &#123;&#125;; <span class="comment">// 네임 스페이스 선언</span></span><br><span class="line"></span><br><span class="line">myApp.insanehong = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;insanehong&#x27;</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">myApp.helloworld = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello world&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 모듈 페턴</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Messages = &#123;<span class="attr">h</span> : <span class="string">&#x27;hello&#x27;</span>, <span class="attr">w</span> : <span class="string">&#x27;world&#x27;</span>, <span class="attr">insane</span>:<span class="string">&#x27;insanehong&#x27;</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> myApp = (<span class="function"><span class="keyword">function</span>(<span class="params">msg</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> helloworld = msg.h+<span class="string">&#x27;  &#x27;</span>+msg.w;</span><br><span class="line">  <span class="keyword">var</span> helloinsanehong = msg.h+<span class="string">&#x27; &#x27;</span>+msg.insane;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> printInsane = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> helloinsanehong;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> printhello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> helloworld;</span><br><span class="line">  &#125;;  </span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    foo1 : printInsane,</span><br><span class="line">    foo2 : printhello</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">&#125;)(Messages);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(myApp.foo1());</span><br><span class="line">&gt; hello insanehong</span><br><span class="line"><span class="built_in">console</span>.log(myApp.helloworld);</span><br><span class="line">&gt; <span class="literal">undefined</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
@@ -487,7 +469,7 @@ ga('send', 'pageview');
 
 
 
-<h3 id="7-호스트-객체-Host-Objects-와-네이티브-객체-Native-Objects-Built-in-객체의-차이점은-무엇인가요"><a href="#7-호스트-객체-Host-Objects-와-네이티브-객체-Native-Objects-Built-in-객체의-차이점은-무엇인가요" class="headerlink" title="7. 호스트 객체(Host Objects)와 네이티브 객체(Native Objects), Built-in 객체의 차이점은 무엇인가요?"></a>7. 호스트 객체(Host Objects)와 네이티브 객체(Native Objects), Built-in 객체의 차이점은 무엇인가요?</h3><ul>
+<h3 id="7-네이티브-객체-Native-Objects-호스트-객체-Host-Objects-Built-in-객체의-차이점은-무엇인가요"><a href="#7-네이티브-객체-Native-Objects-호스트-객체-Host-Objects-Built-in-객체의-차이점은-무엇인가요" class="headerlink" title="7. 네이티브 객체(Native Objects), 호스트 객체(Host Objects), Built-in 객체의 차이점은 무엇인가요?"></a>7. 네이티브 객체(Native Objects), 호스트 객체(Host Objects), Built-in 객체의 차이점은 무엇인가요?</h3><ul>
 <li><p><strong>네이티브 객체</strong> 는 ECMAScript 명세에 정의된 브라우저 혹은 구동 엔진에 내장되어 있는 자바스크립트의 모든 엔진에 구현된 표준객체이다. 네이티브 객체는 built-in 객체와 달리 자바스크립트 엔진이 구성하고 있는 기본객체라고 하기보단 브라우저 혹은 사용되는 자바스크립트 엔진에 영향을 많이 받게 된다. BOM 이라는 브라우저 객체 모델과 DOM 이라는 문서 객체 모델이 네이티브 객체에 포함되는데 이 객체의 사용성이 이를 구현한 구동엔진에 따라 각기 다르게 존재하는 경우가 있기 때문에 크로스 브라우징에 문제를 발생시키기도 한다.</p>
 </li>
 <li><p><strong>호스트 객체</strong> 는 빌트인 객체와 네이티브객체에 포함되지 않은 사용자에 의해 생성된 객체를 의미한다. 자바스크립트 엔진은 빌트인 객체와 네이티브 객체를 구성한 이후 호스트객체를 해석하게 된다.</p>
@@ -678,7 +660,7 @@ ga('send', 'pageview');
         "genre": "Blog Job",
         "datePublished": "2021-07-22",
         "dateCreated": "2021-07-22",
-        "dateModified": "2021-07-27",
+        "dateModified": "2021-08-06",
         "url": "https://joontae-kim.github.io/2021/07/22/interview-question-js-2/",
         "description": "
 프론트엔드 면접 준비를 위한 질문 리스트 정리Javascript아래질문 리스트를 기반으로 면접 질문 &amp; 답변 목록을 작성할 예정이고, 지속적으로 보충 or 보수할 계획입니다.
@@ -697,7 +679,7 @@ ga('send', 'pageview');
 
 
 질문 목록",
-        "wordCount": 4771
+        "wordCount": 4454
     }
 </script>
 
