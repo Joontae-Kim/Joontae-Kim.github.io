@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://joontae-kim.github.io/images/job_thumbnail.jpeg">
 <meta property="article:published_time" content="2021-07-22T07:17:30.000Z">
-<meta property="article:modified_time" content="2021-08-06T12:13:15.408Z">
+<meta property="article:modified_time" content="2021-08-09T19:47:20.474Z">
 <meta property="article:author" content="Joontae Kim">
 <meta property="article:tag" content="Front-end">
 <meta property="article:tag" content="Interview">
@@ -212,7 +212,7 @@ ga('send', 'pageview');
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2021/07/22/interview-question-js-2/" class="article-date">
-     <time datetime="2021-08-06T12:13:15.408Z" itemprop="dateModified">2021-08-06</time>
+     <time datetime="2021-08-09T19:47:20.474Z" itemprop="dateModified">2021-08-10</time>
   </a>
 </div>
 
@@ -302,6 +302,8 @@ ga('send', 'pageview');
 <li><p>자바스크립트의 순환참조란? 어떤게 문제이고 해결방법은?</p>
 </li>
 <li><p>자바스크립트와 관련한 same-origin 정책에 대해 설명</p>
+</li>
+<li><p>동일 출처 원칙을 회피하기 위한 방법으로는 무엇인 있으며 구체적으로 설정해달라.</p>
 </li>
 </ol>
 <hr>
@@ -567,10 +569,142 @@ ga('send', 'pageview');
 <p>Array의 <code>forEach</code>, <code>filter</code>, <code>reduce</code> 등도 모두 고차 함수다.</p>
 <h3 id="15-자바스크립트의-배열-Array-이-실제-자료구조-배열이-아닌데-그-이유는"><a href="#15-자바스크립트의-배열-Array-이-실제-자료구조-배열이-아닌데-그-이유는" class="headerlink" title="15. 자바스크립트의 배열(Array)이 실제 자료구조 배열이 아닌데 그 이유는?"></a>15. 자바스크립트의 배열(Array)이 실제 자료구조 배열이 아닌데 그 이유는?</h3><p>참조: 자바스크립트 배열은 배열이 아니다 (<a target="_blank" rel="noopener" href="https://poiemaweb.com/js-array-is-not-arrray">https://poiemaweb.com/js-array-is-not-arrray</a>)</p>
 <h3 id="16-자바스크립트의-순환참조란-어떤게-문제이고-해결방법은"><a href="#16-자바스크립트의-순환참조란-어떤게-문제이고-해결방법은" class="headerlink" title="16. 자바스크립트의 순환참조란? 어떤게 문제이고 해결방법은?"></a>16. 자바스크립트의 순환참조란? 어떤게 문제이고 해결방법은?</h3><p>참조: 순환 참조 (<a target="_blank" rel="noopener" href="https://jeonghwan-kim.github.io/dev/2020/03/24/circular-dependancy.html">https://jeonghwan-kim.github.io/dev/2020/03/24/circular-dependancy.html</a>)</p>
-<h3 id="17-자바스크립트와-관련한-same-origin-정책에-대해-설명해달라"><a href="#17-자바스크립트와-관련한-same-origin-정책에-대해-설명해달라" class="headerlink" title="17. 자바스크립트와 관련한 same-origin 정책에 대해 설명해달라"></a>17. 자바스크립트와 관련한 same-origin 정책에 대해 설명해달라</h3><ul>
-<li><em>다른 도메인의 스크립트를 사용한 해킹 방지</em></li>
+<h3 id="17-AJAX에-대해-설명해달라"><a href="#17-AJAX에-대해-설명해달라" class="headerlink" title="17. AJAX에 대해 설명해달라"></a>17. AJAX에 대해 설명해달라</h3><h4 id="정의"><a href="#정의" class="headerlink" title="정의"></a>정의</h4><p>Asynchronous Javascript And XML의 약자로 브라우저가 가지고 있는 <code>XMLHttpRequest</code> 객체를 이용해서 서버와 브라우저가 비동기 방식으로 데이터를 교환할 수 있는 통신 기능으로, 데이터를 받아와 전체 페이지를 새로 고치지 않고도 페이지의 일부만을 위한 데이터를 불러올 수 있습니다.</p>
+<h4 id="장점"><a href="#장점" class="headerlink" title="장점"></a>장점</h4><ul>
+<li>웹페이지의 속도향상</li>
+<li><code>XMLHttpRequest</code> 를 통해 필요로 하는 일부 데이터만 JSON이나 XML형태로 갱신하기 때문에 그만큼의 시간과 자원을 아낄 수 있다.</li>
+<li>서버의 처리가 완료될 때까지 기다리지 않고 처리가 가능하다.</li>
+<li>기존 웹에서는 불가능했던 다양한 UI를 가능하게 해준다.</li>
 </ul>
-<p>**동일 출처 원칙(same-origin policy)**는 자바스크립트가 서로 다른 도메인 사이에 리퀘스트를 날리는 것을 방지한다. origin은 URI 스키마, 호스트네임, 그리고 포트 번호로 정의된다. <em>이 정책은 다른 도메인의 악의적인 스크립트가 타겟 웹페이지에서 DOM을 통해 민감한 정보를 가져가는 것을 방지한다.</em></p>
+<h4 id="단점"><a href="#단점" class="headerlink" title="단점"></a>단점</h4><ul>
+<li>Ajax로는 바이너리 데이터를 보내거나 받을 수 없다.</li>
+<li>Ajax는 클라이언트가 서버에 데이터를 요청하는 클라이언트 풀링 방식을 사용하므로, 서버 푸시 방식의 실시간 서비스는 만들 수 없다.</li>
+<li>HTTP 클라이언트의 기능이 한정되어 있다</li>
+<li><code>XMLHttpRequest</code> 를 통해 통신하는 경우, 사용자에게 아무런 진행 정보가 주어지지 않는다. (요청이 완료되지 않았는데 사용자가 페이지를 떠나거나 오작동할 우려가 발생하게 된다.)</li>
+<li>Script로 작성되므로 디버깅이 용이하지 않다.</li>
+</ul>
+<h4 id="동작원리"><a href="#동작원리" class="headerlink" title="동작원리"></a>동작원리</h4><p>Ajax를 이용한 웹 응용 프로그램은 자바스크립트 코드를 통해 웹 서버와 통신을 하며 사용자의 동작에 영향을 주지 않으면서 백그라운드에서 지속해서 서버와 통신할 수 있다.</p>
+<ol>
+<li>사용자에 의한 요청 이벤트 발생</li>
+<li>이벤트 핸들러에 의해 JS 호출</li>
+<li>JS에서 <code>XMLHttpRequest</code> 객체를 사용해 서버로 요청 전송<ul>
+<li><code>XMLHttpRequest</code> 는 비동기로 처리되기 때문에 요청을 전송하고 나서 웹 브라우저는 기다리지 않고 다른 작업을 처리할 수 있다.</li>
+</ul>
+</li>
+<li>서버는 전달받은 <code>XMLHttpRequst</code> 객체를 기반으로 AJAX 요청을 처리</li>
+<li>처리된 HTML, XML 또는 JSON 형태의 데이터를 클라이언트측으로 전송</li>
+<li>전달받은 데이터를 가지고 웹 페이지의 일부분만을 갱신하는 또는 처리하기 위한  Javascript Callback 함수 호출</li>
+<li>웹페이지의 일부 UI 또는 JS에서 처리중인 결과값을 수정한다.</li>
+</ol>
+<h3 id="18-Same-Origin-Policy-정책에-대해-설명해달라"><a href="#18-Same-Origin-Policy-정책에-대해-설명해달라" class="headerlink" title="18. Same-Origin Policy 정책에 대해 설명해달라"></a>18. Same-Origin Policy 정책에 대해 설명해달라</h3><h4 id="Same-Origin-Policy-정의"><a href="#Same-Origin-Policy-정의" class="headerlink" title="Same-Origin Policy 정의"></a>Same-Origin Policy 정의</h4><p>웹 어플리케이션 및 브라우저에서 중요한 보안 개념으로, 동일 출처의 리소스에 한해서만 데이터(DOM)에 접근할 수 있도록 하는 웹 브라우저 보안 정책으로, 동일 출처인지 판단하는 기준은 두 URL의 프로토콜, 포트 <em>(명시한 경우)</em>, 호스트가 모두 같아야 동일 출처라고 말합니다.</p>
+<h4 id="동일-출처-판단-기준"><a href="#동일-출처-판단-기준" class="headerlink" title="동일 출처 판단 기준"></a>동일 출처 판단 기준</h4><p>URI 를 결정하는 알고리즘은 RFC 6454 에 명시되어 있으며 출처(Origin)는 Protocol, Host, Port 번호 등으로 구성된 정보를 의미합니다. 만약 이 정보들 중 하나라도 다를 경우, 동일 출처 원칙에 위배된 것으로 판단합니다.</p>
+<p>아래 표는 URL <a target="_blank" rel="noopener" href="http://store.company.com/dir/page.html%EC%9D%98">http://store.company.com/dir/page.html의</a> 출처를 비교한 예시입니다.</p>
+<table>
+<thead>
+<tr>
+<th align="left">URL</th>
+<th align="left">결과</th>
+<th align="left">이유</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>http://store.company.com/dir2/other.html</code></td>
+<td align="left">성공</td>
+<td align="left">경로만 다름</td>
+</tr>
+<tr>
+<td align="left"><code>http://store.company.com/dir/inner/another.html</code></td>
+<td align="left">성공</td>
+<td align="left">경로만 다름</td>
+</tr>
+<tr>
+<td align="left"><code>https://store.company.com/secure.html</code></td>
+<td align="left">실패</td>
+<td align="left">프로토콜 다름</td>
+</tr>
+<tr>
+<td align="left"><code>http://store.company.com:81/dir/etc.html</code></td>
+<td align="left">실패</td>
+<td align="left">포트 다름 (<code>http://</code>는 80이 기본값)</td>
+</tr>
+<tr>
+<td align="left"><code>http://news.company.com/dir/other.html</code></td>
+<td align="left">실패</td>
+<td align="left">호스트 다름</td>
+</tr>
+</tbody></table>
+<p>만일 동일 출처 원칙에 위배되는 AJAX 요청을 전송했을 경우, 아래와 같이 전송된 요청에서 <code>Access-Control-Allow-Origin</code> 헤더가 없다는 에러 메시지지를 받게 됩니다.</p>
+<blockquote>
+<p>XMLHttpRequest cannot load ‘<a target="_blank" rel="noopener" href="https://store.company.com&/#39;">https://store.company.com&#39;</a>. No ‘Access-Control-Allow-Origin’ header is present on the requested resource. Origin ‘<a target="_blank" rel="noopener" href="http://store.company.com&/#39;">http://store.company.com&#39;</a> is therefore not allowed access.</p>
+</blockquote>
+<h4 id="동일-출처-원칙을-사용하는-이유"><a href="#동일-출처-원칙을-사용하는-이유" class="headerlink" title="동일 출처 원칙을 사용하는 이유"></a>동일 출처 원칙을 사용하는 이유</h4><p>가장 큰 이유는 브라우저 측면에서의 웹 어플리케이션 보안 강화입니다. </p>
+<ol>
+<li>XSS 와 같은 스크립트 삽입 공격을 통해서 출처가 다른 웹 어플리케이션에 접근을 방지</li>
+<li>현대의 웹 어플리케이션은 인가된(authenticated) 사용자의 세션을 유지하기 위해서 HTTP Cookie 에 의존하기 때문</li>
+<li>최근 웹 어플리케이션은 인증된 사용자 세션정보를 HTTP 쿠키에 담아서 광범위하게 사용하곤 하는데, 출처가 다른 페이지에서 스크립트를 이용해 해당 쿠키정보를 추출할 수 있기 때문</li>
+<li>데이터의 기밀성 또는 일관성을 유지하기 위해서 클라이언트 측에서 관계 없는 사이트에서 제공된 컨탠츠를 분리해야함</li>
+</ol>
+<h4 id="동일-출처-원칙-회피방법"><a href="#동일-출처-원칙-회피방법" class="headerlink" title="동일 출처 원칙 회피방법"></a>동일 출처 원칙 회피방법</h4><ol>
+<li><strong><code>document.domain</code> 속성 수정</strong><br>일부 제약이 있으나 페이지의 출처를 변경 가능. 스크립트로 <code>document.domain</code> 의 값을 현재 도메인이나 현재 도메인의 상위 도메인으로 변경할 수 있는데, 상위 도메인으로 설정한 경우 (더 짧은) 상위 도메인을 동일 출처 검사에 사용합니다.</li>
+<li><strong>CORS(Cross-Orgin Resource Sharing)</strong><br>CORS는 Cross-Orgin Resource Sharing(상호 출처 자원 공유)의 약자로, 현재 접속중인 도메인의 출처와 다른 출처에 리소스를 요청 및 접근을 허가하는 웹 브라우저 보안 정책의 일환입니다. 이 방법은 서버단에서 처리해줘야 하는데, 요청된 리소스를 전송할때 HTTP 헤더에 <code>Access-Control-Allow-Origin</code> 헤더와 접근을 허가하는 값를 추가해 응답(Response) 메시지와 함께 전송하면 브라우저에서도 상호 출처 접근을 허가해 요청한 응답 리소스를 스크립트에서 사용할 수 있습니다.</li>
+</ol>
+<h3 id="19-동일-출처-원칙을-회피하기-위한-방법으로는-무엇이-있으며-구체적으로-설정해달라"><a href="#19-동일-출처-원칙을-회피하기-위한-방법으로는-무엇이-있으며-구체적으로-설정해달라" class="headerlink" title="19. 동일 출처 원칙을 회피하기 위한 방법으로는 무엇이 있으며 구체적으로 설정해달라."></a>19. 동일 출처 원칙을 회피하기 위한 방법으로는 무엇이 있으며 구체적으로 설정해달라.</h3><h4 id="상호-출처-공유-원칙-Cross-Origin-Resource-Policy-이란"><a href="#상호-출처-공유-원칙-Cross-Origin-Resource-Policy-이란" class="headerlink" title="상호 출처 공유 원칙(Cross-Origin Resource Policy) 이란"></a>상호 출처 공유 원칙(Cross-Origin Resource Policy) 이란</h4><p>동일 출처 원칙 (Same-Origin Policy) 란 웹 어플리케이션 및 브라우저에서 중요한 보안 개념으로 동일 출처의 리소스에 한해서면 데이터에 접근할 수 있도록 하는 웹 브라우저 보안 정책입니다. 동일 출처 판단 기준은 Protocol, Host, Port 번호 등으로 구성된 출저가 모두 같아야 동일 출처라고 판단합니다.</p>
+<ul>
+<li><strong>Same-Origin</strong>: <code>https://www.same.com</code> =&gt; <code>https://www.same.com</code></li>
+<li><strong>Cross-Origin</strong>: <code>https://www.same.com</code> =&gt; <code>https://www.cross.com</code></li>
+</ul>
+<p>그렇지면 현대의 웹 어플리케이션들은 동일 출처의 Resource 뿐만 아니고 상호 출처의 Resource에도 접근하며 뿐만 아니라 Client-Side와 Server-Side가 분리된 어플리케이션 구조를 띄고 있는 경우도 있습니다. 이럴 경우, 출처가 다르며 Same-Origin Policy 에러를 만나게 되는데, 이를 해결하기 위해 등장한 출처 원칙이 <strong>상호 출처 공유 원칙(Cross-Origin Resource Policy)</strong> 입니다.</p>
+<h4 id="상호-출처-공유-원칙-Cross-Origin-Resource-Policy-이란-1"><a href="#상호-출처-공유-원칙-Cross-Origin-Resource-Policy-이란-1" class="headerlink" title="상호 출처 공유 원칙(Cross-Origin Resource Policy) 이란"></a>상호 출처 공유 원칙(Cross-Origin Resource Policy) 이란</h4><p>현재 접속중인 도메인의 출처와 다른 출처에 요청된 리소스를  Server-side에서 추가된 Header를 사용해 웹 어플리케이션에 요청 및 접근을 웹 브라우저측에서 허가하는 보안 정책의 일환으로, 웹 어플리케이션은 리소스가 자신의 출처(domain, protocol, port)와 다를때 <strong>Cross-Origin HTTP 요청</strong> 을 실행합니다.</p>
+<h4 id="CORS가-작동하는-방식"><a href="#CORS가-작동하는-방식" class="headerlink" title="CORS가 작동하는 방식"></a>CORS가 작동하는 방식</h4><p>CORS가 작동하는 방식가 작동하는 방식으로는 총 3가지로, Simple requests, Preflighted requests, Requests with credentials이 있습니다.</p>
+<h5 id="Simple-requests"><a href="#Simple-requests" class="headerlink" title="Simple requests"></a>Simple requests</h5><p>아래의 조건을 모두 충족하는 요청의 경우, CORS Preflight를 요청하지 않으며 이를 Simple request라고 칭합니다.</p>
+<ul>
+<li>다음 중 하나의 메서드: <code>GET</code>, <code>HEAD</code>, <code>POST</code></li>
+<li>POST 방식일 경우 conte-type이 아래 셋 중 하나여야 한다.<ul>
+<li>application/x-www-form-unlencoded</li>
+<li>multipart/form-data</li>
+<li>text/plain</li>
+</ul>
+</li>
+<li>유저 에이전트가 자동으로 설정 한 헤더 외의 다음과 같은 수동으로 설정할 수 있는 헤더만 설정한 경우,<ul>
+<li>Accept</li>
+<li>Accept-Language</li>
+<li>Content-Language</li>
+<li>Content-Type (아래의 추가 요구 사항에 유의하세요.)</li>
+<li>DPR</li>
+<li>Downlink (en-US)</li>
+<li>Save-Data</li>
+<li>Viewport-Width</li>
+<li>Width</li>
+</ul>
+</li>
+</ul>
+<p><strong>Simple requests 예시)</strong></p>
+<p> 한 웹 어플리케이션에서 다른 출처의 리소스에 대해 접근 및 요청시 클라이언트와 서버간에 간단한 통신을 하고 <strong>CORS 헤더</strong>를 사용하여 권한을 처리합니다.</p>
+<p>이 경우 브라우저가 서버로 전송하는 내용중 요청 헤더의 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Origin"><code>Origin</code></a> 이 해당 상호 출처에 접근할 수 있음을 나타내기 위해 서버는 이에 대한 응답으로 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Access-Control-Allow-Origin"><code>Access-Control-Allow-Origin</code></a> 헤더를 다시 전송합니다. </p>
+<p>가장 간단한 접근 제어 프로토콜은 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Origin"><code>Origin</code></a> 헤더와 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Access-Control-Allow-Origin"><code>Access-Control-Allow-Origin</code></a> 을 사용하는 것입니다. 이 경우 서버는 <code>Access-Control-Allow-Origin: *</code>, 으로 응답해야 하며 이는 <strong>모든</strong> 도메인에서 접근할 수 있음을 의미하고, <code>Access-Control-Allow-Origin: https://foo.example</code> 와 같이 응답할 경우 <code>https://bar.other</code> 의 리소스 소유자가 <code>https://foo.example</code> 의 리소스에 대한 접근 요청 허용을 의미합니다.</p>
+<h5 id="Preflighted-requests"><a href="#Preflighted-requests" class="headerlink" title="Preflighted requests"></a>Preflighted requests</h5><p>Simple Request 가 아닌 요청의 경우 Preflight Request 에 해당하며 클라이언트에서 상호 출처의 서버로 실제 요청을 보내기 전에 미리 보내는(preflight) 요청으로, <code>OPTIONS</code> HTTP 메서드로 실제 요청이 안전한지 확인하기 위한 목적을 가지고 있습니다.</p>
+<p>Preflight 요청을 받은 상호 출처(Cross-Origin)는 <code>OPTIONS</code> 메서드를 통해 전달된 <code>Origin</code> 값에 따라서 접근을 허용할지 또는 특정 작업을 수행할 리소스 서버에 대한 접근 허용을 판별하며 접근 허용시 응답 헤더에 <code>Access-Control-Request-*</code> 헤더를 추가해 요청을 전송한 출처(Origin)에게 응답을 전송합니다.</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Access-Control-Allow-Origin</span>: http://same.com</span><br><span class="line"><span class="attribute">Access-Control-Allow-Methods</span>: POST, GET, OPTIONS</span><br><span class="line"><span class="attribute">Access-Control-Allow-Headers</span>: X-CUSTOM-HEADER, Content-Type</span><br><span class="line"><span class="attribute">Access-Control-Max-Age</span>: 86400</span><br></pre></td></tr></table></figure>
+
+
+
+<p>위 예시는 Preflight Request의 응답 헤더의 예로, <code>Access-Control-Allow-Origin</code> 는 <code>http://same.com</code> 의 접근 허가를 의미하고, <code>Access-Control-Allow-Methods</code> 는 상호 출처의 리소스에 접근할 수 있는 Methods를 의미합니다. 그리고 <code>Access-Control-Allow-Headers</code> 는 실제 요청에서 전송 가능한 사용자 정의 헤더로 대부분 필수로 포함해 전송해야하는 사용자 정의 헤더를 의미하고, <code>Access-Control-Max-Age</code> 는  Preflight Request에 대한 응답을 캐시할 수 있는 시간(초)을 제공합니다.</p>
+<p>만약 Preflight Request로 허용되지 않는 요청임이 판명된다면 <code>405 Method Not Allowed</code> 에러를 반환하며 실제 요청은 상호 출처 서버로 전송되지 않습니다.</p>
+<h5 id="Requests-with-credentials-인증이-필요한-요청"><a href="#Requests-with-credentials-인증이-필요한-요청" class="headerlink" title="Requests with credentials (인증이 필요한 요청)"></a>Requests with credentials (인증이 필요한 요청)</h5><p>CORS Request는 기본적으로 Non-Credential 기반의 요청이지만 Cross-Origin에 인증 정보와 함께 리소스 접근 허가를 받아야 하는 경우를 <strong>Requests with credentials</strong> 이라고 합니다. 이 Request를 위해서는 인증 정보를 갖고 있는 쿠키를 실제 Request의 헤더에 담아 전송해야하며 총 두 가지 작업을 해줘야하고, 그 이후 쿠키와 함께 실제 Request를 전송할 수 있습니다. </p>
+<ol>
+<li><p><strong><code>withCredentials: true</code> 옵션을 추가</strong><br>Cross-Origin에 요청을 전송하는 Origin에서 </p>
+<ul>
+<li><strong>Simple Request</strong> 의 경우에는 실제 Request의 헤더에 담아 Cross-Origin 측으로 전송하며 <code>Cross-Origin</code> 에서는 전송된 쿠키를 기반으로 인증 여부를 확인해 요청한 정보를 전달합니다.</li>
+<li><strong>Preflighted Request</strong> 의 경우에는  Preflight Request의 헤더에 담아 Cross-Origin 측으로 전송하며 <strong><em>2 번</em></strong>  으로 넘어갑니다.</li>
+</ul>
+</li>
+<li><p><em>(Preflight의 경우에만)</em> <strong><code>Cross-Origin</code> 에서 응답 헤더에 <code>Access-Control-Allow-Crendentials: true</code> 헤더를 추가해 전송</strong><br><strong><em>1 번을 성공한 Preflighted Request의 경우</em></strong>  <code>Cross-Origin</code> 에서 응답 헤더에 <code>Access-Control-Allow-Crendentials: true</code> 를 추가해 요청한 <code>Origin</code> 에게 응답을 전송하며 <code>Origin</code> 은 쿠키 정보를 담은 헤더와 함께 실제 Request를 보낼 수 있습니다.</p>
+</li>
+</ol>
+<p>주의사항으로는 <strong>Preflighted Requests</strong> 의 경우, Preflight Request의 응답헤더에 <code>Access-Control-Allow-Origin : &quot;*&quot;</code> 으로 헤더에 추가 및 설정할 경우 아래와 같은 에러를 유발하므로 <strong>요청한 Origin</strong> 으로 또는 와일드카드가 아닌 명시적 값으로 반드시 설정해야 합니다.</p>
+<blockquote>
+<p> “Access-Control-Allow-Origin’ header in the response must not be the wildcard ‘*’ when the request’s credentials mode is ‘include”</p>
+</blockquote>
 <hr>
 <h2 id="참조"><a href="#참조" class="headerlink" title="참조"></a>참조</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://ahnheejong.name/articles/frontend-birds-eye-view-babel/">프론트엔드 기술 조감도 : Babel - ahnheejong님 블로그</a></li>
@@ -583,6 +717,11 @@ ga('send', 'pageview');
 <li><a target="_blank" rel="noopener" href="https://velog.io/@heumheum2/%EA%B8%B0%EC%88%A0%EB%A9%B4%EC%A0%91-%EC%A4%80%EB%B9%84%ED%95%98%EA%B8%B0-2">기술면접 준비하기 2 - @heumheum2님 블로그</a></li>
 <li><a target="_blank" rel="noopener" href="https://blog.rhostem.com/posts/2020-04-14-fe-interview-handbook-js-3">프론트엔드 면접 핸드북 - 자바스크립트(3) - rhostem님 블로그</a></li>
 <li><a target="_blank" rel="noopener" href="http://hacks.mozilla.or.kr/2015/09/es6-in-depth-destructuring/">ES6 In Depth: 디스트럭처링(Destructuring)</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/ko/docs/Web/Security/Same-origin_policy">동일 출처 정책</a></li>
+<li><a target="_blank" rel="noopener" href="https://velog.io/@logqwerty/CORS">CORS</a></li>
+<li><a target="_blank" rel="noopener" href="https://kabkee.github.io/php/Axios-php-cors-settings/">Axios 사용을 위한 PHP CORS 설정</a></li>
+<li><a target="_blank" rel="noopener" href="https://bohyeon-n.github.io/deploy/web/cors.html">CORS란? CORS를 해결해보자</a></li>
+<li><a target="_blank" rel="noopener" href="https://kosaf04pyh.tistory.com/152">[WEB] withCredentials 옵션</a></li>
 </ul>
 
         </div>
@@ -660,7 +799,7 @@ ga('send', 'pageview');
         "genre": "Blog Job",
         "datePublished": "2021-07-22",
         "dateCreated": "2021-07-22",
-        "dateModified": "2021-08-06",
+        "dateModified": "2021-08-10",
         "url": "https://joontae-kim.github.io/2021/07/22/interview-question-js-2/",
         "description": "
 프론트엔드 면접 준비를 위한 질문 리스트 정리Javascript아래질문 리스트를 기반으로 면접 질문 &amp; 답변 목록을 작성할 예정이고, 지속적으로 보충 or 보수할 계획입니다.
@@ -679,7 +818,7 @@ ga('send', 'pageview');
 
 
 질문 목록",
-        "wordCount": 4454
+        "wordCount": 5719
     }
 </script>
 
