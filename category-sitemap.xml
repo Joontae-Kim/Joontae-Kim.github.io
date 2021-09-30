@@ -8,15 +8,43 @@
     </url>
 
     <url>
+        <loc>https://joontae-kim.github.io/categories/Study/Webpack/</loc>
+        <lastmod>2021-09-30T10:52:11.743Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/categories/Study/</loc>
+        <lastmod>2021-09-30T10:52:11.743Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/categories/Study/Rendering/</loc>
+        <lastmod>2021-09-30T10:49:55.510Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/categories/Study/Browser/</loc>
+        <lastmod>2021-09-30T10:47:18.635Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://joontae-kim.github.io/categories/Blog/Job/</loc>
-        <lastmod>2021-08-11T19:11:21.890Z</lastmod>
+        <lastmod>2021-08-12T10:15:37.279Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/categories/Blog/</loc>
-        <lastmod>2021-08-11T19:11:21.890Z</lastmod>
+        <lastmod>2021-08-12T10:15:37.279Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -45,34 +73,6 @@
     <url>
         <loc>https://joontae-kim.github.io/categories/Programming/Algorithm/</loc>
         <lastmod>2021-04-25T16:24:14.511Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/categories/Web/Rendering/</loc>
-        <lastmod>2021-03-18T04:22:44.662Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/categories/Web/</loc>
-        <lastmod>2021-03-18T04:22:44.662Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/categories/TIL/webpack/</loc>
-        <lastmod>2020-12-02T19:19:29.778Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/categories/TIL/</loc>
-        <lastmod>2020-12-02T19:19:29.778Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -115,13 +115,6 @@
     <url>
         <loc>https://joontae-kim.github.io/categories/Blog/Hexo/</loc>
         <lastmod>2020-10-01T07:40:40.849Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/categories/Web/Browser/</loc>
-        <lastmod>2020-09-28T18:54:52.957Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

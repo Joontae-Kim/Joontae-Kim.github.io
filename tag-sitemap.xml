@@ -3,29 +3,120 @@
 
 
     <url>
+        <loc>https://joontae-kim.github.io/tags/image/</loc>
+        <lastmod>2021-09-30T10:52:11.743Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/asset/</loc>
+        <lastmod>2021-09-30T10:52:11.743Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/compression/</loc>
+        <lastmod>2021-09-30T10:52:11.743Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/CompressionWebpackPlugin/</loc>
+        <lastmod>2021-09-30T10:52:11.743Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/webpack/</loc>
+        <lastmod>2021-09-30T10:52:11.743Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/Server-Side-Rendering/</loc>
+        <lastmod>2021-09-30T10:49:55.510Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/Client-Side-Rendering/</loc>
+        <lastmod>2021-09-30T10:49:55.510Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/SSR/</loc>
+        <lastmod>2021-09-30T10:49:55.510Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/CSR/</loc>
+        <lastmod>2021-09-30T10:49:55.510Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/Rendering/</loc>
+        <lastmod>2021-09-30T10:49:55.510Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/Critical-Rendering-path/</loc>
+        <lastmod>2021-09-30T10:47:18.635Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/Browser/</loc>
+        <lastmod>2021-09-30T10:47:18.635Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/mdn/</loc>
+        <lastmod>2021-09-30T10:47:18.635Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://joontae-kim.github.io/tags/Javascript/</loc>
-        <lastmod>2021-08-11T19:11:21.890Z</lastmod>
+        <lastmod>2021-08-12T10:15:37.279Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/tags/Job/</loc>
-        <lastmod>2021-08-11T19:11:21.890Z</lastmod>
+        <lastmod>2021-08-12T10:15:37.279Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/tags/Interview/</loc>
-        <lastmod>2021-08-11T19:11:21.890Z</lastmod>
+        <lastmod>2021-08-12T10:15:37.279Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/tags/Front-end/</loc>
-        <lastmod>2021-08-11T19:11:21.890Z</lastmod>
+        <lastmod>2021-08-12T10:15:37.279Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -325,41 +416,6 @@
     </url>
 
     <url>
-        <loc>https://joontae-kim.github.io/tags/Server-Side-Rendering/</loc>
-        <lastmod>2021-03-18T04:22:44.662Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/Client-Side-Rendering/</loc>
-        <lastmod>2021-03-18T04:22:44.662Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/SSR/</loc>
-        <lastmod>2021-03-18T04:22:44.662Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/CSR/</loc>
-        <lastmod>2021-03-18T04:22:44.662Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/Rendering/</loc>
-        <lastmod>2021-03-18T04:22:44.662Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://joontae-kim.github.io/tags/%25EC%259E%2590%25EB%25B0%2594%25EC%258A%25A4%25ED%2581%25AC%25EB%25A6%25BD%25ED%258A%25B8/</loc>
         <lastmod>2021-03-17T09:43:20.379Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -376,20 +432,6 @@
     <url>
         <loc>https://joontae-kim.github.io/tags/lecture/</loc>
         <lastmod>2021-03-17T09:43:20.379Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/webpack/</loc>
-        <lastmod>2020-12-02T19:19:29.778Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/TIL/</loc>
-        <lastmod>2020-12-02T19:19:29.778Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -537,27 +579,6 @@
     <url>
         <loc>https://joontae-kim.github.io/tags/SEO/</loc>
         <lastmod>2020-09-29T12:48:02.975Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/Critical-Rendering-path/</loc>
-        <lastmod>2020-09-28T18:54:52.957Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/Browser/</loc>
-        <lastmod>2020-09-28T18:54:52.957Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/mdn/</loc>
-        <lastmod>2020-09-28T18:54:52.957Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
