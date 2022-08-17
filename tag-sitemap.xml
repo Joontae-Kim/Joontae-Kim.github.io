@@ -3,15 +3,64 @@
 
 
     <url>
+        <loc>https://joontae-kim.github.io/tags/gzip/</loc>
+        <lastmod>2022-08-17T11:10:07.750Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/parsed/</loc>
+        <lastmod>2022-08-17T11:10:07.750Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/stat/</loc>
+        <lastmod>2022-08-17T11:10:07.750Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/defaultSize/</loc>
+        <lastmod>2022-08-17T11:10:07.750Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/webpackBundleAnalyzer/</loc>
+        <lastmod>2022-08-17T11:10:07.750Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/webpack-bundle-analyzer/</loc>
+        <lastmod>2022-08-17T11:10:07.750Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://joontae-kim.github.io/tags/webpack/</loc>
+        <lastmod>2022-08-17T11:10:07.750Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://joontae-kim.github.io/tags/github/</loc>
-        <lastmod>2021-10-02T17:38:17.964Z</lastmod>
+        <lastmod>2021-10-03T10:34:32.007Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://joontae-kim.github.io/tags/git/</loc>
-        <lastmod>2021-10-02T17:38:17.964Z</lastmod>
+        <lastmod>2021-10-03T10:34:32.007Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -39,13 +88,6 @@
 
     <url>
         <loc>https://joontae-kim.github.io/tags/CompressionWebpackPlugin/</loc>
-        <lastmod>2021-09-30T10:52:11.743Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://joontae-kim.github.io/tags/webpack/</loc>
         <lastmod>2021-09-30T10:52:11.743Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Study to Git - 2 | dev and dev</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="git,github" />
+    
+    <meta name="description" content="시작하기 전최근 개인 프로젝트를 개발하며 Git에 대한 기본 사용법 또는 advanced 한 사용법에 대해 갈증을 느끼던 와중에 생활코딩의 이고잉님께서 강의하신 GITn 수업을 찾았고, 강의를 정리해가면서 복습할 목적으로 강의 전체에 대한 정리목적의 시리즈 포스팅을 이어나가려고 합니다. 이번 포스팅에서는 GITn 강의의 두번째 수업인 CLI - 버전관리">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Study to Git - 2">
+<meta property="og:url" content="https://joontae-kim.github.io/2021/10/03/opentutorial-git3/index.html">
+<meta property="og:site_name" content="dev and dev">
+<meta property="og:description" content="시작하기 전최근 개인 프로젝트를 개발하며 Git에 대한 기본 사용법 또는 advanced 한 사용법에 대해 갈증을 느끼던 와중에 생활코딩의 이고잉님께서 강의하신 GITn 수업을 찾았고, 강의를 정리해가면서 복습할 목적으로 강의 전체에 대한 정리목적의 시리즈 포스팅을 이어나가려고 합니다. 이번 포스팅에서는 GITn 강의의 두번째 수업인 CLI - 버전관리">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://joontae-kim.github.io/images/git_with_opentutorial.png">
+<meta property="article:published_time" content="2021-10-03T10:24:43.000Z">
+<meta property="article:modified_time" content="2021-10-03T10:34:32.007Z">
+<meta property="article:author" content="Joontae Kim">
+<meta property="article:tag" content="git">
+<meta property="article:tag" content="github">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://joontae-kim.github.io/images/git_with_opentutorial.png">
+    
+    <link rel="canonical" href="https://joontae-kim.github.io/2021/10/03/opentutorial-git3/"/>
+
+    
+        <link rel="alternate" href="/" title="dev and dev" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.png" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    <!-- 
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+ -->
+    <!-- 
+<link rel="stylesheet" href="/libs/NanumSquareRound/styles.css">
+ -->
+    
+<link rel="stylesheet" href="/libs/NotoSans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-178685368-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/">Blog</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/Blog-To-Read/">Blog To Read</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/Hexo/">Hexo</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Blog/Job/">Job</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/">Programming</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Basic/">Basic</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/Javascript/">Javascript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Programming/nuxt/">nuxt</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Study/">Study</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Study/Browser/">Browser</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Study/Git/">Git</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Study/Rendering/">Rendering</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Study/Webpack/">Webpack</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/assignment/">assignment</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/course/">course</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/course/node-all-in-one/">node_all_in_one</a></li></ul></li></ul>
+                                
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Study/">Study</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Study/Git/">Git</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-opentutorial-git3" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Study to Git - 2
+        </h1>
+    
+    <h2 class="article-subtitle">
+        생활코딩 Gitn 세번째 수업 - GIT3
+    </h2>
+
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2021/10/03/opentutorial-git3/" class="article-date">
+       <time datetime="2021-10-03T10:24:43.000Z" itemprop="datePublished">2021-10-03</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2021/10/03/opentutorial-git3/" class="article-date">
+     <time datetime="2021-10-03T10:34:32.007Z" itemprop="dateModified">2021-10-03</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/git/" rel="tag">git</a>, <a class="tag-link-link" href="/tags/github/" rel="tag">github</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <p><img src="/images/git_with_opentutorial.png" alt="생활코딩 with Git"></p>
+<h2 id="시작하기-전"><a href="#시작하기-전" class="headerlink" title="시작하기 전"></a>시작하기 전</h2><p>최근 개인 프로젝트를 개발하며 Git에 대한 기본 사용법 또는 advanced 한 사용법에 대해 갈증을 느끼던 와중에 생활코딩의 이고잉님께서 강의하신 <a target="_blank" rel="noopener" href="https://opentutorials.org/course/3838">GITn</a> 수업을 찾았고, 강의를 정리해가면서 복습할 목적으로 강의 전체에 대한 정리목적의 시리즈 포스팅을 이어나가려고 합니다.</p>
+<p>이번 포스팅에서는 GITn 강의의 두번째 수업인 <a target="_blank" rel="noopener" href="https://opentutorials.org/course/3839">CLI - 버전관리</a> 수업에 대해 정리해보도록 하겠습니다.</p>
+<blockquote>
+<p>포스팅의 내용은 정리된 내용에 따라 매우 짧을수도 있으며 각 챕터마다 링크를 첨부해 내용이 부족해 이해가 안되시거나 햇갈리시는 분들은 강의를 직접 들어보시는 것도 추천드립니다.</p>
+</blockquote>
+<h4 id="이제-시작해보겠습니다-화이팅"><a href="#이제-시작해보겠습니다-화이팅" class="headerlink" title="이제 시작해보겠습니다! 화이팅!"></a><strong><em>이제 시작해보겠습니다! 화이팅!</em></strong></h4><h2 id="강의-링크"><a href="#강의-링크" class="headerlink" title="강의 링크"></a>강의 링크</h2><h4 id="생활코딩-CLI-branch-amp-conflict-2-실습준비"><a href="#생활코딩-CLI-branch-amp-conflict-2-실습준비" class="headerlink" title="생활코딩 CLI branch &amp; conflict 2. 실습준비"></a>생활코딩 CLI branch &amp; conflict 2. 실습준비</h4><p><a target="_blank" rel="noopener" href="https://opentutorials.org/course/3840/23674">https://opentutorials.org/course/3840/23674</a></p>
+<h5 id="GIT3-강의전체-유튜브-플레이리스트"><a href="#GIT3-강의전체-유튜브-플레이리스트" class="headerlink" title="GIT3 강의전체 유튜브 플레이리스트"></a>GIT3 강의전체 유튜브 플레이리스트</h5><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=L0lLMdllUp8&amp;list=PLuHgQVnccGMDU5eAzOz2dZ9KXJF6dkNg3">https://www.youtube.com/watch?v=L0lLMdllUp8&amp;list=PLuHgQVnccGMDU5eAzOz2dZ9KXJF6dkNg3</a></p>
+<h2 id="GITn-GIT3-CLI-브랜치-amp-충돌"><a href="#GITn-GIT3-CLI-브랜치-amp-충돌" class="headerlink" title="GITn - GIT3 CLI 브랜치 &amp; 충돌"></a>GITn - GIT3 CLI 브랜치 &amp; 충돌</h2><h3 id="챕터"><a href="#챕터" class="headerlink" title="챕터"></a>챕터</h3><ol>
+<li>수업소개</li>
+<li>실습준비</li>
+<li>브랜치의 기본사용법</li>
+<li>병합<ol>
+<li>병합</li>
+<li>서로 다른 파일 병합 </li>
+<li>같은 파일, 다른 부분 병합</li>
+<li>같은 파일, 같은 부분 병합</li>
+</ol>
+</li>
+<li>3 way merge</li>
+<li>외부도구를 이용한 병합</li>
+<li>수업을 마치며</li>
+<li>부록<ol>
+<li>HEAD BRANCH COMMIT &amp; CHECKOUT</li>
+<li>checkout vs reset</li>
+</ol>
+</li>
+</ol>
+<h3 id="1-수업소개"><a href="#1-수업소개" class="headerlink" title="1. 수업소개"></a>1. 수업소개</h3><h3 id="2-실습-준비"><a href="#2-실습-준비" class="headerlink" title="2. 실습 준비"></a>2. 실습 준비</h3><h3 id="3-브랜치의-기본사용법"><a href="#3-브랜치의-기본사용법" class="headerlink" title="3. 브랜치의 기본사용법"></a>3. 브랜치의 기본사용법</h3><h3 id="4-병합"><a href="#4-병합" class="headerlink" title="4. 병합"></a>4. 병합</h3><h4 id="1-병합"><a href="#1-병합" class="headerlink" title="1) 병합"></a>1) 병합</h4><h4 id="2-서로-다른-파일-병합"><a href="#2-서로-다른-파일-병합" class="headerlink" title="2) 서로 다른 파일 병합"></a>2) 서로 다른 파일 병합</h4><h4 id="3-같은-파일-다른-부분-병합"><a href="#3-같은-파일-다른-부분-병합" class="headerlink" title="3) 같은 파일, 다른 부분 병합"></a>3) 같은 파일, 다른 부분 병합</h4><h4 id="4-같은-파일-같은-부분-병합"><a href="#4-같은-파일-같은-부분-병합" class="headerlink" title="4) 같은 파일, 같은 부분 병합"></a>4) 같은 파일, 같은 부분 병합</h4><h3 id="5-3-way-merge"><a href="#5-3-way-merge" class="headerlink" title="5. 3 way merge"></a>5. 3 way merge</h3><h3 id="외부도구를-이용한-병합"><a href="#외부도구를-이용한-병합" class="headerlink" title="외부도구를 이용한 병합"></a>외부도구를 이용한 병합</h3><h3 id="7-수업을-마치며"><a href="#7-수업을-마치며" class="headerlink" title="7. 수업을 마치며"></a>7. 수업을 마치며</h3><h3 id="8-부록"><a href="#8-부록" class="headerlink" title="8. 부록"></a>8. 부록</h3><h4 id="1-HEAD-BRANCH-COMMIT-amp-CHECKOUT"><a href="#1-HEAD-BRANCH-COMMIT-amp-CHECKOUT" class="headerlink" title="1) HEAD BRANCH COMMIT &amp; CHECKOUT"></a>1) HEAD BRANCH COMMIT &amp; CHECKOUT</h4><h4 id="2-checkout-vs-reset"><a href="#2-checkout-vs-reset" class="headerlink" title="2) checkout vs reset"></a>2) checkout vs reset</h4>
+        </div>
+        <footer class="article-footer">
+            
+
+
+    <div class="a2a_kit a2a_default_style">
+    <a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share">Share</a>
+    <span class="a2a_divider"></span>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_pinterest"></a>
+    <a class="a2a_button_tumblr"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<style>
+    .a2a_menu {
+        border-radius: 4px;
+    }
+    .a2a_menu a {
+        margin: 2px 0;
+        font-size: 14px;
+        line-height: 16px;
+        border-radius: 4px;
+        color: inherit !important;
+        font-family: 'Microsoft Yahei';
+    }
+    #a2apage_dropdown {
+        margin: 10px 0;
+    }
+    .a2a_mini_services {
+        padding: 10px;
+    }
+    a.a2a_i,
+    i.a2a_i {
+        width: 122px;
+        line-height: 16px;
+    }
+    a.a2a_i .a2a_svg,
+    a.a2a_more .a2a_svg {
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        vertical-align: top;
+        background-size: 16px;
+    }
+    a.a2a_i {
+        border: none !important;
+    }
+    a.a2a_menu_show_more_less {
+        margin: 0;
+        padding: 10px 0;
+        line-height: 16px;
+    }
+    .a2a_mini_services:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+    .a2a_mini_services{*+height:1%;}
+</style>
+
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Joontae Kim"
+        },
+        "headline": "Study to Git - 2",
+        "image": "https://joontae-kim.github.io/images/git_with_opentutorial.png",
+        "keywords": "git github",
+        "genre": "Study Git",
+        "datePublished": "2021-10-03",
+        "dateCreated": "2021-10-03",
+        "dateModified": "2021-10-03",
+        "url": "https://joontae-kim.github.io/2021/10/03/opentutorial-git3/",
+        "description": "
+시작하기 전최근 개인 프로젝트를 개발하며 Git에 대한 기본 사용법 또는 advanced 한 사용법에 대해 갈증을 느끼던 와중에 생활코딩의 이고잉님께서 강의하신 GITn 수업을 찾았고, 강의를 정리해가면서 복습할 목적으로 강의 전체에 대한 정리목적의 시리즈 포스팅을 이어나가려고 합니다.
+이번 포스팅에서는 GITn 강의의 두번째 수업인 CLI - 버전관리 ",
+        "wordCount": 296
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/Joontae-Kim" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2022/08/15/webpack-bundle-analyzer-size/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Stat size, parsed size...?
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2021/10/02/opentutorial-git2/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Study to Git - 2</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/08/15/webpack-bundle-analyzer-size/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/webpack-bundle-analyzer.png)" alt="Stat size, parsed size...?" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Study/">Study</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study/Webpack/">Webpack</a></p>
+                            <p class="item-title"><a href="/2022/08/15/webpack-bundle-analyzer-size/" class="title">Stat size, parsed size...?</a></p>
+                            <p class="item-date"><time datetime="2022-08-14T16:23:42.000Z" itemprop="datePublished">2022-08-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/10/03/opentutorial-git3/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/git_with_opentutorial.png)" alt="Study to Git - 2" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Study/">Study</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study/Git/">Git</a></p>
+                            <p class="item-title"><a href="/2021/10/03/opentutorial-git3/" class="title">Study to Git - 2</a></p>
+                            <p class="item-date"><time datetime="2021-10-03T10:24:43.000Z" itemprop="datePublished">2021-10-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/10/02/opentutorial-git2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/git_with_opentutorial.png)" alt="Study to Git - 2" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Study/">Study</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study/Git/">Git</a></p>
+                            <p class="item-title"><a href="/2021/10/02/opentutorial-git2/" class="title">Study to Git - 2</a></p>
+                            <p class="item-date"><time datetime="2021-10-01T16:25:29.000Z" itemprop="datePublished">2021-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/10/02/openturorial-git1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/git_with_opentutorial.png)" alt="Study to Git - 1" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Study/">Study</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Study/Git/">Git</a></p>
+                            <p class="item-title"><a href="/2021/10/02/openturorial-git1/" class="title">Study to Git - 1</a></p>
+                            <p class="item-date"><time datetime="2021-10-01T16:21:41.000Z" itemprop="datePublished">2021-10-02</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/07/22/interview-question-js-2/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/job_thumbnail.jpeg)" alt="프론트엔드 면접 질문 리스트 - JS" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Blog/">Blog</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Blog/Job/">Job</a></p>
+                            <p class="item-title"><a href="/2021/07/22/interview-question-js-2/" class="title">프론트엔드 면접 질문 리스트 - JS</a></p>
+                            <p class="item-date"><time datetime="2021-07-22T07:17:30.000Z" itemprop="datePublished">2021-07-22</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">9</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Algorithm/" style="font-size: 15px;">Algorithm</a> <a href="/tags/Babel/" style="font-size: 10px;">Babel</a> <a href="/tags/Blog/" style="font-size: 11.25px;">Blog</a> <a href="/tags/Browser/" style="font-size: 12.5px;">Browser</a> <a href="/tags/CSR/" style="font-size: 10px;">CSR</a> <a href="/tags/Client-Side-Rendering/" style="font-size: 10px;">Client Side Rendering</a> <a href="/tags/CompressionWebpackPlugin/" style="font-size: 10px;">CompressionWebpackPlugin</a> <a href="/tags/Critical-Rendering-path/" style="font-size: 10px;">Critical Rendering path</a> <a href="/tags/ECMAScript/" style="font-size: 12.5px;">ECMAScript</a> <a href="/tags/ECMAScript-2015/" style="font-size: 10px;">ECMAScript 2015</a> <a href="/tags/ECMAScript-6/" style="font-size: 10px;">ECMAScript 6</a> <a href="/tags/ES2015/" style="font-size: 10px;">ES2015</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/Front-end/" style="font-size: 15px;">Front-end</a> <a href="/tags/Hello-World/" style="font-size: 10px;">Hello World</a> <a href="/tags/Hexo/" style="font-size: 13.75px;">Hexo</a> <a href="/tags/Hoisting/" style="font-size: 10px;">Hoisting</a> <a href="/tags/Interview/" style="font-size: 15px;">Interview</a> <a href="/tags/Javascript/" style="font-size: 11.25px;">Javascript</a> <a href="/tags/Job/" style="font-size: 15px;">Job</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Object/" style="font-size: 10px;">Object</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Rendering/" style="font-size: 11.25px;">Rendering</a> <a href="/tags/Renewal/" style="font-size: 10px;">Renewal</a> <a href="/tags/SEO/" style="font-size: 10px;">SEO</a> <a href="/tags/SSR/" style="font-size: 10px;">SSR</a> <a href="/tags/Scope/" style="font-size: 10px;">Scope</a> <a href="/tags/Server-Side-Rendering/" style="font-size: 10px;">Server Side Rendering</a> <a href="/tags/Theme/" style="font-size: 11.25px;">Theme</a> <a href="/tags/Variable/" style="font-size: 10px;">Variable</a> <a href="/tags/arrow-function/" style="font-size: 10px;">arrow function</a> <a href="/tags/asset/" style="font-size: 10px;">asset</a> <a href="/tags/assignment/" style="font-size: 10px;">assignment</a> <a href="/tags/big-O/" style="font-size: 10px;">big-O</a> <a href="/tags/bootstrap/" style="font-size: 11.25px;">bootstrap</a> <a href="/tags/bootstrap-vue/" style="font-size: 11.25px;">bootstrap-vue</a> <a href="/tags/compression/" style="font-size: 10px;">compression</a> <a href="/tags/context/" style="font-size: 12.5px;">context</a> <a href="/tags/contructor/" style="font-size: 10px;">contructor</a> <a href="/tags/course-javascript/" style="font-size: 10px;">course,javascript</a> <a href="/tags/data/" style="font-size: 12.5px;">data</a> <a href="/tags/data-fetching/" style="font-size: 10px;">data fetching</a> <a href="/tags/data-structure/" style="font-size: 12.5px;">data structure</a> <a href="/tags/defaultSize/" style="font-size: 10px;">defaultSize</a> <a href="/tags/draft/" style="font-size: 10px;">draft</a> <a href="/tags/execution/" style="font-size: 12.5px;">execution</a> <a href="/tags/execution-context/" style="font-size: 12.5px;">execution context</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/github/" style="font-size: 12.5px;">github</a> <a href="/tags/gzip/" style="font-size: 10px;">gzip</a> <a href="/tags/image/" style="font-size: 10px;">image</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/javascript-engine/" style="font-size: 13.75px;">javascript engine</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/lecture/" style="font-size: 10px;">lecture</a> <a href="/tags/lifecycle/" style="font-size: 10px;">lifecycle</a> <a href="/tags/linked-list/" style="font-size: 10px;">linked list</a> <a href="/tags/mdn/" style="font-size: 12.5px;">mdn</a> <a href="/tags/new/" style="font-size: 10px;">new</a> <a href="/tags/new-%EC%83%9D%EC%84%B1%EC%9E%90/" style="font-size: 10px;">new 생성자</a> <a href="/tags/nuxt/" style="font-size: 18.75px;">nuxt</a> <a href="/tags/nuxt-lifecycle/" style="font-size: 10px;">nuxt lifecycle</a> <a href="/tags/nuxt-js/" style="font-size: 18.75px;">nuxt.js</a> <a href="/tags/object/" style="font-size: 11.25px;">object</a> <a href="/tags/object-oriented-javascript/" style="font-size: 10px;">object-oriented-javascript</a> <a href="/tags/oop/" style="font-size: 12.5px;">oop</a> <a href="/tags/parsed/" style="font-size: 10px;">parsed</a> <a href="/tags/portfolio/" style="font-size: 16.25px;">portfolio</a> <a href="/tags/project/" style="font-size: 16.25px;">project</a> <a href="/tags/prototype/" style="font-size: 11.25px;">prototype</a> <a href="/tags/reference/" style="font-size: 10px;">reference</a> <a href="/tags/stat/" style="font-size: 10px;">stat</a> <a href="/tags/structure/" style="font-size: 12.5px;">structure</a> <a href="/tags/time-complexity/" style="font-size: 10px;">time complexity</a> <a href="/tags/type/" style="font-size: 11.25px;">type</a> <a href="/tags/types/" style="font-size: 11.25px;">types</a> <a href="/tags/vue/" style="font-size: 17.5px;">vue</a> <a href="/tags/vue-js/" style="font-size: 18.75px;">vue.js</a> <a href="/tags/webpack/" style="font-size: 11.25px;">webpack</a> <a href="/tags/webpack-bundle-analyzer/" style="font-size: 10px;">webpack-bundle-analyzer</a> <a href="/tags/webpackBundleAnalyzer/" style="font-size: 10px;">webpackBundleAnalyzer</a> <a href="/tags/%EB%A7%81%ED%81%AC%EB%93%9C-%EB%A6%AC%EC%8A%A4%ED%8A%B8/" style="font-size: 10px;">링크드 리스트</a> <a href="/tags/%EB%B9%85%EC%98%A4/" style="font-size: 10px;">빅오</a> <a href="/tags/%EC%8B%9C%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84/" style="font-size: 10px;">시간 복잡도</a> <a href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" style="font-size: 13.75px;">알고리즘</a> <a href="/tags/%EC%9E%90%EB%A3%8C-%EA%B5%AC%EC%A1%B0/" style="font-size: 12.5px;">자료 구조</a> <a href="/tags/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8/" style="font-size: 10px;">자바스크립트</a> <a href="/tags/%ED%81%90/" style="font-size: 10px;">큐</a> <a href="/tags/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85/" style="font-size: 10px;">프로토타입</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2022 Joontae Kim</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'joontae-kim';
+    
+    
+    var disqus_url = 'https://joontae-kim.github.io/2021/10/03/opentutorial-git3/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
